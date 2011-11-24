@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- nog een voorbeeld zorgaanbieder.xml -->
+
+<!-- AGB-code -->
+<zorgaanbieder code="88822777">
+	<!-- naam -->
+	<naam>Zorgaanbieder naam</naam>
+
+	<!-- periode instellingen voor batch; alleen de eerste batch (/zorgaanbieder/batch[1]) 
+		wordt gebruikt -->
+	<batch datum="2011-11-08">
+		<!-- dit is de oude meetperiode; sinds 0.9 wordt ook zorgdomein-afhankelijke 
+			bepaling van meetperiode ondersteund -->
+		<meetperiode>P3M</meetperiode>
+		<!-- de tekst P6M is een XPath duration; period of 6 months; gebruik alleen het geldige formaat -->
+		<aanleverperiode>P6M</aanleverperiode>
+		<einddatumAangeleverdePeriode>2011-07-31
+		</einddatumAangeleverdePeriode>
+		<!-- hierboven wordt de batch ingesteld op de DBCs t/m eind juli 2011, 
+			vanaf 6 maanden daarvoor -->
+	</batch>
+
+	<!-- er is geen schema voor zorgaanbieder.xml; in het algemeen wordt gezocht 
+		naar redelijke standaardwaarden, maar dit is niet gedocumenteerd -->
+	<batch>oude batches, test batches etc</batch>
+
+	<!-- stel je voor: de actuele codelijsten en metadata zijn openbaar beschikbaar -->
+	<!-- BELANGRIJK: controleer sbg-instrumenten.xml en sbg-zorgdomeinen.xml; 
+		de meegeleverde bestanden zijn alleen voorbereid om de PoC-data tevreden te stellen -->
+	<sbg-synq>
+		<collection name='sbg-zorgdomeinen' elt='sbg-zorgdomeinen'
+			uri='http://www.sbggz.nl/codelijsten/zorgdomeinen' />
+		<collection name='instrumenten' elt='sbg-instrumenten'
+			uri='http://www.sbggz.nl/codelijsten/instrumenten' />
+	</sbg-synq>
+
+	<!-- padnamen zijn relatief tov xquery base; dat is vanaf hier: ../src/sbg-synq -->
+	<!-- gebruik altijd absolure uris in productie omgevingen -->
+	<data>
+		<collection name='behandelaar' elt='Row' uri='sbg-behandelaar.xml' />
+		<collection name='nevendiagnose' elt='Row'
+			uri='sbg-nevendiagnose.xml' />
+		<collection name='epd' elt='Row' uri='sbg-zorgtraject.xml' />
+		<collection name='rom' elt='Row' uri='QM-SBG-meting.xml' />
+		<collection name='rom-items' elt='Row' uri='QM-SBG-meting-item.xml' />
+	</data>
+
+	<!-- xproc-instellingen -->
+	<!-- padnamen zijn relatief tov xproc base; dat is vanaf hier: ../src/xproc -->
+	<!-- type en volgnummer komen in de bestandsnaam van de output -->
+	<target type="TEST" volgnummer="001">
+		<tmp>../../sbg-synq-out</tmp>
+		<!-- ftp is de map waarin de geanonimiseerde versie van het benchmark-bestand 
+			terecht komt -->
+		<ftp>../../sbg-synq-out</ftp>
+	</target>
+
+
+</zorgaanbieder>

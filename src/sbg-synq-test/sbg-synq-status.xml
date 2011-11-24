@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-results>
+	<test-info versie="0.9" datum="2011-10-31" type="sbg-synq">Als je sbg-synq gebruikt om het benchmark-import bestand aan te maken, profiteer je van garanties die de schema-validatie alleen niet biedt. 
+	</test-info>
+	<result waarde="true" bron="Koppelingen_3" type="sbg-synq"><!--Hebben de verschillende 
+			informatie stromen (DBC traject en Meting) betrekking op dezelfde patient. -->
+		sbg-synq 0.9 gebruikt hiervoor koppelnummer op de
+		informatie-stromen
+	</result>
+	<!--<result waarde="true" bron="Koppelingen_4" type="sbg-synq">Het mag niet 
+		mogelijk zijn dat een DBC traject meer dan een meetinstrument per meetdomein 
+		heeft. </result> -->
+	<result waarde="true" bron="Koppelingen_5" type="sbg-synq"><!--Wordt voor elk 
+			DBC traject bekeken of er een mogelijke voor- en/of nameting is. -->
+		sbg-synq 0.9 laat alleen geldige combinaties door: dbc zonder
+		einddatum heeft nooit een nameting; dbc met einddatum alleen
+		combinatie voor/na.
+		(het SBG dataprotocol zou dit ook kunnen opvangen
+		in opeenvolgende aanleveringen))
+	</result>
+	<result waarde="true" bron="Koppelingen_6" type="sbg-synq"><!--Wordt ook voor 
+			een zorgdomein dat meerdere meetdomeinen heeft voor elk meetdomein gekeken 
+			of er een voor- en/of nameting is. -->
+		sbg-synq 0.9 ondersteunt domein-afhankelijke selectie van metingen.
+		Nalv SBG vernieuwde specificatie is het nu ook mogelijk de meetperiode
+		(3M voor/na) per zorgdomein in te stellen, bv (3M voor, 9M na).
+		sbge:metingen-in-periode() gaat in op de domein-afhankelijke selectie
+		van metingen.
+	</result>
+	<result waarde="true" bron="Koppelingen_7" type="sbg-synq"><!--Wordt bij een 
+			afgesloten DBC traject zowel bekeken of er een voor- en nameting is. -->
+		sbg-synq 0.9 laat alleen geldige combinaties door
+	</result>
+	<result waarde="true" bron="Koppelingen_8" type="sbg-synq"><!--Wordt bij een 
+			openstaand DBC traject alleen bekeken of er een voormeting is. -->
+		sbg-synq 0.9 geeft nooit een nameting bij een dbc zonder einddatum
+	</result>
+	<result waarde="true" bron="Koppelingen_10" type="sbg-synq"><!--Wanneer na toepassen 
+			van REGEL 1 het DBC traject nog steeds metingen heeft, die door verschillende 
+			meetinstrumenten binnen een meetdomein zijn afgenomen is het van belang om 
+			dat meetinstrument te kiezen, waarbij het verschil in dagen tussen de meting 
+			en de sessie datum van beide betreffende meetmomenten opgeteld het kleinst 
+			is. -->
+		sbg-synq 0.9 gebruikt de afstand tussen voor/na meting bij de selectie
+		van het optimale meetpaar NB REGEL 1 (Kopelingen_9) is niet getest vanwege contradictie met interpretatie van Kopelingen_7 en _8 
+	</result>
+	<result waarde="true" bron="Koppelingen_15" type="sbg-synq"><!--Wordt alleen 
+			die meting genomen bij een sessie, waarvan het verschil in data niet meer 
+			bedraagt dan 3 maanden. -->
+		sbg-synq 0.9 biedt per zorgdomein de mogelijkheid om deze meetperiode
+		in te stellen; eventueel niet symmetrisch (andere periode voor
+		peildatum dan na)
+	</result>
+	<result waarde="true" bron="Koppelingen_16" type="sbg-synq"><!--De datum van 
+			de nameting mag niet dezelfde zijn als die van de voormeting -->
+		sbg-synq 0.9 houdt hier rekening mee bij het zoeken naar geldige
+		meetparen
+	</result>
+	<result waarde="true" bron="Koppelingen_17" type="sbg-synq"><!--Alleen die metingen 
+			mogen geselecteerd worden, die betrekking hebben op het meetinstrument dat 
+			voor het betreffende zorgdomein als benchmark meetinstrument is aangegeven. -->
+		sbg-synq 0.9 heeft een zorgdomein-document waarmee deze selectie
+		gestuurd wordt (validatie SBG?)
+	</result>
+	<result waarde="true" bron="Koppelingen_18" type="sbg-synq"><!--Het meetinstrument 
+			van de nameting moet gelijk zijn aan het meetinstrument van de voormeting. -->
+		sbg-synq 0.9 houdt hier rekening mee bij het zoeken naar geldige
+		meetparen
+	</result>
+	<result waarde="true" bron="Koppelingen_19" type="sbg-synq"><!--Wanneer er een 
+			voormeting is mag de nameting niet door een ander meetinstrument gemeten 
+			zijn dan de voormeting. -->
+		sbg-synq 0.9 houdt hier rekening mee bij het zoeken naar geldige
+		meetparen
+	</result>
+	<result waarde="true" bron="Koppelingen_21" type="sbg-synq"><!--Wanneer er geen 
+			sessies beschikbaar zijn, wordt dan als laatste sessiedatum de einddatum 
+			van het DBC traject genomen. -->
+		sbg-synq 0.9 bepaalt per dbc twee peildatums op de voorgeschreven
+		wijze.
+	</result>
+
+	<result waarde="true" bron="Koppelingen_24" type="sbg-synq"><!--Wordt voor de 
+			eerste sessie die meting genomen die voor de sessiedatum ligt en het dichtstbij 
+			is. -->
+		sbg-synq 0.9 doet dit correct; zie unit test groep
+		sbge:patient-dbc-meting; gebaseerd op testscenario's in PoC - Testset
+		Koppelproces.xlsx
+	</result>
+	<result waarde="true" bron="Koppelingen_25" type="sbg-synq"><!--Wordt, wanneer 
+			er geen meting is voor de eerste sessiedatum, de meting genomen die het dichtstbij 
+			ligt na de datum van de betreffende sessie. -->
+		sbg-synq 0.9 doet dit correct; zie unit test groep
+		sbge:patient-dbc-meting; gebaseerd op testscenario's in PoC - Testset
+		Koppelproces.xlsx
+	</result>
+	<result waarde="true" bron="Koppelingen_26" type="sbg-synq"><!--Wordt alleen 
+			die meting genomen bij een sessie, waarvan het verschil in data niet meer 
+			bedraagt dan 3 maanden. -->
+		sbg-synq 0.9 biedt per zorgdomein de mogelijkheid om deze meetperiode
+		in te stellen; eventueel niet symmetrisch (andere periode voor
+		peildatum dan na)
+	</result>
+
+	<result waarde="true" bron="Koppelingen_27" type="sbg-synq"><!--Alleen die metingen 
+			mogen geselecteerd worden, die betrekking hebben op het meetinstrument dat 
+			voor het betreffende zorgdomein als benchmark meetinstrument is aangegeven. -->
+		sbg-synq 0.9 heeft een zorgdomein-document waarmee deze selectie
+		gestuurd wordt (validatie SBG?)
+	</result>
+	<result waarde="true" bron="Koppelingen_29" type="sbg-synq"><!--Alleen die metingen 
+			mogen geselecteerd worden, die betrekking hebben op het meetinstrument dat 
+			voor het betreffende zorgdomein als benchmark meetinstrument is aangegeven 
+			en die door de zorgaanbieder zijn aangewezen. -->
+		sbg-synq 0.9 doet dit gedeeltelijk. Er is een zorgdomein-document
+		waarmee deze selectie gestuurd wordt (validatie SBG?). Er is nog geen
+		representatie van het aanlevercontract.
+	</result>
+</test-results>

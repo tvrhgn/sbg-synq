@@ -1,0 +1,194 @@
+<!--  gekopieerd uit  SBG Dataprotocol Bijlage A MDS 20110204.pdf-->
+<sbg-codelijsten versie="2011-02-04">
+	<codelijst attribuut="typemeting">
+		<item code="1">voormeting</item>
+		<item code="2">nameting</item>
+	</codelijst>
+
+	<codelijst attribuut="geslacht">
+		<item code="0">onbekend</item>
+		<item code="1">man</item>
+		<item code="2">vrouw</item>
+		<item code="9">niet beschikbaar</item>
+	</codelijst>
+
+	<codelijst attribuut="aardMeting">
+		<item code="1">aanmelding</item>
+		<item code="2">intake</item>
+		<item code="3">start behandeling</item>
+		<item code="4">tussenmeting</item>
+		<item code="5">einde behandeling</item>
+		<item code="6">follow-up na behandeling</item>
+	</codelijst>
+
+	<codelijst attribuut="typeRespondent">
+		<item code="01">patient</item>
+		<item code="02">behandelaar</item>
+		<item code="03">onafhankelijk beoordelaar</item>
+		<item code="04">vader</item>
+		<item code="05">moeder</item>
+		<item code="06">leerkracht</item>
+		<item code="07">voogd</item>
+		<item code="08">partner</item>
+		<item code="09">ander famililid</item>
+		<item code="10">anders</item>
+	</codelijst>
+
+	<codelijst attribuut="leefsituatie">
+		<item code="10">Alleenstaand</item>
+		<item code="20">Zonder partner, met kinderen (als ouder in een
+			eenoudergezin)</item>
+		<item code="30">Met partner, zonder kinderen</item>
+		<item code="40">Met partner, met kinderen</item>
+		<item code="50">Als kind in een eenoudergezin</item>
+		<item code="60">Als kind in een meeroudergezin</item>
+		<item code="70">Niet-ggz-institutie (internaat, gevangenis,
+			asielzoekerscentrum etc.)</item>
+		<item code="80">Ggz-institutie</item>
+		<item code="90">Zwervend, dakloos</item>
+		<item code="97">Anders</item>
+		<item code="99">Onbekend</item>
+	</codelijst>
+
+	<codelijst attribuut="zorgdomeinCode">
+		<item code="01">Volwassenen langd</item>
+		<item code="02">Volwassenen kort</item>
+		<item code="04">Kinder- en Jeugd</item>
+		<item code="07">Forensisch Jeugd</item>
+		<item code="08">Forensisch volwassenen in strafrechtelijk kader; t/m
+			31 december 2008 i.v.m. DBBC</item>
+		<item code="09">Forensisch volwassenen niet in strafrechtelijk kader
+		</item>
+		<item code="20">Verslaving lang (care, gericht op klachten/symptomen
+			en functioneren)</item>
+		<item code="21">Verslaving kort (cure, gericht op klachten/symptomen
+			en gebruik)</item>
+		<item code="30">Psychogeriatrie (Dementiezorg)</item>
+		<item code="31">Gerontopsychiatrie (Psych. Klachten bij ouderen 65+)
+		</item>
+		<item code="41">Dyslexie</item>
+		<item code="42">Autisme</item>
+	</codelijst>
+
+
+	<codelijst attribuut="redenNonResponseVoormeting, redenNonResponseNameting">
+		<item code="01">Patiënt wel benaderd, weigert meting</item>
+		<item code="02">Patiënt wel benaderd, niet in staat tot responderen
+		</item>
+		<item code="03">Patiënt wel benaderd, (herhaaldelijk) niet verschenen
+			op afspraak voor meting</item>
+		<item code="04">Patiënt wel benaderd, retourneert meetinstrument niet
+		</item>
+		<item code="05">Patiënt wel benaderd, incomplete of onjuiste invulling
+			meetinstrument</item>
+		<item code="06">Patiënt niet benaderd, niet in staat geacht tot
+			responderen</item>
+		<item code="07">Patiënt niet benaderd, geen actie ondernomen door
+			behandelaar/assessor ondanks beëindiging DBC</item>
+		<item code="08">Patiënt niet benaderd, geen evalueerbare behandeling
+			uitgevoerd (crisis,</item>
+		diagnostiek, ultrakorte “behandeling”, etc)
+		<item code="09">Patiënt niet benaderd, behandeling niet regulier
+			afgerond</item>
+		<item code="10">Andere reden</item>
+	</codelijst>
+
+	<codelijst attribuut="opleidingsniveau">
+		<item code="10">Onderwĳs aan kleuters</item>
+		<item code="20">Primair onderwĳs</item>
+		<item code="31">Secundair onderwĳs, eerste fase, laag</item>
+		<item code="32">Secundair onderwĳs, eerste fase, midden</item>
+		<item code="33">Secundair onderwijs, eerste fase, hoog</item>
+		<item code="40">Secundair onderwĳs, eerste fase, hoog</item>
+		<item code="41">Secundair onderwĳs, tweede fase, laag</item>
+		<item code="42">Secundair onderwĳs, tweede fase, midden</item>
+		<item code="43">Secundair onderwĳs, tweede fase, hoog</item>
+		<item code="51">Hoger onderwĳs, eerste fase, laag</item>
+		<item code="52">Hoger onderwĳs, eerste fase, midden</item>
+		<item code="53">Hoger onderwĳs, eerste fase, hoog</item>
+		<item code="60">Hoger onderwĳs, tweede fase</item>
+		<item code="70">Hoger onderwĳs, derde fase</item>
+	</codelijst>
+
+	<!--  actuele (2011) selecteerbare beroepen uit DBC-codelijst -->
+	<codelijst attribuut="beroep">
+		<item code="AG.BG.agoog">GGZ-agoog</item>
+		<item code="AG.BI.mwd">Maatschappelijk werkende</item>
+		<item code="AG.BI.sph">Sociaal Pedagogisch Hulpverlener</item>
+		<item code="AG.SF.kjpsych">Agoog K&amp;J psychiatrie</item>
+		<item code="AG.SF.overig">Overig Agogisch SF</item>
+		<item code="AG.SF.vrstgeh">Agoog verstandelijk gehandicapten</item>
+		<item code="MB.BG.basis">Arts (waaronder Agio/Agnio)</item>
+		<item code="MB.SF.overig">Overig medisch SF</item>
+		<item code="MB.SF.sger">Sociaal geriater</item>
+		<item code="MB.SF.AVG">Arts voor verstandelijk gehandicapten (AVG) </item>
+		<item code="MB.SF.vslarts">Arts verslavingszorg</item>
+		<item code="MB.SP.psych">Psychiater</item>
+		<item code="OV.BG.diet">Dietist</item>
+		<item code="OV.BG.ergo">Ergotherapeut</item>
+		<item code="OV.BG.fysio">Fysiotherapeut</item>
+		<item code="OV.BG.logo">Logopedist</item>
+		<item code="OV.SP.artsmg">Arts maatschappij en gezondheid</item>
+		<item code="OV.SP.harts">Huisarts</item>
+		<item code="OV.SP.karts">Kinderarts</item>
+		<item code="OV.SP.kger">Klinisch geriater</item>
+		<item code="OV.SP.neur">Neuroloog</item>
+		<item code="PB.BG.gzpsy">GZ-psycholoog</item>
+		<item code="PB.BI.gzkd">GGZ gezondheidskundige</item>
+		<item code="PB.BI.ped">Pedagoog (waaronder orthopedagoog)</item>
+		<item code="PB.BI.psy">Psycholoog (geen verdere specialisatie)</item>
+		<item code="PB.SF.gedrth">Gedragstherapeut</item>
+		<item code="PB.SF.kjth">K&amp;J-therapeut</item>
+		<item code="PB.SF.overig">Overig psychologisch SF</item>
+		<item code="PB.SP.klinps">Klinisch psycholoog</item>
+		<item code="PT.BG.psth">Psychotherapeut</item>
+		<item code="VB.BG.vrplk">Verpleegkundige (art.3)</item>
+		<item code="VB.SF.cpv">Consultatief Psych. Verpleegkundige</item>
+		<item code="VB.SF.fpv">Forensisch Psychiatrisch Verpleegkundige</item>
+		<item code="VB.SF.overig">Overig verpleegkundig SF</item>
+		<item code="VB.SF.spv">Sociaal Psych. Verpleegkundige</item>
+		<item code="VB.SP.vrplsp">GGZ Verpleegkundige specialist</item>
+		<item code="VK.BG.vakth">GZ- vaktherapeut</item>
+		<item code="VK.BI.ct">Vaktherapeut creatief</item>
+		<item code="VK.BI.pmt">Vaktherapeut psychomotorisch</item>
+		<item code="VK.SF.overig">Overig vaktherapeutisch SF</item>
+		<item code="VK.SF.vakth">GGZ-vaktherapeut</item>
+		<item code="AD">Administratief</item>
+		<item code="nb">Niet beschikbaar</item>
+		<item code="AG.BG.actbeg">GZ-agoog activiteitenbegeleider</item>
+		<item code="AG.BG.mw">GZ-agoog maatschappelijk werkende</item>
+		<item code="AG.BG.sph">GZ-agoog sociaal psychiatrisch hulpverlener</item>
+		<item code="AG.BI.msd">Medewerker sociale dienstverlening</item>
+		<item code="AG.BI.mw">Maatschappelijk werkende</item>
+		<item code="AG.BI.orthop">Orthopedagoog</item>
+		<item code="AG.BI.pedmed">Pedagogisch medewerker</item>
+		<item code="AG.BI.rehmed">Rehabilitatiemedewerker</item>
+		<item code="AG.BI.socioth">Sociothereapeut</item>
+		<item code="AG.BI.trbeg">Trajectbegeleider</item>
+		<item code="MB.BG.agio">Agio</item>
+		<item code="MB.BG.agnio">Agnio</item>
+		<item code="MB.SF.geriat">Geriater</item>
+		<item code="MB.SP.vplarts">Verpleeghuisarts</item>
+		<item code="OV.BG.ad">Administratief</item>
+		<item code="PB.BG.psy">GZ-psycholoog</item>
+		<item code="PB.BI.opl">Psychologisch beroep in opleiding</item>
+		<item code="PB.BI.psdiagn">Psychodiagnostisch medewerker</item>
+		<item code="PB.BI.testass">Psychologisch testassistent</item>
+		<item code="PB.SF.systth">Systeemtherapeut</item>
+		<item code="PB.SP.psychth">Psychotherapeut</item>
+		<item code="VB.BG.pv">Psychiatrisch Verpleegkundige</item>
+		<item code="VB.BI.verpopl">Verpleegkundig beroep in opleiding</item>
+		<item code="VB.BI.ziekverz">Ziekenverzorger</item>
+		<item code="VB.SF.ptv">Psychiatrisch Thuiszorg Verpleegkundige</item>
+		<item code="VB.SP.vpspec">GGZ Verpleegkundig specialist</item>
+		<item code="VK.BG.crea">Vaktherepeut creatief</item>
+		<item code="VK.BG.psychmt">Vaktherapeut psychomotorisch</item>
+		<item code="VK.BI.arbth">Arbeidstherapeut</item>
+		<item code="VK.BI.medarb">Medewerker arbeidsgerichte activiteiten</item>
+		<item code="VK.BI.mededu">Medewerker educatieve activiteiten</item>
+		<item code="VK.BI.medrecr">Medewerker recreatieve activiteiten</item>
+		<item code="VK.BI.medspsp">Medewerker sport en spel</item>
+		<item code="VK.BI.vaard">Vaardigheidstrainer</item>
+	</codelijst>
+
+</sbg-codelijsten>

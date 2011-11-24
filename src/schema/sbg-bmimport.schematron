@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iso:schema xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" queryBinding="xpath"
+	xsi:schemaLocation="http://purl.oclc.org/dsdl/schematron schematron.xsd">
+	<iso:ns prefix="sbggz" uri="http://sbggz.nl/schema/import/5.0.1" />
+	<iso:let name="rx_datum2029" value="'20[0-2][0-9]-[0-1][0-9]-[0-3][0-9]'" />
+	<iso:let name="rx_hhmmss" value="' [0-2][0-9]:[0-6][0-9]:[0-6][0-9]'" />
+	<iso:let name="rx_hhmmss_alt"
+		value="'T[0-2][0-9]:[0-6][0-9]:[0-6][0-9]\.[0-9]+\+[0-2][0-9]:00'" />
+	<iso:let name="rx_dbc_diagnose" value="'(as(1|2)_[0-9.]+|nb)'" />
+	<iso:let name="cl-bestand"
+		value="'../schema/sbg-codelijst.xml'" />
+	
+	<iso:let name="codelijsten" value="doc($cl-bestand)/*" />
+	<iso:let name="cl-landen"
+		value="doc('/home/thijs/project/eclipse-rep/sbg-testdata/vektis-landen.xml')//land/@code" />
+	
+	<iso:let name="cl-leefsituatie"
+		value="$codelijsten//codelijst[@attribuut='leefsituatie']/item/@code" />
+	<iso:let name="cl-opleidingsniveau"
+		value="$codelijsten//codelijst[@attribuut='opleidingsniveau']/item/@code" />
+	<iso:let name="cl-geslacht"
+		value="$codelijsten//codelijst[@attribuut='geslacht']/item/@code" />
+	<iso:let name="cl-zorgdomein"
+		value="$codelijsten//codelijst[@attribuut='zorgdomeinCode']/item/@code" />
+	<iso:let name="cl-reden-response"
+		value="$codelijsten//codelijst[@attribuut='redenNonResponseVoormeting, redenNonResponseNameting']/item/@code" />
+	<iso:let name="cl-beroep"
+		value="$codelijsten//codelijst[@attribuut='beroep']/item/@code" />
+	<iso:let name="cl-typemeting"
+		value="$codelijsten//codelijst[@attribuut='typemeting']/item/@code" />
+	<iso:let name="cl-respondent"
+		value="$codelijsten//codelijst[@attribuut='typeRespondent']/item/@code" />
+	<iso:let name="cl-aardmeting"
+		value="$codelijsten//codelijst[@attribuut='aardMeting']/item/@code" />
+		
+	<iso:pattern id="atts-BenchmarkImport">
+		<iso:rule context="sbggz:BenchmarkImport">
+			<iso:assert test="data(@versie) = '5.0'"
+				role="Attribuut Controle_12 + Attribuut Controle_13">Versie
+				batchimport; Wordt de juiste
+				versie getoond (5.0) + Attribuut
+				Controle_13 / Versie batchimport;
+				Wordt er altijd een waarde getoond
+			</iso:assert>
+			<iso:assert
+				test="@startdatumAangeleverdePeriode and matches(@startdatumAangeleverdePeriode, $rx_datum2029 )"
+				role="Attribuut Controle_4 + Attribuut Controle_5">Attribuut Controle_4 / Begindatum aangeleverde periode; Is het
+				formaat van de datum "eejj-mm-dd" + Attribuut Controle_5 /
+				Begindatum aangeleverde periode; Wordt er altijd een waarde getoond
+			</iso:assert>
+			<iso:assert
+				test="matches(@datumCreatie, concat($rx_datum2029, $rx_hhmmss_alt ))"
+				role="Attribuut Controle_7 + Attribuut Controle_8">Attribuut Controle_7 / Datum creatie; Is het formaat van de
+				datum "eejj-mm-dd hh:mm:ss + Attribuut Controle_8 / Datum creatie;
+				Wordt er altijd een waarde getoond   </iso:assert>
+			<iso:assert test="matches(@einddatumAangeleverdePeriode, $rx_datum2029 )"
+				role="Attribuut Controle_10 + Attribuut Controle_11">Attribuut Controle_10 / Einddatum
+				aangeleverde periode; Is het
+				formaat van de datum "eejj-mm-dd" +
+				Attribuut Controle_11 / Einddatum
+				aangeleverde periode; Wordt er
+				altijd een waarde getoond  </iso:assert>
+			<iso:assert
+				test="count(./sbggz:Zorgaanbieder/@zorgaanbiedercode) = count( distinct-values(./sbggz:Zorgaanbieder/@zorgaanbiedercode))"
+				role="Structuur Controles_14">Structuur Controles_14 / ; Alle
+				instellingen die binnen een
+				batch betrokken zijn moeten een uniek
+				kenmerk hebben.  </iso:assert>
+		</iso:rule>
+
+	</iso:pattern>
+	<iso:pattern id="atts-Zorgaanbieder">
+		<iso:rule context="sbggz:Zorgaanbieder">
+			<iso:assert
+				test="./@zorgaanbiedercode and string-length( ./@zorgaanbiedercode) = 8"
+				role="Attribuut Controle_85 + Attribuut Controle_86">Attribuut Controle_85 / zorgaanbiedercode; Is de
+				zorgaanbiedercode de juiste en niet meer dan 8 posities lang +
+				Attribuut Controle_86 / zorgaanbiedercode; Wordt er altijd een
+				waarde getoond  </iso:assert>
+			<iso:assert
+				test="count(distinct-values(.//sbggz:Zorgtraject/@zorgtrajectnummer)) = count(.//sbggz:Zorgtraject/@zorgtrajectnummer)"
+				role="Attribuut Controle_99 + Structuur Controles_18">Attribuut Controle_99 / Zorgtrajectnummer; Is het
+				zorgtrajectnummer een uniek gegeven binnen de data van de instelling
+				+ Structuur Controles_18 / ; Alle
+				zorgtrajecten van patienten moeten
+				uniek zijn, die betrekking hebben
+				op de geselecteerde DBC trajecten.
+			</iso:assert>
+			<iso:assert
+				test="count(distinct-values(.//sbggz:Patient/@koppelnummer)) = count(.//sbggz:Patient/@koppelnummer)"
+				role="Structuur Controles_5 + Structuur Controles_17">Structuur Controles_17 / ; Alle patienten
+				van de instelling
+				moeten uniek zijn, die betrekking hebben op de
+				geselecteerde DBC
+				trajecten. </iso:assert>
+
+
+
+
+
+
+		</iso:rule>
+
+	</iso:pattern>
+	<iso:pattern id="atts-DBCTraject">
+		<iso:rule context="sbggz:DBCTraject">
+			<iso:let name="dbc-ref"
+				value="concat( ../../@koppelnummer, '-', @DBCTrajectnummer )" />
+			<iso:assert
+				test="not(@datumEersteSessie) or matches(@datumEersteSessie, $rx_datum2029 )"
+				role="Attribuut Controle_21">Attribuut Controle_21 / Datum Eerste Sessie; Is het formaat van
+				de datum "eejj-mm-dd"  </iso:assert>
+			<iso:assert
+				test="not(@datumLaatsteSessie) or matches(@datumLaatsteSessie, $rx_datum2029 )"
+				role="Attribuut Controle_23">Attribuut Controle_23 / Datum Laatste Sessie; Is het formaat
+				van de datum "eejj-mm-dd"  </iso:assert>
+			<iso:assert
+				test="not(@redenEindeDBC) or contains('12345', @redenEindeDBC)"
+				role="Attribuut Controle_25">Attribuut Controle_25 / DBC Reden Sluiten Code; Valt de waarde
+				altijd binnen de gestelde reeks  </iso:assert>
+			<iso:assert test="@DBCTrajectnummer" role="Attribuut Controle_27">Attribuut
+				Controle_27 / DBC
+				trajectnummer; Wordt er altijd een waarde getoond
+			</iso:assert>
+			<iso:assert
+				test="not(@einddatum) or matches(@einddatumDBC, $rx_datum2029 )"
+				role="Attribuut Controle_29">Attribuut Controle_29 / Einddatum DBC; Is het formaat van de
+				datum "eejj-mm-dd"  </iso:assert>
+			<iso:assert test="not(@redenEindeDBC) or @einddatumDBC"
+				role="Attribuut Controle_30">Attribuut Controle_30 / Einddatum DBC;
+				Wordt er altijd een
+				waarde getoond, wanneer de DBC traject is
+				afgesloten  </iso:assert>
+			<iso:assert test="matches(@DBCPrestatieCode, '[0-9]{12}')"
+				role="Attribuut Controle_32">Attribuut Controle_32 / Prestatiecode;
+				Valt de waarde altijd
+				binnen de gestelde reeks  </iso:assert>
+			<iso:assert
+				test="not(@redenNonResponseNameting) or index-of( $cl-reden-response, @redenNonResponseNameting)"
+				role="Attribuut Controle_34">Attribuut Controle_34 / Reden Non Response Nameting; Valt de
+				waarde altijd binnen de gestelde reeks  </iso:assert>
+			<iso:assert
+				test="not(@redenNonResponseVoormeting) or index-of( $cl-reden-response, @redenNonResponseVoormeting)"
+				role="Attribuut Controle_36">Attribuut Controle_36 / Reden Non Response Voormeting; Valt de
+				waarde altijd binnen de gestelde reeks  </iso:assert>
+			<iso:assert test="matches(@startdatumDBC, $rx_datum2029 )"
+				role="Attribuut Controle_38 + Attribuut Controle_39">Attribuut Controle_38 / Startdatum DBC;
+				Is het formaat van de
+				datum "eejj-mm-dd" + Attribuut Controle_39 /
+				Startdatum DBC; Wordt er
+				altijd een waarde getoond  </iso:assert>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</iso:rule>
+
+	</iso:pattern>
+	<iso:pattern id="atts-Patient">
+		<iso:rule context="sbggz:Patient">
+			<iso:assert
+				test="@geboorteJaar and matches( @geboorteJaar, '(19)|(20)[0-9][0-9]')"
+				role="Attribuut Controle_60">Attribuut Controle_60 / Geboortejaar; Is
+				het formaat van de
+				datum "eejj"  </iso:assert>
+			<iso:assert
+				test="not(@geboortelandMoeder) or index-of( $cl-landen, @geboortelandMoeder)"
+				role="Attribuut Controle_62">Attribuut Controle_62 / Geboorteland
+				Moeder; Wanneer het
+				geboorteland bestaat moet de waarde voorkomen
+				conform de
+				referentietabel.  </iso:assert>
+			<iso:assert
+				test="not(@geboortelandPatient) or index-of( $cl-landen, @geboortelandPatient)"
+				role="Attribuut Controle_64">Attribuut Controle_64 / Geboorteland
+				Patient; Wanneer het
+				geboorteland bestaat moet de waarde voorkomen
+				conform de
+				referentietabel.  </iso:assert>
+			<iso:assert
+				test="not(@geboortelandVader) or index-of( $cl-landen, @geboortelandVader)"
+				role="Attribuut Controle_66">Attribuut Controle_66 / Geboorteland
+				Vader; Wanneer het
+				geboorteland bestaat moet de waarde voorkomen
+				conform de
+				referentietabel.  </iso:assert>
+			<iso:assert
+				test="not( @geboorteMaand ) or matches( @geboorteMaand, '[0-1][0-9]' )"
+				role="Attribuut Controle_68">Attribuut Controle_68 / Geboortemaand; Is
+				het formaat van de
+				datum "mm"  </iso:assert>
+			<iso:assert test="@geslacht and index-of( $cl-geslacht, @geslacht)"
+				role="Attribuut Controle_70">Attribuut Controle_70 / Geslacht; Valt de
+				waarde altijd binnen
+				de gestelde reeks  </iso:assert>
+			<iso:assert test="@koppelnummer" role="Attribuut Controle_72">Attribuut
+				Controle_72 / Koppelnummer; Is
+				voor elke patient een koppelnummer
+				opgenomen.  </iso:assert>
+			<iso:assert
+				test="@leefsituatie and index-of( $cl-leefsituatie, @leefsituatie)"
+				role="Attribuut Controle_75">Attribuut Controle_75 / Leefsituatie;
+				Valt de waarde altijd
+				binnen de gestelde reeks  </iso:assert>
+			<iso:assert
+				test="@opleidingsniveau and index-of( $cl-opleidingsniveau, @opleidingsniveau)"
+				role="Attribuut Controle_77">Attribuut Controle_77 / Opleidingsniveau;
+				Valt de waarde altijd
+				binnen de gestelde reeks  </iso:assert>
+			<iso:assert test="matches(@postcodegebied, '[0-9]{4}')"
+				role="Attribuut Controle_79">Attribuut Controle_79 / Postcodegebied;
+				Heeft de waarde een
+				lengte van 4 posities en is ze numeriek
+			</iso:assert>
+
+
+
+
+
+
+
+
+
+
+
+
+		</iso:rule>
+
+	</iso:pattern>
+	<iso:pattern id="atts-Zorgtraject">
+		<iso:rule context="sbggz:Zorgtraject">
+			<iso:let name="zt-ref"
+				value="concat( ../@koppelnummer, '-', @zorgtrajectnummer )" />
+			<iso:assert
+				test="count(.//sbggz:Behandelaar/@alias) = count( distinct-values(.//sbggz:Behandelaar/@alias))"
+				role="Structuur Controles_12">Structuur Controles_12 / ; Alle
+				behandelaren die bij de
+				behandeling van een zorgtraject betrokken zijn
+				moeten een uniek
+				kenmerk hebben.  </iso:assert>
+			<iso:assert
+				test="count(.//sbggz:DBCTraject/@DBCTrajectnummer) = count( distinct-values(.//sbggz:DBCTraject/@DBCTrajectnummer))"
+				role="Structuur Controles_13">Structuur Controles_13 / ; Alle DBC
+				trajecten die beeindigd zijn
+				in de gestelde periode of die nog niet
+				beeindigd zijn moeten uniek
+				zijn. Voor het controleren van de
+				afgesloten DBC trajecten is het
+				mogelijk om een vergelijking te doen
+				met DIS extracties. </iso:assert>
+			<iso:assert
+				test="@primaireDiagnoseCode and matches(@primaireDiagnoseCode, $rx_dbc_diagnose )"
+				role="Attribuut Controle_96">
+				<iso:value-of select="$zt-ref" />
+				<iso:value-of select="@primaireDiagnoseCode" />
+				Attribuut Controle_96 / : primaireDiagnoseCode ontbreekt of ongeldig
+
+
+
+			</iso:assert>
+			<iso:assert
+				test="count(distinct-values(./sbggz:NevendiagnoseCode/@nevendiagnoseCode)) = count(./sbggz:NevendiagnoseCode)"
+				role="Structuur Controles_16">Structuur Controles_16 / ; Alle
+				nevendiagnoses, die bij de
+				behandeling van een zorgtraject betrokken
+				zijn moeten uniek zijn.
+			</iso:assert>
+			<iso:assert
+				test="@zorgdomeinCode and index-of( $cl-zorgdomein, @zorgdomeinCode)"
+				role="Attribuut Controle_97 + Attribuut Controle_98">
+				<iso:value-of select="@zorgdomeinCode" />
+				Attribuut Controle_97 / ZorgdomeinCode; Wordt er altijd een waarde
+				getoond + Attribuut Controle_98 / ZorgdomeinCode; Valt de waarde
+				altijd binnen de gestelde reeks
+				waarde:
+
+			</iso:assert>
+			<iso:assert test="data(@zorgtrajectnummer)" role="Attribuut Controle_100">Attribuut
+				Controle_100 /
+				Zorgtrajectnummer; Wordt er altijd een waarde getoond
+			</iso:assert>
+			<iso:assert test="not(sbggz:Behandelaar) or sbggz:Behandelaar/@alias"
+				role="Attribuut Controle_15">Attribuut Controle_15 / Alias
+				behandelaar; Wordt er altijd een
+				waarde getoond. Conditioneel
+				vereist </iso:assert>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</iso:rule>
+
+	</iso:pattern>
+	<iso:pattern id="atts-Behandelaar">
+		<iso:rule context="sbggz:Behandelaar">
+			<iso:assert test="index-of( $cl-beroep, @beroep )" role="Attribuut Controle_16">Attribuut
+				Controle_16 / Beroep
+				behandelaar; Valt de waarde altijd binnen de
+				gestelde reeks
+			</iso:assert>
+			<iso:assert test="index-of( ('1', '2'), @primairOfNeven)"
+				role="Attribuut Controle_17 + Attribuut Controle_18">Attribuut Controle_17 / Primair of Neven;
+				Wordt er altijd een
+				waarde getoond Conditioneel vereist + Attribuut
+				Controle_18 / Primair
+				of Neven; Valt de waarde altijd binnen de
+				gestelde reeks 1: Primair;
+				2: Neven </iso:assert>
+
+
+		</iso:rule>
+
+	</iso:pattern>
+	<iso:pattern id="atts-Meting">
+		<iso:rule context="sbggz:Meting">
+			<iso:assert
+				test="not(@aardMeting) or index-of( $cl-aardmeting, @aardMeting )"
+				role="Attribuut Controle_44">Attribuut Controle_44 / Aard meting; Valt
+				de waarde altijd
+				binnen de gestelde reeks  </iso:assert>
+			<iso:assert test="@datum and matches(@datum, $rx_datum2029 )"
+				role="Attribuut Controle_46 + Attribuut Controle_47">Attribuut Controle_46 / Datum meting; Is
+				het formaat van de
+				datum "eejj-mm-dd" + Attribuut Controle_47 /
+				Datum meting; Wordt er
+				altijd een waarde getoond  </iso:assert>
+			<iso:assert test="data(@gebruiktMeetinstrument)" role="Attribuut Controle_50">Attribuut
+				Controle_50 / Gebruikt
+				meetinstrument; Wordt er altijd een waarde
+				getoond  </iso:assert>
+			<iso:assert test="data(@totaalscoreMeting)" role="Attribuut Controle_54">Attribuut
+				Controle_54 / Totaalscore
+				meting; Wordt er altijd een waarde getoond
+			</iso:assert>
+			<iso:assert test="@typemeting and index-of( $cl-typemeting, @typemeting )"
+				role="Attribuut Controle_56">Attribuut Controle_56 / Type meting; Valt
+				de waarde altijd
+				binnen de gestelde reeks  </iso:assert>
+			<iso:assert
+				test="not(@typeRespondent) or index-of( $cl-respondent, @typeRespondent)"
+				role="Attribuut Controle_58">Attribuut Controle_58 / Type Respondent;
+				Valt de waarde altijd
+				binnen de gestelde reeks  </iso:assert>
+
+
+
+
+
+
+		</iso:rule>
+
+	</iso:pattern>
+	<iso:pattern id="atts-Item">
+		<iso:rule context="sbggz:Item">
+			<iso:assert test="data(@itemnummer)" role="Attribuut Controle_40">Attribuut
+				Controle_40 / Itemnummer; Wordt
+				er altijd een waarde getoond
+			</iso:assert>
+			<iso:assert test="data(@score)" role="Attribuut Controle_42">Attribuut Controle_42
+				/ Itemscore; Wordt
+				er altijd een waarde getoond  </iso:assert>
+
+
+		</iso:rule>
+
+	</iso:pattern>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</iso:schema>

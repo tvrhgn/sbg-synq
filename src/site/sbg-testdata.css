@@ -1,0 +1,145 @@
+body { color:black }
+td { text-align: center; padding-left: 1em; padding-right: 1em;}
+tr {height: 1.2em }
+table.client { padding: 2em; }
+td.client {width: 16em }
+
+.dbc-datums tr { background-color: #E08E1B;  }
+.dbc-datums tr:nth-child(odd) { background-color: #E0B91B;  }
+.dbc-datums tr:nth-child(even) { background-color: #E08E1B;  }
+
+tr.meting { background-color: #9DE;  }
+tr.meting:nth-child(odd) { background-color: #AEF;  }
+tr.meting:nth-child(even) { background-color: #9DE;  }
+
+.afstand { background-color: white }
+
+.optimaal  { border: 3px solid blue;}
+.kandidaat { border: 3px dotted blue }
+.voor  { background-color: lightgreen }
+.na  { background-color: pink }
+.in-periode { background-color: lightorange }
+
+
+.kenmerk-control { color: brown; width: 20em }
+.kenmerk-control.off { color:grey }
+.kenmerk-control .aantal { display: block; font-size: 80%; vertical-align: bottom }
+.groep-control { width: 20em; }
+.groep-control.off { color: grey }
+  
+.groep-control .aantal { display: block; font-size: 80%; vertical-align: bottom }
+
+
+#kenmerkcontrols { display: table }
+#kenmerkcontrols > div { display: table-cell; text-align: center }
+#groepcontrols { display: table; font-size: 85% }
+#groepcontrols > div { display: table-cell; text-align: center }
+.aantal { display: inline; align: right }
+
+
+.test { display: table; font-family: arial; display: block; position: relative; top: 0.2em; width: 50em; padding-bottom: 1em; left: 5em }
+.test.off { display: none; }
+.test.fail > div.bron { background-color: pink }
+.test.pass > div.bron { background-color: lightgreen }
+.test.missed > div.bron { background-color: lightblue }
+.test.schema > div.bron { background-color: thistle }
+.test.schema.fail > div.bron { background-color: pink }
+.test.sbg-synq > div.bron { background-color: navajowhite }
+.test.schema > div.result { font-family: mono; font-size: 80%; padding:0.2em }
+
+.test-control { display: table-cell; padding: 1em; }
+
+.test-control.s-fail  { background-color: pink }
+.test-control.s-pass  { background-color: lightgreen }
+.test-control.s-missed  { background-color: lightblue }
+.test-control.s-schema  { background-color: thistle }
+.test-control.s-sbg-synq  { background-color: navajowhite }
+.test-control.s-show-all {  background-color: lemonchiffon }
+.test-control.s-show-all.off {  border: 3px solid plum;}
+
+div.test-info { position: absolute; left: 50%; top: 0.2em; margin-right: 4em; }
+.test-info.off { display: none }
+
+
+
+.bron { display: table-cell; width: 10em; padding-left: 1em;font-size: 75%  }
+.groep { display: table-cell; padding-left: 1em;font-size: 90% }
+.subgroep { display: table-cell; padding-left: 1em;font-size: 90% }
+.subsubgroep { display: table-cell; padding-left: 1em; }
+
+
+.aspect { display: table; padding: 2em; width: 30em;
+	border: 1px solid green }
+.result { font-style: italic; align: right; margin-bottom: 0.5em}
+.kenmerk {display: table-cell; padding-left: 0.3em; padding-right: 0.3em; 
+	font-style: italic; font-size: 90%; 
+	margin-bottom: 1em; 
+	background-color: hsl( 30, 100%, 50% ); color: white }
+
+
+.zorgdomein-test { display: block; position: relative; top: 0.2em; width: 40em; left: 5em }
+.zorgdomein-test.off { display: none; }
+.zorgdomein-test.fail { background-color: pink;  }
+.zorgdomein-test.pass { background-color: lightgreen }
+
+.zorgdomein-test .actual:before { content: "verkregen: "; font-style: italic; font-size: small } 
+.zorgdomein-test .actual { background-color: white; margin: 1em }
+
+.zorgdomein-test .expected:before { content: "verwacht "; font-style: italic; font-size: small}
+.zorgdomein-test .expected { background-color: lightblue; margin: 1em }
+
+.zorgdomein-test .source:before { content: "parameters: "; font-style: italic; font-size: small }
+.zorgdomein-test .source { background-color: lightgrey; margin: 1em }
+
+.zorgdomein-test .view { background-color: lightsteelblue; margin: 1em }
+.zorgdomein-test * td { text-align: right }
+
+.zorgdomein {margin: 2em; }
+.zorgdomein .code { font-size: large }
+.zorgdomein .dbc * td { text-align: right }
+
+
+
+/* unit tests */
+
+.unit-test.pass { display: block; position: relative; top: 0.2em; left: 5em }
+.unit-test.fail { display: block; ; position: relative; top: 0.2em; left: 5em  }
+.unit-test.fail .test-code { display: table-cell; background-color: pink; padding-right: 0.5em }
+.unit-test.pass .test-code { display: table-cell; background-color: lightgreen; padding-right: 0.5em }
+.unit-test .test-name { display: table-cell; padding-left: 0.5em }
+
+.unit-test .actual:before { content: "verkregen: "; font-style: italic; font-size: small }
+.unit-test.fail .actual:before { content: "verkregen: "; font-style: italic; font-size: small; background-color:pink } 
+.unit-test .xactual { background-color: white; margin: 1em }
+
+.unit-test .expected:before { content: "verwacht "; font-style: italic; font-size: small}
+.unit-test .expected { background-color: lightblue; margin: 1em }
+.unit-test.pass .expected:before { content: "verwacht en verkregen "; font-style: italic; font-size: small}
+
+.unit-test .source:before { content: "parameters: "; font-style: italic; font-size: small }
+.unit-test .source { background-color: lightgrey; margin: 1em }
+
+.unit-test .view { background-color: lightsteelblue; margin: 1em }
+.unit-test * tr > td { text-align: right }
+.unit-test * tr > td + td { text-align: left }
+
+.zorgdomein {margin: 2em; }
+.zorgdomein .code { font-size: large }
+.zorgdomein .dbc * td { text-align: right }
+
+.xunit-test * div.dbc:before { content: "DBC "; font-style: italic; float: left }
+.unit-test * div.sbg-zorgdomein:before { content: "zorgdomein "; font-style: italic; float: left}
+
+.div-col { display: table; font-size:small } 
+.div-col-header { display: table-header-group }
+.div-col-row { display: table-row;}
+.div-col .meting-id { display: none }
+.div-col-key, .div-col-value { display: table-cell; padding-left: 1em}
+
+
+
+.instrument { font-family: sans; font-size: 60%;  }
+.aantal { display: none }
+
+
+ 

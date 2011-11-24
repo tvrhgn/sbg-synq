@@ -1,0 +1,1127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbg-systeemtest>
+	<hoofdgroep>
+		<name>Algemeen</name>
+		<subgroep>
+			<name />
+			<subsubgroep>
+				<name />
+				<test bron="Algemeen_3">
+					<aspect>Een aanlevering met meerdere zorgaanbieders</aspect>
+				</test>
+				<test bron="Algemeen_4">
+					<aspect>De XML-specificatie van attributen mogen niet meegegeven
+						worden, wanneer er geen waarde is voor het betreffende attribuut
+					</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+	</hoofdgroep>
+	<hoofdgroep>
+		<name>Attribuut controle</name>
+		<subgroep>
+			<name>Batchgegevens</name>
+			<subsubgroep>
+				<name>Begindatum aangeleverde periode</name>
+				<test bron="Attribuut Controle_3">
+					<aspect>Is dit de "vanaf" datum, die ook meegegeven is aan de
+						opdracht tot samenstellen van het XML bestand.</aspect>
+				</test>
+				<test bron="Attribuut Controle_4">
+					<aspect>Is het formaat van de datum "eejj-mm-dd"</aspect>
+				</test>
+				<test bron="Attribuut Controle_5">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Datum creatie</name>
+				<test bron="Attribuut Controle_6">
+					<aspect>Is de datum de datum waarop de export gedraaid wordt
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_7">
+					<aspect>Is het formaat van de datum "eejj-mm-dd hh:mm:ss"</aspect>
+				</test>
+				<test bron="Attribuut Controle_8">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Einddatum aangeleverde periode</name>
+				<test bron="Attribuut Controle_9">
+					<aspect>Is dit de "tot en met" datum, die ook meegegeven is aan de
+						opdracht tot samenstellen van het XML bestand.</aspect>
+				</test>
+				<test bron="Attribuut Controle_10">
+					<aspect>Is het formaat van de datum "eejj-mm-dd"</aspect>
+				</test>
+				<test bron="Attribuut Controle_11">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Versie batchimport</name>
+				<test bron="Attribuut Controle_12">
+					<aspect>Wordt de juiste versie getoond</aspect>
+					<uitkomst>5.0</uitkomst>
+				</test>
+				<test bron="Attribuut Controle_13">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Behandelaar</name>
+			<subsubgroep>
+				<name>Alias behandelaar</name>
+				<test bron="Attribuut Controle_14">
+					<aspect>Wordt de juiste behandelaar van de patient getoond</aspect>
+				</test>
+				<test bron="Attribuut Controle_15">
+					<aspect>Wordt er altijd een waarde getoond.</aspect>
+					<opmerkingen>Conditioneel vereist</opmerkingen>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Beroep behandelaar</name>
+				<test bron="Attribuut Controle_16">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Primair of Neven</name>
+				<test bron="Attribuut Controle_17">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+					<opmerkingen>Conditioneel vereist</opmerkingen>
+				</test>
+				<test bron="Attribuut Controle_18">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+					<opmerkingen>1: Primair; 2: Neven</opmerkingen>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>DBC traject</name>
+			<subsubgroep>
+				<name>Datum Eerste Sessie</name>
+				<test bron="Attribuut Controle_19">
+					<aspect>Wordt bij een initieel DBC traject de datum van de eerste
+						behandelsessie (niet de eerste intakesessie) genomen.</aspect>
+				</test>
+				<test bron="Attribuut Controle_20">
+					<aspect>Wordt bij een vervolg DBC traject de datum van de
+						dichtstbijzijnde behandelsessie genomen.</aspect>
+				</test>
+				<test bron="Attribuut Controle_21">
+					<aspect>Is het formaat van de datum "eejj-mm-dd"</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Datum Laatste Sessie</name>
+				<test bron="Attribuut Controle_22">
+					<aspect>Wordt de datum van de behandelsessie genomen, die het
+						dichtstbij de einddatum van de DBC traject ligt.</aspect>
+				</test>
+				<test bron="Attribuut Controle_23">
+					<aspect>Is het formaat van de datum "eejj-mm-dd"</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>DBC Reden Sluiten Code</name>
+				<test bron="Attribuut Controle_24">
+					<aspect>Wordt de juiste waarde getoond voor de DCB reden sluiten
+						code</aspect>
+				</test>
+				<test bron="Attribuut Controle_25">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>DBC trajectnummer</name>
+				<test bron="Attribuut Controle_26">
+					<aspect>Wordt de juiste waarde getoond voor het DBCtrajectnummer
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_27">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Einddatum DBC</name>
+				<test bron="Attribuut Controle_28">
+					<aspect>Wordt de juiste waarde getoond voor de einddatum</aspect>
+				</test>
+				<test bron="Attribuut Controle_29">
+					<aspect>Is het formaat van de datum "eejj-mm-dd"</aspect>
+				</test>
+				<test bron="Attribuut Controle_30">
+					<aspect>Wordt er altijd een waarde getoond, wanneer de DBC traject
+						is afgesloten</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Prestatiecode</name>
+				<test bron="Attribuut Controle_31">
+					<aspect>Wordt de juiste waarde getoond voor de prestatiecode
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_32">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Reden Non Response Nameting</name>
+				<test bron="Attribuut Controle_33">
+					<aspect>Wordt de juiste waarde getoond voor de betreffende meting
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_34">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Reden Non Response Voormeting</name>
+				<test bron="Attribuut Controle_35">
+					<aspect>Wordt de juiste waarde getoond voor de betreffende meting
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_36">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Startdatum DBC</name>
+				<test bron="Attribuut Controle_37">
+					<aspect>Wordt de juiste waarde getoond voor de startdatum</aspect>
+				</test>
+				<test bron="Attribuut Controle_38">
+					<aspect>Is het formaat van de datum "eejj-mm-dd"</aspect>
+				</test>
+				<test bron="Attribuut Controle_39">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Item</name>
+			<subsubgroep>
+				<name>Itemnummer</name>
+				<test bron="Attribuut Controle_40">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Itemscore</name>
+				<test bron="Attribuut Controle_41">
+					<aspect>Wordt de juiste score bij het item nummer getoond.</aspect>
+				</test>
+				<test bron="Attribuut Controle_42">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Meting</name>
+			<subsubgroep>
+				<name>Aard meting</name>
+				<test bron="Attribuut Controle_43">
+					<aspect>Wordt de juiste waarde getoond voor de betreffende meting
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_44">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Datum meting</name>
+				<test bron="Attribuut Controle_45">
+					<aspect>Wordt de juiste waarde getoond voor de betreffende meting
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_46">
+					<aspect>Is het formaat van de datum "eejj-mm-dd"</aspect>
+				</test>
+				<test bron="Attribuut Controle_47">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Gebruikt meetinstrument</name>
+				<test bron="Attribuut Controle_48">
+					<aspect>Wordt de juiste waarde getoond voor de betreffende meting
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_49">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+				<test bron="Attribuut Controle_50">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+				<test bron="Attribuut Controle_51">
+					<aspect>Er mogen alleen vragenlijsten opgevoerd worden, die voldoen
+						aan de opgegeven set van Stichting Benchmark GGZ</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Totaalscore meting</name>
+				<test bron="Attribuut Controle_52">
+					<aspect>Wordt de juiste waarde getoond voor de betreffende meting
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_53">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+				<test bron="Attribuut Controle_54">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Type meting</name>
+				<test bron="Attribuut Controle_55">
+					<aspect>Wordt de juiste waarde getoond voor de betreffende meting
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_56">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Type Respondent</name>
+				<test bron="Attribuut Controle_57">
+					<aspect>Wordt de juiste waarde getoond voor de betreffende
+						respondent</aspect>
+				</test>
+				<test bron="Attribuut Controle_58">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Patient</name>
+			<subsubgroep>
+				<name>Geboortejaar</name>
+				<test bron="Attribuut Controle_59">
+					<aspect>Wordt het juiste geboortejaar van de patient getoond
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_60">
+					<aspect>Is het formaat van de datum "eejj"</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Geboorteland Moeder</name>
+				<test bron="Attribuut Controle_61">
+					<aspect>Wordt het juiste geboorteland van de (biologische) moeder
+						van de patient getoond</aspect>
+				</test>
+				<test bron="Attribuut Controle_62">
+					<aspect>Wanneer het geboorteland bestaat moet de waarde voorkomen
+						conform de referentietabel.</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Geboorteland Patient</name>
+				<test bron="Attribuut Controle_63">
+					<aspect>Wordt het juiste geboorteland van de patient getoond
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_64">
+					<aspect>Wanneer het geboorteland bestaat moet de waarde voorkomen
+						conform de referentietabel.</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Geboorteland Vader</name>
+				<test bron="Attribuut Controle_65">
+					<aspect>Wordt het juiste geboorteland van de (biologische) vader
+						van de patient getoond</aspect>
+				</test>
+				<test bron="Attribuut Controle_66">
+					<aspect>Wanneer het geboorteland bestaat moet de waarde voorkomen
+						conform de referentietabel.</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Geboortemaand</name>
+				<test bron="Attribuut Controle_67">
+					<aspect>Wordt de juiste geboortemaand van de patient getoond
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_68">
+					<aspect>Is het formaat van de datum "mm"</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Geslacht</name>
+				<test bron="Attribuut Controle_69">
+					<aspect>Wordt het juiste geslacht van de patient getoond</aspect>
+				</test>
+				<test bron="Attribuut Controle_70">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Koppelnummer</name>
+				<test bron="Attribuut Controle_71">
+					<aspect>Is het koppelnummer geen patient identificatie.</aspect>
+				</test>
+				<test bron="Attribuut Controle_72">
+					<aspect>Is voor elke patient een koppelnummer opgenomen.</aspect>
+				</test>
+				<test bron="Attribuut Controle_73">
+					<aspect>Is bij herhaalde aanlevering het koppelnummer per patient
+						gelijk.</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Leefsituatie</name>
+				<test bron="Attribuut Controle_74">
+					<aspect>Wordt de juiste leefsituatie van de patient getoond
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_75">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Opleidingsniveau</name>
+				<test bron="Attribuut Controle_76">
+					<aspect>Wordt het juiste opleidingsniveau van de patient getoond
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_77">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Postcodegebied</name>
+				<test bron="Attribuut Controle_78">
+					<aspect>Wordt de juiste wijkcode van de postcode van de patient
+						getoond.</aspect>
+				</test>
+				<test bron="Attribuut Controle_79">
+					<aspect>Heeft de waarde een lengte van 4 posities en is ze numeriek
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_80">
+					<aspect>Wanneer de patient geen vaste woon- of verblijfplaats heeft
+						moet de waarde "0007" getoond worden.</aspect>
+				</test>
+				<test bron="Attribuut Controle_81">
+					<aspect>Wanneer de patient in het buitenland woont moet de waarde
+						"0008" getoond worden.</aspect>
+				</test>
+				<test bron="Attribuut Controle_82">
+					<aspect>Wanneer de postcode niet bekend is moet de waarde "0009"
+						getoond worden.</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>PseudoBSN</name>
+				<test bron="Attribuut Controle_83">
+					<aspect>Wordt het juiste BSN nummer van de patient
+						gepseudonimiseerd</aspect>
+				</test>
+				<test bron="Attribuut Controle_84">
+					<aspect>Vindt de pseudonimisering van het BSN nummer plaats op de
+						afgesproken wijze</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Zorgaanbieder</name>
+			<subsubgroep>
+				<name>zorgaanbiedercode</name>
+				<test bron="Attribuut Controle_85">
+					<aspect>Is de zorgaanbiedercode de juiste en niet meer dan 8
+						posities lang</aspect>
+				</test>
+				<test bron="Attribuut Controle_86">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>zorgaanbiedernaam</name>
+				<test bron="Attribuut Controle_87">
+					<aspect>Komt de naam van de instelling overeen met de
+						zorgaanbiedercode</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Zorgtraject</name>
+			<subsubgroep>
+				<name>GAFscore</name>
+				<test bron="Attribuut Controle_88">
+					<aspect>Wordt de juiste waarde getoond voor de GAF score</aspect>
+				</test>
+				<test bron="Attribuut Controle_89">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Locatie</name>
+				<test bron="Attribuut Controle_90">
+					<aspect>Wordt de juiste waarde getoond voor de locatiecode (te
+						bepalen bij implementatie) en conform DIS</aspect>
+				</test>
+				<test bron="Attribuut Controle_91">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Nevendiagnose</name>
+				<test bron="Attribuut Controle_92">
+					<aspect>Wordt de juiste waarde getoond voor de nevendiagnose
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_93">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+				<test bron="Attribuut Controle_94">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Primaire Diagnosecode</name>
+				<test bron="Attribuut Controle_95">
+					<aspect>Wordt de juiste waarde getoond voor de primaire diagnose
+					</aspect>
+				</test>
+				<test bron="Attribuut Controle_96">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>ZorgdomeinCode</name>
+				<test bron="Attribuut Controle_97">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+				<test bron="Attribuut Controle_98">
+					<aspect>Valt de waarde altijd binnen de gestelde reeks</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>Zorgtrajectnummer</name>
+				<test bron="Attribuut Controle_99">
+					<aspect>Is het zorgtrajectnummer een uniek gegeven binnen de data
+						van de instelling</aspect>
+				</test>
+				<test bron="Attribuut Controle_100">
+					<aspect>Wordt er altijd een waarde getoond</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+	</hoofdgroep>
+	<hoofdgroep>
+		<name>Data extractie</name>
+		<subgroep>
+			<name>Data extractie uit de ROM applicatie</name>
+			<subsubgroep>
+				<name />
+				<test bron="Data Extractie_3">
+					<aspect />
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Data extractie uit het EPD</name>
+			<subsubgroep>
+				<name>DBCID</name>
+				<test bron="Data Extractie_4">
+					<aspect>Wordt bij 1e lijns behandelingen, die plaatsvinden door een
+						POH-er de dummy prestatiecode "302000000000" gehanteerd.</aspect>
+				</test>
+				<test bron="Data Extractie_5">
+					<aspect>Wordt bij de andere 1e lijns behandelingen, die
+						plaatsvinden bij een specifieke GGZ instelling of door een
+						vrijgevestigde 1e lijns psycholoog de dummy prestatiecode
+						"301000000000" gehanteerd.</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name />
+				<test bron="Data Extractie_6">
+					<aspect>Is het aantal geselecteerde DBC trajecten conform de
+						werkelijke productie van de zorgaanbieder</aspect>
+					<opmerkingen>Controle of alle DBC trajecten die in het EPD systeem
+						zijn opgeslagen en die de productie van de zorgaanbieder zijn
+						worden aangeleverd.</opmerkingen>
+				</test>
+				<test bron="Data Extractie_7">
+					<aspect>Worden alle DBC trajecten, die vallen binnen de
+						zorgverzekeraarswet (ZVW), dus 1e, 2e als 3e lijns behandelingen
+						meegenomen.</aspect>
+				</test>
+				<test bron="Data Extractie_8">
+					<aspect>Worden alle openstaande DBC trajecten meegenomen</aspect>
+				</test>
+				<test bron="Data Extractie_9">
+					<aspect>Worden alle afgesloten DBC trajecten meegenomen, die
+						betrekking hebben op de opgegeven periode. Goed rekening houdende
+						met de grenzen (tot en met)</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+	</hoofdgroep>
+	<hoofdgroep>
+		<name>Data volledigheid controles</name>
+		<subgroep>
+			<name>Behandelaar</name>
+			<subsubgroep>
+				<name />
+				<test bron="Data Volledigheid_3">
+					<aspect>Alle behandelaren die bij de behandeling van een
+						zorgtraject betrokken zijn worden meegenomen.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>DBC traject</name>
+			<subsubgroep>
+				<name />
+				<test bron="Data Volledigheid_4">
+					<aspect>Alle DBC trajecten die beeindigd zijn in de gestelde
+						periode of die nog niet beeindigd zijn worden meegenomen.</aspect>
+					<opmerkingen>Voor het controleren van de afgesloten DBC trajecten
+						is het mogelijk om een vergelijking te doen met DIS extracties.
+					</opmerkingen>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Zorgtraject</name>
+			<subsubgroep>
+				<name />
+				<test bron="Data Volledigheid_5">
+					<aspect>Alle zorgtrajecten van patienten worden meegenomen, die
+						betrekking hebben op de geselecteerde DBC trajecten.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Zorgaanbieder</name>
+			<subsubgroep>
+				<name />
+				<test bron="Data Volledigheid_6">
+					<aspect>Alle zorgaanbieders worden meegenomen, die betrekking
+						hebben op de overeenkomst.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Item</name>
+			<subsubgroep>
+				<name />
+				<test bron="Data Volledigheid_7">
+					<aspect>Alle items die bij een meting zijn ingevuld moeten
+						meegenomen worden.</aspect>
+					<opmerkingen>Wanneer er geen waarde is voor een bepaald item wordt
+						deze niet meegegeven</opmerkingen>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Meting</name>
+			<subsubgroep>
+				<name />
+				<test bron="Data Volledigheid_8">
+					<aspect>Van elk meetdomein, die betrekking heeft op het opgegeven
+						zorgdomein, moet de beste beschikbare meting meegenomen worden.
+					</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>NevendiagnoseCode</name>
+			<subsubgroep>
+				<name />
+				<test bron="Data Volledigheid_9">
+					<aspect>Alle nevendiagnoses, die bij de behandeling van een
+						zorgtraject betrokken zijn worden meegenomen.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Patient</name>
+			<subsubgroep>
+				<name />
+				<test bron="Data Volledigheid_10">
+					<aspect>Alle patienten van de instelling worden meegenomen, die
+						betrekking hebben op de geselecteerde DBC trajecten.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+	</hoofdgroep>
+	<hoofdgroep>
+		<name>DBC informatie</name>
+		<subgroep>
+			<name>Zorgdomein</name>
+			<subsubgroep>
+				<name />
+				<test bron="DBC Informatie_3">
+					<aspect>Worden de DBC trajecten, die betrekking hebben op het
+						zorgdomein "Volwassenen lang" ook op de juiste wijze gekoppeld.
+					</aspect>
+					<opmerkingen>Tijdens de implementatie moet duidelijk zijn voor
+						welke zorgdomeinen de zorgaanbieder behandelingen levert en hoe
+						deze geidentificeerd worden. Dit is de basis om te bepalen of het
+						juiste zorgdomein gekoppeld wordt aan een DBC traject.
+					</opmerkingen>
+				</test>
+				<test bron="DBC Informatie_4">
+					<aspect>Worden de DBC trajecten, die betrekking hebben op het
+						zorgdomein "Volwassenen kort" ook op de juiste wijze gekoppeld.
+					</aspect>
+					<opmerkingen>Tijdens de implementatie moet duidelijk zijn voor
+						welke zorgdomeinen de zorgaanbieder behandelingen levert en hoe
+						deze geidentificeerd worden. Dit is de basis om te bepalen of het
+						juiste zorgdomein gekoppeld wordt aan een DBC traject.
+					</opmerkingen>
+				</test>
+				<test bron="DBC Informatie_5">
+					<aspect>Worden de DBC trajecten, die betrekking hebben op het
+						zorgdomein "Verslaving kort" ook op de juiste wijze gekoppeld.
+					</aspect>
+					<opmerkingen>Tijdens de implementatie moet duidelijk zijn voor
+						welke zorgdomeinen de zorgaanbieder behandelingen levert en hoe
+						deze geidentificeerd worden. Dit is de basis om te bepalen of het
+						juiste zorgdomein gekoppeld wordt aan een DBC traject.
+					</opmerkingen>
+				</test>
+				<test bron="DBC Informatie_6">
+					<aspect>Worden de DBC trajecten, die betrekking hebben op het
+						zorgdomein "Kinder en Jeugd" ook op de juiste wijze gekoppeld.
+					</aspect>
+					<opmerkingen>Tijdens de implementatie moet duidelijk zijn voor
+						welke zorgdomeinen de zorgaanbieder behandelingen levert en hoe
+						deze geidentificeerd worden. Dit is de basis om te bepalen of het
+						juiste zorgdomein gekoppeld wordt aan een DBC traject.
+					</opmerkingen>
+				</test>
+				<test bron="DBC Informatie_7">
+					<aspect>Worden de DBC trajecten, die betrekking hebben op het
+						zorgdomein "Dyslexie" ook op de juiste wijze gekoppeld.</aspect>
+					<opmerkingen>Tijdens de implementatie moet duidelijk zijn voor
+						welke zorgdomeinen de zorgaanbieder behandelingen levert en hoe
+						deze geidentificeerd worden. Dit is de basis om te bepalen of het
+						juiste zorgdomein gekoppeld wordt aan een DBC traject.
+					</opmerkingen>
+				</test>
+				<test bron="DBC Informatie_8">
+					<aspect>Worden de DBC trajecten, die betrekking hebben op het
+						zorgdomein "Verslaving lang" ook op de juiste wijze gekoppeld.
+					</aspect>
+					<opmerkingen>Tijdens de implementatie moet duidelijk zijn voor
+						welke zorgdomeinen de zorgaanbieder behandelingen levert en hoe
+						deze geidentificeerd worden. Dit is de basis om te bepalen of het
+						juiste zorgdomein gekoppeld wordt aan een DBC traject.
+					</opmerkingen>
+				</test>
+			</subsubgroep>
+		</subgroep>
+	</hoofdgroep>
+	<hoofdgroep>
+		<name>Koppelen</name>
+		<subgroep>
+			<name>Algemeen</name>
+			<subsubgroep>
+				<name />
+				<test bron="Koppelingen_3">
+					<aspect>Hebben de verschillende informatie stromen (DBC traject en
+						Meting) betrekking op dezelfde patient.</aspect>
+				</test>
+				<test bron="Koppelingen_4">
+					<aspect>Het mag niet mogelijk zijn dat een DBC traject meer dan een
+						meetinstrument per meetdomein heeft.</aspect>
+				</test>
+				<test bron="Koppelingen_5">
+					<aspect>Wordt voor elk DBC traject bekeken of er een mogelijke
+						voor- en/of nameting is.</aspect>
+				</test>
+				<test bron="Koppelingen_6">
+					<aspect>Wordt ook voor een zorgdomein dat meerdere meetdomeinen
+						heeft voor elk meetdomein gekeken of er een voor- en/of nameting
+						is.</aspect>
+				</test>
+				<test bron="Koppelingen_7">
+					<aspect>Wordt bij een afgesloten DBC traject zowel bekeken of er
+						een voor- en nameting is.</aspect>
+				</test>
+				<test bron="Koppelingen_8">
+					<aspect>Wordt bij een openstaand DBC traject alleen bekeken of er
+						een voormeting is.</aspect>
+					<opmerkingen>Bij een openstaand DBC traject is het niet zinvol om
+						naar nametingen te zoeken, omdat het DBC traject nog geen
+						einddatum heeft.</opmerkingen>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Meerdere meetinstrumenten tegelijkertijd bij hetzelfde DBC
+				traject</name>
+			<subsubgroep>
+				<name />
+				<test bron="Koppelingen_9">
+					<aspect>Wanneer een DBC traject metingen heeft, die door
+						verschillende meetinstrumenten binnen een meetdomein zijn
+						afgenomen is het van belang om dat meetinstrument te kiezen, die
+						(1) zowel een voor- als nameting heeft, anders die, die (2) een
+						nameting heeft en geen voormeting of anders die, die (3) een
+						voormeting heeft en geen nameting. (REGEL 1)</aspect>
+				</test>
+				<test bron="Koppelingen_10">
+					<aspect>Wanneer na toepassen van REGEL 1 het DBC traject nog steeds
+						metingen heeft, die door verschillende meetinstrumenten binnen een
+						meetdomein zijn afgenomen is het van belang om dat meetinstrument
+						te kiezen, waarbij het verschil in dagen tussen de meting en de
+						sessie datum van beide betreffende meetmomenten opgeteld het
+						kleinst is.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Meerdere respondenten kinder- en jeugd</name>
+			<subsubgroep>
+				<name />
+				<test bron="Koppelingen_11">
+					<aspect>Wanneer een DBC traject metingen heeft met hetzelfde
+						meetinstrument, die door beide ouders zijn ingevuld moet die ouder
+						worden genomen, die het kind als beste kan beoordelen.</aspect>
+				</test>
+				<test bron="Koppelingen_12">
+					<aspect>Wanneer een DBC traject metingen heeft, die niet door een
+						ouder is ingevuld dan moet de meting van de voogd worden genomen.
+						NB: DUS NIET DE KIND OF DE LEERKRACHT.</aspect>
+				</test>
+				<test bron="Koppelingen_13">
+					<aspect>Wanneer een DBC traject betrekking heeft op een kind dat is
+						opgenomen binnen de instelling dan is de begeleider de bron.
+					</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Nameting met sessiedatum</name>
+			<subsubgroep>
+				<name />
+				<test bron="Koppelingen_14">
+					<aspect>Wordt voor een DBC traject die sessie genomen als laatste
+						sessie die het dichtstbij de einddatum van de betreffende DBC
+						traject ligt.</aspect>
+				</test>
+				<test bron="Koppelingen_15">
+					<aspect>Wordt alleen die meting genomen bij een sessie, waarvan het
+						verschil in data niet meer bedraagt dan 3 maanden.</aspect>
+				</test>
+				<test bron="Koppelingen_16">
+					<aspect>De datum van de nameting mag niet dezelfde zijn als die van
+						de voormeting</aspect>
+				</test>
+				<test bron="Koppelingen_17">
+					<aspect>Alleen die metingen mogen geselecteerd worden, die
+						betrekking hebben op het meetinstrument dat voor het betreffende
+						zorgdomein als benchmark meetinstrument is aangegeven.</aspect>
+				</test>
+				<test bron="Koppelingen_18">
+					<aspect>Het meetinstrument van de nameting moet gelijk zijn aan het
+						meetinstrument van de voormeting.</aspect>
+				</test>
+				<test bron="Koppelingen_19">
+					<aspect>Wanneer er een voormeting is mag de nameting niet door een
+						ander meetinstrument gemeten zijn dan de voormeting.</aspect>
+				</test>
+				<test bron="Koppelingen_20">
+					<aspect>Wordt er geen nameting opgenomen, wanneer er geen meting
+						aan het DBC traject gekoppeld kan worden.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Nameting zonder sessiedatum</name>
+			<subsubgroep>
+				<name />
+				<test bron="Koppelingen_21">
+					<aspect>Wanneer er geen sessies beschikbaar zijn, wordt dan als
+						laatste sessiedatum de einddatum van het DBC traject genomen.
+					</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Voormeting met sessiedatum</name>
+			<subsubgroep>
+				<name />
+				<test bron="Koppelingen_22">
+					<aspect>Wordt voor een DBC traject die sessie genomen als eerste
+						behandelsessie die het dichtstbij de startdatum van het
+						betreffende DBC traject ligt.</aspect>
+				</test>
+				<test bron="Koppelingen_23">
+					<aspect>Worden alleen die sessies genomen waarbij ook behandeltijd
+						geschreven is.</aspect>
+				</test>
+				<test bron="Koppelingen_24">
+					<aspect>Wordt voor de eerste sessie die meting genomen die voor de
+						sessiedatum ligt en het dichtstbij is.</aspect>
+				</test>
+				<test bron="Koppelingen_25">
+					<aspect>Wordt, wanneer er geen meting is voor de eerste
+						sessiedatum, de meting genomen die het dichtstbij ligt na de datum
+						van de betreffende sessie.</aspect>
+				</test>
+				<test bron="Koppelingen_26">
+					<aspect>Wordt alleen die meting genomen bij een sessie, waarvan het
+						verschil in data niet meer bedraagt dan 3 maanden.</aspect>
+				</test>
+				<test bron="Koppelingen_27">
+					<aspect>Alleen die metingen mogen geselecteerd worden, die
+						betrekking hebben op het meetinstrument dat voor het betreffende
+						zorgdomein als benchmark meetinstrument is aangegeven.</aspect>
+				</test>
+				<test bron="Koppelingen_28">
+					<aspect>Wordt er geen voormeting opgenomen, wanneer er geen meting
+						aan het DBC traject gekoppeld kan worden.</aspect>
+				</test>
+				<test bron="Koppelingen_29">
+					<aspect>Alleen die metingen mogen geselecteerd worden, die
+						betrekking hebben op het meetinstrument dat voor het betreffende
+						zorgdomein als benchmark meetinstrument is aangegeven en die door
+						de zorgaanbieder zijn aangewezen.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Voormeting zonder sessiedatum</name>
+			<subsubgroep>
+				<name />
+				<test bron="Koppelingen_30">
+					<aspect>Wanneer er geen sessies beschikbaar zijn, wordt dan als
+						eerste sessiedatum de startdatum van het DBC traject genomen.
+					</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+	</hoofdgroep>
+	<hoofdgroep>
+		<name>Pseudonimisering</name>
+		<subgroep>
+			<name>Patient</name>
+			<subsubgroep>
+				<name>PseudoBSN</name>
+				<test bron="Pseudonimisering_3">
+					<aspect>Heeft de instelling ervoor gezorgt dat de encryptie van het
+						BSN nummer zodanig is dat deze altijd op dezelfde manier encrypt
+						wordt.</aspect>
+				</test>
+				<test bron="Pseudonimisering_4">
+					<aspect>Heeft de instelling ervoor gezorgt dat de encryptie van het
+						BSN nummer zodanig is dat deze voldoet aan de eisen van de CBP.
+					</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+	</hoofdgroep>
+	<hoofdgroep>
+		<name>Structuur controles</name>
+		<subgroep>
+			<name>Bestand</name>
+			<subsubgroep>
+				<name>Instelling</name>
+				<test bron="Structuur Controles_3">
+					<aspect>Het is mogelijk om voor meerdere instellingen in een
+						bestand data aan te leveren.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>DBC traject</name>
+			<subsubgroep>
+				<name>Meting</name>
+				<test bron="Structuur Controles_4">
+					<aspect>Het is mogelijk om binnen een DBC traject meerdere metingen
+						in het bestand aan te leveren. De combinatie typemeting en
+						gebruikt meetinstrument moet uniek zijn binnen een DBC traject.
+					</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Instelling</name>
+			<subsubgroep>
+				<name>Patient</name>
+				<test bron="Structuur Controles_5">
+					<aspect>Het is mogelijk om binnen een instelling meerdere patienten
+						in het bestand aan te leveren. Het koppelnummer moet uniek zijn
+						binnen een instelling.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Meting</name>
+			<subsubgroep>
+				<name>Item</name>
+				<test bron="Structuur Controles_6">
+					<aspect>Het is mogelijk om binnen een Meting meerdere items in het
+						bestand aan te leveren. Het itemnummer moet uniek zijn binnen een
+						meting.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Patient</name>
+			<subsubgroep>
+				<name>Zorgtraject</name>
+				<test bron="Structuur Controles_7">
+					<aspect>Het is mogelijk om binnen een patient meerdere
+						zorgtrajecten in het bestand aan te leveren. Het zorgtrajectnummer
+						moet uniek zijn binnen een patient en instelling.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Zorgtraject</name>
+			<subsubgroep>
+				<name>Behandelaar</name>
+				<test bron="Structuur Controles_8">
+					<aspect>Het is mogelijk om binnen een zorgtraject meerdere
+						Behandelaren in het bestand aan te leveren. De alias moet uniek
+						zijn binnen een zorgtraject.</aspect>
+				</test>
+				<test bron="Structuur Controles_9">
+					<aspect>Het is mogelijk binnen een zorgtraject meerdere
+						Hoofdbehandelaren in het bestand aan te leveren.</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>DBC traject</name>
+				<test bron="Structuur Controles_10">
+					<aspect>Het is mogelijk om binnen een zorgtraject meerdere DBC
+						trajecten in het bestand aan te leveren.</aspect>
+				</test>
+			</subsubgroep>
+			<subsubgroep>
+				<name>NevendiagnoseCode</name>
+				<test bron="Structuur Controles_11">
+					<aspect>Het is mogelijk om binnen een zorgtraject meerdere
+						nevendiagnoses in het bestand aan te leveren. De nevendiagnosecode
+						moet uniek zijn binnen een zorgtraject.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+	</hoofdgroep>
+	<hoofdgroep>
+		<name>Unieke waarden</name>
+		<subgroep>
+			<name>Behandelaar</name>
+			<subsubgroep>
+				<name />
+				<test bron="Structuur Controles_12">
+					<aspect>Alle behandelaren die bij de behandeling van een
+						zorgtraject betrokken zijn moeten een uniek kenmerk hebben.
+					</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>DBC traject</name>
+			<subsubgroep>
+				<name />
+				<test bron="Structuur Controles_13">
+					<aspect>Alle DBC trajecten die beeindigd zijn in de gestelde
+						periode of die nog niet beeindigd zijn moeten uniek zijn.</aspect>
+					<opmerkingen>Voor het controleren van de afgesloten DBC trajecten
+						is het mogelijk om een vergelijking te doen met DIS extracties.
+					</opmerkingen>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Instelling</name>
+			<subsubgroep>
+				<name />
+				<test bron="Structuur Controles_14">
+					<aspect>Alle instellingen die binnen een batch betrokken zijn
+						moeten een uniek kenmerk hebben.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Item</name>
+			<subsubgroep>
+				<name />
+				<test bron="Structuur Controles_15">
+					<aspect>Alle items die bij een meting zijn ingevuld moeten
+						meegenomen worden.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>NevendiagnoseCode</name>
+			<subsubgroep>
+				<name />
+				<test bron="Structuur Controles_16">
+					<aspect>Alle nevendiagnoses, die bij de behandeling van een
+						zorgtraject betrokken zijn moeten uniek zijn.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Patient</name>
+			<subsubgroep>
+				<name />
+				<test bron="Structuur Controles_17">
+					<aspect>Alle patienten van de instelling moeten uniek zijn, die
+						betrekking hebben op de geselecteerde DBC trajecten.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+		<subgroep>
+			<name>Zorgtraject</name>
+			<subsubgroep>
+				<name />
+				<test bron="Structuur Controles_18">
+					<aspect>Alle zorgtrajecten van patienten moeten uniek zijn, die
+						betrekking hebben op de geselecteerde DBC trajecten.</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+	</hoofdgroep>
+	<hoofdgroep>
+		<name>Vragenlijsten</name>
+		<subgroep>
+			<name>Meetinstrument</name>
+			<subsubgroep>
+				<name>Totaalscore meting</name>
+				<test bron="Vragenlijsten_3">
+					<aspect>Wordt de juiste schaal meegenomen bij het berekenen van de
+						totaalscore.</aspect>
+				</test>
+				<test bron="Vragenlijsten_4">
+					<aspect>Wordt de juiste berekeningsmethode gebruikt bij het
+						berekenen van de totaalscore (gemiddelde / totaal / dubbele totaal
+						/ enz)</aspect>
+				</test>
+				<test bron="Vragenlijsten_5">
+					<aspect>Wordt op de juiste wijze omgegaan met missende waarden
+						(hercalculatie en betrouwbaar)</aspect>
+				</test>
+				<test bron="Vragenlijsten_6">
+					<aspect>Wordt de juiste repondent meegenomen, wanneer er meerdere
+						informatie bronnen zijn</aspect>
+				</test>
+				<test bron="Vragenlijsten_7">
+					<aspect>Bij sommige vragenlijsten worden vragen omgekeerd
+						beschreven (om te scoren items). Wordt dit goed toegepast conform
+						de specificaties.</aspect>
+				</test>
+				<test bron="Vragenlijsten_8">
+					<aspect>Wordt de totaalscore meting berekend conform de opgegeven
+						specificaties van het meetinstrument. (te bepalen bij de
+						implementatie) / (testbeschrijving per meetinstrument)</aspect>
+				</test>
+			</subsubgroep>
+		</subgroep>
+	</hoofdgroep>
+</sbg-systeemtest>

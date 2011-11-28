@@ -36,11 +36,36 @@ let $pon := $beh/primairOfNeven,
 return sbgbm:filter-atts( <Behandelaar primairOfNeven="{$pon}" beroep="{$beroep}" alias="{$alias}"/> )
 };
 
-(: maak een doc met geldige datums voor de batch; val terug op default de 3 maanden tot eind vorige maand :)
+(: maak een doc met geldige datums voor de batch; datum is verplicht; val terug op default de 3 maanden tot laatste einde maand voor datum  :)
+(: TODO testcases role of @datum :)
 declare function sbgbm:batch-gegevens($za as element(zorgaanbieder)) as element(batch-gegevens) {
 let $batch := $za/batch[1],  (: voer alleen de de eerste batch uit :)
+    $ts := data($batch/@datum,
+    $today := fn:current-date()),
+    $dom := fn:day-from-date($today),
+    $default-eind := $today - xs:dayTimeDuration( concat( 'P', $dom, 'D' )), (: eind vorige maand :)
+    $eind := (xs:date($batch/einddatumAangeleverdePeriode), $default-eind)[1], 
+    $aanlever-periode := if ($batch/aanleverperiode castable as xs:yearMonthDuration ) 
+                         then xs:yearMonthDuration($batch/aanleverperiode) 
+                         else xs:yearMonthDuration('P3M'),  
+    $def-start := $eind - $aanlever-periode + xs:dayTimeDuration( 'P1D' ), (: begin v/d maand als $def-eind is eind v/d maand :) 
+    $start := (xs:date($batch/startdatumAangeleverdePeriode), $def-start)[1],
+    $meetperiode := if ($batch/meetperiode castable as xs:yearMonthDuration )
+                     then xs:yearMonthDuration($batch/meetperiode)
+                     else xs:yearMonthDuration('P3M'),
+    
+return <batch-gegevens>
+    <meetperiode>{$meetperiode}</meetperiode>
+    <startdatum>{$start}</startdatum>
+    <einddatum>{$eind}</einddatum>
+    <timestamp>{$ts}</timestamp>
+</batch-gegevens>
+};
+(: maak een doc met geldige datums voor de batch; val terug op default de 3 maanden tot eind vorige maand :)
+declare function sbgbm:batch-gegevens-old($za as element(zorgaanbieder)) as element(batch-gegevens) {
+let $batch := $za/batch[1],  (: voer alleen de de eerste batch uit :)
     $now := fn:current-dateTime(),
-    $ts := (data($batch/@datumCreatie), $now)[1],
+    $ts := (data($batch/@datum), $now)[1],
     $today := fn:current-date(),
     $dom := fn:day-from-date($today),
     $default-eind := $today - xs:dayTimeDuration( concat( 'P', $dom, 'D' )), (: eind vorige maand :)

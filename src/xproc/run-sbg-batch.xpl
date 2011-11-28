@@ -5,8 +5,8 @@
 	<p:documentation>
 		aanroep:
 		calabash.sh
-		-iconfig=zorgaanbieder.xml
-		batch-sbg.xpl
+		-i config=/absolute/path/zorgaanbieder.xml
+		run-batch-sbg.xpl
 
 		zorgaanbieder.xml is het document met 
 		de sbg-synq- en xproc-instellingen.
@@ -60,7 +60,7 @@
 		</p:input>
 	</p:xquery>
 
-	<!-- dit werkt, maar is een for-each niet beter?-->
+	<!-- dit werkt, maar is een for-each niet beter? root-attributes?? -->
 	<p:viewport name="anonimiseer" match="//sbggz:Patient">
 		<p:output port="result" />
 		<p:hash name="hash" algorithm="sha" match="@koppelnummer">

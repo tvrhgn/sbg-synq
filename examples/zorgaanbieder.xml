@@ -8,6 +8,7 @@
 
 	<!-- periode instellingen voor batch; alleen de eerste batch (/zorgaanbieder/batch[1]) 
 		wordt gebruikt -->
+		<!--  datum is verplicht: wordt gebruikt in xproc om de bestandsnaam mee aan te maken -->
 	<batch datum="2011-11-08">
 		<!-- dit is de oude meetperiode; sinds 0.9 wordt ook zorgdomein-afhankelijke 
 			bepaling van meetperiode ondersteund -->

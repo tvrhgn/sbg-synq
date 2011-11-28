@@ -97,10 +97,10 @@ let $sbg-atts := element { 'batch-gegevens' } { $sbg-doc/@*, () },
                      every $zt in $zorgtraject 
                      satisfies sbgtest:test-unique( $zt/sbg:Behandelaar/@alias )),
                      
-     sbgtest:test-elt('Structuur Controles_11', 'nevendiagnosecode uniek per zorgtraject voor elke patient',
+     (: sbgtest:test-elt('Structuur Controles_11', 'nevendiagnosecode uniek per zorgtraject voor elke patient',
                      every $p in $patient, $zt in $p/sbg:Zorgtraject 
                      satisfies sbgtest:test-unique( $zt/sbg:NevendiagnoseCode/@nevendiagnoseCode )),
-                     
+        :)             
     
      
 

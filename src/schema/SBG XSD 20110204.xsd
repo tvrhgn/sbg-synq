@@ -1,13 +1,18 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2011 sp1 (http://www.altova.com) by Jasper van Veen (Stichting Benchmark GGZ) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://sbggz.nl/schema/import/5.0.1" xmlns:sbg="http://sbggz.nl/schema/import/5.0.1" targetNamespace="http://sbggz.nl/schema/import/5.0.1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 sp1 (http://www.altova.com) by Jasper van Veen 
+	(Stichting Benchmark GGZ) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://sbggz.nl/schema/import/5.0.1"
+	xmlns:sbg="http://sbggz.nl/schema/import/5.0.1" targetNamespace="http://sbggz.nl/schema/import/5.0.1"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:element name="BenchmarkImport">
 		<xs:annotation>
-			<xs:documentation>Structuur om dbctrajecten te importeren</xs:documentation>
+			<xs:documentation>Structuur om dbctrajecten te importeren
+			</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="Zorgaanbieder" type="InstellingType" maxOccurs="unbounded">
+				<xs:element name="Zorgaanbieder" type="InstellingType"
+					maxOccurs="unbounded">
 					<xs:annotation>
 						<xs:documentation>De zorgaanbieders</xs:documentation>
 					</xs:annotation>
@@ -15,122 +20,161 @@
 						<xs:annotation>
 							<xs:documentation>Primary key voor Patient</xs:documentation>
 						</xs:annotation>
-						<xs:selector xpath="sbg:Patient"/>
-						<xs:field xpath="@koppelnummer"/>
+						<xs:selector xpath="sbg:Patient" />
+						<xs:field xpath="@koppelnummer" />
 					</xs:unique>
 				</xs:element>
 			</xs:sequence>
-			<xs:attribute name="versie" type="xs:string" use="required" fixed="5.0">
+			<xs:attribute name="versie" type="xs:string" use="required"
+				fixed="5.0">
 				<xs:annotation>
-					<xs:documentation>Geeft aan volgens welke specificaties aangeleverd wordt</xs:documentation>
+					<xs:documentation>Geeft aan volgens welke specificaties aangeleverd
+						wordt</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
-			<xs:attribute name="datumCreatie" type="xs:dateTime" use="required">
+			<xs:attribute name="datumCreatie" type="xs:dateTime"
+				use="required">
 				<xs:annotation>
-					<xs:documentation>Datum en tijdstip dat het batchfile is gecreëerd</xs:documentation>
+					<xs:documentation>Datum en tijdstip dat het batchfile is gecreëerd
+					</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
-			<xs:attribute name="startdatumAangeleverdePeriode" type="xs:date" use="required">
+			<xs:attribute name="startdatumAangeleverdePeriode" type="xs:date"
+				use="required">
 				<xs:annotation>
-					<xs:documentation>De startdatum van de periode waarover de batch aanlevert</xs:documentation>
+					<xs:documentation>De startdatum van de periode waarover de batch
+						aanlevert</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
-			<xs:attribute name="einddatumAangeleverdePeriode" type="xs:date" use="required">
+			<xs:attribute name="einddatumAangeleverdePeriode" type="xs:date"
+				use="required">
 				<xs:annotation>
-					<xs:documentation>De einddatum van de periode waarover de batch aanlevert</xs:documentation>
+					<xs:documentation>De einddatum van de periode waarover de batch
+						aanlevert</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
-			<xs:attribute name="batchReserve01" type="xs:string" use="optional">
+			<xs:attribute name="batchReserve01" type="xs:string"
+				use="optional">
 				<xs:annotation>
-					<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
+					<xs:documentation>Voor zorgdomein specifieke data
+					</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
-			<xs:attribute name="batchReserve02" type="xs:string" use="optional">
+			<xs:attribute name="batchReserve02" type="xs:string"
+				use="optional">
 				<xs:annotation>
-					<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
+					<xs:documentation>Voor zorgdomein specifieke data
+					</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
-			<xs:attribute name="batchReserve03" type="xs:string" use="optional">
+			<xs:attribute name="batchReserve03" type="xs:string"
+				use="optional">
 				<xs:annotation>
-					<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
+					<xs:documentation>Voor zorgdomein specifieke data
+					</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
-			<xs:attribute name="batchReserve04" type="xs:string" use="optional">
+			<xs:attribute name="batchReserve04" type="xs:string"
+				use="optional">
 				<xs:annotation>
-					<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
+					<xs:documentation>Voor zorgdomein specifieke data
+					</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
-			<xs:attribute name="batchReserve05" type="xs:string" use="optional">
+			<xs:attribute name="batchReserve05" type="xs:string"
+				use="optional">
 				<xs:annotation>
-					<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
+					<xs:documentation>Voor zorgdomein specifieke data
+					</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
 		</xs:complexType>
 		<xs:unique name="PKInstelling">
 			<xs:annotation>
-				<xs:documentation>Primary key; voor de zorginstelling</xs:documentation>
+				<xs:documentation>Primary key; voor de zorginstelling
+				</xs:documentation>
 			</xs:annotation>
-			<xs:selector xpath="sbg:Zorgaanbieder"/>
-			<xs:field xpath="@zorgaanbiedercode"/>
+			<xs:selector xpath="sbg:Zorgaanbieder" />
+			<xs:field xpath="@zorgaanbiedercode" />
 		</xs:unique>
 	</xs:element>
 	<xs:complexType name="MetingType">
 		<xs:annotation>
-			<xs:documentation>Structuur om een meting vast te leggen</xs:documentation>
+			<xs:documentation>Structuur om een meting vast te leggen
+			</xs:documentation>
 		</xs:annotation>
 		<xs:attribute name="datum" type="xs:date" use="required">
 			<xs:annotation>
-				<xs:documentation>De datum waarop de voormeting is afgenomen</xs:documentation>
+				<xs:documentation>De datum waarop de voormeting is afgenomen
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="typemeting" type="xs:string" use="required">
 			<xs:annotation>
-				<xs:documentation>Het type meting in het kader van benchmarking op respons/behandeleffect</xs:documentation>
+				<xs:documentation>Het type meting in het kader van benchmarking op
+					respons/behandeleffect</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="aardMeting" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>De aard van de meting in de context van ROM</xs:documentation>
+				<xs:documentation>De aard van de meting in de context van ROM
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="typeRespondent" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>De respondent die het meetinstrument heeft ingevuld. Bij de meeste instrumenten is dit standaard de patiënt (zelfrapportage-instrumenten), bij andere instrumenten kan dit variëren.</xs:documentation>
+				<xs:documentation>De respondent die het meetinstrument heeft
+					ingevuld. Bij de meeste instrumenten is dit standaard de patiënt
+					(zelfrapportage-instrumenten), bij andere instrumenten kan dit
+					variëren.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="gebruiktMeetinstrument" type="xs:string" use="required">
+		<xs:attribute name="gebruiktMeetinstrument" type="xs:string"
+			use="required">
 			<xs:annotation>
-				<xs:documentation>Het meetinstrument dat is gebruikt voor de meting. </xs:documentation>
+				<xs:documentation>Het meetinstrument dat is gebruikt voor de meting.
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="totaalscoreMeting" type="xs:decimal" use="required">
+		<xs:attribute name="totaalscoreMeting" type="xs:decimal"
+			use="required">
 			<xs:annotation>
-				<xs:documentation>De totaalscore of somscore van het meetinstrument, conform de aanwijzingen van DNS. 
-Risico is dat instellingen op basis van verschillende versies van vragenlijsten de somscores op verschillende manieren gaan aanleveren.
-De TTP publiceert een eenduidige syntax voor de aanleverende instellingen. Dit kan op papier of digitaal (rekenmodellen). </xs:documentation>
+				<xs:documentation>De totaalscore of somscore van het meetinstrument,
+					conform de aanwijzingen van DNS.
+					Risico is dat instellingen op basis van verschillende versies van
+					vragenlijsten de somscores op verschillende manieren gaan
+					aanleveren.
+					De TTP publiceert een eenduidige syntax voor de aanleverende
+					instellingen. Dit kan op papier of digitaal (rekenmodellen).
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="metingReserve01" type="xs:string" use="optional">
-			<xs:annotation>
-				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="metingReserve02" type="xs:string" use="optional">
-			<xs:annotation>
-				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="metingReserve03" type="xs:string" use="optional">
-			<xs:annotation>
-				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="metingReserve04" type="xs:string" use="optional">
+		<xs:attribute name="metingReserve01" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="metingReserve05" type="xs:string" use="optional">
+		<xs:attribute name="metingReserve02" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="metingReserve03" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="metingReserve04" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="metingReserve05" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
@@ -138,17 +182,22 @@ De TTP publiceert een eenduidige syntax voor de aanleverende instellingen. Dit k
 	</xs:complexType>
 	<xs:complexType name="BehandelaarType">
 		<xs:annotation>
-			<xs:documentation> Structuur om behandelaargegevens vast te leggen</xs:documentation>
+			<xs:documentation> Structuur om behandelaargegevens vast te leggen
+			</xs:documentation>
 		</xs:annotation>
 		<xs:attribute name="primairOfNeven" type="xs:string" use="required">
 			<xs:annotation>
-				<xs:documentation>Betreft het een primaire behandelaar of een nevenbehandelaar </xs:documentation>
+				<xs:documentation>Betreft het een primaire behandelaar of een
+					nevenbehandelaar </xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="alias" type="xs:string" use="required">
 			<xs:annotation>
 				<xs:documentation>De code van de behandelaar.
-Een instelling kan ervoor kiezen of ofwel de naam van de behandelaar in te voeren (levert een meer overzichtelijke rapportage op) of een geanonimiseerde code (cijfer- of lettercombinatie)</xs:documentation>
+					Een instelling kan ervoor kiezen of ofwel de naam van de behandelaar
+					in te voeren (levert een meer overzichtelijke rapportage op) of een
+					geanonimiseerde code (cijfer- of lettercombinatie)
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="beroep" type="xs:string">
@@ -159,16 +208,23 @@ Een instelling kan ervoor kiezen of ofwel de naam van de behandelaar in te voere
 	</xs:complexType>
 	<xs:complexType name="PatientType">
 		<xs:annotation>
-			<xs:documentation> Structuur om patientgegevens vast te leggen</xs:documentation>
+			<xs:documentation> Structuur om patientgegevens vast te leggen
+			</xs:documentation>
 		</xs:annotation>
 		<xs:attribute name="koppelnummer" type="xs:string" use="required">
 			<xs:annotation>
-				<xs:documentation>Het koppelnummer is een intern nummer, maar mag niet hetzelfde zijn als de patiëntidentificatie op een patiëntenkaart, ponsplaatje e.d. Het koppelnummer vervangt hierbij het de koppelfunctie van de patiëntcode. Bij herhaalde aanlevering van gegevens van dezelfde patiënt moet hetzelfde koppelnummer gebruikt worden. (Conform DIS)</xs:documentation>
+				<xs:documentation>Het koppelnummer is een intern nummer, maar mag
+					niet hetzelfde zijn als de patiëntidentificatie op een
+					patiëntenkaart, ponsplaatje e.d. Het koppelnummer vervangt hierbij
+					het de koppelfunctie van de patiëntcode. Bij herhaalde aanlevering
+					van gegevens van dezelfde patiënt moet hetzelfde koppelnummer
+					gebruikt worden. (Conform DIS)</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="pseudoBSN" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>Gepseudonimiseerde BSN-code conform de Wet Algemene bepalingen burgerservicenummer WABB.</xs:documentation>
+				<xs:documentation>Gepseudonimiseerde BSN-code conform de Wet
+					Algemene bepalingen burgerservicenummer WABB.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="geboorteMaand" type="xs:int">
@@ -183,64 +239,78 @@ Een instelling kan ervoor kiezen of ofwel de naam van de behandelaar in te voere
 		</xs:attribute>
 		<xs:attribute name="geslacht" type="xs:string" use="optional">
 			<xs:annotation>
-				<xs:documentation>Het geslacht van de patiënt  
-Waarden volgens Vektis (deze is gebaseerd op NEN): 
-*Instructie bij waarden Vektis: Code 9 niet invullen</xs:documentation>
+				<xs:documentation>Het geslacht van de patiënt
+					Waarden volgens Vektis (deze is gebaseerd op NEN):
+					*Instructie bij waarden Vektis: Code 9 niet invullen</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="postcodegebied" type="xs:int">
 			<xs:annotation>
-				<xs:documentation>De vier cijfers van de postcode  van het adres waar op de cliënt staat ingeschreven in het bevolkingsregister op het moment van het eerste contact met de hulpverlener.
-(9999 niet gebruiken als missing of onbekend!)</xs:documentation>
+				<xs:documentation>De vier cijfers van de postcode van het adres waar
+					op de cliënt staat ingeschreven in het bevolkingsregister op het
+					moment van het eerste contact met de hulpverlener.
+					(9999 niet gebruiken als missing of onbekend!)</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="geboortelandPatient" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>Het land waar de cliënt geboren is.</xs:documentation>
+				<xs:documentation>Het land waar de cliënt geboren is.
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="geboortelandVader" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>Het land waar de (biologische) vader van de cliënt geboren is.</xs:documentation>
+				<xs:documentation>Het land waar de (biologische) vader van de cliënt
+					geboren is.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="geboortelandMoeder" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>Het land waar de (biologische) moeder van de cliënt geboren is.</xs:documentation>
+				<xs:documentation>Het land waar de (biologische) moeder van de
+					cliënt geboren is.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="leefsituatie" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>De wijze waarop in het dagelijks leven met anderen wordt samengeleefd, in een particuliere huishouding. </xs:documentation>
+				<xs:documentation>De wijze waarop in het dagelijks leven met anderen
+					wordt samengeleefd, in een particuliere huishouding.
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="opleidingsniveau" type="xs:string" use="optional">
+		<xs:attribute name="opleidingsniveau" type="xs:string"
+			use="optional">
 			<xs:annotation>
-				<xs:documentation>De hoogst genoten afgeronde opleiding van de cliënt op het moment van het eerste hulpverleningscontact
-Conform SOI2009 (CBS).</xs:documentation>
+				<xs:documentation>De hoogst genoten afgeronde opleiding van de
+					cliënt op het moment van het eerste hulpverleningscontact
+					Conform SOI2009 (CBS).</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="patientReserve01" type="xs:string" use="optional">
-			<xs:annotation>
-				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="patientReserve02" type="xs:string" use="optional">
-			<xs:annotation>
-				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="patientReserve03" type="xs:string" use="optional">
+		<xs:attribute name="patientReserve01" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="patientReserve04" type="xs:string" use="optional">
+		<xs:attribute name="patientReserve02" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="patientReserve05" type="xs:string" use="optional">
+		<xs:attribute name="patientReserve03" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="patientReserve04" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="patientReserve05" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
@@ -248,54 +318,68 @@ Conform SOI2009 (CBS).</xs:documentation>
 	</xs:complexType>
 	<xs:complexType name="InstellingType">
 		<xs:annotation>
-			<xs:documentation> Structuur om instellinggegevens vast te leggen</xs:documentation>
+			<xs:documentation> Structuur om instellinggegevens vast te leggen
+			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Patient" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>De verschillende patienten van de zorginstelling</xs:documentation>
+					<xs:documentation>De verschillende patienten van de zorginstelling
+					</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:extension base="PatientType">
 							<xs:sequence>
-								<xs:element name="Zorgtraject" minOccurs="0" maxOccurs="unbounded">
+								<xs:element name="Zorgtraject" minOccurs="0"
+									maxOccurs="unbounded">
 									<xs:annotation>
-										<xs:documentation>De verschillende DBC zorgtrajecten</xs:documentation>
+										<xs:documentation>De verschillende DBC zorgtrajecten
+										</xs:documentation>
 									</xs:annotation>
 									<xs:complexType>
 										<xs:complexContent>
 											<xs:extension base="DBCZorgtrajectType">
 												<xs:sequence>
-													<xs:element name="NevendiagnoseCode" type="NevendiagnoseCodeType" minOccurs="0" maxOccurs="unbounded">
+													<xs:element name="NevendiagnoseCode" type="NevendiagnoseCodeType"
+														minOccurs="0" maxOccurs="unbounded">
 														<xs:annotation>
-															<xs:documentation>De verschillende nevendiagnoses</xs:documentation>
+															<xs:documentation>De verschillende nevendiagnoses
+															</xs:documentation>
 														</xs:annotation>
 													</xs:element>
-													<xs:element name="Behandelaar" type="BehandelaarType" minOccurs="0" maxOccurs="unbounded">
+													<xs:element name="Behandelaar" type="BehandelaarType"
+														minOccurs="0" maxOccurs="unbounded">
 														<xs:annotation>
-															<xs:documentation>De verschillende behandelaren</xs:documentation>
+															<xs:documentation>De verschillende behandelaren
+															</xs:documentation>
 														</xs:annotation>
 													</xs:element>
-													<xs:element name="DBCTraject" minOccurs="0" maxOccurs="unbounded">
+													<xs:element name="DBCTraject" minOccurs="0"
+														maxOccurs="unbounded">
 														<xs:annotation>
-															<xs:documentation>De verschillende DBC's</xs:documentation>
+															<xs:documentation>De verschillende DBC's
+															</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:complexContent>
 																<xs:extension base="DBCType">
 																	<xs:sequence>
-																		<xs:element name="Meting" minOccurs="0" maxOccurs="unbounded">
+																		<xs:element name="Meting" minOccurs="0"
+																			maxOccurs="unbounded">
 																			<xs:annotation>
-																				<xs:documentation>De verschillende metingen</xs:documentation>
+																				<xs:documentation>De verschillende metingen
+																				</xs:documentation>
 																			</xs:annotation>
 																			<xs:complexType>
 																				<xs:complexContent>
 																					<xs:extension base="MetingType">
 																						<xs:sequence>
-																							<xs:element name="Item" type="ItemType" minOccurs="0" maxOccurs="unbounded">
+																							<xs:element name="Item" type="ItemType"
+																								minOccurs="0" maxOccurs="unbounded">
 																								<xs:annotation>
-																									<xs:documentation>De verschillende items</xs:documentation>
+																									<xs:documentation>De verschillende items
+																									</xs:documentation>
 																								</xs:annotation>
 																							</xs:element>
 																						</xs:sequence>
@@ -304,10 +388,11 @@ Conform SOI2009 (CBS).</xs:documentation>
 																			</xs:complexType>
 																			<xs:unique name="PKItem">
 																				<xs:annotation>
-																					<xs:documentation>Primary key Item</xs:documentation>
+																					<xs:documentation>Primary key Item
+																					</xs:documentation>
 																				</xs:annotation>
-																				<xs:selector xpath="sbg:Item"/>
-																				<xs:field xpath="@itemnummer"/>
+																				<xs:selector xpath="sbg:Item" />
+																				<xs:field xpath="@itemnummer" />
 																			</xs:unique>
 																		</xs:element>
 																	</xs:sequence>
@@ -316,11 +401,12 @@ Conform SOI2009 (CBS).</xs:documentation>
 														</xs:complexType>
 														<xs:unique name="PKMeting">
 															<xs:annotation>
-																<xs:documentation>Primary key voor meting</xs:documentation>
+																<xs:documentation>Primary key voor meting
+																</xs:documentation>
 															</xs:annotation>
-															<xs:selector xpath="sbg:Meting"/>
-															<xs:field xpath="@typemeting"/>
-															<xs:field xpath="@gebruiktMeetinstrument"/>
+															<xs:selector xpath="sbg:Meting" />
+															<xs:field xpath="@typemeting" />
+															<xs:field xpath="@gebruiktMeetinstrument" />
 														</xs:unique>
 													</xs:element>
 												</xs:sequence>
@@ -331,22 +417,24 @@ Conform SOI2009 (CBS).</xs:documentation>
 										<xs:annotation>
 											<xs:documentation>Primary key voor DBC</xs:documentation>
 										</xs:annotation>
-										<xs:selector xpath="sbg:DBCTraject"/>
-										<xs:field xpath="@DBCTrajectnummer"/>
+										<xs:selector xpath="sbg:DBCTraject" />
+										<xs:field xpath="@DBCTrajectnummer" />
 									</xs:unique>
 									<xs:unique name="PKNevenDiagnoseCode">
 										<xs:annotation>
-											<xs:documentation>Primary key voor neven diagnose code</xs:documentation>
+											<xs:documentation>Primary key voor neven diagnose code
+											</xs:documentation>
 										</xs:annotation>
-										<xs:selector xpath="sbg:NevendiagnoseCode"/>
-										<xs:field xpath="@nevendiagnoseCode"/>
+										<xs:selector xpath="sbg:NevendiagnoseCode" />
+										<xs:field xpath="@nevendiagnoseCode" />
 									</xs:unique>
 									<xs:unique name="PKBehandelaar">
 										<xs:annotation>
-											<xs:documentation>Primary key voor behandelaar</xs:documentation>
+											<xs:documentation>Primary key voor behandelaar
+											</xs:documentation>
 										</xs:annotation>
-										<xs:selector xpath="sbg:Behandelaar"/>
-										<xs:field xpath="@alias"/>
+										<xs:selector xpath="sbg:Behandelaar" />
+										<xs:field xpath="@alias" />
 									</xs:unique>
 								</xs:element>
 							</xs:sequence>
@@ -357,43 +445,52 @@ Conform SOI2009 (CBS).</xs:documentation>
 					<xs:annotation>
 						<xs:documentation>Primary key voor Zorgtraject</xs:documentation>
 					</xs:annotation>
-					<xs:selector xpath="sbg:Zorgtraject"/>
-					<xs:field xpath="@zorgtrajectnummer"/>
+					<xs:selector xpath="sbg:Zorgtraject" />
+					<xs:field xpath="@zorgtrajectnummer" />
 				</xs:unique>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="zorgaanbiedercode" type="xs:string" use="required">
+		<xs:attribute name="zorgaanbiedercode" type="xs:string"
+			use="required">
 			<xs:annotation>
-				<xs:documentation>Een rechtspersoon die zorg aanbiedt 
-Conform AGB-codering COD031 (zorginstellingen) of COD181 (praktijken) van Vektis</xs:documentation>
+				<xs:documentation>Een rechtspersoon die zorg aanbiedt
+					Conform AGB-codering COD031 (zorginstellingen) of COD181 (praktijken) van
+					Vektis</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="zorgaanbiedernaam" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>Naam van de aanleverende instelling Te gebruiken bij communicatie tussen DNS en instelling (bv voor troubleshooting).</xs:documentation>
+				<xs:documentation>Naam van de aanleverende instelling Te gebruiken
+					bij communicatie tussen DNS en instelling (bv voor
+					troubleshooting).</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="instellingReserve01" type="xs:string" use="optional">
+		<xs:attribute name="instellingReserve01" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="instellingReserve02" type="xs:string" use="optional">
+		<xs:attribute name="instellingReserve02" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="instellingReserve03" type="xs:string" use="optional">
+		<xs:attribute name="instellingReserve03" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="instellingReserve04" type="xs:string" use="optional">
+		<xs:attribute name="instellingReserve04" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="instellingReserve05" type="xs:string" use="optional">
+		<xs:attribute name="instellingReserve05" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
@@ -401,57 +498,81 @@ Conform AGB-codering COD031 (zorginstellingen) of COD181 (praktijken) van Vektis
 	</xs:complexType>
 	<xs:complexType name="DBCZorgtrajectType">
 		<xs:annotation>
-			<xs:documentation> Structuur om DBC zorgtrajectgegevens vast te leggen</xs:documentation>
+			<xs:documentation> Structuur om DBC zorgtrajectgegevens vast te
+				leggen</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="zorgtrajectnummer" type="xs:string" use="required">
+		<xs:attribute name="zorgtrajectnummer" type="xs:string"
+			use="required">
 			<xs:annotation>
-				<xs:documentation>Unieke code voor het identificeren van het zorgtraject 
-Wordt door de instelling gegenereerd. Te gebruiken bij communicatie tussen DNS en instelling (bv voor troubleshooting).</xs:documentation>
+				<xs:documentation>Unieke code voor het identificeren van het
+					zorgtraject
+					Wordt door de instelling gegenereerd. Te gebruiken bij communicatie
+					tussen DNS en instelling (bv voor troubleshooting).
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="zorgdomeinCode" type="xs:string" use="required">
 			<xs:annotation>
-				<xs:documentation>Het zorgdomein is de eenheid waarover aparte benchmarks worden berekend. Hiertoe is door Stichting Benchmark GGZ het gehele GGZ-veld onderverdeeld in domeinen, waarbinnen het behandeleffect op dezelfde wijze wordt vastgesteld. Deze indeling lijkt veel op de wat “zorgcircuits” wordt genoemd, echter de hier gehanteerde indeling is op onderdelen wat gedetailleerder (vandaar een aparte term, om verwarring te voorkomen).</xs:documentation>
+				<xs:documentation>Het zorgdomein is de eenheid waarover aparte
+					benchmarks worden berekend. Hiertoe is door Stichting Benchmark GGZ
+					het gehele GGZ-veld onderverdeeld in domeinen, waarbinnen het
+					behandeleffect op dezelfde wijze wordt vastgesteld. Deze indeling
+					lijkt veel op de wat “zorgcircuits” wordt genoemd, echter de hier
+					gehanteerde indeling is op onderdelen wat gedetailleerder (vandaar
+					een aparte term, om verwarring te voorkomen).</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="locatiecode" type="xs:string" use="optional">
 			<xs:annotation>
-				<xs:documentation>De Locatiecode, conform DIS: Instelling_volgnr_DIS Volgnummer dat aangeeft waar het zorgtraject wordt uitgevoerd.
-Middels een vertaaltabel halen we hier de Regio code uit t.b.v. ondersteuning zorginkoopproces
-(Groepscode). </xs:documentation>
+				<xs:documentation>De Locatiecode, conform DIS: Instelling_volgnr_DIS
+					Volgnummer dat aangeeft waar het zorgtraject wordt uitgevoerd.
+					Middels een vertaaltabel halen we hier de Regio code uit t.b.v.
+					ondersteuning zorginkoopproces
+					(Groepscode). </xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="primaireDiagnoseCode" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>De psychiatrische hoofddiagnose die de basis vormt van de behandeling. Conform DIS (Codelijsten DBC-Onderhoud)</xs:documentation>
+				<xs:documentation>De psychiatrische hoofddiagnose die de basis vormt
+					van de behandeling. Conform DIS (Codelijsten DBC-Onderhoud)
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="GAFscore" type="xs:int">
 			<xs:annotation>
-				<xs:documentation>GAF = Global Assessment of Functioning, Schaal waarop het algemene functioneren wordt vastgelegd; As V van de DSM. Het haat om het functioneren ten tijde van assessment (dus gelijktijdig met de andere aangeleverde diagnoses).</xs:documentation>
+				<xs:documentation>GAF = Global Assessment of Functioning, Schaal
+					waarop het algemene functioneren wordt vastgelegd; As V van de DSM.
+					Het haat om het functioneren ten tijde van assessment (dus
+					gelijktijdig met de andere aangeleverde diagnoses).
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="zorgtrajectReserve01" type="xs:string" use="optional">
+		<xs:attribute name="zorgtrajectReserve01" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="zorgtrajectReserve02" type="xs:string" use="optional">
+		<xs:attribute name="zorgtrajectReserve02" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="zorgtrajectReserve03" type="xs:string" use="optional">
+		<xs:attribute name="zorgtrajectReserve03" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="zorgtrajectReserve04" type="xs:string" use="optional">
+		<xs:attribute name="zorgtrajectReserve04" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="zorgtrajectReserve05" type="xs:string" use="optional">
+		<xs:attribute name="zorgtrajectReserve05" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
@@ -459,27 +580,42 @@ Middels een vertaaltabel halen we hier de Regio code uit t.b.v. ondersteuning zo
 	</xs:complexType>
 	<xs:complexType name="NevendiagnoseCodeType">
 		<xs:annotation>
-			<xs:documentation> Structuur om nevendiagnosecode gegevens vast te leggen</xs:documentation>
+			<xs:documentation> Structuur om nevendiagnosecode gegevens vast te
+				leggen</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="nevendiagnoseCode" type="xs:string" use="required">
+		<xs:attribute name="nevendiagnoseCode" type="xs:string"
+			use="required">
 			<xs:annotation>
-				<xs:documentation>De classificatie van de volledige diagnose (op 5 assen) volgens de DSM-IV waar de behandeling zich voor de betreffende DBC op richt of op heeft gericht (excl. de primaire diagnose waarvoor een apart veld bestaat).
-Hierin kunnen ook codes voor As-III en As-IV worden opgegeven, indien van toepassing.</xs:documentation>
+				<xs:documentation>De classificatie van de volledige diagnose (op 5
+					assen) volgens de DSM-IV waar de behandeling zich voor de
+					betreffende DBC op richt of op heeft gericht (excl. de primaire
+					diagnose waarvoor een apart veld bestaat).
+					Hierin kunnen ook codes voor As-III en As-IV worden opgegeven, indien van
+					toepassing.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="DBCType">
 		<xs:annotation>
-			<xs:documentation> Structuur om DBC gegevens vast te leggen</xs:documentation>
+			<xs:documentation> Structuur om DBC gegevens vast te leggen
+			</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="DBCTrajectnummer" type="xs:string" use="required">
+		<xs:attribute name="DBCTrajectnummer" type="xs:string"
+			use="required">
 			<xs:annotation>
-				<xs:documentation>Het unieke identificatienummer van het aangeleverde DBC voor de zorgaanbieder. Een uniek nummer dat door de instelling wordt gegenereerd. Te gebruiken bij communicatie tussen DNS en instelling (bv voor troubleshooting).</xs:documentation>
+				<xs:documentation>Het unieke identificatienummer van het
+					aangeleverde DBC voor de zorgaanbieder. Een uniek nummer dat door
+					de instelling wordt gegenereerd. Te gebruiken bij communicatie
+					tussen DNS en instelling (bv voor troubleshooting).
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="DBCPrestatieCode" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>De DBC prestatiecode, die het afgesloten en gevalideerde DBC-traject beschrijft, waarin is opgenomen de doelgroep, de behandelduur in grove categorieën, initieel vs. vervolg DBC. </xs:documentation>
+				<xs:documentation>De DBC prestatiecode, die het afgesloten en
+					gevalideerde DBC-traject beschrijft, waarin is opgenomen de
+					doelgroep, de behandelduur in grove categorieën, initieel vs.
+					vervolg DBC. </xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="startdatumDBC" type="xs:date" use="required">
@@ -494,52 +630,70 @@ Hierin kunnen ook codes voor As-III en As-IV worden opgegeven, indien van toepas
 		</xs:attribute>
 		<xs:attribute name="datumEersteSessie" type="xs:date">
 			<xs:annotation>
-				<xs:documentation>Bij een initieel DBC is dit de datum van de eerste behandelsessie (en niet de eerste intakesessie). Bij een vervolgDBC is dit de datum van de sessie die het dichtst ligt bij de startdatum DBC. Deze wordt gebruikt als referentiepunt voor de voormeting</xs:documentation>
+				<xs:documentation>Bij een initieel DBC is dit de datum van de eerste
+					behandelsessie (en niet de eerste intakesessie). Bij een vervolgDBC
+					is dit de datum van de sessie die het dichtst ligt bij de
+					startdatum DBC. Deze wordt gebruikt als referentiepunt voor de
+					voormeting</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="datumLaatsteSessie" type="xs:date">
 			<xs:annotation>
-				<xs:documentation>De datum van de sessie die het dichtst ligt tegen de einddatum DBC. Deze wordt gebruikt als referentiepunt voor de eindmeting </xs:documentation>
+				<xs:documentation>De datum van de sessie die het dichtst ligt tegen
+					de einddatum DBC. Deze wordt gebruikt als referentiepunt voor de
+					eindmeting </xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="redenEindeDBC" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>De reden waarom de betreffende DBC wordt beëindigd.</xs:documentation>
+				<xs:documentation>De reden waarom de betreffende DBC wordt
+					beëindigd.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="redenNonResponseVoormeting" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>De reden waarom een traject is afgesloten, zonder dat er een voormeting is opgenomen.
-De gegevens zijn gewenst in verband met de mogelijkheid van een drop-out analyse  (selectieve non-response), maar nog niet leverbaar door de GGZ .  </xs:documentation>
+				<xs:documentation>De reden waarom een traject is afgesloten, zonder
+					dat er een voormeting is opgenomen.
+					De gegevens zijn gewenst in verband met de mogelijkheid van een
+					drop-out analyse (selectieve non-response), maar nog niet leverbaar
+					door de GGZ .  </xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="redenNonResponseNameting" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>De reden waarom een traject is afgesloten, zonder dat er een nameting is opgenomen.
-De gegevens zijn gewenst in verband met de mogelijkheid van een drop-out analyse  (selectieve non-response), maar nog niet leverbaar door de GGZ . </xs:documentation>
+				<xs:documentation>De reden waarom een traject is afgesloten, zonder
+					dat er een nameting is opgenomen.
+					De gegevens zijn gewenst in verband met de mogelijkheid van een
+					drop-out analyse (selectieve non-response), maar nog niet leverbaar
+					door de GGZ . </xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="dbctrajectReserve01" type="xs:string" use="optional">
+		<xs:attribute name="dbctrajectReserve01" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="dbctrajectReserve02" type="xs:string" use="optional">
+		<xs:attribute name="dbctrajectReserve02" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="dbctrajectReserve03" type="xs:string" use="optional">
+		<xs:attribute name="dbctrajectReserve03" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="dbctrajectReserve04" type="xs:string" use="optional">
+		<xs:attribute name="dbctrajectReserve04" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="dbctrajectReserve05" type="xs:string" use="optional">
+		<xs:attribute name="dbctrajectReserve05" type="xs:string"
+			use="optional">
 			<xs:annotation>
 				<xs:documentation>Voor zorgdomein specifieke data</xs:documentation>
 			</xs:annotation>
@@ -548,7 +702,8 @@ De gegevens zijn gewenst in verband met de mogelijkheid van een drop-out analyse
 	<xs:complexType name="ItemType">
 		<xs:attribute name="itemnummer" type="xs:string" use="required">
 			<xs:annotation>
-				<xs:documentation>Het nummer van het item in de volgorde van de vragenlijst</xs:documentation>
+				<xs:documentation>Het nummer van het item in de volgorde van de
+					vragenlijst</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="score" type="xs:decimal" use="required">

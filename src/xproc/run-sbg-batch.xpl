@@ -45,13 +45,20 @@
 		select="concat( //target[1]/ftp, '/', //@code[1], '_', //target[1]/@type, '_SBG_', $batch-year, '_', $batch-month, '_', //target[1]/@volgnummer, '.xml')">
 		<p:pipe step="sbg-batch" port="config" />
 	</p:variable>
+	
+	<p:add-attribute name="config-add-ts" match="//batch[1]" attribute-name="datumCreatie">
+		<p:with-option select="$timestamp" name="attribute-value"/>
+		<p:input port="source">
+			<p:pipe step="sbg-batch" port="config" />
+		</p:input>
+	</p:add-attribute>
 
 	<!--  alle logica zit in de xquery-modules -->
 	<p:xquery name="batch">
 		<p:input port="source">
-			<p:pipe step="sbg-batch" port="config" />
+			<p:pipe step="config-add-ts" port="result" />
 		</p:input>
-
+	
 		<p:input port="query">
 			<p:data href="../sbg-synq/batch-bmimport.xq" />
 		</p:input>

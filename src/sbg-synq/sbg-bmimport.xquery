@@ -40,8 +40,8 @@ return sbgbm:filter-atts( <Behandelaar primairOfNeven="{$pon}" beroep="{$beroep}
 (: TODO testcases role of @datum :)
 declare function sbgbm:batch-gegevens($za as element(zorgaanbieder)) as element(batch-gegevens) {
 let $batch := $za/batch[1],  (: voer alleen de de eerste batch uit :)
-    $ts := data($batch/@datum,
-    $today := fn:current-date()),
+    $ts := data($batch/@datumCreatie),
+    $today := fn:current-date(),
     $dom := fn:day-from-date($today),
     $default-eind := $today - xs:dayTimeDuration( concat( 'P', $dom, 'D' )), (: eind vorige maand :)
     $eind := (xs:date($batch/einddatumAangeleverdePeriode), $default-eind)[1], 
@@ -52,7 +52,7 @@ let $batch := $za/batch[1],  (: voer alleen de de eerste batch uit :)
     $start := (xs:date($batch/startdatumAangeleverdePeriode), $def-start)[1],
     $meetperiode := if ($batch/meetperiode castable as xs:yearMonthDuration )
                      then xs:yearMonthDuration($batch/meetperiode)
-                     else xs:yearMonthDuration('P3M'),
+                     else xs:yearMonthDuration('P3M')
     
 return <batch-gegevens>
     <meetperiode>{$meetperiode}</meetperiode>

@@ -442,38 +442,38 @@
 				<dbc DBCTrajectnummer="1" startdatumDBC="2011-03-16"
 					datumEersteSessie="2011-05-21" zorgtrajectnummer="00000001"
 					cl-zorgcircuit="1" koppelnummer="00000001" />
-				
-					<Meting sbgm:meting-id="000000012011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000001" />
-					<Meting sbgm:meting-id="000000012011-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
-						sbgm:koppelnummer="00000001" />
-					<Meting sbgm:meting-id="000000012011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000001" />
-					<Meting sbgm:meting-id="000000012011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000001" />
-					<Meting sbgm:meting-id="000000012011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000001" />
-					<Meting sbgm:meting-id="000000012011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000001" />
-					<Meting sbgm:meting-id="000000012012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000001" />
-					<Meting sbgm:meting-id="000000012012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000001" />
-					<Meting sbgm:meting-id="000000012012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000001" />
-					<Meting sbgm:meting-id="000000012012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000001" />
-				
+
+				<Meting sbgm:meting-id="000000012011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000001" />
+				<Meting sbgm:meting-id="000000012011-04-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
+					sbgm:koppelnummer="00000001" />
+				<Meting sbgm:meting-id="000000012011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000001" />
+				<Meting sbgm:meting-id="000000012011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000001" />
+				<Meting sbgm:meting-id="000000012011-10-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
+					sbgm:koppelnummer="00000001" />
+				<Meting sbgm:meting-id="000000012011-12-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
+					sbgm:koppelnummer="00000001" />
+				<Meting sbgm:meting-id="000000012012-01-31HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
+					sbgm:koppelnummer="00000001" />
+				<Meting sbgm:meting-id="000000012012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000001" />
+				<Meting sbgm:meting-id="000000012012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000001" />
+				<Meting sbgm:meting-id="000000012012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000001" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000012011-04-28HoNOS-prob"
@@ -486,38 +486,38 @@
 				<dbc DBCTrajectnummer="2" startdatumDBC="2011-03-16"
 					datumEersteSessie="2011-05-24" zorgtrajectnummer="00000002"
 					cl-zorgcircuit="1" koppelnummer="00000002" />
-				
-					<Meting sbgm:meting-id="000000022011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000002" />
-					<Meting sbgm:meting-id="000000022011-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
-						sbgm:koppelnummer="00000002" />
-					<Meting sbgm:meting-id="000000022011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000002" />
-					<Meting sbgm:meting-id="000000022011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000002" />
-					<Meting sbgm:meting-id="000000022011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000002" />
-					<Meting sbgm:meting-id="000000022011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000002" />
-					<Meting sbgm:meting-id="000000022012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000002" />
-					<Meting sbgm:meting-id="000000022012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000002" />
-					<Meting sbgm:meting-id="000000022012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000002" />
-					<Meting sbgm:meting-id="000000022012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000002" />
-				
+
+				<Meting sbgm:meting-id="000000022011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000002" />
+				<Meting sbgm:meting-id="000000022011-04-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
+					sbgm:koppelnummer="00000002" />
+				<Meting sbgm:meting-id="000000022011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000002" />
+				<Meting sbgm:meting-id="000000022011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000002" />
+				<Meting sbgm:meting-id="000000022011-10-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
+					sbgm:koppelnummer="00000002" />
+				<Meting sbgm:meting-id="000000022011-12-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
+					sbgm:koppelnummer="00000002" />
+				<Meting sbgm:meting-id="000000022012-01-31HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
+					sbgm:koppelnummer="00000002" />
+				<Meting sbgm:meting-id="000000022012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000002" />
+				<Meting sbgm:meting-id="000000022012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000002" />
+				<Meting sbgm:meting-id="000000022012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000002" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000022011-05-24HoNOS-prob"
@@ -530,38 +530,38 @@
 				<dbc DBCTrajectnummer="3" startdatumDBC="2011-03-16"
 					datumEersteSessie="2011-07-21" zorgtrajectnummer="00000003"
 					cl-zorgcircuit="1" koppelnummer="00000003" />
-				
-					<Meting sbgm:meting-id="000000032011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000003" />
-					<Meting sbgm:meting-id="000000032011-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
-						sbgm:koppelnummer="00000003" />
-					<Meting sbgm:meting-id="000000032011-07-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-24"
-						sbgm:koppelnummer="00000003" />
-					<Meting sbgm:meting-id="000000032011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000003" />
-					<Meting sbgm:meting-id="000000032011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000003" />
-					<Meting sbgm:meting-id="000000032011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000003" />
-					<Meting sbgm:meting-id="000000032012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000003" />
-					<Meting sbgm:meting-id="000000032012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000003" />
-					<Meting sbgm:meting-id="000000032012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000003" />
-					<Meting sbgm:meting-id="000000032012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000003" />
-				
+
+				<Meting sbgm:meting-id="000000032011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000003" />
+				<Meting sbgm:meting-id="000000032011-04-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
+					sbgm:koppelnummer="00000003" />
+				<Meting sbgm:meting-id="000000032011-07-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-24"
+					sbgm:koppelnummer="00000003" />
+				<Meting sbgm:meting-id="000000032011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000003" />
+				<Meting sbgm:meting-id="000000032011-10-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
+					sbgm:koppelnummer="00000003" />
+				<Meting sbgm:meting-id="000000032011-12-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
+					sbgm:koppelnummer="00000003" />
+				<Meting sbgm:meting-id="000000032012-01-31HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
+					sbgm:koppelnummer="00000003" />
+				<Meting sbgm:meting-id="000000032012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000003" />
+				<Meting sbgm:meting-id="000000032012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000003" />
+				<Meting sbgm:meting-id="000000032012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000003" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000032011-04-28HoNOS-prob"
@@ -569,123 +569,73 @@
 					sbgm:koppelnummer="00000003" />
 			</expected>
 		</test>
-		
-		<!--  fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
-		<!-- 
-		<test name="testscenario 00000004 met 4" code="00000004/4">
-			<setup>
-				<dbc DBCTrajectnummer="4" einddatumDBC="2012-01-13"
-					datumLaatsteSessie="2012-01-09" cl-zorgcircuit="1"
-					zorgtrajectnummer="00000004" koppelnummer="00000004" />
-				
-					<Meting sbgm:meting-id="000000042011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000004" />
-					<Meting sbgm:meting-id="000000042011-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
-						sbgm:koppelnummer="00000004" />
-					<Meting sbgm:meting-id="000000042011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000004" />
-					<Meting sbgm:meting-id="000000042011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000004" />
-					<Meting sbgm:meting-id="000000042011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000004" />
-					<Meting sbgm:meting-id="000000042011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000004" />
-					<Meting sbgm:meting-id="000000042012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000004" />
-					<Meting sbgm:meting-id="000000042012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000004" />
-					<Meting sbgm:meting-id="000000042012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000004" />
-					<Meting sbgm:meting-id="000000042012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000004" />
-				
-			</setup>
-			<expected>
-				<Meting sbgm:meting-id="000000042011-12-25HoNOS-prob"
-					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25" typemeting="2"
-					sbgm:koppelnummer="00000004" />
-			</expected>
-		</test>
-		 -->
-		 
-		<!--  fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
-		<!-- 
-		<test name="testscenario 00000005 met 5" code="00000005/5">
-			<setup>
-				<dbc DBCTrajectnummer="5" einddatumDBC="2012-01-13"
-					datumLaatsteSessie="2012-01-18" zorgtrajectnummer="00000005"
-					koppelnummer="00000005" cl-zorgcircuit="1" />
-				
-					<Meting sbgm:meting-id="000000052011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000005" />
-					<Meting sbgm:meting-id="000000052011-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
-						sbgm:koppelnummer="00000005" />
-					<Meting sbgm:meting-id="000000052011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000005" />
-					<Meting sbgm:meting-id="000000052011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000005" />
-					<Meting sbgm:meting-id="000000052011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000005" />
-					<Meting sbgm:meting-id="000000052011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000005" />
-					<Meting sbgm:meting-id="000000052012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000005" />
-					<Meting sbgm:meting-id="000000052012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000005" />
-					<Meting sbgm:meting-id="000000052012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000005" />
-					<Meting sbgm:meting-id="000000052012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000005" />
-				
-			</setup>
-			<expected>
-				<Meting sbgm:meting-id="000000052012-01-31HoNOS-prob"
-					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31" typemeting="2"
-					sbgm:koppelnummer="00000005" />
-			</expected>
-		</test>
-		 -->
-		 
+
+		<!-- fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
+		<!-- <test name="testscenario 00000004 met 4" code="00000004/4"> <setup> 
+			<dbc DBCTrajectnummer="4" einddatumDBC="2012-01-13" datumLaatsteSessie="2012-01-09" 
+			cl-zorgcircuit="1" zorgtrajectnummer="00000004" koppelnummer="00000004" /> 
+			<Meting sbgm:meting-id="000000042011-03-16HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-03-16" sbgm:koppelnummer="00000004" /> <Meting sbgm:meting-id="000000042011-04-28HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28" sbgm:koppelnummer="00000004" 
+			/> <Meting sbgm:meting-id="000000042011-05-24HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-05-24" sbgm:koppelnummer="00000004" /> <Meting sbgm:meting-id="000000042011-08-13HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13" sbgm:koppelnummer="00000004" 
+			/> <Meting sbgm:meting-id="000000042011-10-27HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-10-27" sbgm:koppelnummer="00000004" /> <Meting sbgm:meting-id="000000042011-12-25HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25" sbgm:koppelnummer="00000004" 
+			/> <Meting sbgm:meting-id="000000042012-01-31HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-01-31" sbgm:koppelnummer="00000004" /> <Meting sbgm:meting-id="000000042012-03-28HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28" sbgm:koppelnummer="00000004" 
+			/> <Meting sbgm:meting-id="000000042012-05-09HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-05-09" sbgm:koppelnummer="00000004" /> <Meting sbgm:meting-id="000000042012-06-14HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14" sbgm:koppelnummer="00000004" 
+			/> </setup> <expected> <Meting sbgm:meting-id="000000042011-12-25HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25" typemeting="2" sbgm:koppelnummer="00000004" 
+			/> </expected> </test> -->
+
+		<!-- fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
+		<!-- <test name="testscenario 00000005 met 5" code="00000005/5"> <setup> 
+			<dbc DBCTrajectnummer="5" einddatumDBC="2012-01-13" datumLaatsteSessie="2012-01-18" 
+			zorgtrajectnummer="00000005" koppelnummer="00000005" cl-zorgcircuit="1" /> 
+			<Meting sbgm:meting-id="000000052011-03-16HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-03-16" sbgm:koppelnummer="00000005" /> <Meting sbgm:meting-id="000000052011-04-28HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28" sbgm:koppelnummer="00000005" 
+			/> <Meting sbgm:meting-id="000000052011-05-24HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-05-24" sbgm:koppelnummer="00000005" /> <Meting sbgm:meting-id="000000052011-08-13HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13" sbgm:koppelnummer="00000005" 
+			/> <Meting sbgm:meting-id="000000052011-10-27HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-10-27" sbgm:koppelnummer="00000005" /> <Meting sbgm:meting-id="000000052011-12-25HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25" sbgm:koppelnummer="00000005" 
+			/> <Meting sbgm:meting-id="000000052012-01-31HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-01-31" sbgm:koppelnummer="00000005" /> <Meting sbgm:meting-id="000000052012-03-28HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28" sbgm:koppelnummer="00000005" 
+			/> <Meting sbgm:meting-id="000000052012-05-09HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-05-09" sbgm:koppelnummer="00000005" /> <Meting sbgm:meting-id="000000052012-06-14HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14" sbgm:koppelnummer="00000005" 
+			/> </setup> <expected> <Meting sbgm:meting-id="000000052012-01-31HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31" typemeting="2" sbgm:koppelnummer="00000005" 
+			/> </expected> </test> -->
+
 		<test name="testscenario 00000006 met 6" code="00000006/6">
 			<setup>
 				<dbc DBCTrajectnummer="6" einddatumDBC="2012-01-13"
 					startdatumDBC="2011-03-16" datumEersteSessie="2011-07-21"
 					datumLaatsteSessie="2012-01-18" koppelnummer="00000006"
 					zorgtrajectnummer="00000006" cl-zorgcircuit="1" />
-				
-					<Meting sbgm:meting-id="000000062011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000006" />
-					<Meting sbgm:meting-id="000000062011-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
-						sbgm:koppelnummer="00000006" />
-					<Meting sbgm:meting-id="000000062011-07-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-24"
-						sbgm:koppelnummer="00000006" />
-					<Meting sbgm:meting-id="000000062011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000006" />
-				
+
+				<Meting sbgm:meting-id="000000062011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000006" />
+				<Meting sbgm:meting-id="000000062011-04-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
+					sbgm:koppelnummer="00000006" />
+				<Meting sbgm:meting-id="000000062011-07-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-24"
+					sbgm:koppelnummer="00000006" />
+				<Meting sbgm:meting-id="000000062011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000006" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000062011-04-28HoNOS-prob"
@@ -693,92 +643,67 @@
 					sbgm:koppelnummer="00000006" />
 			</expected>
 		</test>
-		
-		<!--  fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
-		<!-- 
-		<test name="testscenario 00000007 met 7" code="00000007/7">
-			<setup>
-				<dbc DBCTrajectnummer="7" einddatumDBC="2012-01-13"
-					datumLaatsteSessie="2012-01-09" zorgtrajectnummer="00000007"
-					koppelnummer="00000007" cl-zorgcircuit="1" />
-				
-					<Meting sbgm:meting-id="000000072011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072011-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000007" />
-				
-			</setup>
-			<expected>
-				<Meting sbgm:meting-id="000000072011-12-25HoNOS-prob"
-					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25" typemeting="2"
-					sbgm:koppelnummer="00000007" />
-			</expected>
-		</test>
-		 -->
-		 
+
+		<!-- fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
+		<!-- <test name="testscenario 00000007 met 7" code="00000007/7"> <setup> 
+			<dbc DBCTrajectnummer="7" einddatumDBC="2012-01-13" datumLaatsteSessie="2012-01-09" 
+			zorgtrajectnummer="00000007" koppelnummer="00000007" cl-zorgcircuit="1" /> 
+			<Meting sbgm:meting-id="000000072011-03-16HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-03-16" sbgm:koppelnummer="00000007" /> <Meting sbgm:meting-id="000000072011-04-28HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28" sbgm:koppelnummer="00000007" 
+			/> <Meting sbgm:meting-id="000000072011-05-24HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-05-24" sbgm:koppelnummer="00000007" /> <Meting sbgm:meting-id="000000072011-08-13HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13" sbgm:koppelnummer="00000007" 
+			/> <Meting sbgm:meting-id="000000072011-10-27HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-10-27" sbgm:koppelnummer="00000007" /> <Meting sbgm:meting-id="000000072011-12-25HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25" sbgm:koppelnummer="00000007" 
+			/> <Meting sbgm:meting-id="000000072012-01-31HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-01-31" sbgm:koppelnummer="00000007" /> <Meting sbgm:meting-id="000000072012-03-28HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28" sbgm:koppelnummer="00000007" 
+			/> <Meting sbgm:meting-id="000000072012-05-09HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-05-09" sbgm:koppelnummer="00000007" /> <Meting sbgm:meting-id="000000072012-06-14HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14" sbgm:koppelnummer="00000007" 
+			/> </setup> <expected> <Meting sbgm:meting-id="000000072011-12-25HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25" typemeting="2" sbgm:koppelnummer="00000007" 
+			/> </expected> </test> -->
+
 		<test name="testscenario 00000007 met 8" code="00000007/8">
 			<setup>
 				<dbc DBCTrajectnummer="8" startdatumDBC="2012-01-21"
 					datumEersteSessie="2012-01-18" zorgtrajectnummer="00000007"
 					koppelnummer="00000007" cl-zorgcircuit="1" />
-				
-					<Meting sbgm:meting-id="000000072011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072011-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000007" />
-					<Meting sbgm:meting-id="000000072012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000007" />
-				
+
+				<Meting sbgm:meting-id="000000072011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000007" />
+				<Meting sbgm:meting-id="000000072011-04-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
+					sbgm:koppelnummer="00000007" />
+				<Meting sbgm:meting-id="000000072011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000007" />
+				<Meting sbgm:meting-id="000000072011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000007" />
+				<Meting sbgm:meting-id="000000072011-10-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
+					sbgm:koppelnummer="00000007" />
+				<Meting sbgm:meting-id="000000072011-12-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
+					sbgm:koppelnummer="00000007" />
+				<Meting sbgm:meting-id="000000072012-01-31HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
+					sbgm:koppelnummer="00000007" />
+				<Meting sbgm:meting-id="000000072012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000007" />
+				<Meting sbgm:meting-id="000000072012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000007" />
+				<Meting sbgm:meting-id="000000072012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000007" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000072011-12-25HoNOS-prob"
@@ -791,38 +716,38 @@
 				<dbc DBCTrajectnummer="10" startdatumDBC="2011-12-24"
 					datumEersteSessie="2011-12-24" koppelnummer="00000008"
 					cl-zorgcircuit="1" zorgtrajectnummer="00000008" />
-				
-					<Meting sbgm:meting-id="000000082011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082011-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000008" />
-				
+
+				<Meting sbgm:meting-id="000000082011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000008" />
+				<Meting sbgm:meting-id="000000082011-04-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
+					sbgm:koppelnummer="00000008" />
+				<Meting sbgm:meting-id="000000082011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000008" />
+				<Meting sbgm:meting-id="000000082011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000008" />
+				<Meting sbgm:meting-id="000000082011-10-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
+					sbgm:koppelnummer="00000008" />
+				<Meting sbgm:meting-id="000000082011-12-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
+					sbgm:koppelnummer="00000008" />
+				<Meting sbgm:meting-id="000000082012-01-31HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
+					sbgm:koppelnummer="00000008" />
+				<Meting sbgm:meting-id="000000082012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000008" />
+				<Meting sbgm:meting-id="000000082012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000008" />
+				<Meting sbgm:meting-id="000000082012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000008" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000082011-10-27HoNOS-prob"
@@ -831,92 +756,67 @@
 			</expected>
 		</test>
 
-		<!--  fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
-		<!-- 
-		<test name="testscenario 00000008 met 9" code="00000008/9">
-			<setup>
-				<dbc DBCTrajectnummer="9" einddatumDBC="2011-12-23"
-					datumLaatsteSessie="2011-12-23" cl-zorgcircuit="1"
-					zorgtrajectnummer="00000008" koppelnummer="00000008" />
-				
-					<Meting sbgm:meting-id="000000082011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082011-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000008" />
-					<Meting sbgm:meting-id="000000082012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000008" />
-				
-			</setup>
-			<expected>
-				<Meting sbgm:meting-id="000000082011-12-25HoNOS-prob"
-					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25" typemeting="2"
-					sbgm:koppelnummer="00000008" />
-			</expected>
-		</test>
-		 -->
-		 
+		<!-- fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
+		<!-- <test name="testscenario 00000008 met 9" code="00000008/9"> <setup> 
+			<dbc DBCTrajectnummer="9" einddatumDBC="2011-12-23" datumLaatsteSessie="2011-12-23" 
+			cl-zorgcircuit="1" zorgtrajectnummer="00000008" koppelnummer="00000008" /> 
+			<Meting sbgm:meting-id="000000082011-03-16HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-03-16" sbgm:koppelnummer="00000008" /> <Meting sbgm:meting-id="000000082011-04-28HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-28" sbgm:koppelnummer="00000008" 
+			/> <Meting sbgm:meting-id="000000082011-05-24HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-05-24" sbgm:koppelnummer="00000008" /> <Meting sbgm:meting-id="000000082011-08-13HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13" sbgm:koppelnummer="00000008" 
+			/> <Meting sbgm:meting-id="000000082011-10-27HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-10-27" sbgm:koppelnummer="00000008" /> <Meting sbgm:meting-id="000000082011-12-25HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25" sbgm:koppelnummer="00000008" 
+			/> <Meting sbgm:meting-id="000000082012-01-31HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-01-31" sbgm:koppelnummer="00000008" /> <Meting sbgm:meting-id="000000082012-03-28HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28" sbgm:koppelnummer="00000008" 
+			/> <Meting sbgm:meting-id="000000082012-05-09HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-05-09" sbgm:koppelnummer="00000008" /> <Meting sbgm:meting-id="000000082012-06-14HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14" sbgm:koppelnummer="00000008" 
+			/> </setup> <expected> <Meting sbgm:meting-id="000000082011-12-25HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25" typemeting="2" sbgm:koppelnummer="00000008" 
+			/> </expected> </test> -->
+
 		<test name="testscenario 00000009 met 11" code="00000009/11">
 			<setup>
 				<dbc DBCTrajectnummer="11" einddatumDBC="2012-01-13"
 					startdatumDBC="2011-03-16" datumEersteSessie="2011-05-21"
 					datumLaatsteSessie="2012-01-09" zorgtrajectnummer="00000009"
 					cl-zorgcircuit="1" koppelnummer="00000009" />
-				
-					<Meting sbgm:meting-id="000000092011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092011-05-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000009" />
-				
+
+				<Meting sbgm:meting-id="000000092011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092011-05-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092011-10-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092011-12-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092012-01-31HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000009" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000092011-05-11HoNOS-prob"
@@ -933,38 +833,38 @@
 					startdatumDBC="2012-01-21" datumEersteSessie="2012-01-18"
 					datumLaatsteSessie="2012-06-11" cl-zorgcircuit="1" koppelnummer="00000009"
 					zorgtrajectnummer="00000009" />
-				
-					<Meting sbgm:meting-id="000000092011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092011-05-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000009" />
-					<Meting sbgm:meting-id="000000092012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000009" />
-				
+
+				<Meting sbgm:meting-id="000000092011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092011-05-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092011-10-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092011-12-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092012-01-31HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000009" />
+				<Meting sbgm:meting-id="000000092012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000009" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000092011-12-25HoNOS-prob"
@@ -986,93 +886,68 @@
 			<expected />
 		</test>
 
-		<!--  fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
-		<!-- 
-		<test name="testscenario 00000011 met 14" code="00000011/14">
-			<setup>
-				<dbc DBCTrajectnummer="14" einddatumDBC="2012-01-13"
-					startdatumDBC="2010-12-11" datumEersteSessie="2010-12-01"
-					datumLaatsteSessie="2012-01-09" koppelnummer="00000011"
-					zorgtrajectnummer="00000011" cl-zorgcircuit="1" />
-				
-					<Meting sbgm:meting-id="000000112011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112011-05-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000011" />
-				
-			</setup>
-			<expected>
-				<Meting sbgm:meting-id="000000112011-12-25HoNOS-prob"
-					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25" typemeting="2"
-					sbgm:koppelnummer="00000011" />
-			</expected>
-		</test>
-		 -->
-		 
+		<!-- fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
+		<!-- <test name="testscenario 00000011 met 14" code="00000011/14"> <setup> 
+			<dbc DBCTrajectnummer="14" einddatumDBC="2012-01-13" startdatumDBC="2010-12-11" 
+			datumEersteSessie="2010-12-01" datumLaatsteSessie="2012-01-09" koppelnummer="00000011" 
+			zorgtrajectnummer="00000011" cl-zorgcircuit="1" /> <Meting sbgm:meting-id="000000112011-03-16HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16" sbgm:koppelnummer="00000011" 
+			/> <Meting sbgm:meting-id="000000112011-05-11HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-05-11" sbgm:koppelnummer="00000011" /> <Meting sbgm:meting-id="000000112011-05-24HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24" sbgm:koppelnummer="00000011" 
+			/> <Meting sbgm:meting-id="000000112011-08-13HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-08-13" sbgm:koppelnummer="00000011" /> <Meting sbgm:meting-id="000000112011-10-27HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27" sbgm:koppelnummer="00000011" 
+			/> <Meting sbgm:meting-id="000000112011-12-25HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-12-25" sbgm:koppelnummer="00000011" /> <Meting sbgm:meting-id="000000112012-01-31HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31" sbgm:koppelnummer="00000011" 
+			/> <Meting sbgm:meting-id="000000112012-03-28HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-03-28" sbgm:koppelnummer="00000011" /> <Meting sbgm:meting-id="000000112012-05-09HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09" sbgm:koppelnummer="00000011" 
+			/> <Meting sbgm:meting-id="000000112012-06-14HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-06-14" sbgm:koppelnummer="00000011" /> </setup> <expected> <Meting 
+			sbgm:meting-id="000000112011-12-25HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-12-25" typemeting="2" sbgm:koppelnummer="00000011" /> </expected> 
+			</test> -->
+
 		<test name="testscenario 00000011 met 15" code="00000011/15">
 			<setup>
 				<dbc DBCTrajectnummer="15" einddatumDBC="2012-07-23"
 					startdatumDBC="2012-01-21" datumEersteSessie="2012-01-18"
 					datumLaatsteSessie="2012-07-26" cl-zorgcircuit="1"
 					zorgtrajectnummer="00000011" koppelnummer="00000011" />
-				
-					<Meting sbgm:meting-id="000000112011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112011-05-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000011" />
-					<Meting sbgm:meting-id="000000112012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000011" />
-				
+
+				<Meting sbgm:meting-id="000000112011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000011" />
+				<Meting sbgm:meting-id="000000112011-05-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
+					sbgm:koppelnummer="00000011" />
+				<Meting sbgm:meting-id="000000112011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000011" />
+				<Meting sbgm:meting-id="000000112011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000011" />
+				<Meting sbgm:meting-id="000000112011-10-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
+					sbgm:koppelnummer="00000011" />
+				<Meting sbgm:meting-id="000000112011-12-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
+					sbgm:koppelnummer="00000011" />
+				<Meting sbgm:meting-id="000000112012-01-31HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
+					sbgm:koppelnummer="00000011" />
+				<Meting sbgm:meting-id="000000112012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000011" />
+				<Meting sbgm:meting-id="000000112012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000011" />
+				<Meting sbgm:meting-id="000000112012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000011" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000112011-12-25HoNOS-prob"
@@ -1089,38 +964,38 @@
 					startdatumDBC="2011-02-11" datumEersteSessie="2011-02-16"
 					datumLaatsteSessie="2011-05-09" koppelnummer="00000012"
 					cl-zorgcircuit="1" zorgtrajectnummer="00000012" />
-				
-					<Meting sbgm:meting-id="000000122011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122011-09-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-11"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122011-10-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-24"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122011-11-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-11-13"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122011-12-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-27"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122012-01-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-25"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122012-02-29HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-02-29"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000012" />
-				
+
+				<Meting sbgm:meting-id="000000122011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122011-09-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-11"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122011-10-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-24"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122011-11-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-11-13"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122011-12-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-27"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122012-01-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-25"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122012-02-29HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-02-29"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000012" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000122011-03-16HoNOS-prob"
@@ -1134,38 +1009,38 @@
 					startdatumDBC="2012-01-21" datumEersteSessie="2012-01-18"
 					datumLaatsteSessie="2012-07-26" cl-zorgcircuit="1"
 					zorgtrajectnummer="00000012" koppelnummer="00000012" />
-				
-					<Meting sbgm:meting-id="000000122011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122011-09-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-11"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122011-10-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-24"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122011-11-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-11-13"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122011-12-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-27"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122012-01-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-25"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122012-02-29HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-02-29"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000012" />
-					<Meting sbgm:meting-id="000000122012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000012" />
-				
+
+				<Meting sbgm:meting-id="000000122011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122011-09-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-11"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122011-10-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-24"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122011-11-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-11-13"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122011-12-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-27"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122012-01-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-25"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122012-02-29HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-02-29"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000012" />
+				<Meting sbgm:meting-id="000000122012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000012" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000122011-12-27HoNOS-prob"
@@ -1182,38 +1057,38 @@
 					startdatumDBC="2011-02-11" datumEersteSessie="2011-02-16"
 					datumLaatsteSessie="2011-11-09" zorgtrajectnummer="00000013"
 					cl-zorgcircuit="1" koppelnummer="00000013" />
-				
-					<Meting sbgm:meting-id="000000132011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132011-04-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-11"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132011-06-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-06-13"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132011-07-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-27"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132012-02-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-02-25"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132012-03-29HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-29"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132012-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-04-28"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132012-07-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-07-14"
-						sbgm:koppelnummer="00000013" />
-				
+
+				<Meting sbgm:meting-id="000000132011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132011-04-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-11"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132011-06-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-06-13"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132011-07-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-27"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132012-02-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-02-25"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132012-03-29HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-29"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132012-04-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-04-28"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132012-07-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-07-14"
+					sbgm:koppelnummer="00000013" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000132011-03-16HoNOS-prob"
@@ -1227,38 +1102,38 @@
 					startdatumDBC="2012-03-21" datumEersteSessie="2012-03-18"
 					datumLaatsteSessie="2012-07-26" koppelnummer="00000013"
 					cl-zorgcircuit="1" zorgtrajectnummer="00000013" />
-				
-					<Meting sbgm:meting-id="000000132011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132011-04-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-11"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132011-06-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-06-13"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132011-07-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-27"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132012-02-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-02-25"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132012-03-29HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-29"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132012-04-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-04-28"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000013" />
-					<Meting sbgm:meting-id="000000132012-07-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-07-14"
-						sbgm:koppelnummer="00000013" />
-				
+
+				<Meting sbgm:meting-id="000000132011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132011-04-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-11"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132011-06-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-06-13"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132011-07-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-27"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132012-02-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-02-25"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132012-03-29HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-29"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132012-04-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-04-28"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000013" />
+				<Meting sbgm:meting-id="000000132012-07-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-07-14"
+					sbgm:koppelnummer="00000013" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000132012-02-25HoNOS-prob"
@@ -1275,38 +1150,38 @@
 					startdatumDBC="2011-03-16" datumEersteSessie="2011-05-21"
 					datumLaatsteSessie="2011-09-20" zorgtrajectnummer="00000014"
 					cl-zorgcircuit="1" koppelnummer="00000014" />
-				
-					<Meting sbgm:meting-id="000000142011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142011-05-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142011-09-01HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-01"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142012-03-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-25"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142012-04-30HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-04-30"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142012-05-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-28"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142012-06-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-09"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142012-07-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-07-14"
-						sbgm:koppelnummer="00000014" />
-				
+
+				<Meting sbgm:meting-id="000000142011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000014" />
+				<Meting sbgm:meting-id="000000142011-05-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
+					sbgm:koppelnummer="00000014" />
+				<Meting sbgm:meting-id="000000142011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000014" />
+				<Meting sbgm:meting-id="000000142011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000014" />
+				<Meting sbgm:meting-id="000000142011-09-01HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-01"
+					sbgm:koppelnummer="00000014" />
+				<Meting sbgm:meting-id="000000142012-03-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-25"
+					sbgm:koppelnummer="00000014" />
+				<Meting sbgm:meting-id="000000142012-04-30HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-04-30"
+					sbgm:koppelnummer="00000014" />
+				<Meting sbgm:meting-id="000000142012-05-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-28"
+					sbgm:koppelnummer="00000014" />
+				<Meting sbgm:meting-id="000000142012-06-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-09"
+					sbgm:koppelnummer="00000014" />
+				<Meting sbgm:meting-id="000000142012-07-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-07-14"
+					sbgm:koppelnummer="00000014" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000142011-05-11HoNOS-prob"
@@ -1318,93 +1193,68 @@
 			</expected>
 		</test>
 
-		<!--  fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
-		<!-- 
-		<test name="testscenario 00000014 met 21" code="00000014/21">
-			<setup>
-				<dbc DBCTrajectnummer="21" einddatumDBC="2012-07-23"
-					startdatumDBC="2012-01-21" datumEersteSessie="2011-12-06"
-					datumLaatsteSessie="2012-07-26" koppelnummer="00000014"
-					zorgtrajectnummer="00000014" cl-zorgcircuit="1" />
-				
-					<Meting sbgm:meting-id="000000142011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142011-05-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142011-09-01HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-01"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142012-03-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-25"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142012-04-30HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-04-30"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142012-05-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-28"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142012-06-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-09"
-						sbgm:koppelnummer="00000014" />
-					<Meting sbgm:meting-id="000000142012-07-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-07-14"
-						sbgm:koppelnummer="00000014" />
-				
-			</setup>
-			<expected>
-				<Meting sbgm:meting-id="000000142012-07-14HoNOS-prob"
-					gebruiktMeetinstrument="HoNOS-prob" datum="2012-07-14" typemeting="2"
-					sbgm:koppelnummer="00000014" />
-			</expected>
-		</test>
-		 -->
-		 
+		<!-- fail: kan nooit alleen nameting aanleveren bij afgesloten DBC -->
+		<!-- <test name="testscenario 00000014 met 21" code="00000014/21"> <setup> 
+			<dbc DBCTrajectnummer="21" einddatumDBC="2012-07-23" startdatumDBC="2012-01-21" 
+			datumEersteSessie="2011-12-06" datumLaatsteSessie="2012-07-26" koppelnummer="00000014" 
+			zorgtrajectnummer="00000014" cl-zorgcircuit="1" /> <Meting sbgm:meting-id="000000142011-03-16HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16" sbgm:koppelnummer="00000014" 
+			/> <Meting sbgm:meting-id="000000142011-05-11HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-05-11" sbgm:koppelnummer="00000014" /> <Meting sbgm:meting-id="000000142011-05-24HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24" sbgm:koppelnummer="00000014" 
+			/> <Meting sbgm:meting-id="000000142011-08-13HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2011-08-13" sbgm:koppelnummer="00000014" /> <Meting sbgm:meting-id="000000142011-09-01HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-01" sbgm:koppelnummer="00000014" 
+			/> <Meting sbgm:meting-id="000000142012-03-25HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-03-25" sbgm:koppelnummer="00000014" /> <Meting sbgm:meting-id="000000142012-04-30HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-04-30" sbgm:koppelnummer="00000014" 
+			/> <Meting sbgm:meting-id="000000142012-05-28HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-05-28" sbgm:koppelnummer="00000014" /> <Meting sbgm:meting-id="000000142012-06-09HoNOS-prob" 
+			gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-09" sbgm:koppelnummer="00000014" 
+			/> <Meting sbgm:meting-id="000000142012-07-14HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-07-14" sbgm:koppelnummer="00000014" /> </setup> <expected> <Meting 
+			sbgm:meting-id="000000142012-07-14HoNOS-prob" gebruiktMeetinstrument="HoNOS-prob" 
+			datum="2012-07-14" typemeting="2" sbgm:koppelnummer="00000014" /> </expected> 
+			</test> -->
+
 		<test name="testscenario 00000015 met 22" code="00000015/22">
 			<setup>
 				<dbc DBCTrajectnummer="22" einddatumDBC="2012-01-13"
 					startdatumDBC="2011-03-16" datumEersteSessie="2011-05-21"
 					datumLaatsteSessie="2012-01-09" cl-zorgcircuit="1" koppelnummer="00000015"
 					zorgtrajectnummer="00000015" />
-				
-					<Meting sbgm:meting-id="000000152011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152011-05-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000015" />
-				
+
+				<Meting sbgm:meting-id="000000152011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152011-05-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152011-10-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152011-12-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152012-01-31HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000015" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000152011-05-11HoNOS-prob"
@@ -1421,38 +1271,38 @@
 					startdatumDBC="2012-01-21" datumEersteSessie="2012-01-18"
 					datumLaatsteSessie="2012-09-26" zorgtrajectnummer="00000015"
 					koppelnummer="00000015" cl-zorgcircuit="1" />
-				
-					<Meting sbgm:meting-id="000000152011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152011-05-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152011-10-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152011-12-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152012-01-31HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152012-03-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152012-05-09HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
-						sbgm:koppelnummer="00000015" />
-					<Meting sbgm:meting-id="000000152012-06-14HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
-						sbgm:koppelnummer="00000015" />
-				
+
+				<Meting sbgm:meting-id="000000152011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152011-05-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-11"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152011-10-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-10-27"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152011-12-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-12-25"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152012-01-31HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-31"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152012-03-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-28"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152012-05-09HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-05-09"
+					sbgm:koppelnummer="00000015" />
+				<Meting sbgm:meting-id="000000152012-06-14HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-06-14"
+					sbgm:koppelnummer="00000015" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000152011-12-25HoNOS-prob"
@@ -1466,38 +1316,38 @@
 					startdatumDBC="2011-03-16" datumEersteSessie="2011-04-21"
 					datumLaatsteSessie="2012-04-14" zorgtrajectnummer="00000016"
 					cl-zorgcircuit="1" koppelnummer="00000016" />
-				
-					<Meting sbgm:meting-id="000000162011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-04-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-11"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-06-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-06-13"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-07-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-27"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-08-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-25"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-09-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-28"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-11-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-11-28"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162012-01-01HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-01"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162012-03-01HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-01"
-						sbgm:koppelnummer="00000016" />
-				
+
+				<Meting sbgm:meting-id="000000162011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-04-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-11"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-06-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-06-13"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-07-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-27"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-08-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-25"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-09-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-28"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-11-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-11-28"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162012-01-01HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-01"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162012-03-01HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-01"
+					sbgm:koppelnummer="00000016" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000162011-04-11HoNOS-prob"
@@ -1514,38 +1364,38 @@
 					startdatumDBC="2012-04-21" datumEersteSessie="2012-04-18"
 					datumLaatsteSessie="2012-05-26" cl-zorgcircuit="1" koppelnummer="00000016"
 					zorgtrajectnummer="00000016" />
-				
-					<Meting sbgm:meting-id="000000162011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-04-11HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-11"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-05-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-06-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-06-13"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-07-27HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-27"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-08-25HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-25"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-09-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-28"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162011-11-28HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-11-28"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162012-01-01HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-01"
-						sbgm:koppelnummer="00000016" />
-					<Meting sbgm:meting-id="000000162012-03-01HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-01"
-						sbgm:koppelnummer="00000016" />
-				
+
+				<Meting sbgm:meting-id="000000162011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-04-11HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-11"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-05-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-24"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-06-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-06-13"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-07-27HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-27"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-08-25HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-25"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-09-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-09-28"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162011-11-28HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-11-28"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162012-01-01HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-01-01"
+					sbgm:koppelnummer="00000016" />
+				<Meting sbgm:meting-id="000000162012-03-01HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2012-03-01"
+					sbgm:koppelnummer="00000016" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000162012-03-01HoNOS-prob"
@@ -1558,20 +1408,20 @@
 				<dbc DBCTrajectnummer="26" startdatumDBC="2011-03-16"
 					datumEersteSessie="2011-03-16" cl-zorgcircuit="1" koppelnummer="00000017"
 					zorgtrajectnummer="00000017" />
-				
-					<Meting sbgm:meting-id="000000172011-02-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-02-16"
-						sbgm:koppelnummer="00000017" />
-					<Meting sbgm:meting-id="000000172011-03-15HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-15"
-						sbgm:koppelnummer="00000017" />
-					<Meting sbgm:meting-id="000000172011-04-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-24"
-						sbgm:koppelnummer="00000017" />
-					<Meting sbgm:meting-id="000000172011-05-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-13"
-						sbgm:koppelnummer="00000017" />
-				
+
+				<Meting sbgm:meting-id="000000172011-02-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-02-16"
+					sbgm:koppelnummer="00000017" />
+				<Meting sbgm:meting-id="000000172011-03-15HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-15"
+					sbgm:koppelnummer="00000017" />
+				<Meting sbgm:meting-id="000000172011-04-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-24"
+					sbgm:koppelnummer="00000017" />
+				<Meting sbgm:meting-id="000000172011-05-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-05-13"
+					sbgm:koppelnummer="00000017" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000172011-03-15HoNOS-prob"
@@ -1585,20 +1435,20 @@
 					startdatumDBC="2011-03-16" datumEersteSessie="2011-03-21"
 					datumLaatsteSessie="2011-09-18" cl-zorgcircuit="1" koppelnummer="00000018"
 					zorgtrajectnummer="00000018" />
-				
-					<Meting sbgm:meting-id="000000182011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000018" />
-					<Meting sbgm:meting-id="000000182011-04-15L-QOL"
-						gebruiktMeetinstrument="L-QOL" datum="2011-04-15"
-						sbgm:koppelnummer="00000018" />
-					<Meting sbgm:meting-id="000000182011-07-24L-QOL"
-						gebruiktMeetinstrument="L-QOL" datum="2011-07-24"
-						sbgm:koppelnummer="00000018" />
-					<Meting sbgm:meting-id="000000182011-08-13L-QOL"
-						gebruiktMeetinstrument="L-QOL" datum="2011-08-13"
-						sbgm:koppelnummer="00000018" />
-				
+
+				<Meting sbgm:meting-id="000000182011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000018" />
+				<Meting sbgm:meting-id="000000182011-04-15L-QOL"
+					gebruiktMeetinstrument="L-QOL" datum="2011-04-15"
+					sbgm:koppelnummer="00000018" />
+				<Meting sbgm:meting-id="000000182011-07-24L-QOL"
+					gebruiktMeetinstrument="L-QOL" datum="2011-07-24"
+					sbgm:koppelnummer="00000018" />
+				<Meting sbgm:meting-id="000000182011-08-13L-QOL"
+					gebruiktMeetinstrument="L-QOL" datum="2011-08-13"
+					sbgm:koppelnummer="00000018" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000182011-04-15L-QOL"
@@ -1615,20 +1465,20 @@
 					startdatumDBC="2011-03-16" datumEersteSessie="2011-03-21"
 					datumLaatsteSessie="2011-09-18" cl-zorgcircuit="1" koppelnummer="00000019"
 					zorgtrajectnummer="00000019" />
-				
-					<Meting sbgm:meting-id="000000192011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000019" />
-					<Meting sbgm:meting-id="000000192011-04-15SCL90"
-						gebruiktMeetinstrument="SCL90" datum="2011-04-15"
-						sbgm:koppelnummer="00000019" />
-					<Meting sbgm:meting-id="000000192011-07-24SCL90"
-						gebruiktMeetinstrument="SCL90" datum="2011-07-24"
-						sbgm:koppelnummer="00000019" />
-					<Meting sbgm:meting-id="000000192011-08-13SCL90"
-						gebruiktMeetinstrument="SCL90" datum="2011-08-13"
-						sbgm:koppelnummer="00000019" />
-				
+
+				<Meting sbgm:meting-id="000000192011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000019" />
+				<Meting sbgm:meting-id="000000192011-04-15SCL90"
+					gebruiktMeetinstrument="SCL90" datum="2011-04-15"
+					sbgm:koppelnummer="00000019" />
+				<Meting sbgm:meting-id="000000192011-07-24SCL90"
+					gebruiktMeetinstrument="SCL90" datum="2011-07-24"
+					sbgm:koppelnummer="00000019" />
+				<Meting sbgm:meting-id="000000192011-08-13SCL90"
+					gebruiktMeetinstrument="SCL90" datum="2011-08-13"
+					sbgm:koppelnummer="00000019" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000192011-04-15SCL90"
@@ -1644,26 +1494,58 @@
 				<dbc DBCTrajectnummer="29" startdatumDBC="2011-03-16"
 					datumEersteSessie="2011-03-21" cl-zorgcircuit="1"
 					zorgtrajectnummer="00000020" koppelnummer="00000020" />
-				
-					<Meting sbgm:meting-id="000000202011-03-16HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
-						sbgm:koppelnummer="00000020" />
-					<Meting sbgm:meting-id="000000202011-04-15HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-15"
-						sbgm:koppelnummer="00000020" />
-					<Meting sbgm:meting-id="000000202011-07-24HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-24"
-						sbgm:koppelnummer="00000020" />
-					<Meting sbgm:meting-id="000000202011-08-13HoNOS-prob"
-						gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
-						sbgm:koppelnummer="00000020" />
-				
+
+				<Meting sbgm:meting-id="000000202011-03-16HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16"
+					sbgm:koppelnummer="00000020" />
+				<Meting sbgm:meting-id="000000202011-04-15HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-04-15"
+					sbgm:koppelnummer="00000020" />
+				<Meting sbgm:meting-id="000000202011-07-24HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-07-24"
+					sbgm:koppelnummer="00000020" />
+				<Meting sbgm:meting-id="000000202011-08-13HoNOS-prob"
+					gebruiktMeetinstrument="HoNOS-prob" datum="2011-08-13"
+					sbgm:koppelnummer="00000020" />
+
 			</setup>
 			<expected>
 				<Meting sbgm:meting-id="000000202011-03-16HoNOS-prob"
 					gebruiktMeetinstrument="HoNOS-prob" datum="2011-03-16" typemeting="1"
 					sbgm:koppelnummer="00000020" />
 			</expected>
+		</test>
+	</group>
+	<group xmlns:sbgbm="http://sbg-synq.nl/sbg-benchmark">
+		<functie>sbgbm:filter-batchperiode</functie>
+		<beschrijving>selecteer patient naar gelang er dbcs zijn die in de
+			ingestelde batch-periode vallen</beschrijving>
+		<setup>
+			<batch-gegevens>
+				<meetperiode>P3M</meetperiode>
+				<startdatum>2011-06-01</startdatum>
+				<einddatum>2011-08-31</einddatum>
+			</batch-gegevens>
+		</setup>
+		<test name="testscenario Patient met DBC in periode" code="1">
+			<setup>
+				<Patient koppelnummer="11">
+					<Zorgtraject>
+						<DBCTraject startdatumDBC="2011-03-16" einddatumDBC="2011-06-12" />
+					</Zorgtraject>
+				</Patient>
+			</setup>
+			<expected><Patient koppelnummer="11"/></expected>	
+		</test>
+		<test name="testscenario Patient met DBC niet in periode" code="2">
+			<setup>
+				<Patient koppelnummer="12">
+					<Zorgtraject>
+						<DBCTraject startdatumDBC="2011-03-16" einddatumDBC="2011-09-13" />
+					</Zorgtraject>
+				</Patient>
+			</setup>
+			<expected/>	
 		</test>
 	</group>
 </tests>

@@ -3,7 +3,7 @@ declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
 
 
 
-(: laat alleen de attributen met een text-waarde door in de default namespace; stript de applicatie-attributen :)
+(: laat alleen de attributen met een text-waarde in de default namespace door; stript de applicatie-attributen :)
 (: filter de attributen van een fragment; breng het geheel over naar de sbggz ns :)
 declare function sbgbm:filter-atts( $nodes as element()* ) as element()* 
 {
@@ -61,38 +61,14 @@ return <batch-gegevens>
     <timestamp>{$ts}</timestamp>
 </batch-gegevens>
 };
-(: maak een doc met geldige datums voor de batch; val terug op default de 3 maanden tot eind vorige maand :)
-declare function sbgbm:batch-gegevens-old($za as element(zorgaanbieder)) as element(batch-gegevens) {
-let $batch := $za/batch[1],  (: voer alleen de de eerste batch uit :)
-    $now := fn:current-dateTime(),
-    $ts := (data($batch/@datum), $now)[1],
-    $today := fn:current-date(),
-    $dom := fn:day-from-date($today),
-    $default-eind := $today - xs:dayTimeDuration( concat( 'P', $dom, 'D' )), (: eind vorige maand :)
-    $eind := (xs:date($batch/einddatumAangeleverdePeriode), $default-eind)[1], 
-    $aanlever-periode := if ($batch/aanleverperiode castable as xs:yearMonthDuration ) 
-                         then xs:yearMonthDuration($batch/aanleverperiode) 
-                         else xs:yearMonthDuration('P3M'),  
-    $def-start := $eind - $aanlever-periode + xs:dayTimeDuration( 'P1D' ), (: begin v/d maand als $def-eind is eind v/d maand :) 
-    $start := (xs:date($batch/startdatumAangeleverdePeriode), $def-start)[1],
-    $meetperiode := if ($batch/meetperiode castable as xs:yearMonthDuration )
-                     then xs:yearMonthDuration($batch/meetperiode)
-                     else xs:yearMonthDuration('P3M'),
-    
-    $err := if ( $eind <= $start ) then error(QName('http://sbg-synq.nl/sbg-error', 'error:SBG001'), 'startdatumAangeleverdePeriode moet voor einddatumAangeleverdePeriode liggen', $za) else 'none' 
-return <batch-gegevens error="{$err}">
-    <meetperiode>{$meetperiode}</meetperiode>
-    <startdatum>{$start}</startdatum>
-    <einddatum>{$eind}</einddatum>
-    <timestamp>{$ts}</timestamp>
-</batch-gegevens>
-};
 
+(: inclusive :)
 declare function sbgbm:in-periode( $begin as xs:date, $eind as xs:date, $datum as xs:anyAtomicType? ) as xs:boolean
 {
     $datum castable as xs:date and xs:date($datum) >= $begin and xs:date($datum) <= $eind 
 };
 
+(: kijk of einddatum dbc in periode batch valt; laat ook dbc zonder einddatum door :)
 declare function sbgbm:dbc-in-periode-batch( $inst as element(batch-gegevens), $dbcs as element(DBCTraject)* ) 
 as element(DBCTraject)* 
 {
@@ -101,13 +77,13 @@ as element(DBCTraject)*
             then $dbc else ()
  };
     
-(: geef alleen de patienten met relevante dbcs TODO verplaatsen naar main :)
+(: geef alleen de patienten met relevante dbcs  :)
 declare function sbgbm:filter-batchperiode($inst as element(batch-gegevens), $patient-meting as element(Patient)*) 
 as element(Patient)* 
 {
 for $pm in $patient-meting
 let $dbcs := sbgbm:dbc-in-periode-batch($inst, $pm/Zorgtraject/DBCTraject)
-return if (count($dbcs)>0) then $pm else ()
+return if (count($dbcs) gt 0) then $pm else ()
 };
 
 

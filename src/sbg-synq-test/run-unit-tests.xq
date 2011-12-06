@@ -2,13 +2,14 @@
 import module namespace sbge="http://sbg-synq.nl/sbg-epd" at '../sbg-synq/sbg-epd.xquery';
 import module namespace sbgi="http://sbg-synq.nl/sbg-instrument" at '../sbg-synq/sbg-instrument.xquery';
 import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at '../sbg-synq/sbg-metingen.xquery';
+import module namespace sbgbm="http://sbg-synq.nl/sbg-benchmark" at '../sbg-synq/sbg-bmimport.xquery';
 (: declare variable $test-doc := doc( '../sbg-testdata/unit-tests.xml')/*; :)
 
 (: declare variable $test-doc as element()* external; 
 declare variable $test-doc := /*;
 :)
 
- declare variable $test-doc := doc( '../sbg-synq-test/unit-tests.xml')/*;
+ declare variable $test-doc := doc( 'unit-tests.xml')/*;
 
 (: filter atts of elts van de verkregen waarde ($actual) op basis van $expected:)
 (: expected in de setup wordt daarmee een sjabloon voor weergave :)
@@ -86,6 +87,20 @@ declare function local:test-koppelproces($tests as element(test)*, $zorgdomeinen
     return element { 'test' } { $test/@* union attribute { 'pass' } { $pass }, $test/*, $actual-elt }     
 };
 
+declare function local:test-filter-periode( $group as element(group)* ) as element(test)* {
+let $batch := $group/setup/batch-gegevens
+for $test in $group//test
+    (: we testen een filter, dus input en output hebben hetzelfde type :)
+    let $patient := $test/setup/Patient,
+        $expected := $test/expected/Patient,
+        
+        $actual := sbgbm:filter-batchperiode( $batch, $patient ),
+        
+        $pass := (exists($actual) and exists($expected)) or (not(exists($actual)) and not(exists($expected))),                      
+                  
+        $actual-elt := if ( $pass ) then () else element { 'actual' } { $actual }    
+    return element { 'test' } { $test/@* union attribute { 'pass' } { $pass }, $test/*, $actual-elt }
+};
 
 declare function local:run-tests() as element(result)
 {
@@ -102,6 +117,7 @@ return <group>{$group/*[not(local-name()='test')]}
     if ( $functie = 'sbge:selecteer-domein' ) then local:test-selecteer-zorgdomein( $tests, $zorgdomeinen )
     else if ( $functie = 'sbgi:bereken-totaalscore-sbg' ) then local:test-bereken-score( $tests, $instrumenten )
     else if ( $functie = 'sbge:patient-dbc-meting' ) then local:test-koppelproces( $tests, $zorgdomeinen  )
+    else if ( $functie = 'sbgbm:filter-batchperiode' ) then local:test-filter-periode( $group  )
      
     else if ( $functie = 'fall-through' ) then () else ()
      

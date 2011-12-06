@@ -120,6 +120,14 @@
 	<xsl:template match="setup/Meting">
 		<xsl:call-template name="html-div-col" />
 	</xsl:template>
+	
+	<xsl:template match="Patient">
+		<xsl:call-template name="html-div-col" />
+	</xsl:template>
+	
+	<xsl:template match="batch-gegevens">
+		<xsl:call-template name="html-div-col" />
+	</xsl:template>
 
 	<xsl:template match="value">
 		<xsl:value-of select="./text()" />

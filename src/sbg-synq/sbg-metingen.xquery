@@ -2,6 +2,7 @@ module namespace sbgm = "http://sbg-synq.nl/sbg-metingen";
 
 import module namespace sbgi="http://sbg-synq.nl/sbg-instrument" at 'sbg-instrument.xquery';
 
+(: wordt niet gebruikt :)
 declare function sbgm:meting-geldig( $meting as node(), $items as node()*, $instr as element(instrument)?, $score as xs:double )
 as xs:boolean
 {
@@ -15,7 +16,7 @@ as xs:boolean
   :)
 };
 
-
+(: wordt niet gebruikt :)
 declare function sbgm:meting-item-geldig( $metingdetail as node(), $instr as element(instrument)) as xs:boolean
 {
   (: score is een getal > 0 :)
@@ -33,21 +34,20 @@ as element(Meting)*
       $instr := $instrumenten-lib[@code=$m/gebruiktMeetinstrument],
       $score := if ( $m/totaalscoreMeting/text() castable as xs:double ) 
                 then xs:double($m/totaalscoreMeting/text() ) 
-                else sbgi:bereken-totaalscore($instr, $items),
-      $geldig := sbgm:meting-geldig( $m, $items, $instr, $score )
+                else sbgi:bereken-totaalscore($instr, $items)
       return 
       
       <Meting sbgm:meting-id="{$m/meting-id}" 
             sbgm:koppelnummer="{$m/koppelnummer}" 
-            sbgm:geldig="{$geldig}"
             datum="{$m/datum}" 
             gebruiktMeetinstrument="{$m/gebruiktMeetinstrument}" 
             totaalscoreMeting="{$score}">
 	{
 	  for $md in $items[itemnummer/text()]
 	  (: niet altijd een getal; order by xs:integer($md/itemnummer) :)
+	  order by xs:integer(replace($md/itemnummer, "[^0-9.-]", "")), $md/itemnummer
 	  return 
-	  <Item sbgm:geldig="{sbgm:meting-item-geldig($md, $instr)}" itemnummer="{$md/itemnummer}" score="{($md/score, $md/itemscore)[1]}"/>  (: PoC-data gebruikt abus. itemscore :)
+	  <Item itemnummer="{$md/itemnummer}" score="{($md/score, $md/itemscore)[1]}"/>  (: PoC-data gebruikt abus. itemscore :)
 	}
   </Meting>
 };

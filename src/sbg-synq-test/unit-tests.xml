@@ -1547,5 +1547,51 @@
 			</setup>
 			<expected/>	
 		</test>
+		<test name="testscenario 2 Patient met 1 DBC niet in periode" code="3">
+			<setup>
+				<Patient koppelnummer="13">
+					<Zorgtraject>
+						<DBCTraject startdatumDBC="2011-03-16" einddatumDBC="2011-09-13" />
+					</Zorgtraject>
+				</Patient>
+				<Patient koppelnummer="14">
+					<Zorgtraject>
+						<DBCTraject startdatumDBC="2011-03-16" einddatumDBC="2011-08-13" />
+					</Zorgtraject>
+				</Patient>
+			</setup>
+			<expected><Patient koppelnummer="14"/></expected>	
+		</test>
+		<test name="testscenario: 2 Patient met 0 DBC niet in periode" code="4">
+			<setup>
+				<Patient koppelnummer="13">
+					<Zorgtraject>
+						<DBCTraject startdatumDBC="2011-03-16" einddatumDBC="2011-06-12" />
+					</Zorgtraject>
+				</Patient>
+				<Patient koppelnummer="14">
+					<Zorgtraject>
+						<DBCTraject startdatumDBC="2011-03-16" einddatumDBC="2011-08-13" />
+					</Zorgtraject>
+				</Patient>
+			</setup>
+			<expected><Patient koppelnummer="14"/><Patient koppelnummer="13"/></expected>	
+		</test>
+		<test name="testscenario: 2 Patient zonder DBC in periode" code="5">
+			<setup>
+				<Patient koppelnummer="15">
+					<Zorgtraject>
+						<DBCTraject startdatumDBC="2011-03-16" einddatumDBC="2011-03-12" />
+					</Zorgtraject>
+				</Patient>
+				<Patient koppelnummer="16">
+					<Zorgtraject>
+						<DBCTraject startdatumDBC="2011-03-16" einddatumDBC="2011-11-13" />
+					</Zorgtraject>
+				</Patient>
+			</setup>
+			<expected/>	
+		</test>
+		
 	</group>
 </tests>

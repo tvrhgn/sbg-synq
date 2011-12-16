@@ -96,8 +96,9 @@ for $test in $group//test
         
         $actual := sbgbm:filter-batchperiode( $batch, $patient ),
         
-        $pass := (exists($actual) and exists($expected)) or (not(exists($actual)) and not(exists($expected))),                      
-                  
+        $check-result := every $pat in $expected satisfies index-of( $actual/@koppelnummer, $pat/@koppelnummer), 
+        $pass := (count($actual) eq count($expected) and $check-result),                 
+        
         $actual-elt := if ( $pass ) then () else element { 'actual' } { $actual }    
     return element { 'test' } { $test/@* union attribute { 'pass' } { $pass }, $test/*, $actual-elt }
 };

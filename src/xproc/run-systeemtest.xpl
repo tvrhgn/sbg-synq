@@ -4,11 +4,11 @@
 	xmlns:sbg="http://sbggz.nl/schema/import/5.0.1" xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
 	name="sbg-systeemtest">
 
-  <p:option name="report_dir" select="'/home/thijs/tmp/sbg-synq-out'"/>
+  <p:option name="report_dir" select="'../../sbg-synq-out'"/>
   <p:option name="checklist_html" select="'checklist.html'"/>
 
 	<p:input port="source">
-		<p:empty/>
+		<p:document href="../../sbg-synq-out/bmstore.xml"/>
 	</p:input>
 
 	<p:input port="sbg-synq-status">

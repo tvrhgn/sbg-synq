@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <test-results>
-	<test-info versie="0.9" datum="2011-10-31" type="sbg-synq">Als je sbg-synq gebruikt om het benchmark-import bestand aan te maken, profiteer je van garanties die de schema-validatie alleen niet biedt. 
+	<test-info versie="0.9" datum="2011-10-31" type="sbg-synq">Als je
+		sbg-synq gebruikt om het benchmark-import bestand aan te maken,
+		profiteer je van garanties die de schema-validatie alleen niet biedt.
 	</test-info>
 	<result waarde="true" bron="Koppelingen_3" type="sbg-synq"><!--Hebben de verschillende 
 			informatie stromen (DBC traject en Meting) betrekking op dezelfde patient. -->
@@ -42,7 +44,8 @@
 			en de sessie datum van beide betreffende meetmomenten opgeteld het kleinst 
 			is. -->
 		sbg-synq 0.9 gebruikt de afstand tussen voor/na meting bij de selectie
-		van het optimale meetpaar NB REGEL 1 (Kopelingen_9) is niet getest vanwege contradictie met interpretatie van Kopelingen_7 en _8 
+		van het optimale meetpaar NB REGEL 1 (Kopelingen_9) is niet getest
+		vanwege contradictie met interpretatie van Kopelingen_7 en _8
 	</result>
 	<result waarde="true" bron="Koppelingen_15" type="sbg-synq"><!--Wordt alleen 
 			die meting genomen bij een sessie, waarvan het verschil in data niet meer 
@@ -116,4 +119,22 @@
 		waarmee deze selectie gestuurd wordt (validatie SBG?). Er is nog geen
 		representatie van het aanlevercontract.
 	</result>
+	<result waarde="true" bron="Attribuut Controle_3" type="sbg-synq"><!-- Is dit 
+			de "vanaf" datum, die ook meegegeven is aan de opdracht tot samenstellen 
+			van het XML bestand. -->
+		sbg-synq 0.9 doet dit correct: de selectie wordt gestuurd door het
+		configuratie-bestand; zie unit-test sbgbm:filter-batchperiode
+	</result>
+	
+	<result waarde="true" bron="Attribuut Controle_71" type="sbg-synq"><!-- Is het 
+			koppelnummer geen patient identificatie. -->
+		het sbg-synq pipeline script run-sbg-batch.xpl vervangt de
+		koppelnummers uit epd door een SHA-waarde
+	</result>
+	<result waarde="true" bron="Attribuut Controle_73" type="sbg-synq"><!-- Is bij 
+			herhaalde aanlevering het koppelnummer per patient gelijk. -->
+			SHA-algoritme is hiervoor geschikt
+	</result>
+	
+
 </test-results>

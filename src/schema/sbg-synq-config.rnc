@@ -1,0 +1,31 @@
+grammar { 
+collection-elt = 	element collection { attribute name { xsd:NCName },
+					attribute elt { xsd:NCName },
+					attribute uri { xsd:anyURI }
+}
+filename = xsd:anyURI { pattern = "(/|\.).*" }
+bmimport-type = xsd:token { pattern = "TEST|PROD" }
+start = 			
+element zorgaanbieder {
+		attribute code { text },
+		element naam { text }, 
+		element batch {
+			attribute datum { xsd:date },
+			element meetperiode { xsd:duration },
+			element aanleverperiode { xsd:duration },
+			element einddatumAangeleverdePeriode { xsd:date }
+			}+,
+		element sbg-synq {
+				collection-elt+ 
+			},
+		element data {  
+				collection-elt+
+			},
+		element target { 
+			attribute type { bmimport-type },
+			attribute volgnummer { text },
+			element tmp { filename },
+			element ftp { filename }
+		}
+	}
+}

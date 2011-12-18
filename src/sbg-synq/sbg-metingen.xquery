@@ -16,7 +16,7 @@ as xs:boolean
   :)
 };
 
-(: wordt niet gebruikt :)
+(: future: is pas haalbaar als metingen worden gecached tussen verschillende uploads; wordt niet gebruikt :)
 declare function sbgm:meting-item-geldig( $metingdetail as node(), $instr as element(instrument)) as xs:boolean
 {
   (: score is een getal > 0 :)

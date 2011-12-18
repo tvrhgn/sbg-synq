@@ -8,13 +8,14 @@
 	<iso:let name="rx_hhmmss_alt"
 		value="'T[0-2][0-9]:[0-6][0-9]:[0-6][0-9]\.[0-9]+\+[0-2][0-9]:00'" />
 	<iso:let name="rx_dbc_diagnose" value="'(as(1|2)_[0-9.]+|nb)'" />
-	<iso:let name="cl-bestand"
-		value="'../schema/sbg-codelijst.xml'" />
-	
+	<iso:let name="rx_gafscore" value="'[0-9][0-9]?'" />
+
+	<iso:let name="cl-bestand" value="'../schema/sbg-codelijst.xml'" />
+
 	<iso:let name="codelijsten" value="doc($cl-bestand)/*" />
 	<iso:let name="cl-landen"
 		value="doc('/home/thijs/project/eclipse-rep/sbg-testdata/vektis-landen.xml')//land/@code" />
-	
+
 	<iso:let name="cl-leefsituatie"
 		value="$codelijsten//codelijst[@attribuut='leefsituatie']/item/@code" />
 	<iso:let name="cl-opleidingsniveau"
@@ -33,15 +34,17 @@
 		value="$codelijsten//codelijst[@attribuut='typeRespondent']/item/@code" />
 	<iso:let name="cl-aardmeting"
 		value="$codelijsten//codelijst[@attribuut='aardMeting']/item/@code" />
-		
+
 	<iso:pattern id="atts-BenchmarkImport">
-		<iso:rule context="sbggz:BenchmarkImport">
+		<iso:rule context="/sbggz:BenchmarkImport">
 			<iso:assert test="data(@versie) = '5.0'"
 				role="Attribuut Controle_12 + Attribuut Controle_13">Versie
 				batchimport; Wordt de juiste
-				versie getoond (5.0) + Attribuut
+				versie getoond (5.0) +
+				Attribuut
 				Controle_13 / Versie batchimport;
-				Wordt er altijd een waarde getoond
+				Wordt er altijd een waarde
+				getoond
 			</iso:assert>
 			<iso:assert
 				test="@startdatumAangeleverdePeriode and matches(@startdatumAangeleverdePeriode, $rx_datum2029 )"
@@ -262,13 +265,21 @@
 			<iso:assert
 				test="@primaireDiagnoseCode and matches(@primaireDiagnoseCode, $rx_dbc_diagnose )"
 				role="Attribuut Controle_96">
-				<iso:value-of select="$zt-ref" />
-				<iso:value-of select="@primaireDiagnoseCode" />
-				Attribuut Controle_96 / : primaireDiagnoseCode ontbreekt of ongeldig
-
-
-
+				Attribuut Controle_96 / : primaireDiagnoseCode ontbreekt of
+				ongeldig
 			</iso:assert>
+
+			<iso:assert test="exists(@locatiecode)" role="Attribuut Controle_91">
+				Attribuut
+				Controle_91 / : locatie verplicht
+			</iso:assert>
+			<iso:assert test="exists(./sbggz:NevendiagnoseCode)" role="Attribuut Controle_94">
+				Attribuut Controle_94 / : nevendiagnosecode verplicht
+			</iso:assert>
+			<iso:assert test="matches(@GAFscore, $rx_gafscore)" role="Attribuut Controle_89">
+				Attribuut Controle_89 / : gaf-score geldig
+			</iso:assert>
+
 			<iso:assert
 				test="count(distinct-values(./sbggz:NevendiagnoseCode/@nevendiagnoseCode)) = count(./sbggz:NevendiagnoseCode)"
 				role="Structuur Controles_16">Structuur Controles_16 / ; Alle
@@ -295,23 +306,18 @@
 				behandelaar; Wordt er altijd een
 				waarde getoond. Conditioneel
 				vereist </iso:assert>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		</iso:rule>
 
+	</iso:pattern>
+	<iso:pattern id="atts-nevendiagnose">
+		<iso:rule context="sbggz:NevendiagnoseCode">
+
+			<iso:assert test="matches(./@nevendiagnoseCode, $rx_dbc_diagnose )"
+				role="Attribuut Controle_93">
+				Attribuut Controle_93 / :
+				nevendiagnosecode geldig
+			</iso:assert>
+		</iso:rule>
 	</iso:pattern>
 	<iso:pattern id="atts-Behandelaar">
 		<iso:rule context="sbggz:Behandelaar">
@@ -328,8 +334,6 @@
 				of Neven; Valt de waarde altijd binnen de
 				gestelde reeks 1: Primair;
 				2: Neven </iso:assert>
-
-
 		</iso:rule>
 
 	</iso:pattern>
@@ -363,11 +367,11 @@
 				role="Attribuut Controle_58">Attribuut Controle_58 / Type Respondent;
 				Valt de waarde altijd
 				binnen de gestelde reeks  </iso:assert>
-
-
-
-
-
+			<iso:assert
+				test="count(sbggz:Item) eq count(distinct-values(sbggz:Item/@itemnummer))"
+				role="Structuur Controles_6">Structuur Controles_6 / Item;
+				itemnummer uniek in meting
+			</iso:assert>
 
 		</iso:rule>
 
@@ -386,42 +390,4 @@
 		</iso:rule>
 
 	</iso:pattern>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </iso:schema>

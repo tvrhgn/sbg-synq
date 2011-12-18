@@ -85,10 +85,6 @@ let $sbg-atts := element { 'batch-gegevens' } { $sbg-doc/@*, () },
                     and sbgtest:test-unique($dbc/sbg:Meting[@typemeting=2]/@gebruiktMeetinstrument)),
                     
                     
-    sbgtest:test-elt( 'Structuur Controles_6', 'itemnummer moet uniek zijn in meting',
-                    every $m in $meting
-                    satisfies sbgtest:test-unique( $m//sbg:Item/@itemnummer )),
-                    
      sbgtest:test-elt( 'Structuur Controles_7', 'zorgtrajectnummer uniek per patient',
                     every $p in $patient
                     satisfies sbgtest:test-unique( $p//sbg:Zorgtraject/@zorgtrajectnummer )),
@@ -100,15 +96,15 @@ let $sbg-atts := element { 'batch-gegevens' } { $sbg-doc/@*, () },
      (: sbgtest:test-elt('Structuur Controles_11', 'nevendiagnosecode uniek per zorgtraject voor elke patient',
                      every $p in $patient, $zt in $p/sbg:Zorgtraject 
                      satisfies sbgtest:test-unique( $zt/sbg:NevendiagnoseCode/@nevendiagnoseCode )),
+    sbgtest:test-elt( 'Attribuut Controle_3', 'OK: startdatumAangeleverdePeriode onderdeel van configuratie (ref unit-test?)',
+                     true()),
+                     
         :)             
-    
      
 
-    sbgtest:test-elt( 'Attribuut Controle_96', 'geldige diagnosecode', sbgtest:geldige-diagnose($zorgtraject/@primaireDiagnoseCode)),
+    (: sbgtest:test-elt( 'Attribuut Controle_96', 'geldige diagnosecode', sbgtest:geldige-diagnose($zorgtraject/@primaireDiagnoseCode)), :)
 
-     sbgtest:test-elt( 'Attribuut Controle_3', 'OK: startdatumAangeleverdePeriode onderdeel van configuratie (ref unit-test?)',
-                     true()),
-
+     
     sbgtest:test-elt( 'Attribuut Controle_22', 'getest in test-optimale-meting.xq', true()),
     
     

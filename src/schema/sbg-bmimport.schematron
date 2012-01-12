@@ -221,7 +221,7 @@
 				role="Attribuut Controle_77">Attribuut Controle_77 / Opleidingsniveau;
 				Valt de waarde altijd
 				binnen de gestelde reeks  </iso:assert>
-			<iso:assert test="matches(@postcodegebied, '[0-9]{4}')"
+			<iso:assert test="matches(@postcodegebied, '([1-9][0-9]{3})|(000[7-9])')"
 				role="Attribuut Controle_79">Attribuut Controle_79 / Postcodegebied;
 				Heeft de waarde een
 				lengte van 4 posities en is ze numeriek

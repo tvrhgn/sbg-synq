@@ -23,14 +23,14 @@
 	</sbg-synq>
 	
 	<!--  data-collecties, configuration over convention? wat doe je waar?
-		Row is de default waarde voor rij-uitvoer van Pentaho Data Integration
+		Row is de default waarde voor rij-uitvoer in Pentaho Data Integration prev Kettle
 		 -->
 	<data>
-		<collection name='behandelaar' elt='Row' uri='../../examples/PoC-data/Brondata_Behandelaar.xml'/>
-		<collection name='nevendiagnose' elt='Row' uri='../../examples/PoC-data/Brondata_NevendiagnoseCode.xml'/>
-		<collection name='epd' elt='Row' uri='../../examples/PoC-data/Brondata_sbg-epd.xml'/>
-		<collection name='rom' elt='Row' uri='../../examples/PoC-data/Brondata_sbg-meting.xml'/>
-		<collection name='rom-items' elt='Row' uri='../../examples/PoC-data/Brondata_sbg-item.xml'/>
+		<collection name='behandelaar' elt='Row' uri='../../examples/PoC/PoC-data/Brondata_Behandelaar.xml'/>
+		<collection name='nevendiagnose' elt='Row' uri='../../examples/PoC/PoC-data/Brondata_NevendiagnoseCode.xml'/>
+		<collection name='epd' elt='Row' uri='../../examples/PoC-data/PoC/Brondata_sbg-epd.xml'/>
+		<collection name='rom' elt='Row' uri='../../examples/PoC-data/PoC/Brondata_sbg-meting.xml'/>
+		<collection name='rom-items' elt='Row' uri='../../examples/PoC/PoC-data/Brondata_sbg-item.xml'/>
 	</data>
 	<!--  xproc-instellingen -->
 	<!--  NB in een productie configuratie zijn de padnamen absoluut -->

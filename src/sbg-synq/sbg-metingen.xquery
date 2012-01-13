@@ -40,17 +40,15 @@ as element(Meting)*
         union attribute { 'datum'} {$m/datum/text()}
         union attribute { 'gebruiktMeetinstrument'} {$m/gebruiktMeetinstrument/text()} 
         union attribute { 'totaalscoreMeting'} {$score}
-        union $meting/@*[index-of( ('aardMeting', 'typeRespondent'), local-name() ) 
+        union attribute { 'aardMeting' } { $m/aardMeting/text() }
+        union attribute { 'typeRespondent' } { $m/typeRespondent/text() } 
       return 
-      
       element { 'Meting' } { $atts,   
-	{
-	  for $md in $items[itemnummer/text()]
+		  for $md in $items[itemnummer/text()]
 	  (: niet altijd een getal :)
-	  order by xs:integer(replace($md/itemnummer, "[^0-9.-]", "")), $md/itemnummer
-	  return 
+	      order by xs:integer(replace($md/itemnummer, "[^0-9.-]", "")), $md/itemnummer
+	      return 
 	  <Item itemnummer="{$md/itemnummer}" score="{($md/score, $md/itemscore)[1]}"/>  (: PoC-data gebruikt abus. itemscore :)
 	}
-  </Meting>
-};
+  };
 

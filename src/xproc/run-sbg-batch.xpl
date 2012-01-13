@@ -15,7 +15,7 @@
 	</p:documentation>
 
 	<p:input port="config">
-		<p:document href="../../examples/zorgaanbieder-PoC.xml" />
+		<p:document href="../../examples/PoC/zorgaanbieder-PoC.xml" />
 	</p:input>
 
 	<p:output port="result">
@@ -30,10 +30,10 @@
 	<p:variable name="timestamp" select="current-dateTime()" />
 
 	<!--  gebruik het configuratiedocument om de bestandsnaam van de output op te bouwen -->
-	<p:variable name="batch-year" select="substring(//batch[1]/@datum, 1, 4 )">
+	<p:variable name="batch-year" select="substring(//batch[1]/einddatumAangeleverdePeriode, 1, 4 )">
 		<p:pipe step="sbg-batch" port="config" />
 	</p:variable>
-	<p:variable name="batch-month" select="substring(//batch[1]/@datum, 6, 2)">
+	<p:variable name="batch-month" select="substring(//batch[1]/einddatumAangeleverdePeriode, 6, 2)">
 		<p:pipe step="sbg-batch" port="config" />
 	</p:variable>
 

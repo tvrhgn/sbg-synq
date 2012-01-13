@@ -34,17 +34,19 @@ as element(Meting)*
       $instr := $instrumenten-lib[@code=$m/gebruiktMeetinstrument],
       $score := if ( $m/totaalscoreMeting/text() castable as xs:double ) 
                 then xs:double($m/totaalscoreMeting/text() ) 
-                else sbgi:bereken-totaalscore($instr, $items)
+                else sbgi:bereken-totaalscore($instr, $items),
+      $atts := attribute { 'sbgm:meting-id' } { $m/meting-id/text() } 
+        union attribute { 'sbgm:koppelnummer'} {$m/koppelnummer/text()} 
+        union attribute { 'datum'} {$m/datum/text()}
+        union attribute { 'gebruiktMeetinstrument'} {$m/gebruiktMeetinstrument/text()} 
+        union attribute { 'totaalscoreMeting'} {$score}
+        union $meting/@*[index-of( ('aardMeting', 'typeRespondent'), local-name() ) 
       return 
       
-      <Meting sbgm:meting-id="{$m/meting-id}" 
-            sbgm:koppelnummer="{$m/koppelnummer}" 
-            datum="{$m/datum}" 
-            gebruiktMeetinstrument="{$m/gebruiktMeetinstrument}" 
-            totaalscoreMeting="{$score}">
+      element { 'Meting' } { $atts,   
 	{
 	  for $md in $items[itemnummer/text()]
-	  (: niet altijd een getal; order by xs:integer($md/itemnummer) :)
+	  (: niet altijd een getal :)
 	  order by xs:integer(replace($md/itemnummer, "[^0-9.-]", "")), $md/itemnummer
 	  return 
 	  <Item itemnummer="{$md/itemnummer}" score="{($md/score, $md/itemscore)[1]}"/>  (: PoC-data gebruikt abus. itemscore :)

@@ -14,7 +14,7 @@
 
 	<iso:let name="codelijsten" value="doc($cl-bestand)/*" />
 	<iso:let name="cl-landen"
-		value="doc('/home/thijs/project/eclipse-rep/sbg-testdata/vektis-landen.xml')//land/@code" />
+		value="doc('../schema/vektis-landen.xml')//land/@code" />
 
 	<iso:let name="cl-leefsituatie"
 		value="$codelijsten//codelijst[@attribuut='leefsituatie']/item/@code" />

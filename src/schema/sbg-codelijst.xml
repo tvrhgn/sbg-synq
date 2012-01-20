@@ -1,4 +1,5 @@
 <!--  gekopieerd uit  SBG Dataprotocol Bijlage A MDS 20110204.pdf-->
+<!-- jan 2012: aangepast nalv  SBG Dataprotocol Bijlage A MDS 20111204.pdf -->
 <sbg-codelijsten versie="2011-02-04">
 	<codelijst attribuut="typemeting">
 		<item code="1">voormeting</item>
@@ -51,7 +52,7 @@
 	</codelijst>
 
 	<codelijst attribuut="zorgdomeinCode">
-		<item code="01">Volwassenen langd</item>
+		<item code="01">Volwassenen EPA</item>
 		<item code="02">Volwassenen kort</item>
 		<item code="04">Kinder- en Jeugd</item>
 		<item code="07">Forensisch Jeugd</item>
@@ -59,10 +60,8 @@
 			31 december 2008 i.v.m. DBBC</item>
 		<item code="09">Forensisch volwassenen niet in strafrechtelijk kader
 		</item>
-		<item code="20">Verslaving lang (care, gericht op klachten/symptomen
-			en functioneren)</item>
-		<item code="21">Verslaving kort (cure, gericht op klachten/symptomen
-			en gebruik)</item>
+		<item code="20">Verslaving care</item>
+		<item code="21">Verslaving cure</item>
 		<item code="30">Psychogeriatrie (Dementiezorg)</item>
 		<item code="31">Gerontopsychiatrie (Psych. Klachten bij ouderen 65+)
 		</item>

@@ -73,6 +73,7 @@ as element(Meting)*
         union attribute { 'aardMeting' } { $m/aardMeting/text() }
         union sbgm:instrument-att($instr) 
         union sbgm:respondent-att($m,$instr)
+        union sbgm:score-att($m,$items,$instr)
       return 
       element { 'Meting' } { $atts,   
 		  for $md in $items[itemnummer/text()]

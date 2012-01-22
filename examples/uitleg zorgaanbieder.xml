@@ -3,7 +3,7 @@
 
 <!-- AGB-code -->
 <zorgaanbieder code="88822777">
-	<!-- naam -->
+	<!-- naam; wordt gebruikt in voor bestandsnaam constructie in run-sbg-batch.xpl -->
 	<naam>Zorgaanbieder naam</naam>
 
 	<!-- periode instellingen voor batch; alleen de eerste batch (/zorgaanbieder/batch[1]) 

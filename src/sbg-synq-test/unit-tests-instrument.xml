@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests versie="0.7">
+	<setup>
+		<sbg-instrumenten>
+			<instrument code="MANSA" aantal-vragen="16">
+				<schaal code="TOT" min="12" max="84" definitie="sbg">
+					<items>1, 2, 3, 4, 5, 6, 8, 12, 13, 14, 15, 16</items>
+					<berekening functie="sum">Sommatie van de betreffende items
+					</berekening>
+				</schaal>
+			</instrument>
+			<instrument code="BSI" aantal-vragen="53" typeRespondent="01">
+				<naam>BSI Brief Symptom Inventory</naam>
+				<schaal min="0" max="4" code="TOT" definitie="sbg">
+					<items all="true">1 tot 53</items>
+					<berekening functie="avg">
+						Gemiddelde van alle items
+					</berekening>
+				</schaal>
+			</instrument>
+			<instrument code="OQ45-sd" aantal-vragen="45">
+				<naam>OQ-45 Outcome Questionaire</naam>
+				<schaal min="0" max="100" code="SD">
+					<items>2, 3, 5, 6, 8, 9, 10, 11, 13 , 15, 22, 23, 24 , 25, 27, 29,
+						31 , 33, 34, 35, 36, 40, 41, 42, 45
+					</items>
+					<omscoren min="0" max="4">13,24,31</omscoren>
+					<berekening functie="sum">Sommatie van de betreffende items
+					</berekening>
+				</schaal>
+			</instrument>
+			<instrument code="SCL90">
+				<naam>SCL-90 Symptom CheckList</naam>
+				<schaal min="0" max="999" code="TOT">
+					<items>1 tot 90</items>
+					<berekening>Sommatie van alle items</berekening>
+				</schaal>
+			</instrument>
+		</sbg-instrumenten>
+	</setup>
+	<group>
+		<functie>sbgi:bereken-totaalscore-sbg</functie>
+		<beschrijving>totaal-score van sbg-schaal</beschrijving>
+		<test name="mansa minimum" code="mansa_1">
+			<setup>
+				<meting instrument="MANSA">
+					<item>
+						<itemnummer>1</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>2</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>3</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>4</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>5</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>6</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>7</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>8</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>9</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>10</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>11</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>12</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>13</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>14</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>15</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>16</itemnummer>
+						<score>1</score>
+					</item>
+				</meting>
+			</setup>
+			<expected>
+				<value>12</value>
+			</expected>
+		</test>
+		<test name="mansa minimum 2: items 7, 9, 10 en 11 hebben geen invloed"
+			code="mansa_2">
+			<setup>
+				<meting instrument="MANSA">
+					<item>
+						<itemnummer>1</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>2</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>3</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>4</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>5</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>6</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>7</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>8</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>9</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>10</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>11</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>12</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>13</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>14</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>15</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>16</itemnummer>
+						<score>1</score>
+					</item>
+				</meting>
+			</setup>
+			<expected>
+				<value>12</value>
+			</expected>
+		</test>
+
+		<test name="mansa maximum" code="mansa_3">
+			<setup>
+				<meting instrument="MANSA">
+					<item>
+						<itemnummer>1</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>2</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>3</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>4</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>5</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>6</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>7</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>8</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>9</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>10</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>11</itemnummer>
+						<score>1</score>
+					</item>
+					<item>
+						<itemnummer>12</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>13</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>14</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>15</itemnummer>
+						<score>7</score>
+					</item>
+					<item>
+						<itemnummer>16</itemnummer>
+						<score>7</score>
+					</item>
+				</meting>
+			</setup>
+			<expected>
+				<value>84</value>
+			</expected>
+		</test>
+	</group>
+</tests>

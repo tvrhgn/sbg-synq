@@ -37,12 +37,16 @@
 		<p:pipe step="sbg-batch" port="config" />
 	</p:variable>
 
+	<p:variable name="za-naam" select="upper-case(replace( /zorgaanbieder/naam, ' ', '' ))">
+		<p:pipe step="sbg-batch" port="config" />
+	</p:variable>
+	
 	<p:variable name="tmp.doc" select="concat( //target[1]/tmp, '/', 'bmstore.xml')">
 		<p:pipe step="sbg-batch" port="config" />
 	</p:variable>
 	
 	<p:variable name="result.doc"
-		select="concat( //target[1]/ftp, '/', //@code[1], '_', //target[1]/@type, '_SBG_', $batch-year, '_', $batch-month, '_', //target[1]/@volgnummer, '.xml')">
+		select="concat( //target[1]/ftp, '/', //@code[1], '_', //target[1]/@type, '_', $za-naam, '_SBG_', $batch-year, '_', $batch-month, '_', //target[1]/@volgnummer, '.xml')">
 		<p:pipe step="sbg-batch" port="config" />
 	</p:variable>
 	

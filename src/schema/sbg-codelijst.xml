@@ -107,6 +107,7 @@
 		<item code="53">Hoger onderwĳs, eerste fase, hoog</item>
 		<item code="60">Hoger onderwĳs, tweede fase</item>
 		<item code="70">Hoger onderwĳs, derde fase</item>
+		<item code="99">Onbekend</item>
 	</codelijst>
 
 	<!--  actuele (2011) selecteerbare beroepen uit DBC-codelijst -->

@@ -119,7 +119,7 @@
 				role="Attribuut Controle_23">Attribuut Controle_23 / Datum Laatste Sessie; Is het formaat
 				van de datum "eejj-mm-dd"  </iso:assert>
 			<iso:assert
-				test="not(@redenEindeDBC) or contains('12345', @redenEindeDBC)"
+				test="not(@redenEindeDBC) or index-of(('1','2','3','4','5','6'), @redenEindeDBC)"
 				role="Attribuut Controle_25">Attribuut Controle_25 / DBC Reden Sluiten Code; Valt de waarde
 				altijd binnen de gestelde reeks  </iso:assert>
 			<iso:assert test="@DBCTrajectnummer" role="Attribuut Controle_27">Attribuut
@@ -301,11 +301,11 @@
 				Controle_100 /
 				Zorgtrajectnummer; Wordt er altijd een waarde getoond
 			</iso:assert>
-			<iso:assert test="not(sbggz:Behandelaar) or sbggz:Behandelaar/@alias"
+			<iso:assert test="sbggz:Behandelaar/@alias"
 				role="Attribuut Controle_15">Attribuut Controle_15 / Alias
 				behandelaar; Wordt er altijd een
-				waarde getoond. Conditioneel
-				vereist </iso:assert>
+				waarde getoond. was: Conditioneel
+				vereist; nu vereist: zorgtraject moet een behandelaar hebben en die behandelaar moet een alias hebben </iso:assert>
 		</iso:rule>
 
 	</iso:pattern>

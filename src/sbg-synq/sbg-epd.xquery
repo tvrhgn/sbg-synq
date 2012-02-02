@@ -1,20 +1,6 @@
 module namespace sbge = "http://sbg-synq.nl/sbg-epd";
 import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at 'sbg-metingen.xquery';
-(: declare namespace sbggz = "http://sbggz.nl/schema/import/5.0.1"; :)
-
-declare variable $sbge:dbc-atts := ('DBCTrajectnummer','DBCPrestatieCode','startdatumDBC','einddatumDBC','datumEersteSessie','datumLaatsteSessie','redenEindeDBC','redenNonResponseVoormeting','redenNonResponseNameting');
-declare variable $sbge:patient-atts := ('koppelnummer','geboorteJaar', 'geboorteMaand', 'geslacht', 'postcodegebied', 'geboortelandpatient', 'geboortelandVader', 'geboortelandMoeder', 'leefsituatie', 'opleidingsniveau');
-
-
-(: dient om te garanderen dat alleen geselecteerde attributen doorgegeven worden die bovendien een waarde moeten hebben :)
-(: hier wordt de elt content overgedragen naar atts :)
-(: TODO ? waarom niet hier de sbggz ns al hanteren en de mogelijkheid voor niet sbg-attributen open houden? antwoord: dan moet je Patient weer helemaal opnieuw opbouwen:)
-declare function sbge:build-sbg-atts($sbg-atts, $dbc-raw as node()?) as attribute()* {
-    for $att-name in $sbg-atts
-    let $val := $dbc-raw/*[local-name()=$att-name][string-length(.)>0][1]/text(),
-        $att := if ( $val ) then attribute { $att-name } { $val } else ()
-    return $att
-};
+import module namespace sbgem="http://sbg-synq.nl/epd-meting" at 'epd-meting.xquery';
 
 (: datum +/- periode inclusief :)
 declare function sbge:in-periode( $datum as xs:date, $peildatum as xs:date, $periode-voor as xs:yearMonthDuration, $periode-na as xs:yearMonthDuration ) as xs:boolean
@@ -22,22 +8,11 @@ declare function sbge:in-periode( $datum as xs:date, $peildatum as xs:date, $per
   $datum >= ($peildatum - $periode-voor) and $datum <= ($peildatum + $periode-na)
 };
 
-
-(: $meetperiode-voor := if ( $domein/meetperiode-voor/text() castable as xs:yearMonthDuration ) 
-                         then xs:yearMonthDuration($domein/meetperiode-voor/text())
-                         else  
-                            if ( $domein/meetperiode-voor/text() castable as xs:yearMonthDuration ) 
-                            then xs:yearMonthDuration( $domein/meetperiode/text())
-                            else xs:yearMonthDuration("P3M"),
-                            
-    $meetperiode-na := ($domein/meetperiode-na/text(), $domein/meetperiode/text(), xs:yearMonthDuration("P3M"))[1]
-    :)
-
 (: filter metingen binnen peildatums  +/- periode;  leid meetdomein en typemeting af; sorteer op afstand tot peildatum  :)
-(: bouw Meting opnieuw op; TODO bekijk xquery update:)
 (: voeg attributen toe om meting te typeren (voor/na, meetdomein) en de selectie optimaal te doen (afstand, voor/na peildatum) :)
+(: hier worden sbgem:Metingen omgebouwd tot Meting :)
 declare function sbge:metingen-in-periode( 
-$metingen as element(Meting)*,  
+$metingen as element(sbgem:Meting)*,  
 $domein as element(zorgdomein), 
 $peildatums as element(peildatums)
 ) 
@@ -54,17 +29,15 @@ let $type := $peildatum/@type,
                          else xs:yearMonthDuration("P3M")
 order by $type  (: de eerste toekenning van een meting is aan voormeting (testscenario 16) :) 
 return 
-    for $m in $metingen[data(@datum)]  (: todo datum moet een waarde hebben :)
+    for $m in $metingen[data(@datum)]
     let $afstand := xs:date($m/@datum) - xs:date($peildatum),
-        $voor-peildatum := $afstand le xs:dayTimeDuration('P0D'),
-        $meetdomein := $domein/meetdomein/naam[..//instrument/@code = $m/@gebruiktMeetinstrument]/text() (: ? is er dit altijd maar 1; waarom is meetdomein geen att van instrument ? :) 
+        $voor-peildatum := $afstand le xs:dayTimeDuration('P0D')
     order by abs(fn:days-from-duration($afstand))
     return if ( sbge:in-periode($m/@datum, $peildatum, $meetperiode-voor, $meetperiode-na ) ) then 
        element {'Meting' } {
                 $m/@*
                 union attribute { 'typemeting' } { $type } 
                 union attribute { 'sbge:afstand' } { $afstand }
-                union attribute { 'sbge:meetdomein' } { $meetdomein }  
                 union attribute { 'sbge:voor-peildatum' } { $voor-peildatum },
                 $m/*
         }
@@ -72,46 +45,20 @@ return
  };
 
 
-(: zorgdomein wordt geselecteerd adhv zorgcircuit, diagnose en locatie :)
-(: gebruik sbg-element cl-zorgcircuit :)
-(: primaireDiagnoseCode, cl-zorgcircuit, locatiecode zijn verplichte elementen van dbc :)
-declare function sbge:filter-domein ($dbc as node(), $domeinen as element(sbg-zorgdomeinen)) as element(zorgdomein)* 
-{
-let $diagnose := $dbc/primaireDiagnoseCode/text(),
-    $circuit := $dbc/cl-zorgcircuit/text(),
-    $locatie := $dbc/locatiecode/text()
-for $zd in $domeinen/zorgdomein
-let $rx-circuit := ($zd/koppel-dbc/@zorgcircuit, ".*")[1],
-    $rx-diagnose := ($zd/koppel-dbc/@diagnose, ".*")[1],
-    $rx-locatie := ($zd/koppel-dbc/@locatie, ".*")[1]
-where matches($circuit, $rx-circuit) and matches( $locatie, $rx-locatie ) and matches($diagnose, $rx-diagnose)
-return $zd
-};
-
-(: selecteer juist domein; het eerste zorgdomein dat in aanmerking komt; gebruik prioriteit aan de data-kant om selectie te sturen 'XX' is max code:)
-declare function sbge:selecteer-domein ($dbc as node(), $domeinen as element(sbg-zorgdomeinen)) as element(zorgdomein) {
-let $zds := for $domein in sbge:filter-domein($dbc, $domeinen) 
-                    union <zorgdomein code='XX'><naam>onbekend</naam></zorgdomein>
-            order by $domein/koppel-dbc/@priority empty greatest, $domein/@code
-            return $domein
- return $zds[1]
-};
-
-
 (: de datum-relaties (begin/eind) van de dbc bepalen of een meting het type 1: voor- of 2: nameting krijgt :)  
 (: ken aan een dbc twee geldige peildatums toe: voorkeur voor de sessiedatums, terugval op begin/eind, default-waarden :)
 declare function sbge:dbc-peildatums ($dbc as node()) as element(peildatums) {
-let $begin := if ( $dbc/datumEersteSessie/text() castable as xs:date ) 
-              then xs:date($dbc/datumEersteSessie)
+let $begin := if ( data($dbc/@datumEersteSessie) castable as xs:date ) 
+              then xs:date(data($dbc/@datumEersteSessie))
               else 
-                 if  ( $dbc/startdatumDBC/text() castable as xs:date ) 
-                 then xs:date($dbc/startdatumDBC) 
+                 if  ( data($dbc/@startdatumDBC) castable as xs:date ) 
+                 then xs:date(data($dbc/@startdatumDBC)) 
                  else xs:date('1900-01-01'),
-     $eind := if ( $dbc/datumLaatsteSessie/text() castable as xs:date ) 
-              then xs:date($dbc/datumLaatsteSessie) 
+     $eind := if ( data($dbc/@datumLaatsteSessie) castable as xs:date ) 
+              then xs:date(data($dbc/@datumLaatsteSessie)) 
               else 
-                 if ( $dbc/einddatumDBC/text() castable as xs:date ) 
-                 then xs:date($dbc/einddatumDBC) 
+                 if ( data($dbc/@einddatumDBC) castable as xs:date ) 
+                 then xs:date(data($dbc/@einddatumDBC)) 
                  else xs:date('2100-01-01')
      return <peildatums>
                 <datum type="1">{$begin}</datum>
@@ -124,9 +71,9 @@ let $begin := if ( $dbc/datumEersteSessie/text() castable as xs:date )
 (: een meetpaar bevat maximaal 2 metingen van hetzelfde instrument; per meetdomein wordt maximaal 1 meetpaar geselecteerd :)
 declare function sbge:selecteer-meetpaar ($kandidaten as element(Meting)*) as element(meet-paar)* 
 {
-    for $meetdomein in distinct-values($kandidaten/@sbge:meetdomein)
-    let $voormetingen := $kandidaten[@sbge:meetdomein=$meetdomein][@typemeting='1'],
-        $nametingen := $kandidaten[@sbge:meetdomein=$meetdomein][@typemeting='2']
+    for $meetdomein in distinct-values($kandidaten/@sbgem:meetdomein)
+    let $voormetingen := $kandidaten[@sbgem:meetdomein eq $meetdomein][@typemeting eq'1'],
+        $nametingen := $kandidaten[@sbgem:meetdomein eq $meetdomein][@typemeting eq '2']
     return 
         for $instr in distinct-values($voormetingen/@gebruiktMeetinstrument union $nametingen/@gebruiktMeetinstrument)  (: vind nameting, ook als er geen voormeting is :)
         let $bbh-nametingen := $nametingen[@gebruiktMeetinstrument = $instr],
@@ -146,47 +93,58 @@ declare function sbge:selecteer-meetpaar ($kandidaten as element(Meting)*) as el
     </meet-paar>
  };
 
-(: deprecated  Patient//Meting bevat de optimale metingen; ?:)
-declare function sbge:x-optimale-meetpaar ($paren as element(meet-paar)*) as element(Meting)* 
+(: een zorgtraject heeft al een zorgdomein bepaald door zorgcircuit, locatie en diagnose
+als er een conflict is met het zorgdomein van de metingen, wordt het eerste zorgdomein van de metingen genomen
+Dit dient om uitval van metingen te beperken.
+Opm: dit maakt de betekenis van zorgdomein dus vager
+distinct-values( tokenize( data($metingen/@zorgdomein), ' ')) 
+:)
+declare function sbge:bepaal-zorgdomein ( $zorgtraject as element(sbgem:Zorgtraject), $metingen as element(sbgem:Meting)* ) 
+as xs:string
 {
-    $paren[count(Meting)=2][1]//Meting
+let $vals := string-join(distinct-values( data($metingen/@sbgem:zorgdomein))),
+    $zorgdomein-kandidaten := tokenize($vals, ' ')
+return if ( index-of( ($zorgdomein-kandidaten, 'XX'), $zorgtraject/@sbgem:zorgdomeinCode ) ) 
+then $zorgtraject/@sbgem:zorgdomeinCode  (: geen conflict :)
+else  ($zorgdomein-kandidaten, $zorgtraject/@sbgem:zorgdomeinCode, 'XX')[1]
 };
 
-(: stelregel in functioneel programmeren: een functie van meer dan 7 regels is te complex... :)
-declare function sbge:patient-dbc-meting( 
-    $dbcs as node()*, 
-    $metingen as element(Meting)*, 
-    $domeinen as element(sbg-zorgdomeinen) ) 
+
+
+(: vorm de sbgemPatienten om in Patienten door de metingen te filteren en toe te voegen aan de juiste DBC :)
+declare function sbge:patient-dbc-meting( $patienten as element(sbgem:Patient)*, $domeinen as element(sbg-zorgdomeinen) ) 
 as element(Patient) *
 {
-for $client in distinct-values( $dbcs/koppelnummer )
-let $client-dbcs := $dbcs[koppelnummer = $client]
+for $client in $patienten
+let $clientmetingen := $client/sbgem:Meting
 return 
    element { 'Patient' } 
-           { sbge:build-sbg-atts( $sbge:patient-atts, $client-dbcs[1] ), 
-       for $zt in distinct-values($client-dbcs/zorgtrajectnummer)
-       let $zt-dbcs := $client-dbcs[zorgtrajectnummer = $zt],
-           $eerste-dbc := $zt-dbcs[1],   (: ga uit van 1 zdomein, diagnosecode etc voor alle dbcs in dit zorgtraject :)
-           $zorgdomein := sbge:selecteer-domein( $eerste-dbc, $domeinen )
+           { $client/@*, 
+       for $zt in $client/sbgem:Zorgtraject
+       (: kijk of de metingen verwijzen naar een ander zorgdomein :)
+       let $zorgdomein-code := sbge:bepaal-zorgdomein( $zt, $clientmetingen )
        return 
           element { 'Zorgtraject' } 
-                  { attribute { 'zorgtrajectnummer' } { $zt} 
-                    union attribute { 'zorgdomeinCode' } { $zorgdomein/@code }
-                    union attribute { 'primaireDiagnoseCode' } { $eerste-dbc/primaireDiagnoseCode }
-                    union attribute { 'locatiecode' } { $eerste-dbc/locatiecode }
-                    union attribute { 'GAFscore' } { $eerste-dbc/GAFscore }
+                  { $zt/@*[local-name() ne 'sbgem:zorgdomeinCode']
+                  union attribute { 'zorgdomeinCode' } { $zorgdomein-code }
                     ,
-                  for $dbc in $zt-dbcs
-                  let $clientmetingen := $metingen[@sbgm:koppelnummer=$dbc/koppelnummer],
-                      $peildatums := sbge:dbc-peildatums($dbc),
+                  for $dbc in $zt/sbgem:DBCTraject
+                    (: selecteer alleen metingen die geldig zijn binnen het zorgdomein :)
+                  let $zorgdomein-metingen := $clientmetingen[@zorgdomein eq $zorgdomein-code],
+                    (: het zorgdomein-object met oa de waarden voor/na-periode :)
+                       $zorgdomein := $domeinen//zorgdomein[@code eq $zorgdomein-code]
+                  
+                  let $peildatums := sbge:dbc-peildatums($dbc),
                       $metingen := sbge:metingen-in-periode($clientmetingen, $zorgdomein, $peildatums),
                       $meetparen := sbge:selecteer-meetpaar($metingen),
-                      $optimale-meetpaar := if ( $dbc/einddatum ) 
+                      $optimale-meetpaar := $meetparen
+                      (: if ( $dbc/einddatum ) 
                                             then $meetparen[count(Meting)=2]//Meting 
-                                            else $meetparen//Meting[@typemeting='1']
+                                            else $meetparen//Meting[@typemeting='1'] :)
                   return 
                     element { 'DBCTraject' } 
-                            { sbge:build-sbg-atts($sbge:dbc-atts, $dbc), $optimale-meetpaar }
+                            { $dbc/@*,
+                              $optimale-meetpaar }
       }
     }
 };

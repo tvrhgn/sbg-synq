@@ -501,8 +501,7 @@
 			<xs:documentation> Structuur om DBC zorgtrajectgegevens vast te
 				leggen</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="zorgtrajectnummer" type="xs:string"
-			use="required">
+        <xs:attribute name="zorgtrajectnummer" type="xs:string" use="required">
 			<xs:annotation>
 				<xs:documentation>Unieke code voor het identificeren van het
 					zorgtraject
@@ -511,7 +510,7 @@
 				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="zorgdomeinCode" type="xs:string" use="required">
+        <xs:attribute name="zorgdomeinCode" type="xs:string" use="required">
 			<xs:annotation>
 				<xs:documentation>Het zorgdomein is de eenheid waarover aparte
 					benchmarks worden berekend. Hiertoe is door Stichting Benchmark GGZ

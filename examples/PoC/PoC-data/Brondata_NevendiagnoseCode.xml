@@ -239,4 +239,10 @@
     <zorgtrajectnummer>20</zorgtrajectnummer>
     <nevendiagnoseCode>as1_5.01.01</nevendiagnoseCode>
   </Row>
+  <Row>
+    <zorgaanbiedercode>00022011</zorgaanbiedercode>
+    <koppelnummer>00000021</koppelnummer>
+    <zorgtrajectnummer>21</zorgtrajectnummer>
+    <nevendiagnoseCode>as1_5.01.01</nevendiagnoseCode>
+  </Row>
 </Rows>

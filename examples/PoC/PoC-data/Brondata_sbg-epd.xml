@@ -85,6 +85,7 @@
     <GAFscore>40</GAFscore>
     <DBCTrajectnummer>4</DBCTrajectnummer>
     <DBCPrestatieCode>204000015004</DBCPrestatieCode>
+    <startdatumDBC>2011-01-13</startdatumDBC>
     <einddatumDBC>2012-01-13</einddatumDBC>
     <datumLaatsteSessie>2012-01-09</datumLaatsteSessie>
     <redenEindeDBC>2</redenEindeDBC>
@@ -109,6 +110,7 @@
     <GAFscore>50</GAFscore>
     <DBCTrajectnummer>5</DBCTrajectnummer>
     <DBCPrestatieCode>204000015004</DBCPrestatieCode>
+    <startdatumDBC>2011-01-13</startdatumDBC>
     <einddatumDBC>2012-01-13</einddatumDBC>
     <datumLaatsteSessie>2012-01-18</datumLaatsteSessie>
     <redenEindeDBC>2</redenEindeDBC>
@@ -160,6 +162,7 @@
     <GAFscore>70</GAFscore>
     <DBCTrajectnummer>7</DBCTrajectnummer>
     <DBCPrestatieCode>204000015004</DBCPrestatieCode>
+    <startdatumDBC>2011-01-13</startdatumDBC>
     <einddatumDBC>2012-01-13</einddatumDBC>
     <datumLaatsteSessie>2012-01-09</datumLaatsteSessie>
     <redenEindeDBC>2</redenEindeDBC>
@@ -230,6 +233,7 @@
     <GAFscore>80</GAFscore>
     <DBCTrajectnummer>9</DBCTrajectnummer>
     <DBCPrestatieCode>204000015004</DBCPrestatieCode>
+    <startdatumDBC>2011-12-23</startdatumDBC>
     <einddatumDBC>2011-12-23</einddatumDBC>
     <datumLaatsteSessie>2011-12-23</datumLaatsteSessie>
     <redenEindeDBC>2</redenEindeDBC>

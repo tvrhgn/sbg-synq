@@ -69,11 +69,11 @@ let $begin := if ( data($dbc/@datumEersteSessie) castable as xs:date )
 (: maak paren voor- en nametingen :)
 (: basis is een gesorteerde set metingen per type; zie sbge:metingen-in-periode() :)
 (: een meetpaar bevat maximaal 2 metingen van hetzelfde instrument; per meetdomein wordt maximaal 1 meetpaar geselecteerd :)
-declare function sbge:selecteer-meetpaar ($kandidaten as element(Meting)*) as element(meet-paar)* 
+declare function sbge:selecteer-meetpaar ($kandidaten as element(Meting)*) as element(meetpaar)* 
 {
     for $meetdomein in distinct-values($kandidaten/@sbgem:meetdomein)
-    let $voormetingen := $kandidaten[@sbgem:meetdomein eq $meetdomein][@typemeting eq'1'],
-        $nametingen := $kandidaten[@sbgem:meetdomein eq $meetdomein][@typemeting eq '2']
+    let $voormetingen := $kandidaten[@sbgem:meetdomein eq $meetdomein][@typemeting eq '1'],
+        $nametingen   := $kandidaten[@sbgem:meetdomein eq $meetdomein][@typemeting eq '2']
     return 
         for $instr in distinct-values($voormetingen/@gebruiktMeetinstrument union $nametingen/@gebruiktMeetinstrument)  (: vind nameting, ook als er geen voormeting is :)
         let $bbh-nametingen := $nametingen[@gebruiktMeetinstrument = $instr],
@@ -86,23 +86,22 @@ declare function sbge:selecteer-meetpaar ($kandidaten as element(Meting)*) as el
                             then attribute { 'interval' } { xs:date($optimale-nameting/@datum) - xs:date($optimale-voormeting/@datum) } 
                             else ()
              
-    order by $afstand
-    return <meet-paar instrument="{$instr}" domein="{$meetdomein}" sbg-afstand="{$afstand}" compleet="{$compleet}">{$interval-att}
+        order by $afstand
+        return <meetpaar instrument="{$instr}" domein="{$meetdomein}" sbg-afstand="{$afstand}" compleet="{$compleet}">{$interval-att}
         {$optimale-voormeting}
         {$optimale-nameting}
-    </meet-paar>
+    </meetpaar>
  };
 
 (: een zorgtraject heeft al een zorgdomein bepaald door zorgcircuit, locatie en diagnose
 als er een conflict is met het zorgdomein van de metingen, wordt het eerste zorgdomein van de metingen genomen
 Dit dient om uitval van metingen te beperken.
 Opm: dit maakt de betekenis van zorgdomein dus vager
-distinct-values( tokenize( data($metingen/@zorgdomein), ' ')) 
 :)
 declare function sbge:bepaal-zorgdomein ( $zorgtraject as element(sbgem:Zorgtraject), $metingen as element(sbgem:Meting)* ) 
 as xs:string
 {
-let $vals := string-join(distinct-values( data($metingen/@sbgem:zorgdomein))),
+let $vals := string-join(distinct-values( data($metingen/@sbgem:zorgdomein)), ' '),
     $zorgdomein-kandidaten := tokenize($vals, ' ')
 return if ( index-of( ($zorgdomein-kandidaten, 'XX'), $zorgtraject/@sbgem:zorgdomeinCode ) ) 
 then $zorgtraject/@sbgem:zorgdomeinCode  (: geen conflict :)
@@ -119,7 +118,9 @@ for $client in $patienten
 let $clientmetingen := $client/sbgem:Meting
 return 
    element { 'Patient' } 
-           { $client/@*, 
+           { $client/@*
+             union attribute { 'sbge:aantal-metingen' } { count($clientmetingen) }
+       , 
        for $zt in $client/sbgem:Zorgtraject
        (: kijk of de metingen verwijzen naar een ander zorgdomein :)
        let $zorgdomein-code := sbge:bepaal-zorgdomein( $zt, $clientmetingen )
@@ -137,7 +138,7 @@ return
                   let $peildatums := sbge:dbc-peildatums($dbc),
                       $metingen := sbge:metingen-in-periode($clientmetingen, $zorgdomein, $peildatums),
                       $meetparen := sbge:selecteer-meetpaar($metingen),
-                      $optimale-meetpaar := $meetparen
+                      $optimale-meetpaar := $meetparen//Meting
                       (: if ( $dbc/einddatum ) 
                                             then $meetparen[count(Meting)=2]//Meting 
                                             else $meetparen//Meting[@typemeting='1'] :)

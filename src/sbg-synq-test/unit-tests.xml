@@ -171,16 +171,11 @@
 					<geboortelandMoeder>NL</geboortelandMoeder>
 					<leefsituatie>10</leefsituatie>
 					<opleidingsniveau>33</opleidingsniveau>
-					<zorgaanbiedercode>00022011</zorgaanbiedercode>
-					<koppelnummer>00000001</koppelnummer>
 					<zorgtrajectnummer>1</zorgtrajectnummer>
 					<zorgdomeinCode>01</zorgdomeinCode>
 					<locatiecode>Loc 1</locatiecode>
 					<primaireDiagnoseCode>as1_1.01.01</primaireDiagnoseCode>
 					<GAFscore>10</GAFscore>
-					<zorgaanbiedercode>00022011</zorgaanbiedercode>
-					<koppelnummer>00000001</koppelnummer>
-					<zorgtrajectnummer>1</zorgtrajectnummer>
 					<DBCTrajectnummer>1</DBCTrajectnummer>
 					<DBCPrestatieCode>204000015004</DBCPrestatieCode>
 					<startdatumDBC>2011-03-16</startdatumDBC>

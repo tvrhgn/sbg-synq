@@ -1,502 +1,523 @@
 <sbg-instrumenten>
-	<instrument code="BSI" aantal-vragen="53" typeRespondent="01">
-		<naam>BSI Brief Symptom Inventory</naam>
-		<schaal min="0" max="4" code="TOT">
-			<items all="true">1 tot 53</items>
-			<berekening functie="avg">
-				Gemiddelde van alle items
-			</berekening>
-		</schaal>
-	</instrument>
+  <instrument code="BSI" aantal-vragen="53" typeRespondent="01">
+    <naam>BSI Brief Symptom Inventory</naam>
+    <schaal min="0" max="4" code="TOT">
+      <items all="true">1 tot 53</items>
+      <berekening functie="avg">
+	Gemiddelde van alle items
+      </berekening>
+    </schaal>
+  </instrument>
 
-<instrument code="OQ45-sd" aantal-vragen="45">
-		<naam>OQ-45 Outcome Questionaire</naam>
-		<schaal min="0" max="100" code="SD">
-			<items>2, 3, 5, 6, 8, 9, 10, 11, 13 , 15, 22, 23, 24 , 25, 27, 29, 31
-				, 33, 34, 35, 36, 40, 41, 42, 45</items>
-			<omscoren min="0" max="4">13,24,31</omscoren>
-			<berekening functie="sum">Sommatie van de betreffende items
-			</berekening>
-		</schaal>
-	</instrument>
+  <instrument code="OQ45-sd" aantal-vragen="45">
+    <naam>OQ-45 Outcome Questionaire</naam>
+    <schaal min="0" max="100" code="SD">
+      <items>2, 3, 5, 6, 8, 9, 10, 11, 13 , 15, 22, 23, 24 , 25, 27, 29, 31
+      , 33, 34, 35, 36, 40, 41, 42, 45</items>
+      <omscoren min="0" max="4">13,24,31</omscoren>
+      <berekening functie="sum">Sommatie van de betreffende items
+      </berekening>
+    </schaal>
+  </instrument>
 
-	<instrument code="SCL90">
-		<naam>SCL-90 Symptom CheckList</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>1 tot 90</items>
-			<berekening>Sommatie van alle items</berekening>
-		</schaal>
-	</instrument>
+  <instrument code="SCL90" aantal-vragen="90">
+    <naam>SCL-90 Symptom CheckList</naam>
+    <schaal min="90" max="450" code="TOT">
+      <items all="true">1 tot 90</items>
+      <berekening functie="sum">Sommatie van alle items</berekening>
+    </schaal>
+  </instrument>
 
-		
-	<instrument code="DASS21">
-		<naam>DASS-21 Depression Anxiety Stress Scale- 21 (MATE-10)</naam>
-		<schaal min="0" max="999" code="TOT keer 2">
-			<items>1 tot 21</items>
-			<berekening>Sommatie van alle items maal 2</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="DASS42">
-		<naam>DASS-42 Depression Anxiety Stress Scale</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>1 tot 42</items>
-			<berekening>Sommatie van alle items</berekening>
-		</schaal>
-	</instrument>
-	
-	<instrument code="CORE34">
-		<naam>CORE-34 Clinical Outcome in Routine Evaluation</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>1, 2 , 3 , 4 , 5, 6, 7 , 8, 9, 10, 11, 12 ,13, 14, 15, 16, 17,
-				18, 19 , 20, 21 , 22, 23, 24, 25, 26, 27, 28, 29, , 30, 31 , 32 ,
-				33, 34 omscoren</items>
-			<berekening>Gemiddelde van alle items * 10</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="HADS">
-		<naam>HADS* Hospital Anxiety Depression Scale</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>1 , 2, 3 , 4, 5 , 6 , 7, 8 , 9, 10 , 11 , 12, 13 , 14</items>
-			<berekening>Sommatie van alle items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="KKL">
-		<naam>KKL Korte Klachtenlijst</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>1 tot 13, vraag 14 (de open vraag) niet meetellen</items>
-			<berekening>Sommatie van de eerste 13 items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="OQ45">
-		<naam>OQ-45 Outcome Questionaire</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="EQ5D">
-		<naam>EQ-5D</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="SF36">
-		<naam>SF-36 (ook bekend als RAND-36)</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="RAND36">
-		<naam>RAND-36 (ook bekend als SF-36)</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="HoNOS-12">
-		<naam>HONOS Health of the Nation Outcome Scales</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>1 - 12</items>
-			<berekening>Sommatie van alle items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="CAN">
-		<naam>CAN Canberwell Assessment of Needs</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="MANSA-12ph">
-		<naam>Basis</naam>
-		<schaal min="0" max="12" code="TOT">
-			<items>1, 2, 3, 4, 5, 6, 8, 12, 13, 14, 15, 16</items>
-			<omscoren min="0" max="3">3,5</omscoren>
-			<berekening functie="sum">Sommatie van de betreffende items
-			</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="MANSA-12vn">
-		<naam>MANSA Manchester Short Assessment of Quality</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>1, 2, 3, 6, 7, 8, 11, 12, 13, 14, 15, 16
-				* LET OP: items 4, 5, 9, 10 niet meetellen
-				* LET OP: Items 2 en 12 bestaan uit een a/b versie, waarbij alleen a
-				of b door de patiënt wordt ingevuld. Alleen het ingevulde item
-				tellen, het andere negeren
-			</items>
-			<berekening>Somscore de 12 geselecteerde items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="MANSA-16">
-		<naam>MANSA Manchester Short Assessment of Quality</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="MANSA-7">
-		<naam>MANSA Manchester Short Assessment of Quality</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="L-QOL">
-		<naam>Lancaster Quality of Life</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>1-5</items>
-			<berekening>Somscore 5 items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="HoNOS-prob">
-		<naam>HONOS</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="PANSS">
-		<naam>PANSS De Positive And Negative Syndrome Scale</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="BPRS">
-		<naam>BPRS Brief Psychiatric Rating Scale (Ook wel bekend als de
-			BPRS-E(xtended), een versie van het instrument uitgebreid met enige
-			vragen over depressie
-			en angst.).
-		</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="CBCL1_5-5">
-		<naam>CBCL-1_5-5 Child Behavior CheckList</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>1 tot 100</items>
-			<berekening>Sommatie van alle items in de klachten/problemen lijst
-			</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="CBCL-6-18">
-		<naam>CBCL-6-18 Child Behavior CheckList</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>1 tot 113</items>
-			<berekening>Sommatie van alle items in de klachten/problemen lijst
-			</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="SPsy-prob">
-		<naam>SPsy Uitgebreide versie van de SDQ</naam>
-		<schaal min="0" max="999"
-			code="Som van de difficulties subschalen (EMOT, GEDRA, HYPER, PPEER S)">
-			<items>2, 3, 5, 6, 7 , 8, 10, 11 , 12, 13, 14 , 15, 16, 18, 19, 21 ,
-				22, 23, 24, 25 omscoren</items>
-			<berekening>Sommatie van alle items van de betreffende subschalen.
-			</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="SDQ-T3-4">
-		<naam>SDQ Strength and Difficulties Questionaire Teacher versie over
-			peuters (3 (en 4 preschool).</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="SDQ-T4-16">
-		<naam>SDQ Strength and Difficulties Questionaire Teacher versie over
-			peuters (3 (en 4 basisschool).</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="SDQ-P3-4">
-		<naam>SDQ Strength and Difficulties Questionaire Ouderversie over
-			peuters (3 (en 4 preschool).</naam>
-		<schaal min="0" max="999"
-			code="Som van de difficulties subschalen (EMOT,GEDRA,HYPER,PPEERS)">
-			<items>2, 3, 5, 6, 7 , 8, 10, 11 , 12, 13,14 , 15, 16, 18, 19, 21 ,
-				22, 23,24, 25 omscoren</items>
-			<berekening>Somscore van alle items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="SDQ-P4-16">
-		<naam>SDQ Strength and Difficulties Questionaire Ouderversie over
-			jongeren (4,basisschool-16)</naam>
-		<schaal min="0" max="999"
-			code="Som vd difficulties subschalen (EMOT,GEDRA,HYPER,PPEERS)">
-			<items>2, 3, 5, 6, 7 , 8, 10, 11 , 12, 13,14 , 15, 16, 18, 19, 21 ,
-				22, 23,24, 25 </items>
-			<berekening>Somscore van alle items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="SDQ-S11-17">
-		<naam>SDQ Strength and Difficulties Questionaire door jongeren zelf
-			ingevuld (11-17)</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items />
-			<berekening>alle itemscores aanleveren,somscore = “999”</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="C-TRF">
-		<naam>C-TRF, Caregiver- Teacher’s Report Form for Ages 11⁄2-5</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren,somscore = “999”</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="TRF4-11">
-		<naam>Teacher’s Report Form (basisschool)</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items />
-			<berekening>alle itemscores aanleveren,somscore = “999”</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="TRF12-18">
-		<naam>Teacher’s Report Form (middelbare school)</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items />
-			<berekening>alle itemscores aanleveren, somscore = “999”</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="YSR">
-		<naam>YSR, Youth Self-Report for Ages 11-18 (middelbare school)</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items />
-			<berekening>alle itemscores aanleveren, somscore = “999”</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="OBVL">
-		<naam>OBVL OpvoedingsBelasting VragenLijst ­ Versie 2011</naam>
-		<schaal min="0" max="999" code="TOT">
-			<items>1-34</items>
-			<berekening>Sommatie van alle 34 items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="NOSIK">
-		<naam>NOSIK Nijmeegse Opvoedingsstress Inventarisatie Kort</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>1 - 17</items>
-			<berekening>Sommatie van de 17 items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="HoNOSCA">
-		<naam>HoNOSCA The Health of the Nation Outcome Scales for Children and
-			Adolescents</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="Kidscr27S">
-		<naam>Kidscreen 27-S, 27 item versie door kind (8-18) ingevuld</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="Kidscr27P">
-		<naam>Kidscreen 27-P, 27 item versie door ouder ingevuld</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="Kidscr52S">
-		<naam>Kidscreen 52-S, 52 item versie door kind (8-18) ingevuld</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="Kidscr52P">
-		<naam>Kidscreen 52-P, 52 item versie door ouder (8-18) ingevuld</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="MATE10">
-		<naam>MATE-10 Meten van Addicties voor Triage en Evaluatie (DASS- 21)
-		</naam>
-		<schaal min="0" max="999" code="TOT keer 2">
-			<items>1 tot 21</items>
-			<berekening>Sommatie van alle items maal 2</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="MATE1">
-		<naam>MATE-1 Meten van Addicties voor Triage en Evaluatie</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="ASI-gebr">
-		<naam>ASI</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="EUASI-gebr">
-		<naam>EUROPASI</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="HoNOS-Symp">
-		<naam>HONOS-symp</naam>
-		<schaal min="0" max="999" code="symp">
-			<items>6, 7, en 8</items>
-			<berekening>Sommatie van 3 items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="MATE7">
-		<naam>MATE-7 Meten van Addicties voor Triage en Evaluatie (= MATE-ICN)
-		</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>1 tot 19</items>
-			<berekening>Sommatie van 19 items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="HoNOS-func">
-		<naam>HONOS-func</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>1 tot 5, 9 tot 12</items>
-			<berekening>Sommatie van 9 items</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="AOSV">
-		<naam>AOS-V</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="EMT-SPEL">
-		<naam>EMT Een-Minuut-Test</naam>
-		<schaal min="0" max="999" code="nvt">
-			<items>nvt</items>
-			<berekening>
-			</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="DMT">
-		<naam>DMT Drie-Minuten- Toets</naam>
-		<schaal min="0" max="999" code="nvt">
-			<items>nvt</items>
-			<berekening>Scores moeten als volgt worden gehercodeerd: A &gt; 5, B
-				&gt; 4, C &gt; 3, D &gt; 2, E &gt; 1</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="KLEPEL">
-		<naam>De Klepel</naam>
-		<schaal min="0" max="999" code="nvt">
-			<items>nvt</items>
-			<berekening />
-		</schaal>
-	</instrument>
-	<instrument code="AVI-B">
-		<naam>AVI-beheersniveau (ook AVI-instructieniveau aanleveren)</naam>
-		<schaal min="0" max="999" code="nvt">
-			<items>nvt</items>
-			<berekening>Scores moeten als volgt worden gehercodeerd: M3 &gt; 1,
-				E3 &gt; 2, M4 &gt; 3, E4 &gt; 4, M5 &gt; 5, E5 &gt; 6, M6 &gt; 7, E6
-				&gt; 8, M7 &gt; 9. E7 &gt; 10, Plus &gt; 11</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="AVI-I">
-		<naam>AVI-instructieniveau (ook AVI-beheersniveau aanleveren)</naam>
-		<schaal min="0" max="999" code="nvt">
-			<items>nvt</items>
-			<berekening>Scores moeten als volgt worden gehercodeerd: M3 &gt; 1,
-				E3 &gt; 2, M4 &gt; 3, E4 &gt; 4, M5 &gt; 5, E5 &gt; 6, M6 &gt; 7, E6
-				&gt; 8, M7 &gt; 9. E7 &gt; 10, Plus &gt; 11</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="3DMLS-SNL">
-		<naam>3DM-lees snelheid ! (ook 3DM-lees accuratesse aanleveren)</naam>
-		<schaal min="0" max="999" code="nvt">
-			<items>nvt</items>
-			<berekening />
-		</schaal>
-	</instrument>
-	<instrument code="3DMLS-ACC">
-		<naam>3DM-lees accuratesse ! (ook 3DM-lees snelheid aanleveren)</naam>
-		<schaal min="0" max="999" code="nvt">
-			<items>nvt</items>
-			<berekening />
-		</schaal>
-	</instrument>
-	<instrument code="EMT-LEES">
-		<naam>EMT Een-Minuut-Test</naam>
-		<schaal min="0" max="999" code="nvt">
-			<items>nvt</items>
-			<berekening>
-			</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="PI-DICTEE">
-		<naam>PI-dictee</naam>
-		<schaal min="0" max="999" code="nvt">
-			<items>nvt</items>
-			<berekening>
-			</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="HoNOS65">
-		<naam>HoNOS-65+</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="GDS15">
-		<naam>GDS-15 Geriatric Depression Scale</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
-	<instrument code="HADS-A">
-		<naam>HADS-A De angsschaal voor de HADS</naam>
-		<schaal min="0" max="999" code="-onbekend-">
-			<items>
-			</items>
-			<berekening>alle itemscores aanleveren, somscore = "999"</berekening>
-		</schaal>
-	</instrument>
+  
+  <instrument code="DASS21">
+    <naam>DASS-21 Depression Anxiety Stress Scale- 21 (MATE-10)</naam>
+    <schaal min="0" max="126" code="TOT keer 2">
+      <items>1 tot 21</items>
+      <berekening functie="sum">Sommatie van alle items maal 2</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="DASS42">
+    <naam>DASS-42 Depression Anxiety Stress Scale</naam>
+    <schaal min="0" max="126" code="TOT">
+      <items>1 tot 42</items>
+      <berekening functie="sum">Sommatie van alle items</berekening>
+    </schaal>
+  </instrument>
+  
+  <instrument code="CORE34">
+    <naam>CORE-34 Clinical Outcome in Routine Evaluation</naam>
+    <schaal min="0" max="40" code="TOT">
+      <items>1, 2 , 3 , 4 , 5, 6, 7 , 8, 9, 10, 11, 12 ,13, 14, 15, 16, 17,
+      18, 19 , 20, 21 , 22, 23, 24, 25, 26, 27, 28, 29, , 30, 31 , 32 ,
+      33, 34 omscoren</items>
+      <berekening functie="avg-core34">Gemiddelde van alle items * 10</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="HADS">
+    <naam>HADS* Hospital Anxiety Depression Scale</naam>
+    <schaal min="0" max="42" code="TOT">
+      <items>1 , 2, 3 , 4, 5 , 6 , 7, 8 , 9, 10 , 11 , 12, 13 , 14</items>
+      <berekening functie="sum">Sommatie van alle items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="KKL">
+    <naam>KKL Korte Klachtenlijst</naam>
+    <schaal min="0" max="52" code="TOT">
+      <items>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13</items>
+      <berekening functie="sum">Sommatie van de eerste 13 items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="OQ45">
+    <naam>OQ-45 Outcome Questionaire</naam>
+    <schaal min="999" max="999" code="-onbekend-">
+      <items>
+      </items>
+      <berekening>alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="EQ5D">
+    <naam>EQ-5D</naam>
+    <schaal min="999" max="999" code="-onbekend-">
+      <items>nummeren 1 t/m 6</items>
+      <berekening>alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="SF36">
+    <naam>SF-36 (ook bekend als RAND-36)</naam>
+    <schaal min="999" max="999" code="-onbekend-">
+      <items></items>
+      <berekening>alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="RAND36">
+    <naam>RAND-36 (ook bekend als SF-36)</naam>
+    <schaal code="-onbekend-">
+      <items></items>
+      <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="HoNOS-12">
+    <naam>HONOS Health of the Nation Outcome Scales</naam>
+    <schaal min="0" max="48" code="TOT">
+      <items>1 - 12</items>
+      <berekening functie="sum">Sommatie van alle items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="CAN">
+    <naam>CAN Canberwell Assessment of Needs</naam>
+    <schaal code="TOT">
+      <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="MANSA-12ph">
+    <naam>Basis</naam>
+    <schaal min="12" max="84" code="TOT">
+      <items>1, 2, 3, 4, 5, 6, 8, 12, 13, 14, 15, 16</items>
+      <omscoren min="0" max="3">3,5</omscoren>
+      <berekening functie="sum">Somscore de 12 geselecteerde items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="MANSA-12vn">
+    <naam>MANSA Manchester Short Assessment of Quality</naam>
+    <schaal min="12" max="84" code="TOT">
+      <items>1, 2, 3, 6, 7, 8, 11, 12, 13, 14, 15, 16</items>
+      <items-beschrijving>
+      * LET OP: items 4, 5, 9, 10 niet meetellen
+      * LET OP: Items 2 en 12 bestaan uit een a/b versie, waarbij alleen a
+      of b door de patiënt wordt ingevuld. Alleen het ingevulde item
+      tellen, het andere negeren
+      </items-beschrijving>
+      <berekening functie="sum-mansa">Somscore de 12 geselecteerde items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="MANSA-16">
+    <naam>MANSA Manchester Short Assessment of Quality</naam>
+    <schaal code="-onbekend-">
+      <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="MANSA-7">
+    <naam>MANSA Manchester Short Assessment of Quality</naam>
+    <schaal code="-onbekend-">
+      <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="L-QOL">
+    <naam>Lancaster Quality of Life</naam>
+    <schaal min="5" max="35" code="TOT">
+      <items>1-5</items>
+      <berekening functie="sum">Somscore 5 items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="HoNOS-prob">
+    <naam>HONOS</naam>
+    <schaal code="-onbekend-">
+      <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="PANSS">
+    <naam>PANSS De Positive And Negative Syndrome Scale</naam>
+    <schaal code="-onbekend-">
+      <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="BPRS">
+    <naam>BPRS Brief Psychiatric Rating Scale (Ook wel bekend als de
+    BPRS-E(xtended), een versie van het instrument uitgebreid met enige
+    vragen over depressie
+    en angst.).
+    </naam>
+    <schaal code="-onbekend-">
+      <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="CBCL1_5-5">
+    <naam>CBCL-1_5-5 Child Behavior CheckList</naam>
+    <schaal min="0" max="200" code="TOT">
+      <items>1 - 100</items>
+      <items-beschrijving>1 tot 100
+      Vraag 100: neem de hoogste score van de mogelijke drie
+      antwoorden op de drie subvragen
+      </items-beschrijving>
+      <berekening functie="sum-cbcl5">Sommatie van alle items in de klachten/problemen lijst
+      </berekening>
+    </schaal>
+  </instrument>
+  <instrument code="CBCL-6-18">
+    <naam>CBCL-6-18 Child Behavior CheckList</naam>
+    <schaal min="0" max="240" code="TOT">
+      <items>1 tot 113</items>
+      <items-beschrijving>1 t/m 113 + 56a t/m h
+Vraag 113: neem de hoogste
+score van de mogelijke drie
+antwoorden op de drie
+subvragen</items-beschrijving>
+
+      <berekening functie="sumcbcl6">Sommatie van alle items in de klachten/problemen lijst</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="SPsy-prob">
+    <naam>SPsy Uitgebreide versie van de SDQ</naam>
+    <schaal min="0" max="40" code="-onbekend-">
+      <beschrijving>Som van de difficulties subschalen (EMOT, GEDRA, HYPER, PPEER S)</beschrijving>
+      <items>2, 3, 5, 6, 7 , 8, 10, 11 , 12, 13, 14 , 15, 16, 18, 19, 21 ,  22, 23, 24, 25</items>
+      <omscoren min="0" max="2">7, 11, 14, 21, 25</omscoren>
+      <berekening berekening="sum">Sommatie van alle items van de betreffende subschalen.
+      </berekening>
+    </schaal>
+  </instrument>
+  <instrument code="SDQ-T3-4">
+    <naam>SDQ Strength and Difficulties Questionaire Teacher versie over
+    peuters (3 (en 4 preschool).</naam>
+    <schaal min="0" max="40" code="-onbekend-">
+      <items>2, 3, 5, 6, 7 , 8, 10, 11 , 12, 13, 14 , 15, 16, 18, 19, 21 ,  22, 23, 24, 25</items>
+      <omscoren min="0" max="2">7, 11, 14, 21, 25</omscoren>
+      <berekening functie="sum">somscore van alle items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="SDQ-T4-16">
+    <naam>SDQ Strength and Difficulties Questionaire Teacher versie over
+    peuters (3 (en 4 basisschool).</naam>
+    <schaal min="0" max="40" code="-onbekend-">
+      <items>2, 3, 5, 6, 7 , 8, 10, 11 , 12, 13, 14 , 15, 16, 18, 19, 21 ,  22, 23, 24, 25</items>
+      <omscoren min="0" max="2">7, 11, 14, 21, 25</omscoren>
+      <berekening functie="sum">somscore van alle items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="SDQ-P3-4">
+    <naam>SDQ Strength and Difficulties Questionaire Ouderversie over
+    peuters (3 (en 4 preschool).</naam>
+    <schaal min="0" max="40" code="-onbekend-">
+      <beschrijving>Som van de difficulties subschalen (EMOT, GEDRA, HYPER, PPEER S)</beschrijving>
+      <items>2, 3, 5, 6, 7 , 8, 10, 11 , 12, 13, 14 , 15, 16, 18, 19, 21 ,  22, 23, 24, 25</items>
+      <omscoren min="0" max="2">7, 11, 14, 21, 25</omscoren>
+      <berekening functie="sum">Somscore van alle items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="SDQ-P4-16">
+    <naam>SDQ Strength and Difficulties Questionaire Ouderversie over
+    jongeren (4,basisschool-16)</naam>
+    <schaal min="0" max="40" code="-onbekend-">
+      <beschrijving>Som van de difficulties subschalen (EMOT, GEDRA, HYPER, PPEER S)</beschrijving>
+      <items>2, 3, 5, 6, 7 , 8, 10, 11 , 12, 13, 14 , 15, 16, 18, 19, 21 ,  22, 23, 24, 25</items>
+      <omscoren min="0" max="2">7, 11, 14, 21, 25</omscoren>
+      <berekening functie="sum">Somscore van alle items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="SDQ-S11-17">
+    <naam>SDQ Strength and Difficulties Questionaire door jongeren zelf
+    ingevuld (11-17)</naam>
+    <schaal min="0" max="40" code="-onbekend-">
+      <beschrijving>Som van de difficulties subschalen (EMOT, GEDRA, HYPER, PPEER S)</beschrijving>
+      <items>2, 3, 5, 6, 7 , 8, 10, 11 , 12, 13, 14 , 15, 16, 18, 19, 21 ,  22, 23, 24, 25</items>
+      <omscoren min="0" max="2">7, 11, 14, 21, 25</omscoren>
+      <berekening functie="sum">Somscore van alle items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="C-TRF">
+    <naam>C-TRF, Caregiver- Teacher’s Report Form for Ages 11⁄2-5</naam>
+    <schaal min="0" max="200" code="-onbekend-">
+      <items>1 - 100</items>
+      <items-beschrijving>1 tot 100
+      Vraag 100: neem de hoogste score van de mogelijke drie
+      antwoorden op de drie subvragen
+      </items-beschrijving>
+      <berekening functie="sum-cbcl5">Somscore</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="TRF4-11">
+    <naam>Teacher’s Report Form (basisschool)</naam>
+    <schaal min="0" max="240" code="-onbekend-">
+      <items>1 tot 113</items>
+      <items-beschrijving>1 t/m 113 + 56a t/m h
+Vraag 113: neem de hoogste
+score van de mogelijke drie
+antwoorden op de drie
+subvragen</items-beschrijving>
+      <berekening functie="sumcbcl6">Somscore</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="TRF12-18">
+    <naam>Teacher’s Report Form (middelbare school)</naam>
+    <schaal min="0" max="240" code="-onbekend-">
+      <items>1 tot 113</items>
+      <items-beschrijving>1 t/m 113 + 56a t/m h
+Vraag 113: neem de hoogste
+score van de mogelijke drie
+antwoorden op de drie
+subvragen</items-beschrijving>
+      <berekening functie="sumcbcl6">Somscore</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="YSR">
+    <naam>YSR, Youth Self-Report for Ages 11-18 (middelbare school)</naam>
+    <schaal min="0" max="210" code="-onbekend-">
+      <items>1 tot 112</items>
+      <items-beschrijving>
+1 t/m 112 + 56a t/m h. 
+Te excluderen items 6, 15, 49, 
+59, 60, 73, 80, 88, 92, 98, 106, 
+107, 108, 109 </items-beschrijving>
+      <berekening functie="sum">Somscore</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="OBVL">
+    <naam>OBVL OpvoedingsBelasting VragenLijst ­ Versie 2011</naam>
+    <schaal min="34" max="136" code="TOT">
+      <items>1-34</items>
+      <berekening functie="sum">Sommatie van alle 34 items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="NOSIK">
+    <naam>NOSIK Nijmeegse Opvoedingsstress Inventarisatie Kort</naam>
+    <schaal min="17" max="68" code="TOT">
+      <items>1 - 17</items>
+      <berekening>Sommatie van de 17 items</berekening>
+    </schaal>
+  </instrument>
+
+  <instrument code="HoNOSCA">
+    <naam>HoNOSCA The Health of the Nation Outcome Scales for Children and
+    Adolescents</naam>
+    <schaal min="0" max="52" code="TOT">
+      <items all="true"/>
+      <berekening functie="sum">Sommatie van de 13 items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="Kidscr27S">
+    <naam>Kidscreen 27-S, 27 item versie door kind (8-18) ingevuld</naam>
+    <schaal min="5" max="135" code="TOT">
+      <items all="true"/>
+      <berekening functie="sum">Sommatie van 27 items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="Kidscr27P">
+    <naam>Kidscreen 27-P, 27 item versie door ouder ingevuld</naam>
+    <schaal min="5" max="135" code="TOT">
+      <items all="true"/>
+      <berekening functie="sum">Sommatie van 27 items</berekening>
+    </schaal>
+  </instrument>
+<!-- instrument verdwenen? 
+  <instrument code="Kidscr52S">
+    <naam>Kidscreen 52-S, 52 item versie door kind (8-18) ingevuld</naam>
+    <schaal min="0" max="999" code="-onbekend-">
+      <items>
+      </items>
+      <berekening>alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="Kidscr52P">
+    <naam>Kidscreen 52-P, 52 item versie door ouder (8-18) ingevuld</naam>
+    <schaal min="0" max="999" code="-onbekend-">
+      <items>
+      </items>
+      <berekening>alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+-->
+
+  <instrument code="MATE10">
+    <naam>MATE-10 Meten van Addicties voor Triage en Evaluatie (DASS- 21)
+    </naam>
+    <schaal min="0" max="126" code="TOT keer 2">
+      <items>1 tot 21</items>
+      <berekening functie="sum-mate">Sommatie van alle items maal 2</berekening>
+    </schaal>
+  </instrument>
+<!-- instrument verdwenen?
+  <instrument code="MATE1">
+    <naam>MATE-1 Meten van Addicties voor Triage en Evaluatie</naam>
+    <schaal min="0" max="999" code="-onbekend-">
+      <items>
+      </items>
+      <berekening>alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+-->
+  <instrument code="ASI-gebr">
+    <naam>ASI</naam>
+    <schaal code="-onbekend-">
+      <items>
+      </items>
+      <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="EUASI-gebr">
+    <naam>EUROPASI</naam>
+    <schaal code="-onbekend-">
+      <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="HoNOS-Symp">
+    <naam>HONOS-symp</naam>
+    <schaal min="0" max="12" code="symp">
+      <items>6, 7, en 8</items>
+      <berekening functie="sum">Sommatie van 3 items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="MATE7">
+    <naam>MATE-7 Meten van Addicties voor Triage en Evaluatie (= MATE-ICN)
+    </naam>
+    <schaal min="0" max="72" code="-onbekend-">
+      <items>1 tot 19</items>
+      <berekening functie="sum">Sommatie van 19 items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="HoNOS-func">
+    <naam>HONOS-func</naam>
+    <schaal min="0" max="36" code="-onbekend-">
+      <items>1, 2, 3, 4, 5, 9, 10, 11, 12</items>
+      <items-beschrijving>1 tot 5, 9 tot 12</items-beschrijving>
+      <berekening functie="sum">Sommatie van 9 items</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="AOSV">
+    <naam>AOS-V</naam>
+    <schaal min="0" max="999" code="-onbekend-">
+      <items>
+      </items>
+      <berekening>alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+
+  <instrument code="EMT-SPEL">
+    <naam>EMT Een-Minuut-Test</naam>
+    <schaal min="0" max="999" code="nvt">
+      <items>nvt</items>
+      <berekening>
+      </berekening>
+    </schaal>
+  </instrument>
+  <instrument code="DMT">
+    <naam>DMT Drie-Minuten- Toets</naam>
+    <schaal min="0" max="999" code="nvt">
+      <items>nvt</items>
+      <berekening>Scores moeten als volgt worden gehercodeerd: A &gt; 5, B
+      &gt; 4, C &gt; 3, D &gt; 2, E &gt; 1</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="KLEPEL">
+    <naam>De Klepel</naam>
+    <schaal min="0" max="999" code="nvt">
+      <items>nvt</items>
+      <berekening />
+    </schaal>
+  </instrument>
+  <instrument code="AVI-B">
+    <naam>AVI-beheersniveau (ook AVI-instructieniveau aanleveren)</naam>
+    <schaal min="0" max="999" code="nvt">
+      <items>nvt</items>
+      <berekening>Scores moeten als volgt worden gehercodeerd: M3 &gt; 1,
+      E3 &gt; 2, M4 &gt; 3, E4 &gt; 4, M5 &gt; 5, E5 &gt; 6, M6 &gt; 7, E6
+      &gt; 8, M7 &gt; 9. E7 &gt; 10, Plus &gt; 11</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="AVI-I">
+    <naam>AVI-instructieniveau (ook AVI-beheersniveau aanleveren)</naam>
+    <schaal min="0" max="999" code="nvt">
+      <items>nvt</items>
+      <berekening>Scores moeten als volgt worden gehercodeerd: M3 &gt; 1,
+      E3 &gt; 2, M4 &gt; 3, E4 &gt; 4, M5 &gt; 5, E5 &gt; 6, M6 &gt; 7, E6
+      &gt; 8, M7 &gt; 9. E7 &gt; 10, Plus &gt; 11</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="3DMLS-SNL">
+    <naam>3DM-lees snelheid ! (ook 3DM-lees accuratesse aanleveren)</naam>
+    <schaal min="0" max="999" code="nvt">
+      <items>nvt</items>
+      <berekening />
+    </schaal>
+  </instrument>
+  <instrument code="3DMLS-ACC">
+    <naam>3DM-lees accuratesse ! (ook 3DM-lees snelheid aanleveren)</naam>
+    <schaal min="0" max="999" code="nvt">
+      <items>nvt</items>
+      <berekening />
+    </schaal>
+  </instrument>
+  <instrument code="EMT-LEES">
+    <naam>EMT Een-Minuut-Test</naam>
+    <schaal min="0" max="999" code="nvt">
+      <items>nvt</items>
+      <berekening>
+      </berekening>
+    </schaal>
+  </instrument>
+  <instrument code="PI-DICTEE">
+    <naam>PI-dictee</naam>
+    <schaal min="0" max="999" code="nvt">
+      <items>nvt</items>
+      <berekening>
+      </berekening>
+    </schaal>
+  </instrument>
+  <instrument code="HoNOS65">
+    <naam>HoNOS-65+</naam>
+    <schaal min="0" max="48" code="-onbekend-">
+      <items>
+      </items>
+      <berekening functie="sum-honos65">Voor de 12 schalen in de vragenlijst worden alle vragen per
+schaal beantwoord (antwoordmogelijkheden 0 t/m 4).
+Voor de 12 schalen wordt de schaalscore bepaald als de per
+schaal hoogst gegeven (item)score (min. 0; max. 4). De
+somscore is de sommatie van de 12 schaalscore.</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="GDS15">
+    <naam>GDS-15 Geriatric Depression Scale</naam>
+    <schaal code="-onbekend-">
+      <items>
+      </items>
+      <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
+  <instrument code="HADS-A">
+    <naam>HADS-A De angsschaal voor de HADS</naam>
+    <schaal min="0" max="999" code="-onbekend-">
+      <items>
+      </items>
+      <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+    </schaal>
+  </instrument>
 </sbg-instrumenten>

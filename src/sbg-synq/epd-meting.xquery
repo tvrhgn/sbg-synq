@@ -4,7 +4,7 @@ import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at 'sbg-metingen.
 
 declare variable $sbgem:dbc-atts := ('DBCTrajectnummer','DBCPrestatieCode','startdatumDBC','einddatumDBC','datumEersteSessie','datumLaatsteSessie','redenEindeDBC','redenNonResponseVoormeting','redenNonResponseNameting');
 declare variable $sbgem:patient-atts := ('koppelnummer','geboorteJaar', 'geboorteMaand', 'geslacht', 'postcodegebied', 'geboortelandpatient', 'geboortelandVader', 'geboortelandMoeder', 'leefsituatie', 'opleidingsniveau');
-declare variable $sbgem:zorgtraject-atts := ('locatiecode', 'primaireDiagnoseCode', 'GAFScore'); (: 'zorgtrajectnummer', zorgdomeinCode ; reservecodes:)
+declare variable $sbgem:zorgtraject-atts := ('locatiecode', 'primaireDiagnoseCode', 'GAFscore'); (: 'zorgtrajectnummer', zorgdomeinCode ; reservecodes:)
 
 
 (: dient om te garanderen dat alleen geselecteerde attributen doorgegeven worden die bovendien een waarde moeten hebben :)
@@ -13,11 +13,6 @@ declare variable $sbgem:zorgtraject-atts := ('locatiecode', 'primaireDiagnoseCod
 declare function sbgem:build-sbg-atts($sbg-atts as xs:string+, $nd as node()?) as attribute()* {
     for $elt in $nd/*[text()][index-of( $sbg-atts, local-name(.)) gt 0]
     return attribute { local-name($elt) } { $elt/text() }
-};
-
-(: draag element-content over naar attributen :)
-declare function sbgem:build-atts( $nd as node() ) as attribute()* {
-
 };
 
 (: eerste zorgdomein-selectie: 

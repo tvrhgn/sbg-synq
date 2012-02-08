@@ -1,6 +1,6 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
 	name="test-optimaal-zorgdomein" version="1.0">
-	<p:option name="report_dir" select="'/home/thijs/tmp/sbg-synq-out'" />
+	<p:option name="report_dir" select="'/home/thijs/git/sbg-synq/sbg-synq-out'" />
 	<p:input port="source" sequence="true">
 		<p:empty />
 	</p:input>

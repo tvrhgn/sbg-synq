@@ -2,7 +2,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000001</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
@@ -12,7 +12,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000001</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-28</datum>
@@ -22,7 +22,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000001</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
@@ -32,7 +32,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000001</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
@@ -42,8 +42,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000001</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>5</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-10-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -52,8 +52,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000001</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>6</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-12-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -62,8 +62,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000001</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>7</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-31</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -72,8 +72,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000001</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>8</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -82,8 +82,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000001</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>9</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -92,8 +92,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000001</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>10</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-14</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -102,8 +102,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000002</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>11</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -112,8 +112,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000002</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>12</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -122,8 +122,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000002</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>13</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -132,8 +132,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000002</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>14</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -142,8 +142,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000002</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>15</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-10-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -152,8 +152,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000002</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>16</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-12-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -162,8 +162,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000002</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>17</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-31</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -172,8 +172,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000002</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>18</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -182,8 +182,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000002</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>19</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -192,8 +192,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000002</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>20</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.0</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-14</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -202,8 +202,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000003</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>21</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -212,8 +212,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000003</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>22</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -222,8 +222,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000003</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>23</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-07-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -232,8 +232,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000003</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>24</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -242,8 +242,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000003</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>25</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-10-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -252,8 +252,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000003</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>26</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-12-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -262,8 +262,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000003</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>27</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-31</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -272,8 +272,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000003</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>28</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -282,8 +282,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000003</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>29</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -292,8 +292,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000003</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>30</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.0</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-14</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -302,8 +302,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000004</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>31</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -312,8 +312,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000004</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>32</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -322,8 +322,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000004</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>33</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -332,8 +332,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000004</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>34</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -342,8 +342,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000004</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>35</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-10-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -352,8 +352,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000004</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>36</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-12-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -362,8 +362,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000004</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>37</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-31</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -372,7 +372,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000004</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-28</datum>
@@ -382,7 +382,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000004</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
@@ -392,7 +392,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000004</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-14</datum>
@@ -402,7 +402,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000005</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
@@ -412,8 +412,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000005</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>5</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -422,8 +422,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000005</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>6</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -432,8 +432,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000005</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>7</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -442,8 +442,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000005</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>8</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-10-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -452,8 +452,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000005</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>9</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-12-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -462,8 +462,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000005</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>10</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.0</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-31</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -472,8 +472,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000005</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>11</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -482,8 +482,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000005</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>12</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -492,8 +492,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000005</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>13</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-14</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -502,8 +502,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000006</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>14</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -512,8 +512,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000006</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>15</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -522,8 +522,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000006</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>16</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-07-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -532,8 +532,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000006</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>17</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -542,8 +542,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000007</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>18</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -552,8 +552,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000007</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>19</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -562,8 +562,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000007</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>20</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.0</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -572,8 +572,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000007</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>21</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -582,8 +582,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000007</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>22</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-10-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -592,8 +592,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000007</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>23</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-12-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -602,8 +602,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000007</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>24</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-31</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -612,8 +612,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000007</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>25</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -622,8 +622,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000007</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>26</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -632,8 +632,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000007</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>27</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-14</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -642,8 +642,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000008</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>28</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -652,8 +652,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000008</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>29</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -662,8 +662,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000008</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>30</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.0</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -672,8 +672,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000008</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>31</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -682,8 +682,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000008</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>32</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-10-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -692,8 +692,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000008</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>33</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-12-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -702,8 +702,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000008</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>34</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-31</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -712,8 +712,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000008</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>35</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -722,8 +722,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000008</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>36</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -732,8 +732,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000008</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>37</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-14</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -742,7 +742,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000009</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
@@ -752,7 +752,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000009</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-11</datum>
@@ -762,7 +762,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000009</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
@@ -772,7 +772,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000009</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
@@ -782,8 +782,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000009</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>5</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-10-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -792,8 +792,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000009</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>6</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-12-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -802,8 +802,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000009</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>7</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-31</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -812,8 +812,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000009</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>8</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -822,8 +822,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000009</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>9</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -832,8 +832,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000009</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>10</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.0</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-14</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -842,8 +842,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000011</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>11</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -852,8 +852,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000011</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>12</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-11</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -862,8 +862,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000011</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>13</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -872,8 +872,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000011</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>14</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -882,8 +882,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000011</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>15</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-10-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -892,8 +892,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000011</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>16</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-12-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -902,8 +902,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000011</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>17</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-31</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -912,8 +912,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000011</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>18</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -922,8 +922,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000011</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>19</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -932,8 +932,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000011</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>20</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.0</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-14</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -942,8 +942,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000012</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>21</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -952,8 +952,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000012</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>22</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-09-11</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -962,8 +962,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000012</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>23</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-10-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -972,8 +972,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000012</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>24</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-11-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -982,8 +982,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000012</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>25</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-12-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -992,8 +992,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000012</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>26</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1002,8 +1002,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000012</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>27</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-02-29</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1012,8 +1012,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000012</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>28</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1022,8 +1022,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000012</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>29</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1032,8 +1032,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000012</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>30</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.0</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-14</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1042,8 +1042,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000013</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>31</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1052,8 +1052,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000013</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>32</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-11</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1062,8 +1062,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000013</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>33</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1072,8 +1072,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000013</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>34</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-06-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1082,8 +1082,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000013</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>35</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-07-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1092,8 +1092,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000013</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>36</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-02-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1102,8 +1102,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000013</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>37</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-29</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1112,7 +1112,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000013</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-04-28</datum>
@@ -1122,7 +1122,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000013</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
@@ -1132,7 +1132,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000013</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-07-14</datum>
@@ -1142,7 +1142,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000014</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
@@ -1152,8 +1152,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000014</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>5</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-11</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1162,8 +1162,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000014</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>6</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1172,8 +1172,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000014</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>7</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1182,8 +1182,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000014</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>8</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-09-01</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1192,8 +1192,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000014</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>9</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>0.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1202,8 +1202,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000014</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>10</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.0</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-04-30</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1212,8 +1212,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000014</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>11</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1222,8 +1222,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000014</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>12</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-09</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1232,8 +1232,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000014</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>13</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-07-14</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1242,8 +1242,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000015</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>14</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1252,8 +1252,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000015</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>15</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-11</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1262,8 +1262,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000015</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>16</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1272,8 +1272,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000015</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>17</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1282,8 +1282,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000015</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>18</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-10-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1292,8 +1292,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000015</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>19</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>1.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-12-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1302,8 +1302,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000015</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>20</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.0</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-31</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1312,8 +1312,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000015</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>21</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1322,8 +1322,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000015</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>22</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-05-09</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1332,8 +1332,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000015</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>23</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-06-14</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1342,8 +1342,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000016</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>24</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1352,8 +1352,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000016</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>25</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-11</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1362,8 +1362,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000016</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>26</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1372,8 +1372,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000016</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>27</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-06-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1382,8 +1382,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000016</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>28</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-07-27</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1392,8 +1392,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000016</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>29</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-25</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1402,8 +1402,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000016</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>30</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.0</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-09-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1412,8 +1412,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000016</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>31</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-11-28</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1422,8 +1422,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000016</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>32</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-01-01</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1432,8 +1432,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000016</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>33</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2012-03-01</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1442,8 +1442,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000017</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>34</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.4</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-02-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1452,8 +1452,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000017</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>35</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-15</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1462,8 +1462,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000017</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>36</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.6</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1472,8 +1472,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000017</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>37</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-05-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1482,8 +1482,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000018</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>29</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.9</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1492,8 +1492,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000018</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>22</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-15</datum>
     <gebruiktMeetinstrument>L-QOL</gebruiktMeetinstrument>
@@ -1502,8 +1502,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000018</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>28</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.8</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-07-24</datum>
     <gebruiktMeetinstrument>L-QOL</gebruiktMeetinstrument>
@@ -1512,8 +1512,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000018</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>21</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.1</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>L-QOL</gebruiktMeetinstrument>
@@ -1522,8 +1522,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000019</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>33</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1532,7 +1532,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000019</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>111</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-15</datum>
@@ -1542,7 +1542,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000019</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>148</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-07-24</datum>
@@ -1552,7 +1552,7 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000019</koppelnummer>
-    <typeRespondent>4</typeRespondent>
+    <typeRespondent>01</typeRespondent>
     <totaalscoreMeting>198</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
@@ -1562,8 +1562,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000020</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>37</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.7</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-03-16</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1572,8 +1572,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000020</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>25</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.5</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-15</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1582,8 +1582,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000020</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>33</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>3.3</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-07-24</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1592,8 +1592,8 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000020</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>22</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-08-13</datum>
     <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
@@ -1602,11 +1602,23 @@
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000021</koppelnummer>
-    <typeRespondent>4</typeRespondent>
-    <totaalscoreMeting>22</totaalscoreMeting>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.2</totaalscoreMeting>
     <aardMeting>1</aardMeting>
     <datum>2011-04-13</datum>
     <gebruiktMeetinstrument>HADS-A</gebruiktMeetinstrument>
     <meting-id>000000202011-04-13HADS-A</meting-id>
   </Row>
+
+  <Row>
+    <zorgaanbiedercode>00022011</zorgaanbiedercode>
+    <koppelnummer>00000021</koppelnummer>
+    <typeRespondent>01</typeRespondent>
+    <totaalscoreMeting>2.2</totaalscoreMeting>
+    <aardMeting>1</aardMeting>
+    <datum>2011-04-13</datum>
+    <gebruiktMeetinstrument>Non-SBG</gebruiktMeetinstrument>
+    <meting-id>000000202011-04-13Non-SBG</meting-id>
+  </Row>
+
 </Rows>

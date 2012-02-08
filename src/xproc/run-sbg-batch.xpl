@@ -7,11 +7,12 @@
 		calabash.sh
 		-i config=/absolute/path/zorgaanbieder.xml
 		run-batch-sbg.xpl
-
+	
 		zorgaanbieder.xml is het document met 
 		de sbg-synq- en xproc-instellingen.
 
 		TODO xquery uris configureerbaar maken? 
+		
 	</p:documentation>
 
 	<p:input port="config">

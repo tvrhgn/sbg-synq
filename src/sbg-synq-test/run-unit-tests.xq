@@ -3,6 +3,7 @@ import module namespace sbge="http://sbg-synq.nl/sbg-epd" at '../sbg-synq/sbg-ep
 import module namespace sbgi="http://sbg-synq.nl/sbg-instrument" at '../sbg-synq/sbg-instrument.xquery';
 import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at '../sbg-synq/sbg-metingen.xquery';
 import module namespace sbgbm="http://sbg-synq.nl/sbg-benchmark" at '../sbg-synq/sbg-bmimport.xquery';
+import module namespace sbgem="http://sbg-synq.nl/epd-meting" at '../sbg-synq/epd-meting.xquery';
 (: declare variable $test-doc := doc( '../sbg-testdata/unit-tests.xml')/*; :)
 
 (: declare variable $test-doc as element()* external; 
@@ -16,13 +17,13 @@ declare variable $test-doc := /*;
 declare function local:filter-atts( $nd as node(), $tpl as node() )
 as node()*{
 for $att in $tpl/@*
-return $nd/@*[local-name() = local-name($att)]
+return $nd/@*[local-name() eq local-name($att)]
 };
 
 declare function local:filter-elts( $nd as node(), $tpl as node() )
 as node()* {
 for $elt in $tpl/*
-return $nd/*[local-name() = local-name($elt)]
+return $nd/*[local-name() eq local-name($elt)]
 };
 
 declare function local:transfer-atts($elts as element()* ) as element()*
@@ -42,7 +43,7 @@ declare function local:test-selecteer-zorgdomein($tests as element(test)*, $zorg
     let $dbc := $test/setup/dbc,
         $expected := $test/expected/*,
         
-        $zd := sbge:selecteer-domein( $dbc, $zorgdomeinen ),
+        $zd := sbgem:selecteer-domein( $dbc, $zorgdomeinen ),
         
         $pass := every $att in $expected/@*  satisfies contains( $zd/@*, $att )  and local-name($zd) = local-name($expected),
         $actual := element { local-name($zd) } { local:filter-atts( $zd, $expected ), local:filter-elts( $zd, $expected ) },
@@ -69,11 +70,12 @@ declare function local:test-koppelproces($tests as element(test)*, $zorgdomeinen
         $metingen := $test/setup//Meting,
         $expected := $test/expected//Meting,
         
-        $dbc-meting := sbge:patient-dbc-meting( $dbc, $metingen, $zorgdomeinen  )//Meting,
+        $patient-meting := sbgem:patient-meting-epd( $dbc, $metingen, $zorgdomeinen ),
+        $dbc-meting := sbge:patient-dbc-meting( $patient-meting, $zorgdomeinen  )//Meting,
         
         $pass-all :=  for $act in $dbc-meting
-                      let $exp := $expected[data(@sbgm:meting-id) = data($act/@sbgm:meting-id)]
-                      return every $att in $exp/@*  satisfies data($act/@*[local-name() = local-name($att)]) = data($att) 
+                      let $exp := $expected[data(@sbgm:meting-id) eq data($act/@sbgm:meting-id)]
+                      return $exp and (every $att in $exp/@*  satisfies data($act/@*[local-name() eq local-name($att)]) eq data($att)) 
                   ,
          (: TODO werkt als er geen expected is
          (nilled($expected[1]) and nilled($dbc-meting[1])) or ($pass-all, false())[1],

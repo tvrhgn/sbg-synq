@@ -31,10 +31,10 @@ else -1
 (: de items die worden meegegeven moeten een itemnummer en een score element hebben :)
 declare function sbgi:bereken-totaalscore-sbg( $instr as element(instrument)?, $items as node()* ) as xs:double
 {
-let  $schaal := $instr//schaal[@definitie='sbg'][1] 
+let  $schaal := $instr//schaal[@definitie eq 'sbg'][1] 
 return if ( exists( $schaal ) and count($items) gt 0 ) 
        then sbgi:schaal-functie( $schaal, $items )  
-       else -1
+       else -2
 };
 (: deprecated :)
 declare function sbgi:bereken-totaalscore( $instr as element(instrument)?, $items as node()* ) as xs:double

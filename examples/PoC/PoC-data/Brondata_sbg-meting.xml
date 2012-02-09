@@ -1621,4 +1621,14 @@
     <meting-id>000000202011-04-13Non-SBG</meting-id>
   </Row>
 
+<!-- voorbeeld honos65 -->
+<Row>
+  <meting-id>70105</meting-id>
+  <koppelnummer>13475</koppelnummer>
+  <gebruiktMeetinstrument>HoNOS65</gebruiktMeetinstrument>
+  <datum>2011-10-06</datum>
+  <aardMeting>4</aardMeting>
+  <xtotaalscoreMeting>13</xtotaalscoreMeting>
+</Row>
+
 </Rows>

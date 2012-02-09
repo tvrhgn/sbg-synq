@@ -175,4 +175,12 @@
     <primairOfNeven>1</primairOfNeven>
     <beroep>MB.SP.psych</beroep>
   </Row>
+  <Row>
+    <koppelnummer>13475</koppelnummer>
+    <zorgtrajectnummer>151</zorgtrajectnummer>
+    <alias>vpsy</alias>
+    <primairOfNeven>1</primairOfNeven>
+    <beroep>MB.SP.psych</beroep>
+  </Row>
+
 </Rows>

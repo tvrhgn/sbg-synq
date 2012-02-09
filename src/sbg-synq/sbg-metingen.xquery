@@ -11,7 +11,7 @@ as xs:boolean
   and $instr 
   and $score gt ( xs:double(data($instr/schaal/@min)) -1 ) 
   and $score lt ( xs:double(data($instr/schaal/@max)) + 1)
-  and (if ( $items ) 
+  and (if ( $items and $instr/@aantal-vragen) 
        then fn:count($items) = xs:integer( $instr/@aantal-vragen ) 
        else true() )
 };
@@ -46,7 +46,7 @@ as attribute()*
 {
 let $score := if ( $meting/totaalscoreMeting/text() castable as xs:double ) 
               then xs:double($meting/totaalscoreMeting/text())
-              else if ( $items )  then sbgi:bereken-totaalscore($instr, $items)
+              else if ( $items )  then sbgi:bereken-totaalscore-sbg($instr, $items)
               else -1,
     $geldig := sbgm:meting-geldig( $meting, $items, $instr, $score ),
     $score-geldig-att := if ( $geldig ) then () else attribute { 'sbgm:score-ongeldig' } { 'true' }

@@ -59,7 +59,7 @@ return
        for $meting in $clientmetingen
        let $instr-zd := $domeinen//instrument[@code eq $meting/@gebruiktMeetinstrument], 
         $zorgdomein := $instr-zd/../../@code,
-        $meetdomein := distinct-values($instr-zd/../naam/text())
+        $meetdomein := string-join( distinct-values($instr-zd/../naam/text()), ', ' )
        order by $meting/@datum
        return element { 'sbgem:Meting' } 
         { $meting/@* 
@@ -69,11 +69,11 @@ return
        ,
        for $zt in distinct-values($client-dbcs/zorgtrajectnummer)
        let $zt-dbcs := $client-dbcs[zorgtrajectnummer eq $zt],
-           $eerste-dbc := $zt-dbcs[1],   (: ga uit van 1 zdomein, diagnosecode etc voor alle dbcs in dit zorgtraject :)
-           $zorgdomein := sbgem:selecteer-domein( $eerste-dbc, $domeinen )
+           $zt-dbc := $zt-dbcs[last()],   (: ga uit van 1 zdomein, diagnosecode, locatie etc over van laatste dbc in dit zorgtraject :)
+           $zorgdomein := sbgem:selecteer-domein( $zt-dbc, $domeinen )
        return 
           element { 'sbgem:Zorgtraject' } 
-                  { sbgem:build-sbg-atts( $sbgem:zorgtraject-atts, $eerste-dbc) 
+                  { sbgem:build-sbg-atts( $sbgem:zorgtraject-atts, $zt-dbc) 
                     union attribute { 'zorgtrajectnummer' } { $zt }
                     union attribute { 'sbgem:zorgdomeinCode' } { $zorgdomein/@code }
                     ,

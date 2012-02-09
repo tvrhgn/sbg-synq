@@ -492,12 +492,11 @@ Te excluderen items 6, 15, 49,
       </berekening>
     </schaal>
   </instrument>
-  <instrument code="HoNOS65">
+  <instrument code="HoNOS65" typeRespondent="01">
     <naam>HoNOS-65+</naam>
-    <schaal min="0" max="48" code="-onbekend-">
-      <items>
-      </items>
-      <berekening functie="sum-honos65">Voor de 12 schalen in de vragenlijst worden alle vragen per
+    <schaal min="0" max="48" code="-onbekend-" definitie="sbg">
+      <items>1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13</items>
+      <berekening functie="sum">Voor de 12 schalen in de vragenlijst worden alle vragen per
 schaal beantwoord (antwoordmogelijkheden 0 t/m 4).
 Voor de 12 schalen wordt de schaalscore bepaald als de per
 schaal hoogst gegeven (item)score (min. 0; max. 4). De

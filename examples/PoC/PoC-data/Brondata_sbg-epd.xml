@@ -769,4 +769,64 @@
     <redenNonResponseNameting>02</redenNonResponseNameting>
     <cl-zorgcircuit>2</cl-zorgcircuit>
   </Row>
+
+<!-- voorbeeld tbv honos65 -->
+<Row>
+  <koppelnummer>13475</koppelnummer>
+  <zorgtrajectnummer>151</zorgtrajectnummer>
+  <DBCTrajectnummer>134751515</DBCTrajectnummer>
+  <startdatumDBC>2009-09-27</startdatumDBC>
+  <einddatumDBC>2010-09-26</einddatumDBC>
+  <cl-zorgcircuit>1</cl-zorgcircuit>
+  <datumEersteSessie>2010-01-07</datumEersteSessie>
+  <datumLaatsteSessie>2010-09-16</datumLaatsteSessie>
+  <redenEindeDBC>4</redenEindeDBC>
+  <geslacht>2</geslacht>
+  <geboorteJaar>1949</geboorteJaar>
+  <DBCPrestatieCode>202012000087</DBCPrestatieCode>
+  <opleidingsniveau>99</opleidingsniveau>
+  <leefsituatie>99</leefsituatie>
+  <postcodegebied>5262</postcodegebied>
+  <GAFscore>55</GAFscore>
+  <primaireDiagnoseCode>as1_6.02.01.02</primaireDiagnoseCode>
+  <locatiecode>3102117</locatiecode>
+</Row>
+<Row>
+  <koppelnummer>13475</koppelnummer>
+  <zorgtrajectnummer>151</zorgtrajectnummer>
+  <DBCTrajectnummer>134751516</DBCTrajectnummer>
+  <startdatumDBC>2010-09-27</startdatumDBC>
+  <einddatumDBC>2011-09-26</einddatumDBC>
+  <cl-zorgcircuit>2</cl-zorgcircuit>
+  <datumEersteSessie>2010-10-05</datumEersteSessie>
+  <datumLaatsteSessie>2011-09-26</datumLaatsteSessie>
+  <redenEindeDBC>4</redenEindeDBC>
+  <geslacht>2</geslacht>
+  <geboorteJaar>1949</geboorteJaar>
+  <DBCPrestatieCode>202012053087</DBCPrestatieCode>
+  <opleidingsniveau>99</opleidingsniveau>
+  <leefsituatie>99</leefsituatie>
+  <postcodegebied>5262</postcodegebied>
+  <GAFscore>55</GAFscore>
+  <primaireDiagnoseCode>as1_6.02.01.02</primaireDiagnoseCode>
+  <locatiecode>2162130A</locatiecode>
+</Row>
+<Row>
+  <koppelnummer>13475</koppelnummer>
+  <zorgtrajectnummer>151</zorgtrajectnummer>
+  <DBCTrajectnummer>134751517</DBCTrajectnummer>
+  <startdatumDBC>2011-09-27</startdatumDBC>
+  <cl-zorgcircuit>2</cl-zorgcircuit>
+  <datumEersteSessie>2011-09-28</datumEersteSessie>
+  <datumLaatsteSessie>2012-01-10</datumLaatsteSessie>
+  <geslacht>2</geslacht>
+  <geboorteJaar>1949</geboorteJaar>
+  <opleidingsniveau>99</opleidingsniveau>
+  <leefsituatie>99</leefsituatie>
+  <postcodegebied>5262</postcodegebied>
+  <GAFscore>55</GAFscore>
+  <primaireDiagnoseCode>as1_6.02.01.02</primaireDiagnoseCode>
+  <locatiecode>2162130A</locatiecode>
+</Row>
+
 </Rows>

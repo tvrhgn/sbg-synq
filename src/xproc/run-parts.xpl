@@ -28,6 +28,10 @@
 		<p:pipe step="sbg-batch" port="config" />
 	</p:variable>
 	
+	<p:variable name="tmp.dir" select="//target[1]/tmp">
+		<p:pipe step="sbg-batch" port="config" />
+	</p:variable>
+	
 	<p:variable name="tmp.doc" select="concat( //target[1]/tmp, '/', 'bmstore.xml')">
 		<p:pipe step="sbg-batch" port="config" />
 	</p:variable>
@@ -112,7 +116,7 @@
 		</p:input>
 	</p:xquery>
 	
-<!-- 
+ 
 	<p:xquery name="sbg-patient-meting">
 		<p:input port="source">
 			<p:pipe step="patient-meting" port="result" />
@@ -133,10 +137,10 @@
 			<p:empty />
 		</p:input>
 	</p:xquery>
-	 -->
+
 	 
 	<p:store name="store-zorgaanbieder">
-		<p:with-option name="href" select="'../../sbg-synq-out/zorgaanbieder.xml'" />
+		<p:with-option name="href" select="concat( $tmp.dir, '/zorgaanbieder.xml')" />
 		<p:input port="source">
 			<p:pipe step="zorgaanbieder" port="result" />
 		</p:input>
@@ -144,24 +148,24 @@
 
 
 	<p:store name="store-metingen">
-		<p:with-option name="href" select="'../../sbg-synq-out/metingen.xml'" />
+		<p:with-option name="href" select="concat( $tmp.dir,'/metingen.xml')" />
 		<p:input port="source" select="//metingen">
 			<p:pipe step="metingen" port="result" />
 		</p:input>
 	</p:store>
 
 	<p:store name="store-patient-meting">
-		<p:with-option name="href" select="'../../sbg-synq-out/patient-meting.xml'" />
+		<p:with-option name="href" select="concat( $tmp.dir,'/patient-meting.xml')" />
 		<p:input port="source" select="//patient-meting">
 			<p:pipe step="patient-meting" port="result" />
 		</p:input>
 	</p:store>
-<!-- 
+
 	<p:store name="store-sbg-patient-meting">
-		<p:with-option name="href" select="'../../sbg-synq-out/sbg-patient-meting.xml'" />
+		<p:with-option name="href" select="concat( $tmp.dir,'/sbg-patient-meting.xml')" />
 		<p:input port="source" select="//sbg-patient-meting">
 			<p:pipe step="sbg-patient-meting" port="result" />
 		</p:input>
 	</p:store>
- -->
+
 </p:declare-step>

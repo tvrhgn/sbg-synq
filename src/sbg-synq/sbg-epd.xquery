@@ -101,11 +101,13 @@ Opm: dit maakt de betekenis van zorgdomein dus vager
 declare function sbge:bepaal-zorgdomein ( $zorgtraject as element(sbgem:Zorgtraject), $metingen as element(sbgem:Meting)* ) 
 as xs:string
 {
-let $vals := string-join(distinct-values( data($metingen/@sbgem:zorgdomein)), ' '),
-    $zorgdomein-kandidaten := tokenize($vals, ' ')
-return if ( index-of( ($zorgdomein-kandidaten, 'XX'), $zorgtraject/@sbgem:zorgdomeinCode ) ) 
-then $zorgtraject/@sbgem:zorgdomeinCode  (: geen conflict :)
-else  ($zorgdomein-kandidaten, $zorgtraject/@sbgem:zorgdomeinCode, 'XX')[1]
+let $zd-dbc := $zorgtraject/@sbgem:zorgdomeinCode,
+    $sbg-metingen := $metingen[not(@sbgm:instrument-ongeldig)],
+    $zds-meting := distinct-values( data($sbg-metingen/@sbgem:zorgdomein))
+return if ( not($sbg-metingen) or index-of( $zds-meting, $zd-dbc )  )  
+then $zorgtraject/@sbgem:zorgdomeinCode
+(: zds-meting kan nog steeds meer zorgdomeinen bevatten; neem de eerste :) 
+else  tokenize( string-join($zds-meting, ' '), ' ')[1]
 };
 
 
@@ -123,7 +125,7 @@ return
        , 
        for $zt in $client/sbgem:Zorgtraject
        (: kijk of de metingen verwijzen naar een ander zorgdomein :)
-       let $zorgdomein-code := sbge:bepaal-zorgdomein( $zt, $clientmetingen )
+       let $zorgdomein-code := if ( $clientmetingen ) then sbge:bepaal-zorgdomein( $zt, $clientmetingen ) else data($zt/@sbgem:zorgdomeinCode)
        return 
           element { 'Zorgtraject' } 
                   { $zt/@*[local-name() ne 'sbgem:zorgdomeinCode']

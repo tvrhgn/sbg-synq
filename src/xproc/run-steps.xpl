@@ -11,33 +11,12 @@
 	</p:input>
 
 	<p:output port="result">
-		<p:pipe step="zorgaanbieder" port="result" />
+		<p:pipe step="config-add-ts" port="result" />
 	</p:output>
 
 	<p:variable name="timestamp" select="current-dateTime()" />
 
-	<!--  gebruik het configuratiedocument om de bestandsnaam van de output op te bouwen -->
-	<p:variable name="batch-year" select="substring(//batch[1]/einddatumAangeleverdePeriode, 1, 4 )">
-		<p:pipe step="sbg-batch" port="config" />
-	</p:variable>
-	<p:variable name="batch-month" select="substring(//batch[1]/einddatumAangeleverdePeriode, 6, 2)">
-		<p:pipe step="sbg-batch" port="config" />
-	</p:variable>
-
-	<p:variable name="za-naam" select="upper-case(replace( /zorgaanbieder/naam, ' ', '' ))">
-		<p:pipe step="sbg-batch" port="config" />
-	</p:variable>
-	
 	<p:variable name="tmp.dir" select="//target[1]/tmp">
-		<p:pipe step="sbg-batch" port="config" />
-	</p:variable>
-	
-	<p:variable name="tmp.doc" select="concat( //target[1]/tmp, '/', 'bmstore.xml')">
-		<p:pipe step="sbg-batch" port="config" />
-	</p:variable>
-	
-	<p:variable name="result.doc"
-		select="concat( //target[1]/ftp, '/', //@code[1], '_', //target[1]/@type, '_', $za-naam, '_SBG_', $batch-year, '_', $batch-month, '_', //target[1]/@volgnummer, '.xml')">
 		<p:pipe step="sbg-batch" port="config" />
 	</p:variable>
 	
@@ -48,27 +27,8 @@
 		</p:input>
 	</p:add-attribute>
 
-	<p:xquery name="zorgaanbieder">
-		<p:input port="source">
-			<p:pipe step="config-add-ts" port="result" />
-		</p:input>
-	
-		<p:input port="query">
-			<p:inline>
-				<c:query>
-			import module namespace sbgza="http://sbg-synq.nl/zorgaanbieder" at '../sbg-synq/zorgaanbieder.xquery';
-			import module namespace sbgbm="http://sbg-synq.nl/sbg-benchmark" at '../sbg-synq/sbg-bmimport.xquery';
-			let $za := sbgza:build-zorgaanbieder( ./zorgaanbieder )
-			return sbgbm:batch-gegevens($za)
-			</c:query>
-			</p:inline>
-		</p:input>
-		<p:input port="parameters">
-			<p:empty />
-		</p:input>
-	</p:xquery>
-	
-
+<!--  bouw de instrument-bibliotheek op voor zorgaanbieder -->
+<!-- verwerk ruwe meetgegevens en geef een elt 'result' met de zorgaanbieder en een rij sbgm:Meting -->
 	<p:xquery name="metingen">
 		<p:input port="source">
 			<p:pipe step="config-add-ts" port="result" />
@@ -94,7 +54,8 @@
 		</p:input>
 	</p:xquery>
 	
-	 
+<!-- koppel metingen aan epd; geef elt 'result' met de zorgaanbieder en een rij sbgem:Patient -->
+<!--  een sbgem:Patient bevat alle metingen bekend bij een zekere client; sbgem:zorgdomeinCode is de via zorgaanbieder afgeleide code -->	 
 	<p:xquery name="patient-meting">
 		<p:input port="source">
 			<p:pipe step="metingen" port="result" />
@@ -116,7 +77,8 @@
 		</p:input>
 	</p:xquery>
 	
- 
+ <!--  filter de sbg te selecteren metingen en geef de zorgaanbieder en een rij Patient  -->
+ <!--  zorgtraject krijgt hier een zorgdomeinCode die evt de metingen volgt ipv de DBC  -->
 	<p:xquery name="sbg-patient-meting">
 		<p:input port="source">
 			<p:pipe step="patient-meting" port="result" />
@@ -142,7 +104,7 @@
 	<p:store name="store-zorgaanbieder">
 		<p:with-option name="href" select="concat( $tmp.dir, '/zorgaanbieder.xml')" />
 		<p:input port="source">
-			<p:pipe step="zorgaanbieder" port="result" />
+			<p:pipe step="config-add-ts" port="result" />
 		</p:input>
 	</p:store>
 

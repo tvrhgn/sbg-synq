@@ -22,7 +22,7 @@ return <sbggz:NevendiagnoseCode nevendiagnoseCode="{$nd/nevendiagnoseCode}"/>
 (: zoek de behandelaars bij een zorgtraject  :)
 declare function sbgbm:build-sbg-behandelaar( $zt as element(Zorgtraject), $behs as node()*  ) 
 as element(sbggz:Behandelaar)* {
-for $beh in $behs[zorgtrajectnummer=$zt/@zorgtrajectnummer][primairOfNeven/text()][beroep/text()][alias/text()]
+for $beh in $behs[zorgtrajectnummer eq $zt/@zorgtrajectnummer][primairOfNeven/text()][beroep/text()][alias/text()]
 let $pon := $beh/primairOfNeven,
     $beroep := $beh/beroep,
     $alias := $beh/alias

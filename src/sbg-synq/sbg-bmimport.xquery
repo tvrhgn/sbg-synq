@@ -12,14 +12,16 @@ $nd/@*[namespace-uri() = ''][string-length(.) gt 0]
 }; 
 
 
+(: forceer uniek :)
 declare function sbgbm:build-sbg-nevendiagnose( $zt as element(Zorgtraject), $diagn as node()* ) 
 as element(sbggz:NevendiagnoseCode)*
 {
-for $nd in $diagn[zorgtrajectnummer=$zt/@zorgtrajectnummer][text()]
-return <sbggz:NevendiagnoseCode nevendiagnoseCode="{$nd/nevendiagnoseCode}"/>
+for $diag in distinct-values($diagn[zorgtrajectnummer eq $zt/@zorgtrajectnummer]/text())
+return <sbggz:NevendiagnoseCode nevendiagnoseCode="{$diag}"/>
 };
 
 (: zoek de behandelaars bij een zorgtraject  :)
+(: filter ongeldige er uit; forceer uniek ? :)
 declare function sbgbm:build-sbg-behandelaar( $zt as element(Zorgtraject), $behs as node()*  ) 
 as element(sbggz:Behandelaar)* {
 for $beh in $behs[zorgtrajectnummer eq $zt/@zorgtrajectnummer][primairOfNeven/text()][beroep/text()][alias/text()]

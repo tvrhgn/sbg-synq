@@ -24,7 +24,7 @@
 					</instrumenten>
 				</meetdomein>
 			</zorgdomein>
-			<zorgdomein code="01">
+			<zorgdomein code="01" peildatums-eenvoudig="true">
 				<naam>Volwassenen lang</naam>
 				<meetdomein>
 					<naam>Functioneren</naam>
@@ -1286,6 +1286,24 @@
 			</expected>
 		</test>
 	</group>
+	<group xmlns:sbge="http://sbg-synq.nl/sbg-epd" xmlns:sbgm="http://sbg-synq.nl/sbg-metingen">
+	  <functie>sbge:dbc-peildatums-zorgdomein</functie>
+	  <beschrijving>functie die 2 datums retourneert, afhankelijk van zorgdomein</beschrijving>
+	  <test name="dbc in zorgdomein normaal" code="1">
+	  <setup>
+	    <dbc startdatumDBC="2011-03-16" datumEersteSessie="2011-03-21"
+		 datumLaatsteSessie="2011-09-18" einddatumDBC="2011-09-13"  />
+	    <zorgdomein code="02">
+		<naam>Volwassenen kort</naam>
+	    </zorgdomein>
+	  </setup>
+	  <expected>
+	    <peildatums>2011-03-21</peildatums>
+	  </expected>
+	  </test>
+
+	</group>
+
 	<group xmlns:sbgbm="http://sbg-synq.nl/sbg-benchmark">
 		<functie>sbgbm:filter-batchperiode</functie>
 		<beschrijving>selecteer patient naar gelang er dbcs zijn die in de
@@ -1362,6 +1380,7 @@
 			</setup>
 			<expected/>	
 		</test>
-		
+
+	
 	</group>
 </tests>

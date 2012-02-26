@@ -1,4 +1,7 @@
 module namespace sbge = "http://sbg-synq.nl/sbg-epd";
+
+(: pas de koppelregels toe :)
+
 import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at 'sbg-metingen.xquery';
 import module namespace sbgem="http://sbg-synq.nl/epd-meting" at 'epd-meting.xquery';
 
@@ -16,7 +19,8 @@ $metingen as element(sbgem:Meting)*,
 $domein as element(zorgdomein), 
 $peildatums as element(peildatums)
 ) 
-as element(Meting)* {
+as element(Meting)* 
+{
 for $peildatum in $peildatums//datum
 let $type := $peildatum/@type,
     $periode-voor := ($domein/meetperiode-voor/text(), $domein/meetperiode/text())[1],
@@ -44,6 +48,41 @@ return
         else ()
  };
 
+(: er zijn altijd 2 peildatums :)
+(: resulterend zijn is een sequence metingen getypeerd, maar niet uniek :)
+declare function sbge:metingen-in-periode-domein( 
+$metingen as element(sbgem:Meting)*,  
+$domein as element(zorgdomein), 
+$peildatums as xs:date+
+) 
+as element(Meting)* 
+{
+
+for $peildatum at $ix in $peildatums
+let $periode-voor := ($domein/meetperiode-voor/text(), $domein/meetperiode/text())[1],
+    $meetperiode-voor := if ( $periode-voor castable as xs:yearMonthDuration ) 
+                         then xs:yearMonthDuration( $periode-voor)
+                         else xs:yearMonthDuration("P3M"),
+    $periode-na := ($domein/meetperiode-na/text(), $domein/meetperiode/text())[1],
+    $meetperiode-na := if ( $periode-na castable as xs:yearMonthDuration ) 
+                         then xs:yearMonthDuration( $periode-na)
+                         else xs:yearMonthDuration("P3M") 
+    for $m in $metingen[data(@datum)]
+    let $afstand := xs:date($m/@datum) - xs:date($peildatum),
+        $voor-peildatum := $afstand le xs:dayTimeDuration('P0D')
+    order by $ix, abs(fn:days-from-duration($afstand))  (: de eerste toekenning van een meting is aan voormeting (testscenario 16) :)
+    return if ( sbge:in-periode($m/@datum, $peildatum, $meetperiode-voor, $meetperiode-na ) ) then 
+       element {'Meting' } {
+                $m/@*
+                union attribute { 'typemeting' } { $ix } 
+                union attribute { 'sbge:afstand' } { $afstand }
+                union attribute { 'sbge:voor-peildatum' } { $voor-peildatum },
+                $m/*
+        }
+        else ()
+};
+
+
 
 (: de datum-relaties (begin/eind) van de dbc bepalen of een meting het type 1: voor- of 2: nameting krijgt :)  
 (: ken aan een dbc twee geldige peildatums toe: voorkeur voor de sessiedatums, terugval op begin/eind, default-waarden :)
@@ -64,6 +103,32 @@ let $begin := if ( data($dbc/@datumEersteSessie) castable as xs:date )
                 <datum type="1">{$begin}</datum>
                 <datum type="2">{$eind}</datum>
      </peildatums>
+};
+
+(: functie die altijd twee datums retourneert :)
+(: kijkt naar het attribuut 'peildatums-eenvoudig' op zorgdomein om sessie datums evt te negeren :)
+declare function sbge:dbc-peildatums-zorgdomein($dbc as element(), $zorgdomein as element(zorgdomein) ) 
+as xs:date*
+{
+let $e-sessie := if ( $zorgdomein[@peildatums-eenvoudig eq 'true'] ) then "-negeer-" else data($dbc/@datumEersteSessie)
+let $l-sessie := if ( $zorgdomein[@peildatums-eenvoudig eq 'true'] ) then "-negeer-" else data($dbc/@datumLaatsteSessie)
+let $begin := data($dbc/@einddatumDBC)
+let $eind := data($dbc/@einddatumDBC)
+
+return (  if ( $e-sessie castable as xs:date ) 
+              then xs:date($e-sessie)
+              else 
+                 if  ( $begin castable as xs:date ) 
+                 then xs:date($begin ) 
+                 else xs:date('1900-01-01')   (: kunstmatig minimum :)
+         ,
+         if ( $l-sessie castable as xs:date ) 
+              then xs:date($l-sessie ) 
+              else 
+                 if ( $eind castable as xs:date ) 
+                 then xs:date($eind) 
+                 else xs:date('2100-01-01')  (: kunstmatig maximum :)
+     )
 };
 
 (: maak paren voor- en nametingen :)

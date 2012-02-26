@@ -12,15 +12,13 @@
 	<!--<result waarde="true" bron="Koppelingen_4" type="sbg-synq">Het mag niet 
 		mogelijk zijn dat een DBC traject meer dan een meetinstrument per meetdomein 
 		heeft. </result> -->
-	<result waarde="true" bron="Koppelingen_5" type="sbg-synq"><!--Wordt voor elk 
+	<result waarde="false" bron="Koppelingen_5" type="sbg-synq"><!--Wordt voor elk 
 			DBC traject bekeken of er een mogelijke voor- en/of nameting is. -->
-		sbg-synq 0.9 laat alleen geldige combinaties door: dbc zonder
-		einddatum heeft nooit een nameting; dbc met einddatum alleen
-		combinatie voor/na.
-		(het SBG dataprotocol zou dit ook kunnen opvangen
-		in opeenvolgende aanleveringen))
+		sbg-synq 0.95 laat ook ongeldige combinaties door: dbc zonder
+		einddatum heeft nooit een nameting. Voor een DBC met einddatum is alleen
+		combinatie voor/na geldig; nu worden ook losse voor/na-metingen doorgelaten.
 	</result>
-	<result waarde="true" bron="Koppelingen_6" type="sbg-synq"><!--Wordt ook voor 
+	<result waarde="false" bron="Koppelingen_6" type="sbg-synq"><!--Wordt ook voor 
 			een zorgdomein dat meerdere meetdomeinen heeft voor elk meetdomein gekeken 
 			of er een voor- en/of nameting is. -->
 		sbg-synq 0.9 ondersteunt domein-afhankelijke selectie van metingen.
@@ -28,6 +26,7 @@
 		(3M voor/na) per zorgdomein in te stellen, bv (3M voor, 9M na).
 		sbge:metingen-in-periode() gaat in op de domein-afhankelijke selectie
 		van metingen.
+		Zorgdomein-afhankelijke controle op afstand voor/na is nog niet geimplementeerd
 	</result>
 	<result waarde="true" bron="Koppelingen_7" type="sbg-synq"><!--Wordt bij een 
 			afgesloten DBC traject zowel bekeken of er een voor- en nameting is. -->
@@ -86,16 +85,18 @@
 	<result waarde="true" bron="Koppelingen_24" type="sbg-synq"><!--Wordt voor de 
 			eerste sessie die meting genomen die voor de sessiedatum ligt en het dichtstbij 
 			is. -->
-		sbg-synq 0.9 doet dit correct; zie unit test groep
+		sbg-synq 0.95 doet dit correct; zie unit test groep
 		sbge:patient-dbc-meting; gebaseerd op testscenario's in PoC - Testset
 		Koppelproces.xlsx
+		NB nog geen geen testscenario's beschreven voor zorgdomein lang
 	</result>
 	<result waarde="true" bron="Koppelingen_25" type="sbg-synq"><!--Wordt, wanneer 
 			er geen meting is voor de eerste sessiedatum, de meting genomen die het dichtstbij 
 			ligt na de datum van de betreffende sessie. -->
-		sbg-synq 0.9 doet dit correct; zie unit test groep
+		sbg-synq 0.95 doet dit correct; zie unit test groep
 		sbge:patient-dbc-meting; gebaseerd op testscenario's in PoC - Testset
 		Koppelproces.xlsx
+		NB nog geen geen testscenario's beschreven voor zorgdomein lang
 	</result>
 	<result waarde="true" bron="Koppelingen_26" type="sbg-synq"><!--Wordt alleen 
 			die meting genomen bij een sessie, waarvan het verschil in data niet meer 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <test-results>
-	<test-info versie="0.9" datum="2011-10-31" type="sbg-synq">Als je
+	<test-info versie="0.95" datum="2012-02-20" type="sbg-synq">Als je
 		sbg-synq gebruikt om het benchmark-import bestand aan te maken,
 		profiteer je van garanties die de schema-validatie alleen niet biedt.
 	</test-info>
@@ -15,8 +15,10 @@
 	<result waarde="false" bron="Koppelingen_5" type="sbg-synq"><!--Wordt voor elk 
 			DBC traject bekeken of er een mogelijke voor- en/of nameting is. -->
 		sbg-synq 0.95 laat ook ongeldige combinaties door: dbc zonder
-		einddatum heeft nooit een nameting. Voor een DBC met einddatum is alleen
-		combinatie voor/na geldig; nu worden ook losse voor/na-metingen doorgelaten.
+		einddatum heeft nooit een nameting. Voor een DBC met einddatum is
+		alleen
+		combinatie voor/na geldig; nu worden ook losse voor/na-metingen
+		doorgelaten.
 	</result>
 	<result waarde="false" bron="Koppelingen_6" type="sbg-synq"><!--Wordt ook voor 
 			een zorgdomein dat meerdere meetdomeinen heeft voor elk meetdomein gekeken 
@@ -26,7 +28,8 @@
 		(3M voor/na) per zorgdomein in te stellen, bv (3M voor, 9M na).
 		sbge:metingen-in-periode() gaat in op de domein-afhankelijke selectie
 		van metingen.
-		Zorgdomein-afhankelijke controle op afstand voor/na is nog niet geimplementeerd
+		Zorgdomein-afhankelijke controle op afstand voor/na is
+		nog niet geimplementeerd
 	</result>
 	<result waarde="true" bron="Koppelingen_7" type="sbg-synq"><!--Wordt bij een 
 			afgesloten DBC traject zowel bekeken of er een voor- en nameting is. -->
@@ -88,7 +91,8 @@
 		sbg-synq 0.95 doet dit correct; zie unit test groep
 		sbge:patient-dbc-meting; gebaseerd op testscenario's in PoC - Testset
 		Koppelproces.xlsx
-		NB nog geen geen testscenario's beschreven voor zorgdomein lang
+		NB nog geen geen testscenario's beschreven voor
+		zorgdomein lang
 	</result>
 	<result waarde="true" bron="Koppelingen_25" type="sbg-synq"><!--Wordt, wanneer 
 			er geen meting is voor de eerste sessiedatum, de meting genomen die het dichtstbij 
@@ -96,7 +100,8 @@
 		sbg-synq 0.95 doet dit correct; zie unit test groep
 		sbge:patient-dbc-meting; gebaseerd op testscenario's in PoC - Testset
 		Koppelproces.xlsx
-		NB nog geen geen testscenario's beschreven voor zorgdomein lang
+		NB nog geen geen testscenario's beschreven voor
+		zorgdomein lang
 	</result>
 	<result waarde="true" bron="Koppelingen_26" type="sbg-synq"><!--Wordt alleen 
 			die meting genomen bij een sessie, waarvan het verschil in data niet meer 
@@ -126,7 +131,7 @@
 		sbg-synq 0.9 doet dit correct: de selectie wordt gestuurd door het
 		configuratie-bestand; zie unit-test sbgbm:filter-batchperiode
 	</result>
-	
+
 	<result waarde="true" bron="Attribuut Controle_71" type="sbg-synq"><!-- Is het 
 			koppelnummer geen patient identificatie. -->
 		het sbg-synq pipeline script run-sbg-batch.xpl vervangt de
@@ -134,8 +139,22 @@
 	</result>
 	<result waarde="true" bron="Attribuut Controle_73" type="sbg-synq"><!-- Is bij 
 			herhaalde aanlevering het koppelnummer per patient gelijk. -->
-			SHA-algoritme is hiervoor geschikt
+		SHA-algoritme is hiervoor geschikt
 	</result>
-	
+	<result waarde="true" bron="Structuur Controles_11" type="sbg-synq"><!-- Het 
+			is mogelijk om binnen een zorgtraject meerdere nevendiagnoses in het bestand 
+			aan te leveren. De nevendiagnosecode moet uniek zijn binnen een zorgtraject. -->
+		sbg-synq dwingt dit af vanaf versie 0.95
+	</result>
+	<result waarde="true" bron="Attribuut Controle_51" type="sbg-synq"><!-- Er mogen 
+			alleen vragenlijsten opgevoerd worden, die voldoen aan de opgegeven set van 
+			Stichting Benchmark GGZ -->
+		sbg-synq verwerkt metingen en voegt indien nodig een attribuut
+		'sbgm:instrument-ongeldig' toe op basis van het configuratie-bestand.
+		Deze metingen worden niet aangeleverd.
+	</result>
+	<result waarde="true" bron="Attribuut Controle_87" type="sbg-synq"><!-- Komt de naam van de instelling overeen met de zorgaanbiedercode -->
+		sbg-synq haalt de agb-code en de zorgaanbiedernaam uit het configuratie-bestand en gebruikt deze waarden in het benchmark-bestand en in de bestandsnaam van het benchmark-bestand 
+	</result>
 
 </test-results>

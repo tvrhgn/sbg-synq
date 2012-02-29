@@ -2,17 +2,17 @@ module namespace sbgm = "http://sbg-synq.nl/sbg-metingen";
 
 import module namespace sbgi="http://sbg-synq.nl/sbg-instrument" at 'sbg-instrument.xquery';
 
+  (: score niet ongeldig; datum niet leeg; instrument gevonden in bibliotheek; score in range en aantal items correct als items bekend zijn:)
 declare function sbgm:meting-geldig( $meting as node(), $items as node()*, $instr as element(instrument)?, $score as xs:double )
 as xs:boolean
 {
-  (: score niet ongeldig; datum niet leeg; instrument gevonden in bibliotheek; score in range en aantal items correct als items bekend zijn:)
-  not( $score = -1)
+  not( $score eq -1)
   and $meting/datum castable as xs:date
   and $instr 
-  and $score gt ( xs:double(data($instr/schaal/@min)) -1 ) 
-  and $score lt ( xs:double(data($instr/schaal/@max)) + 1)
+  and $score ge ( xs:double(data($instr/schaal/@min)) ) 
+  and $score le ( xs:double(data($instr/schaal/@max)) )
   and (if ( $items and $instr/@aantal-vragen) 
-       then fn:count($items) = xs:integer( $instr/@aantal-vragen ) 
+       then fn:count($items) eq xs:integer( $instr/@aantal-vragen ) 
        else true() )
 };
 

@@ -45,6 +45,7 @@ tr.meting:nth-child(even) { background-color: #9DE;  }
 .test.schema > div.bron { background-color: thistle }
 .test.schema.fail > div.bron { background-color: pink }
 .test.sbg-synq > div.bron { background-color: navajowhite }
+.test.sbg-synq.fail > div.bron { background-color: pink }
 .test.schema > div.result { font-family: mono; font-size: 80%; padding:0.2em }
 
 .test-control { display: table-cell; padding: 1em; }

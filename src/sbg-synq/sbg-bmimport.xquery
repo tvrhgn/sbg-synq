@@ -16,7 +16,7 @@ $nd/@*[namespace-uri() = ''][string-length(.) gt 0]
 declare function sbgbm:build-sbg-nevendiagnose( $zt as element(Zorgtraject), $diagn as node()* ) 
 as element(sbggz:NevendiagnoseCode)*
 {
-for $diag in distinct-values($diagn[zorgtrajectnummer eq $zt/@zorgtrajectnummer]/text())
+for $diag in distinct-values($diagn[zorgtrajectnummer eq $zt/@zorgtrajectnummer]/nevendiagnoseCode/text())
 return <sbggz:NevendiagnoseCode nevendiagnoseCode="{$diag}"/>
 };
 
@@ -117,7 +117,7 @@ return
                            return element { 'sbggz:DBCTraject' }
                            { sbgbm:filter-atts($dbc)
                            ,
-                            for $meting in $dbc/Meting
+                            for $meting in $dbc/Meting[not(@sbgm:instrument-ongeldig)]
                             return element { 'sbggz:Meting' } 
                             { sbgbm:filter-atts($meting)
                             ,

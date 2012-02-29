@@ -178,7 +178,7 @@ let $km-class := data($tests[@bron = $t/@bron]/@km-class),
     $pass := if ( exists($result[@waarde='true'])) then 'pass' else 'fail',
     $result-class := if ( exists($result) ) then 
                         if ( $result[@type='schematron'] ) then concat( 'schema ', $pass )
-                        else if ( $result[@type='sbg-synq'] ) then 'sbg-synq' 
+                        else if ( $result[@type='sbg-synq'] ) then concat( 'sbg-synq ', $pass) 
                              else $pass 
                      else 'missed'
 return  

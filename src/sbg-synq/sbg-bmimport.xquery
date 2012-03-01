@@ -1,6 +1,6 @@
 module namespace sbgbm = "http://sbg-synq.nl/sbg-benchmark";
 declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
-
+declare namespace sbgm="http://sbg-synq.nl/sbg-metingen";
 
 
 (: laat alleen de attributen met een text-waarde in de default namespace door; 

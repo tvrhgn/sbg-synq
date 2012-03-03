@@ -11,7 +11,7 @@
 
 	<p:xquery name="run-unit-test">
 		<p:input port="source">
-			<p:document href="../sbg-synq-test/unit-tests.xml" />
+			<p:document href="../sbg-synq-test/test-koppelproces.xml" />
 		</p:input>
 		<p:input port="query">
 			<p:data href="../sbg-synq-test/run-unit-tests.xq" />
@@ -44,3 +44,4 @@
 	</p:store>
 
 </p:declare-step>
+ 

@@ -112,7 +112,7 @@ as xs:date*
 {
 let $e-sessie := if ( $zorgdomein[@peildatums-eenvoudig eq 'true'] ) then "-negeer-" else data($dbc/@datumEersteSessie)
 let $l-sessie := if ( $zorgdomein[@peildatums-eenvoudig eq 'true'] ) then "-negeer-" else data($dbc/@datumLaatsteSessie)
-let $begin := data($dbc/@einddatumDBC)
+let $begin := data($dbc/@startdatumDBC)
 let $eind := data($dbc/@einddatumDBC)
 
 return (  if ( $e-sessie castable as xs:date ) 

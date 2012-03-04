@@ -11,7 +11,8 @@ declare function sbge:in-periode( $datum as xs:date, $peildatum as xs:date, $per
   $datum >= ($peildatum - $periode-voor) and $datum <= ($peildatum + $periode-na)
 };
 
-(: filter metingen binnen peildatums  +/- periode;  leid meetdomein en typemeting af; sorteer op afstand tot peildatum  :)
+(: OUD ---
+  filter metingen binnen peildatums  +/- periode;  leid meetdomein en typemeting af; sorteer op afstand tot peildatum  :)
 (: voeg attributen toe om meting te typeren (voor/na, meetdomein) en de selectie optimaal te doen (afstand, voor/na peildatum) :)
 (: hier worden sbgem:Metingen omgebouwd tot Meting :)
 declare function sbge:metingen-in-periode( 
@@ -23,11 +24,11 @@ as element(Meting)*
 {
 for $peildatum in $peildatums//datum
 let $type := $peildatum/@type,
-    $periode-voor := ($domein/meetperiode-voor/text(), $domein/meetperiode/text())[1],
+    $periode-voor := ($domein/meetperiode/meetperiode-voor/text(), $domein/meetperiode/text())[1],
     $meetperiode-voor := if ( $periode-voor castable as xs:yearMonthDuration ) 
                          then xs:yearMonthDuration( $periode-voor)
                          else xs:yearMonthDuration("P3M"),
-    $periode-na := ($domein/meetperiode-na/text(), $domein/meetperiode/text())[1],
+    $periode-na := ($domein/meetperiode/meetperiode-na/text(), $domein/meetperiode/text())[1],
     $meetperiode-na := if ( $periode-na castable as xs:yearMonthDuration ) 
                          then xs:yearMonthDuration( $periode-na)
                          else xs:yearMonthDuration("P3M")
@@ -48,8 +49,11 @@ return
         else ()
  };
 
-(: er zijn altijd 2 peildatums :)
-(: resulterend zijn is een sequence metingen getypeerd, maar niet uniek :)
+(: OUD --
+  er zijn altijd 2 peildatums :)
+
+
+(: OUD -- resulterend zijn is een sequence metingen getypeerd, maar niet uniek :)
 declare function sbge:metingen-in-periode-domein( 
 $metingen as element(sbgem:Meting)*,  
 $domein as element(zorgdomein), 
@@ -59,11 +63,11 @@ as element(Meting)*
 {
 
 for $peildatum at $ix in $peildatums
-let $periode-voor := ($domein/meetperiode-voor/text(), $domein/meetperiode/text())[1],
+let $periode-voor := ($domein/meetperiode/meetperiode-voor/text(), $domein/meetperiode/text())[1],
     $meetperiode-voor := if ( $periode-voor castable as xs:yearMonthDuration ) 
                          then xs:yearMonthDuration( $periode-voor)
                          else xs:yearMonthDuration("P3M"),
-    $periode-na := ($domein/meetperiode-na/text(), $domein/meetperiode/text())[1],
+    $periode-na := ($domein/meetperiode/meetperiode-na/text(), $domein/meetperiode/text())[1],
     $meetperiode-na := if ( $periode-na castable as xs:yearMonthDuration ) 
                          then xs:yearMonthDuration( $periode-na)
                          else xs:yearMonthDuration("P3M") 
@@ -82,9 +86,92 @@ let $periode-voor := ($domein/meetperiode-voor/text(), $domein/meetperiode/text(
         else ()
 };
 
+(: NIEUW: bereid kandidaat-metingen voor;
+selecteer de metingen en typeer ze tov de dbc-peildatums; ; sorteer ze op afstand tot peildatum  :)
+declare function sbge:dbc-metingen( 
+$metingen as element(sbgem:Meting)*,  
+$domein as element(zorgdomein), 
+$peildatums as xs:date+
+) 
+as element(Meting)*
+{ 
+for $peildatum at $ix in $peildatums
+let $periode-voor := ($domein/meetperiode/meetperiode-voor/text(), $domein/meetperiode/text())[1],
+    $meetperiode-voor := if ( $periode-voor castable as xs:yearMonthDuration ) 
+                         then xs:yearMonthDuration( $periode-voor)
+                         else xs:yearMonthDuration("P3M"),
+    $periode-na := ($domein/meetperiode/meetperiode-na/text(), $domein/meetperiode/text())[1],
+    $meetperiode-na := if ( $periode-na castable as xs:yearMonthDuration ) 
+                         then xs:yearMonthDuration( $periode-na)
+                         else xs:yearMonthDuration("P3M") 
+for $m in $metingen[data(@datum)]
+let $afstand := xs:date($m/@datum) - xs:date($peildatum),
+    $voor-peildatum := $afstand le xs:dayTimeDuration('P0D')
+order by abs(fn:days-from-duration($afstand)) 
+return if ( sbge:in-periode($m/@datum, $peildatum, $meetperiode-voor, $meetperiode-na ) ) then 
+    element {'Meting' } {
+                $m/@*
+                union attribute { 'typemeting' } { $ix } 
+                union attribute { 'sbge:afstand' } { $afstand }
+                union attribute { 'sbge:voor-peildatum' } { $voor-peildatum },
+                $m/*
+     }
+      else ()
+};
+
+(: neem de getypeerde metingen en verdeel ze in voor/na metingen :)
+declare function sbge:kandidaat-metingen( 
+$metingen as element(sbgem:Meting)*,  
+$domein as element(zorgdomein), 
+$peildatums as xs:date+
+) 
+as element(kandidaat-metingen) 
+{
+let $metingen-met-type := sbge:dbc-metingen( $metingen, $domein, $peildatums )
+return <kandidaat-metingen>
+    <voor>{$metingen-met-type[@typemeting eq '1']}</voor>
+    <na>{$metingen-met-type[@typemeting eq '2']}</na>
+ </kandidaat-metingen>       
+};
+
+declare function sbge:zoek-nameting( $vm as element(Meting), $na-metingen as element(Meting)*, $zorgdomein as element(zorgdomein)? )
+as element(meetpaar)*
+{
+let $nms := $na-metingen[@sbgm:meting-id ne $vm/@sbgm:meting-id][@gebruiktMeetinstrument eq $vm/@gebruiktMeetinstrument][not(@sbge:meetdomein) or (./@sbge:meetdomein eq $vm/@sbge:meetdomein)]
+for $nm in $nms
+let $interval :=  days-from-duration( xs:date($nm/@datum) - xs:date($vm/@datum) ),
+    $som-afstand := abs(days-from-duration($vm/@sbge:afstand)) + abs(days-from-duration($nm/@sbge:afstand))
+    (: TODO implementeer zorgdomein :)
+order by $som-afstand, $interval descending
+return <meetpaar som-afstand="{$som-afstand}" interval="{$interval}" >
+        {$vm}
+        {$nm}
+    </meetpaar>
+ };
+
+declare function sbge:maak-meetparen( $kandidaten as element(kandidaat-metingen), $zorgdomein  as element(zorgdomein)? )
+as element(meetparen)
+{ 
+let $voor-metingen := $kandidaten/voor/*,
+    $na-metingen := $kandidaten/na/*
+return <meetparen>{
+for $vm in $voor-metingen
+return sbge:zoek-nameting($vm,$na-metingen,$zorgdomein)
+}</meetparen>
+};
+
+(: retourneer een meetpaar, of alleen een voormeting; niks als er alleen een nameting is :)
+declare function sbge:optimale-meetpaar( $kandidaten as element(kandidaat-metingen), $zorgdomein as element(zorgdomein)? )
+as element( meetpaar )?
+{
+let $optimaal := sbge:maak-meetparen($kandidaten,$zorgdomein)/*[1]
+return if ( $optimaal ) then $optimaal 
+else if ( $kandidaten/voor/* ) then <meetpaar alleen-voor="{true()}">{$kandidaten/voor/*[1]}</meetpaar> else ()
+};
 
 
-(: de datum-relaties (begin/eind) van de dbc bepalen of een meting het type 1: voor- of 2: nameting krijgt :)  
+(: OUD -- 
+de datum-relaties (begin/eind) van de dbc bepalen of een meting het type 1: voor- of 2: nameting krijgt :)  
 (: ken aan een dbc twee geldige peildatums toe: voorkeur voor de sessiedatums, terugval op begin/eind, default-waarden :)
 declare function sbge:dbc-peildatums ($dbc as node()) as element(peildatums) {
 let $begin := if ( data($dbc/@datumEersteSessie) castable as xs:date ) 
@@ -105,7 +192,8 @@ let $begin := if ( data($dbc/@datumEersteSessie) castable as xs:date )
      </peildatums>
 };
 
-(: functie die altijd twee datums retourneert :)
+(: NIEUW
+  functie die altijd twee datums retourneert :)
 (: kijkt naar het attribuut 'peildatums-eenvoudig' op zorgdomein om sessie datums evt te negeren :)
 declare function sbge:dbc-peildatums-zorgdomein($dbc as element(), $zorgdomein as element(zorgdomein) ) 
 as xs:date*

@@ -67,10 +67,12 @@ return $ctx//*[local-name() eq $elt-name][@*[local-name() eq $att-name][. eq $at
 else $elt
 };
 
-declare function local:build-test-result( $test as element(test), $pass as xs:boolean, $setup as element()*, $actual as element()? ) 
+(: vorm de test om naar het resultaat formaat :) 
+declare function local:build-test-result( $test as element(test), $pass as xs:boolean, $setup as element()*, $actual as element()* ) 
 as element(test)
 {
-let $act-elt := if ($pass) then () else element { 'actual' } { $actual } 
+let $act-elt := if ($pass) then () else 
+    element { 'actual' } { for $elt in $actual return $elt } 
 return 
 element { 'test' } { $test/@* union attribute { 'pass' } { $pass }, 
   element {'setup' } { 
@@ -81,6 +83,48 @@ element { 'test' } { $test/@* union attribute { 'pass' } { $pass },
   union $act-elt 
   }     
 };
+
+(: vergelijk de attribuut-waarden van $exp met de corresponderende in $val :)
+declare function local:atts-equal( $exp as node(), $val as node()* )
+as xs:boolean
+{
+let $atts-eq := 
+    for $att in $exp/@*
+    let $name := local-name($att)
+    return data($val/@*[local-name() eq $name]) eq data($att)
+return 
+    every $v in $atts-eq satisfies $v eq true()
+};  
+
+
+declare function local:set-equal( $expected as node()*, $result as node()*, $key as xs:string )
+as xs:boolean
+{ 
+let $len-eq := count($expected) eq count($result)
+let $both-empty := not(exists($expected[1])) and not(exists($result[1])) 
+let $pass-all :=  for $act in $result
+                      let $id := data($act/@*[local-name() eq $key])
+                      let $exp := $expected[@*[local-name() eq $key][. eq $id]]
+ 
+                      return if ( $exp ) then local:atts-equal($exp,$act) else false() 
+let $pass := every $v in $pass-all satisfies $v eq true()
+return $len-eq and ($both-empty or $pass)
+};
+
+
+declare function local:ordered-set-equal( $expected as node()*, $result as node() * )
+as xs:boolean*
+{
+let $len-eq := count($expected) eq count($result)
+let $both-empty := not(exists($expected[1])) and not(exists($result[1])) 
+let $pass-all :=  
+    for $exp at $pos in $expected
+    let $val := $result[$pos]
+    return if ( $val ) then local:atts-equal( $exp, $val ) else false()
+let $pass := every $v in $pass-all satisfies $v eq true()
+return $len-eq and ($both-empty or $pass)
+};
+
 
 declare function local:test-dbc-peildatums( $tests as element(test)*, $ctx as element() ) 
 as element(test)* 
@@ -97,6 +141,48 @@ let $dbc := local:get-object($ctx, $test/setup/DBCTraject[1]),
     $pass := $expected eq $test-string,
     $actual :=  <value>{$test-string}</value>
     return local:build-test-result( $test, $pass, ($dbc, $zorgdomein), $actual )
+};
+
+declare function local:test-kandidaat-metingen($tests as element(test)*, $ctx as element() ) 
+as element(test)* 
+{
+(: setup bevat 1 dbc, 1 zorgdomein en N metingen :)
+for $test in $tests
+    let $dbc := local:get-object($ctx, $test/setup/DBCTraject),
+        $zorgdomein := local:get-object($ctx, $test/setup/zorgdomein),
+        $metingen := for $ref in $test/setup/Meting
+                     return local:get-object($ctx, $ref),
+                        
+        $expected := $test/expected/kandidaat-metingen,
+        
+        $peildatums := sbge:dbc-peildatums-zorgdomein($dbc, $zorgdomein ),
+        $result := sbge:kandidaat-metingen( $metingen, $zorgdomein, $peildatums ),
+        
+        $pass :=  local:ordered-set-equal( $expected/voor/*, $result/voor/*)
+                  and local:ordered-set-equal( $expected/na/*, $result/na/*)
+        
+    return local:build-test-result( $test, $pass, ($dbc, $zorgdomein, $metingen),  $result )
+};
+
+declare function local:test-maak-meetparen($tests as element(test)*, $ctx as element() ) 
+as element(test)* 
+{
+(: setup bevat 1 dbc, 1 zorgdomein en N metingen :)
+for $test in $tests
+    let $dbc := local:get-object($ctx, $test/setup/DBCTraject),
+        $zorgdomein := local:get-object($ctx, $test/setup/zorgdomein),
+        $metingen := for $ref in $test/setup/Meting
+                     return local:get-object($ctx, $ref),
+                        
+        $expected := $test/expected/meetparen,
+        
+        $peildatums := sbge:dbc-peildatums-zorgdomein($dbc, $zorgdomein ),
+        $kandidaten := sbge:kandidaat-metingen( $metingen, $zorgdomein, $peildatums ),
+        $result := sbge:optimale-meetpaar( $kandidaten, $zorgdomein ),
+        
+        $pass :=  local:set-equal( $expected//Meting, $result//Meting, 'meting-id')
+        
+    return local:build-test-result( $test, $pass, ($dbc, $zorgdomein, $metingen),  $result )
 };
 
 
@@ -156,38 +242,6 @@ declare function local:test-koppelproces($tests as element(test)*, $zorgdomeinen
 };
 
 
-declare function local:test-koppelproces-zorgdomein($tests as element(test)*, $ctx as element() ) 
-as element(test)* 
-{
-let $zorgdomeinen := $ctx//sbg-zorgdomeinen/*
-let $dbcs := $ctx//epd/dbc
-let $rom := $ctx//rom/Meting 
-(: verwacht 1 dbc en meer metingen :)
-for $test in $tests
-    let $dbc := local:transfer-atts($test/setup/dbc),
-        $metingen := for $ref in $test/setup//Meting
-                     return local:get-ref-object($ctx, $ref),
-                        
-        $expected := local:get-ref-object($ctx,$test/expected//Meting),
-        
-        $patient-meting := sbgem:patient-meting-epd( $dbc, $metingen, $zorgdomeinen ),
-        $dbc-meting := sbge:patient-dbc-meting( $patient-meting, $zorgdomeinen  )//Meting,
-        
-        $pass-all :=  for $act in $dbc-meting
-                      let $exp := $expected[data(@sbgm:meting-id) eq data($act/@sbgm:meting-id)]
-                      return $exp and (every $att in $exp/@*  satisfies data($act/@*[local-name() eq local-name($att)]) eq data($att)) 
-                  ,
-         (: TODO werkt als er geen expected is
-         (nilled($expected[1]) and nilled($dbc-meting[1])) or ($pass-all, false())[1],
-          :)
-        $pass := (not(exists($expected[1])) and not(exists($dbc-meting[1]))) or ($pass-all, false())[1],                   
-                  
-        $actual := for $act in $dbc-meting
-                   return element { local-name($act) } { local:filter-atts( $act, $expected[1] ), local:filter-elts( $act, $expected[1] ) },
-        $actual-elt := if ( $pass ) then () else element { 'actual' } { $actual }    
-        (: $actual-elt := <actual>{$dbc-meting}</actual> :)
-    return element { 'test' } { $test/@* union attribute { 'pass' } { $pass }, $test/*, $actual-elt }     
-};
 
 declare function local:test-filter-periode( $group as element(group)* ) as element(test)* {
 let $batch := $group/setup/batch-gegevens
@@ -220,9 +274,12 @@ return <group>{$group/*[not(local-name()='test')]}
 
     if ( $functie = 'sbge:selecteer-domein' ) then local:test-selecteer-zorgdomein( $tests, $zorgdomeinen )
     else if ( $functie = 'sbgi:bereken-totaalscore-sbg' ) then local:test-bereken-score( $tests, $instrumenten )
-    else if ( $functie = 'sbge:patient-dbc-meting' ) then local:test-koppelproces( $tests, $zorgdomeinen  )
+    else if ( $functie = 'xsbge:patient-dbc-meting' ) then local:test-koppelproces( $tests, $zorgdomeinen  )
     else if ( $functie = 'sbgbm:filter-batchperiode' ) then local:test-filter-periode( $group  )
     else if ( $functie = 'sbge:dbc-peildatums-zorgdomein' ) then local:test-dbc-peildatums( $tests, $ctx  )
+    else if ( $functie = 'sbge:kandidaat-metingen' ) then local:test-kandidaat-metingen( $tests, $ctx  )
+    else if ( $functie = 'sbge:maak-meetparen' ) then local:test-maak-meetparen( $tests, $ctx  )
+    
     
      
     else if ( $functie = 'fall-through' ) then () else ()

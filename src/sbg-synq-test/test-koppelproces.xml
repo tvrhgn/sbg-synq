@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests versie="0.9">
+  <setup>
+    <sbg-zorgdomeinen>
+      <zorgdomein code="02" zorgdomeinCode="02">
+	<naam>Volwassenen kort</naam>
+	<koppel-dbc zorgcircuit="2" priority="99" />
+	<meetdomein>
+	  <naam>Klachten en symptomen</naam>
+	  <instrumenten>
+	    <instrument>BSI</instrument>
+	  </instrumenten>
+	</meetdomein>
+	<meetdomein>
+	  <naam>Functioneren</naam>
+	  <instrumenten>
+	    <instrument>OQ45-func</instrument>
+	  </instrumenten>
+	</meetdomein>
+	<meetdomein>
+	  <naam>Kwaliteit van leven</naam>
+	  <instrumenten>
+	    <instrument scoringsregels="false">SF36</instrument>
+	  </instrumenten>
+	</meetdomein>
+      </zorgdomein>
+      <zorgdomein code="01" zorgdomeinCode="01" peildatums-eenvoudig="true">
+	<naam>Volwassenen lang EPA</naam>
+	<meetperiode min-afstand="P6M" max-afstand="P18M">
+	  <meetperiode-voor>P9M</meetperiode-voor>
+	  <meetperiode-na>P3M</meetperiode-na>
+	</meetperiode>
+	<meetdomein>
+	  <naam>Functioneren</naam>
+	  <instrument code="HoNOS-12" />
+	  <instrument code="CAN" />
+	</meetdomein>
+	<meetdomein>
+	  <naam>Kwaliteit van leven</naam>
+	  <instrument code="MANSA-7" />
+	</meetdomein>
+	<meetdomein>
+	  <naam>Ernst problematiek</naam>
+	  <instrument code="BPRS" />
+	</meetdomein>
+	<koppel-dbc zorgcircuit="1" priority="99"></koppel-dbc>
+      </zorgdomein>
+    </sbg-zorgdomeinen>
+    <epd>
+	<DBCTraject DBCTrajectnummer="1" startdatumDBC="2011-03-16" einddatumDBC="2012-03-16" 
+	     datumEersteSessie="2011-03-26" datumLaatsteSessie="2012-02-06" 
+	     />
+	<DBCTraject DBCTrajectnummer="2" startdatumDBC="2011-03-16" einddatumDBC="2012-09-16" 
+	     datumEersteSessie="2011-03-20" datumLaatsteSessie="2011-10-06" 
+	     />
+    </epd>
+    <rom xmlns:sbgm="http://sbg-synq.nl/sbg-metingen" xmlns:sbgem="http://sbg-synq.nl/epd-meting">
+      <sbgem:Meting sbgm:meting-id="ROM meting 1" gebruiktMeetinstrument="CAN" datum="2010-06-14"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 2" gebruiktMeetinstrument="CAN" datum="2010-06-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 3" gebruiktMeetinstrument="CAN" datum="2010-06-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 4" gebruiktMeetinstrument="CAN" datum="2011-03-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 5" gebruiktMeetinstrument="CAN" datum="2011-03-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 6" gebruiktMeetinstrument="CAN" datum="2011-03-17"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 7" gebruiktMeetinstrument="CAN" datum="2011-06-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 8" gebruiktMeetinstrument="CAN" datum="2011-06-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 9" gebruiktMeetinstrument="CAN" datum="2011-06-17"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 10" gebruiktMeetinstrument="CAN" datum="2011-06-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 11" gebruiktMeetinstrument="CAN" datum="2011-06-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 12" gebruiktMeetinstrument="CAN" datum="2011-06-17"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 13" gebruiktMeetinstrument="CAN" datum="2012-03-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 14" gebruiktMeetinstrument="CAN" datum="2012-03-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 15" gebruiktMeetinstrument="CAN" datum="2012-03-17"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 16" gebruiktMeetinstrument="CAN" datum="2012-06-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 17" gebruiktMeetinstrument="CAN" datum="2012-06-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 18" gebruiktMeetinstrument="CAN" datum="2012-06-17"/>
+    </rom>
+  </setup>
+
+
+  <group xmlns:sbgm="http://sbg-synq.nl/sbg-metingen">
+    <functie>sbge:maak-meetparen</functie>
+    <beschrijving>zoek de geldige meetparen in de kandidaat voor/na-metingen</beschrijving>
+    <test name="testscenario 0" code="0">
+      <description>
+	referentie-set EPA; DBC met een duur van 12M 
+      </description>
+      <setup>
+	<DBCTraject ref="true" DBCTrajectnummer="1"/>
+	<zorgdomein ref="true" zorgdomeinCode="01"/>
+	<Meting ref="true" meting-id="ROM meting 1"/>
+	<Meting ref="true" meting-id="ROM meting 2"/>
+	<Meting ref="true" meting-id="ROM meting 3"/>
+	<Meting ref="true" meting-id="ROM meting 4"/>
+	<Meting ref="true" meting-id="ROM meting 5"/>
+	<Meting ref="true" meting-id="ROM meting 6"/>
+	<Meting ref="true" meting-id="ROM meting 7"/>
+	<Meting ref="true" meting-id="ROM meting 8"/>
+	<Meting ref="true" meting-id="ROM meting 9"/>
+	<Meting ref="true" meting-id="ROM meting 10"/>
+	<Meting ref="true" meting-id="ROM meting 11"/>
+	<Meting ref="true" meting-id="ROM meting 12"/>
+	<Meting ref="true" meting-id="ROM meting 13"/>
+	<Meting ref="true" meting-id="ROM meting 14"/>
+	<Meting ref="true" meting-id="ROM meting 15"/>
+	<Meting ref="true" meting-id="ROM meting 16"/>
+	<Meting ref="true" meting-id="ROM meting 17"/>
+	<Meting ref="true" meting-id="ROM meting 18"/>
+      </setup>
+      <expected>
+	<meetparen>
+	  <meetpaar>
+	    <Meting sbgm:meting-id="ROM meting 5" typemeting="1"/>
+	    <Meting sbgm:meting-id="ROM meting 14" typemeting="2"/>
+	  </meetpaar>
+	</meetparen>
+     </expected>
+    </test>
+
+    <test name="testscenario 4" code="4">
+      <description>
+	referentie-set EPA; DBC met een duur van 12M 
+      </description>
+      <setup>
+	<DBCTraject ref="true" DBCTrajectnummer="1"/>
+	<zorgdomein ref="true" zorgdomeinCode="01"/>
+	<Meting ref="true" meting-id="ROM meting 3"/>
+	<Meting ref="true" meting-id="ROM meting 12"/>
+	<Meting ref="true" meting-id="ROM meting 13"/>
+	<Meting ref="true" meting-id="ROM meting 14"/>
+	<Meting ref="true" meting-id="ROM meting 15"/>
+	<Meting ref="true" meting-id="ROM meting 16"/>
+      </setup>
+      <expected>
+	<meetparen>
+	  <meetpaar>
+	    <Meting sbgm:meting-id="ROM meting 3" typemeting="1"/>
+	    <Meting sbgm:meting-id="ROM meting 12" typemeting="2"/>
+	  </meetpaar>
+	</meetparen>
+     </expected>
+    </test>
+
+  </group>
+
+
+  <group xmlns:sbgm="http://sbg-synq.nl/sbg-metingen">
+    <functie>sbge:kandidaat-metingen</functie>
+    <beschrijving>selecteer kandidaat voor/na-metingen bij DBCTraject</beschrijving>
+    <test name="testscenario 0" code="0">
+      <description>
+	referentie-set EPA; DBC met een duur van 12M 
+      </description>
+      <setup>
+	<DBCTraject ref="true" DBCTrajectnummer="1"/>
+	<zorgdomein ref="true" zorgdomeinCode="01"/>
+	<Meting ref="true" meting-id="ROM meting 1"/>
+	<Meting ref="true" meting-id="ROM meting 1"/>
+	<Meting ref="true" meting-id="ROM meting 2"/>
+	<Meting ref="true" meting-id="ROM meting 3"/>
+	<Meting ref="true" meting-id="ROM meting 4"/>
+	<Meting ref="true" meting-id="ROM meting 5"/>
+	<Meting ref="true" meting-id="ROM meting 6"/>
+	<Meting ref="true" meting-id="ROM meting 7"/>
+	<Meting ref="true" meting-id="ROM meting 8"/>
+	<Meting ref="true" meting-id="ROM meting 9"/>
+	<Meting ref="true" meting-id="ROM meting 10"/>
+	<Meting ref="true" meting-id="ROM meting 11"/>
+	<Meting ref="true" meting-id="ROM meting 12"/>
+	<Meting ref="true" meting-id="ROM meting 13"/>
+	<Meting ref="true" meting-id="ROM meting 14"/>
+	<Meting ref="true" meting-id="ROM meting 15"/>
+	<Meting ref="true" meting-id="ROM meting 16"/>
+	<Meting ref="true" meting-id="ROM meting 17"/>
+	<Meting ref="true" meting-id="ROM meting 18"/>
+      </setup>
+      <expected>
+	<kandidaat-metingen>
+	  <voor>
+	    <Meting sbgm:meting-id="ROM meting 5" typemeting="1"/>
+	    <Meting sbgm:meting-id="ROM meting 4" typemeting="1"/>
+	    <Meting sbgm:meting-id="ROM meting 6" typemeting="1"/>
+	    <Meting sbgm:meting-id="ROM meting 7" typemeting="1"/>
+	    <Meting sbgm:meting-id="ROM meting 10" typemeting="1"/>
+	    <Meting sbgm:meting-id="ROM meting 8" typemeting="1"/>
+	    <Meting sbgm:meting-id="ROM meting 11" typemeting="1"/>
+	    <Meting sbgm:meting-id="ROM meting 3" typemeting="1"/>
+	  </voor>
+	  <na>
+	    <Meting sbgm:meting-id="ROM meting 14" typemeting="2"/>
+	    <Meting sbgm:meting-id="ROM meting 13" typemeting="2"/>
+	    <Meting sbgm:meting-id="ROM meting 15" typemeting="2"/>
+	    <Meting sbgm:meting-id="ROM meting 16" typemeting="2"/>
+	    <Meting sbgm:meting-id="ROM meting 17" typemeting="2"/>
+	    <Meting sbgm:meting-id="ROM meting 9" typemeting="2"/>
+	    <Meting sbgm:meting-id="ROM meting 12" typemeting="2"/>
+	    <Meting sbgm:meting-id="ROM meting 8" typemeting="2"/>
+	    <Meting sbgm:meting-id="ROM meting 11" typemeting="2"/>
+	  </na>
+	</kandidaat-metingen>
+      </expected>
+    </test>
+  </group>
+
+
+  <group>
+    <functie>sbge:dbc-peildatums-zorgdomein</functie>
+    <beschrijving>selecteer peildatums voor meetperiodes </beschrijving>
+    <test name="testscenario 1" code="1">
+      <description>
+	zorgdomein 01: gebruik geen sessiedatums
+      </description>
+      <setup>
+	<DBCTraject ref="true" DBCTrajectnummer="1"/>
+	<zorgdomein ref="true" zorgdomeinCode="01"/>
+      </setup>
+      <expected>
+	<value>2011-03-16, 2012-03-16</value>
+      </expected>
+    </test>
+    <test name="testscenario 2" code="2">
+      <description>
+	zorgdomein 02: voorkeur voor sessiedatums
+      </description>
+      <setup>
+	<DBCTraject ref="true" DBCTrajectnummer="1"/>
+	<zorgdomein ref="true" zorgdomeinCode="02"/>
+      </setup>
+      <expected>
+	<value>2011-03-26, 2012-02-06</value>
+      </expected>
+    </test>
+  </group>
+
+
+</tests>

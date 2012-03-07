@@ -26,7 +26,7 @@
       </zorgdomein>
       <zorgdomein code="01" zorgdomeinCode="01" peildatums-eenvoudig="true">
 	<naam>Volwassenen lang EPA</naam>
-	<meetperiode min-afstand="P6M" max-afstand="P18M">
+	<meetperiode min-afstand="183" max-afstand="549">
 	  <meetperiode-voor>P9M</meetperiode-voor>
 	  <meetperiode-na>P3M</meetperiode-na>
 	</meetperiode>
@@ -78,8 +78,9 @@
 
 
   <group xmlns:sbgm="http://sbg-synq.nl/sbg-metingen">
-    <functie>sbge:maak-meetparen</functie>
-    <beschrijving>zoek de geldige meetparen in de kandidaat voor/na-metingen</beschrijving>
+    <function>sbge:maak-meetparen</function>
+    <description>zoek de geldige meetparen in de kandidaat voor/na-metingen</description>
+
     <test name="testscenario 0" code="0">
       <description>
 	referentie-set EPA; DBC met een duur van 12M 
@@ -118,7 +119,7 @@
 
     <test name="testscenario 4" code="4">
       <description>
-	referentie-set EPA; DBC met een duur van 12M 
+	testscenario 4: extreem vroeg
       </description>
       <setup>
 	<DBCTraject ref="true" DBCTrajectnummer="1"/>
@@ -140,12 +141,55 @@
      </expected>
     </test>
 
+    <test name="testscenario 5" code="5">
+      <description>
+	geldig paar; dichtsbijzijnde meting
+      </description>
+      <setup>
+	<DBCTraject ref="true" DBCTrajectnummer="1"/>
+	<zorgdomein ref="true" zorgdomeinCode="01"/>
+	<Meting ref="true" meting-id="ROM meting 7"/>
+	<Meting ref="true" meting-id="ROM meting 13"/>
+	<Meting ref="true" meting-id="ROM meting 16"/>
+      </setup>
+      <expected>
+	<meetparen>
+	  <meetpaar>
+	    <Meting sbgm:meting-id="ROM meting 7" typemeting="1"/>
+	    <Meting sbgm:meting-id="ROM meting 13" typemeting="2"/>
+	  </meetpaar>
+	</meetparen>
+     </expected>
+    </test>
+
+    <test name="testscenario 6" code="6">
+      <description>
+	geldig paar; extreem laat
+      </description>
+      <setup>
+	<DBCTraject ref="true" DBCTrajectnummer="1"/>
+	<zorgdomein ref="true" zorgdomeinCode="01"/>
+	<Meting ref="true" meting-id="ROM meting 7"/>
+	<Meting ref="true" meting-id="ROM meting 12"/>
+	<Meting ref="true" meting-id="ROM meting 16"/>
+      </setup>
+      <expected>
+	<meetparen>
+	  <meetpaar>
+	    <Meting sbgm:meting-id="ROM meting 7" typemeting="1"/>
+	    <Meting sbgm:meting-id="ROM meting 16" typemeting="2"/>
+	  </meetpaar>
+	</meetparen>
+     </expected>
+    </test>
+
+
   </group>
 
 
   <group xmlns:sbgm="http://sbg-synq.nl/sbg-metingen">
-    <functie>sbge:kandidaat-metingen</functie>
-    <beschrijving>selecteer kandidaat voor/na-metingen bij DBCTraject</beschrijving>
+    <function>sbge:kandidaat-metingen</function>
+    <description>selecteer kandidaat voor/na-metingen bij DBCTraject</description>
     <test name="testscenario 0" code="0">
       <description>
 	referentie-set EPA; DBC met een duur van 12M 
@@ -153,7 +197,6 @@
       <setup>
 	<DBCTraject ref="true" DBCTrajectnummer="1"/>
 	<zorgdomein ref="true" zorgdomeinCode="01"/>
-	<Meting ref="true" meting-id="ROM meting 1"/>
 	<Meting ref="true" meting-id="ROM meting 1"/>
 	<Meting ref="true" meting-id="ROM meting 2"/>
 	<Meting ref="true" meting-id="ROM meting 3"/>
@@ -203,8 +246,8 @@
 
 
   <group>
-    <functie>sbge:dbc-peildatums-zorgdomein</functie>
-    <beschrijving>selecteer peildatums voor meetperiodes </beschrijving>
+    <function>sbge:dbc-peildatums-zorgdomein</function>
+    <description>selecteer peildatums voor meetperiodes </description>
     <test name="testscenario 1" code="1">
       <description>
 	zorgdomein 01: gebruik geen sessiedatums

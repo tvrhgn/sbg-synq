@@ -4,11 +4,7 @@ import module namespace sbgi="http://sbg-synq.nl/sbg-instrument" at '../sbg-synq
 import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at '../sbg-synq/sbg-metingen.xquery';
 import module namespace sbgbm="http://sbg-synq.nl/sbg-benchmark" at '../sbg-synq/sbg-bmimport.xquery';
 import module namespace sbgem="http://sbg-synq.nl/epd-meting" at '../sbg-synq/epd-meting.xquery';
-(: declare variable $test-doc := doc( '../sbg-testdata/unit-tests.xml')/*; :)
 
-(: declare variable $test-doc as element()* external; 
-declare variable $test-doc := doc( 'unit-tests.xml')/*;
-:)
 
 declare variable $test-doc := /*; 
 
@@ -45,14 +41,6 @@ let $att-val :=  data($ref/@ref-value)
 return $ctx//*[local-name() eq $class][@*[local-name() eq $att-name][. eq $att-val]][1]
 };
 
-declare function local:xget-object($ctx, $elt-name as xs:string, $att as attribute()) 
-as element()?
-{
-let $att-name := local-name($att)
-let $att-val :=  data($att)
-return $ctx//*[local-name() eq $elt-name][@*[local-name() eq $att-name][. eq $att-val]][1]
-};
-
 (: deref 1 attribuut als @ref eq true :)
 declare function local:get-object($ctx, $elt as element()?) 
 as element()?
@@ -79,6 +67,7 @@ element { 'test' } { $test/@* union attribute { 'pass' } { $pass },
     for $elt in $setup 
     return element { local-name($elt) } { $elt/@* }
   }
+  union $test/description
   union $test/expected 
   union $act-elt 
   }     
@@ -216,32 +205,6 @@ declare function local:test-bereken-score( $tests, $instrumenten ) as element(te
 
 };
 
-declare function local:test-koppelproces($tests as element(test)*, $zorgdomeinen as element(sbg-zorgdomeinen) ) as element(test)* {
-    for $test in $tests
-    let $dbc := local:transfer-atts($test/setup/dbc),
-        $metingen := $test/setup//Meting,
-        $expected := $test/expected//Meting,
-        
-        $patient-meting := sbgem:patient-meting-epd( $dbc, $metingen, $zorgdomeinen ),
-        $dbc-meting := sbge:patient-dbc-meting( $patient-meting, $zorgdomeinen  )//Meting,
-        
-        $pass-all :=  for $act in $dbc-meting
-                      let $exp := $expected[data(@sbgm:meting-id) eq data($act/@sbgm:meting-id)]
-                      return $exp and (every $att in $exp/@*  satisfies data($act/@*[local-name() eq local-name($att)]) eq data($att)) 
-                  ,
-         (: TODO werkt als er geen expected is
-         (nilled($expected[1]) and nilled($dbc-meting[1])) or ($pass-all, false())[1],
-          :)
-        $pass := (not(exists($expected[1])) and not(exists($dbc-meting[1]))) or ($pass-all, false())[1],                   
-                  
-        $actual := for $act in $dbc-meting
-                   return element { local-name($act) } { local:filter-atts( $act, $expected[1] ), local:filter-elts( $act, $expected[1] ) },
-        $actual-elt := if ( $pass ) then () else element { 'actual' } { $actual }    
-        (: $actual-elt := <actual>{$dbc-meting}</actual> :)
-    return element { 'test' } { $test/@* union attribute { 'pass' } { $pass }, $test/*, $actual-elt }     
-};
-
-
 
 declare function local:test-filter-periode( $group as element(group)* ) as element(test)* {
 let $batch := $group/setup/batch-gegevens
@@ -265,8 +228,9 @@ declare function local:run-tests() as element(result)
 let $ctx := $test-doc/setup,
     $zorgdomeinen := $test-doc/setup/sbg-zorgdomeinen,
     $instrumenten := sbgi:laad-instrumenten($test-doc/setup/sbg-instrumenten)
+
 for $group in $test-doc//group
-let $functie := $group/functie/text(),
+let $functie := $group/function/text(),
     $tests := $group//test
    
 return <group>{$group/*[not(local-name()='test')]}
@@ -274,7 +238,6 @@ return <group>{$group/*[not(local-name()='test')]}
 
     if ( $functie = 'sbge:selecteer-domein' ) then local:test-selecteer-zorgdomein( $tests, $zorgdomeinen )
     else if ( $functie = 'sbgi:bereken-totaalscore-sbg' ) then local:test-bereken-score( $tests, $instrumenten )
-    else if ( $functie = 'xsbge:patient-dbc-meting' ) then local:test-koppelproces( $tests, $zorgdomeinen  )
     else if ( $functie = 'sbgbm:filter-batchperiode' ) then local:test-filter-periode( $group  )
     else if ( $functie = 'sbge:dbc-peildatums-zorgdomein' ) then local:test-dbc-peildatums( $tests, $ctx  )
     else if ( $functie = 'sbge:kandidaat-metingen' ) then local:test-kandidaat-metingen( $tests, $ctx  )

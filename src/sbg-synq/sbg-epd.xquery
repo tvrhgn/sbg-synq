@@ -134,16 +134,28 @@ return <kandidaat-metingen>
  </kandidaat-metingen>       
 };
 
+(: then ($interval ge days-from-duration( )) 
+            and ($interval le days-from-duration(  ))
+            :)
+            (: hebben normale zd inderdaad geen restricties op interval? :)
 declare function sbge:zoek-nameting( $vm as element(Meting), $na-metingen as element(Meting)*, $zorgdomein as element(zorgdomein)? )
 as element(meetpaar)*
 {
-let $nms := $na-metingen[@sbgm:meting-id ne $vm/@sbgm:meting-id][@gebruiktMeetinstrument eq $vm/@gebruiktMeetinstrument][not(@sbge:meetdomein) or (./@sbge:meetdomein eq $vm/@sbge:meetdomein)]
+let $nms := $na-metingen[@sbgm:meting-id ne $vm/@sbgm:meting-id][@gebruiktMeetinstrument eq $vm/@gebruiktMeetinstrument]
+                        [not(@sbge:meetdomein) or (./@sbge:meetdomein eq $vm/@sbge:meetdomein)]
 for $nm in $nms
-let $interval :=  days-from-duration( xs:date($nm/@datum) - xs:date($vm/@datum) ),
-    $som-afstand := abs(days-from-duration($vm/@sbge:afstand)) + abs(days-from-duration($nm/@sbge:afstand))
-    (: TODO implementeer zorgdomein :)
+let $interval :=  days-from-duration(xs:date($nm/@datum) - xs:date($vm/@datum)),
+    $som-afstand := abs(days-from-duration($vm/@sbge:afstand)) + abs(days-from-duration($nm/@sbge:afstand)),
+    $zd-mper := $zorgdomein/meetperiode,
+    $zd-interval-geldig := 
+         if ( data($zd-mper/@min-afstand) castable as xs:integer
+              and data($zd-mper/@max-afstand) castable as xs:integer ) 
+                  then ($interval ge xs:integer($zd-mper/@min-afstand) ) 
+            and ($interval le xs:integer($zd-mper/@max-afstand) )
+         else true() 
+where $zd-interval-geldig
 order by $som-afstand, $interval descending
-return <meetpaar som-afstand="{$som-afstand}" interval="{$interval}" >
+return <meetpaar som-afstand="{$som-afstand}" interval="{$interval}">
         {$vm}
         {$nm}
     </meetpaar>

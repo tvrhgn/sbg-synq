@@ -88,6 +88,7 @@ let $periode-voor := ($domein/meetperiode/meetperiode-voor/text(), $domein/meetp
 
 (: NIEUW: bereid kandidaat-metingen voor;
 selecteer de metingen en typeer ze tov de dbc-peildatums; ; sorteer ze op afstand tot peildatum  :)
+
 declare function sbge:dbc-metingen( 
 $metingen as element(sbgem:Meting)*,  
 $domein as element(zorgdomein), 
@@ -119,6 +120,7 @@ return if ( sbge:in-periode($m/@datum, $peildatum, $meetperiode-voor, $meetperio
       else ()
 };
 
+(: overweeg om een leeg element te retourneren? :)
 (: neem de getypeerde metingen en verdeel ze in voor/na metingen :)
 declare function sbge:kandidaat-metingen( 
 $metingen as element(sbgem:Meting)*,  
@@ -134,7 +136,14 @@ return <kandidaat-metingen>
  </kandidaat-metingen>       
 };
 
-(: then ($interval ge days-from-duration( )) 
+(: 
+if ( data($zd-mper/@min-afstand) castable as xs:integer
+              and data($zd-mper/@max-afstand) castable as xs:integer ) 
+                  then ($interval ge xs:integer($zd-mper/@min-afstand) ) 
+            and ($interval le xs:integer($zd-mper/@max-afstand) )
+         
+
+then ($interval ge days-from-duration( )) 
             and ($interval le days-from-duration(  ))
             :)
             (: hebben normale zd inderdaad geen restricties op interval? :)
@@ -144,17 +153,19 @@ as element(meetpaar)*
 let $nms := $na-metingen[@sbgm:meting-id ne $vm/@sbgm:meting-id][@gebruiktMeetinstrument eq $vm/@gebruiktMeetinstrument]
                         [not(@sbge:meetdomein) or (./@sbge:meetdomein eq $vm/@sbge:meetdomein)]
 for $nm in $nms
-let $interval :=  days-from-duration(xs:date($nm/@datum) - xs:date($vm/@datum)),
+let $v-datum := xs:date($vm/@datum),
+    $n-datum := xs:date($nm/@datum),
+    $interval :=  days-from-duration($n-datum - $v-datum),
     $som-afstand := abs(days-from-duration($vm/@sbge:afstand)) + abs(days-from-duration($nm/@sbge:afstand)),
     $zd-mper := $zorgdomein/meetperiode,
     $zd-interval-geldig := 
-         if ( data($zd-mper/@min-afstand) castable as xs:integer
-              and data($zd-mper/@max-afstand) castable as xs:integer ) 
-                  then ($interval ge xs:integer($zd-mper/@min-afstand) ) 
-            and ($interval le xs:integer($zd-mper/@max-afstand) )
+         if ( $zd-mper/@min-afstand castable as xs:yearMonthDuration
+              and $zd-mper/@max-afstand castable as xs:yearMonthDuration ) 
+                  then $n-datum - xs:yearMonthDuration($zd-mper/@min-afstand) ge $v-datum 
+                   and $n-datum - xs:yearMonthDuration($zd-mper/@max-afstand) le $v-datum
          else true() 
 where $zd-interval-geldig
-order by $som-afstand, $interval descending
+order by $som-afstand
 return <meetpaar som-afstand="{$som-afstand}" interval="{$interval}">
         {$vm}
         {$nm}
@@ -172,13 +183,19 @@ return sbge:zoek-nameting($vm,$na-metingen,$zorgdomein)
 }</meetparen>
 };
 
-(: retourneer een meetpaar, of alleen een voormeting; niks als er alleen een nameting is :)
+(: retourneer een meetpaar, met een voor en na-meting, of 1 van beide, met een voorkeur voor voormeting :)
+(: bij zorgdomeinen met een afstands-criterium tussen voor en na, kan nooit alleen een eindmeting geleverd worden? :)
 declare function sbge:optimale-meetpaar( $kandidaten as element(kandidaat-metingen), $zorgdomein as element(zorgdomein)? )
 as element( meetpaar )?
 {
 let $optimaal := sbge:maak-meetparen($kandidaten,$zorgdomein)/*[1]
-return if ( $optimaal ) then $optimaal 
-else if ( $kandidaten/voor/* ) then <meetpaar alleen-voor="{true()}">{$kandidaten/voor/*[1]}</meetpaar> else ()
+return 
+    if ( $optimaal ) then $optimaal 
+    else if ( $kandidaten/voor/* ) 
+        then <meetpaar alleen-voor="{true()}">{$kandidaten/voor/*[1]}</meetpaar> 
+        else if ( not($zorgdomein/meetperiode/@min-afstand) and $kandidaten/na/* ) 
+            then <meetpaar alleen-na="{true()}">{$kandidaten/na/*[1]}</meetpaar>
+            else ()
 };
 
 

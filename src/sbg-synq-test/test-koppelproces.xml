@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tests versie="0.9">
+<tests versie="0.98">
   <setup>
     <sbg-zorgdomeinen>
+
       <zorgdomein code="02" zorgdomeinCode="02">
 	<meetperiode>P3M</meetperiode>
 	<naam>Volwassenen kort</naam>
 	<meetdomein>
 	  <naam>Klachten en symptomen</naam>
-	  <instrumenten>
-	    <instrument>BSI</instrument>
-	  </instrumenten>
+	    <instrument code="BSI"/>
 	</meetdomein>
 	<meetdomein>
 	  <naam>Functioneren</naam>
-	  <instrumenten>
-	    <instrument>OQ45-func</instrument>
-	  </instrumenten>
+	    <instrument code="OQ45-func"/>
 	</meetdomein>
 	<meetdomein>
 	  <naam>Kwaliteit van leven</naam>
-	  <instrumenten>
-	    <instrument scoringsregels="false">SF36</instrument>
-	  </instrumenten>
+	    <instrument scoringsregels="false" code="SF36"/>
 	</meetdomein>
       </zorgdomein>
+
       <zorgdomein code="01" zorgdomeinCode="01" peildatums-eenvoudig="true">
 	<naam>Volwassenen lang EPA</naam>
 	<meetperiode min-afstand="P6M" max-afstand="P18M">
@@ -81,30 +77,95 @@
       <sbgem:Meting sbgm:meting-id="ROM meting 18" gebruiktMeetinstrument="CAN" datum="2012-06-17"/>
 
       <!-- zorgdomein kort gerelateerd aan begindatum 2011-03-16 -->
-      <sbgem:Meting sbgm:meting-id="ROM meting 19" gebruiktMeetinstrument="BSI" datum="	2010-12-09"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 20" gebruiktMeetinstrument="BSI" datum="	2010-12-10"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 21" gebruiktMeetinstrument="BSI" datum="	2010-12-11"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 22" gebruiktMeetinstrument="BSI" datum="	2011-03-09"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 23" gebruiktMeetinstrument="BSI" datum="	2011-03-10"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 24" gebruiktMeetinstrument="BSI" datum="	2011-03-11"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 25" gebruiktMeetinstrument="BSI" datum="	2011-06-09"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 26" gebruiktMeetinstrument="BSI" datum="	2011-06-10"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 27" gebruiktMeetinstrument="BSI" datum="	2011-06-11"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 19" gebruiktMeetinstrument="BSI" datum="	2010-12-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 20" gebruiktMeetinstrument="BSI" datum="	2010-12-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 21" gebruiktMeetinstrument="BSI" datum="	2010-12-11" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 22" gebruiktMeetinstrument="BSI" datum="	2011-03-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 23" gebruiktMeetinstrument="BSI" datum="	2011-03-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 24" gebruiktMeetinstrument="BSI" datum="	2011-03-11" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 25" gebruiktMeetinstrument="BSI" datum="	2011-06-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 26" gebruiktMeetinstrument="BSI" datum="	2011-06-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 27" gebruiktMeetinstrument="BSI" datum="	2011-06-11" sbgem:zorgdomein="02 21"/>
 
       <!-- zorgdomein kort gerelateerd aan DBC met begindatum 2011-03-16; gerelateerd aan einddatum bij duur 12M -->
-      <sbgem:Meting sbgm:meting-id="ROM meting 28" gebruiktMeetinstrument="BSI" datum="	2011-12-09"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 29" gebruiktMeetinstrument="BSI" datum="	2011-12-10"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 30" gebruiktMeetinstrument="BSI" datum="	2011-12-11"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 31" gebruiktMeetinstrument="BSI" datum="	2012-03-09"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 32" gebruiktMeetinstrument="BSI" datum="	2012-03-10"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 33" gebruiktMeetinstrument="BSI" datum="	2012-03-11"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 34" gebruiktMeetinstrument="BSI" datum="	2012-06-09"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 35" gebruiktMeetinstrument="BSI" datum="	2012-06-10"/>
-      <sbgem:Meting sbgm:meting-id="ROM meting 36" gebruiktMeetinstrument="BSI" datum="	2012-06-11"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 28" gebruiktMeetinstrument="BSI" datum="	2011-12-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 29" gebruiktMeetinstrument="BSI" datum="	2011-12-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 30" gebruiktMeetinstrument="BSI" datum="	2011-12-11" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 31" gebruiktMeetinstrument="BSI" datum="	2012-03-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 32" gebruiktMeetinstrument="BSI" datum="	2012-03-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 33" gebruiktMeetinstrument="BSI" datum="	2012-03-11" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 34" gebruiktMeetinstrument="BSI" datum="	2012-06-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 35" gebruiktMeetinstrument="BSI" datum="	2012-06-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 36" gebruiktMeetinstrument="BSI" datum="	2012-06-11" sbgem:zorgdomein="02 21"/>
 
 
     </rom>
   </setup>
+
+  <group xmlns:sbgem="http://sbg-synq.nl/epd-meting">
+    <function>sbge:bepaal-zorgdomein</function>
+    <description>vergelijk zorgdomein epd en rom; geef voorkeur aan rom</description>
+
+    <test name="testscenario 0" code="0">
+      <description>geen metingen: neem zorgdomein over uit EPD</description>
+      <setup>
+	<sbgem:Zorgtraject sbgem:zorgdomeinCode="02"/>
+      </setup>
+      <expected>
+	<value>02</value>
+      </expected>
+    </test>
+
+    <test name="testscenario 1" code="1">
+      <description>geen conflict: neem zorgdomein over uit EPD</description>
+      <setup>
+	<sbgem:Zorgtraject sbgem:zorgdomeinCode="02"/>
+	<Meting ref="true" meting-id="ROM meting 28"/>
+      </setup>
+      <expected>
+	<value>02</value>
+      </expected>
+    </test>
+
+    <test name="testscenario 2" code="2">
+      <description>geen conflict: neem zorgdomein over uit EPD II</description>
+      <setup>
+	<sbgem:Zorgtraject sbgem:zorgdomeinCode="21"/>
+	<Meting ref="true" meting-id="ROM meting 28"/>
+      </setup>
+      <expected>
+	<value>21</value>
+      </expected>
+    </test>
+
+    <test name="testscenario 3" code="3">
+      <description>wel conflict: neem waarde over uit meting</description>
+      <setup>
+	<sbgem:Zorgtraject sbgem:zorgdomeinCode="01"/>
+	<Meting ref="true" meting-id="ROM meting 28"/>
+	<Meting ref="true" meting-id="ROM meting 29"/>
+	<Meting ref="true" meting-id="ROM meting 30"/>
+      </setup>
+      <expected>
+	<value>02</value>
+      </expected>
+    </test>
+
+    <test name="testscenario 4" code="4">
+      <description>wel conflict: neem zorgdomein over die het vaakst voorkomt in metingen</description>
+      <setup>
+	<sbgem:Zorgtraject sbgem:zorgdomeinCode="01"/>
+	<Meting ref="true" meting-id="ROM meting 28"/>
+	<Meting ref="true" meting-id="ROM meting 29"/>
+	<Meting ref="true" meting-id="ROM meting 30"/>
+      </setup>
+      <expected>
+	<value>02</value>
+      </expected>
+    </test>
+
+  </group>
+
 
 
   <group xmlns:sbgm="http://sbg-synq.nl/sbg-metingen">

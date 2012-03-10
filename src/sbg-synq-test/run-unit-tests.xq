@@ -153,8 +153,25 @@ for $test in $tests
     return local:build-test-result( $test, $pass, ($dbc, $zorgdomein, $metingen),  $result )
 };
 
-declare function local:test-maak-meetparen($tests as element(test)*, $ctx as element() ) 
+declare function local:test-bepaal-zorgdomein($tests as element(test)*, $ctx as element() ) 
 as element(test)* 
+{
+(: setup bevat 1 zorgtraject en N metingen :)
+for $test in $tests
+    let $zt := $test/setup/sbgem:Zorgtraject,
+        $metingen := for $ref in $test/setup/Meting
+                     return local:get-object($ctx, $ref),
+                        
+        $expected := $test/expected/value,
+        $result := sbge:bepaal-zorgdomein( $zt, $metingen ),
+        
+        $pass :=  $expected/text() eq $result
+        
+    return local:build-test-result( $test, $pass, ($zt, $metingen),  <value>{$result}</value> )
+};
+
+declare function local:test-maak-meetparen( $tests as element(test)*, $ctx as element() )
+as element(test)*
 {
 (: setup bevat 1 dbc, 1 zorgdomein en N metingen :)
 for $test in $tests
@@ -173,7 +190,6 @@ for $test in $tests
         
     return local:build-test-result( $test, $pass, ($dbc, $zorgdomein, $metingen),  $result )
 };
-
 
 
 (: run de sbge:selecteer-domein() test :)
@@ -242,7 +258,7 @@ return <group>{$group/*[not(local-name()='test')]}
     else if ( $functie = 'sbge:dbc-peildatums-zorgdomein' ) then local:test-dbc-peildatums( $tests, $ctx  )
     else if ( $functie = 'sbge:kandidaat-metingen' ) then local:test-kandidaat-metingen( $tests, $ctx  )
     else if ( $functie = 'sbge:maak-meetparen' ) then local:test-maak-meetparen( $tests, $ctx  )
-    
+    else if ( $functie = 'sbge:bepaal-zorgdomein' ) then local:test-bepaal-zorgdomein( $tests, $ctx  )
     
      
     else if ( $functie = 'fall-through' ) then () else ()

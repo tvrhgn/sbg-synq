@@ -18,7 +18,8 @@ declare function sbgem:build-sbg-atts($sbg-atts as xs:string+, $nd as node()?) a
 (: eerste zorgdomein-selectie: 
   gebaseerd op zorgcircuit, diagnose en locatie zoals aangegeven in sbg-zorgdomeinen.xml :)
 (: primaireDiagnoseCode, cl-zorgcircuit, locatiecode zijn verplichte elementen van dbc :)
-declare function sbgem:filter-domein ($dbc as node(), $domeinen as element(sbg-zorgdomeinen)) as element(zorgdomein)* 
+declare function sbgem:filter-domein ($dbc as node(), $domeinen as element(sbg-zorgdomeinen)) 
+as element(zorgdomein)* 
 {
 let $diagnose := $dbc/primaireDiagnoseCode/text(),
     $circuit := $dbc/cl-zorgcircuit/text(),
@@ -34,8 +35,8 @@ return $zd
 (: selecteer juist domein; het eerste zorgdomein dat in aanmerking komt; gebruik prioriteit aan de data-kant om selectie te sturen 'XX' is max code:)
 declare function sbgem:selecteer-domein ($dbc as node(), $domeinen as element(sbg-zorgdomeinen)) as element(zorgdomein) {
 let $zds := for $domein in sbgem:filter-domein($dbc, $domeinen) 
-                    union <zorgdomein code='XX'><naam>onbekend</naam></zorgdomein>
-            order by $domein/koppel-dbc/@priority empty greatest, $domein/@code
+                    union <zorgdomein zorgdomeinCode='XX'><naam>onbekend</naam></zorgdomein>
+            order by $domein/koppel-dbc/@priority empty greatest, $domein/@zorgdomeinCode
             return $domein
  return $zds[1]
 };
@@ -58,7 +59,7 @@ return
            { sbgem:build-sbg-atts( $sbgem:patient-atts, $laatste-dbc) ,
        for $meting in $clientmetingen
        let $instr-zd := $domeinen//instrument[@code eq $meting/@gebruiktMeetinstrument], 
-        $zorgdomein := $instr-zd/../../@code,
+        $zorgdomein := $instr-zd/../../@zorgdomeinCode,
         $meetdomein := string-join( distinct-values($instr-zd/../naam/text()), ', ' )
        order by $meting/@datum
        return element { 'sbgem:Meting' } 
@@ -75,7 +76,7 @@ return
           element { 'sbgem:Zorgtraject' } 
                   { sbgem:build-sbg-atts( $sbgem:zorgtraject-atts, $zt-dbc) 
                     union attribute { 'zorgtrajectnummer' } { $zt }
-                    union attribute { 'sbgem:zorgdomeinCode' } { $zorgdomein/@code }
+                    union attribute { 'sbgem:zorgdomeinCode' } { $zorgdomein/@zorgdomeinCode }
                     ,
                   for $dbc in $zt-dbcs
                   order by $dbc/startDatum

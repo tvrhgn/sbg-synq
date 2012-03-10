@@ -90,7 +90,7 @@
 			import module namespace sbge="http://sbg-synq.nl/sbg-epd" at '../sbg-synq/sbg-epd.xquery';		
 			let $za := //zorgaanbieder
 			return element { 'result' } { (), $za, 
-				element { 'sbg-patient-meting' } { (), sbge:patient-dbc-meting( //patient-meting/*, $za/sbg-zorgdomeinen/* ) }
+				element { 'sbg-patient-meting' } { (), sbge:sbg-patient-meting( //patient-meting/*, $za/sbg-zorgdomeinen/* ) }
 				}
 			</c:query>
 			</p:inline>

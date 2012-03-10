@@ -15,10 +15,15 @@ let $content :=
         <div class="{concat( 'status pass-', $pass)}">{$label}</div>
         <div class="test desc">{$test/description/text()}</div>{
         if ( not($pass) ) 
-        then <div class="actual">
+        then if ( $test/actual/value) 
+             then if ( $test/actual/value/text() ) 
+                    then <div class="actual">waarde: {$test/actual/value/text()}</div> 
+                    else <div class="actual">waarde: -n/a-</div>
+            else 
+            <div class="actual">
             {ramh:atts-table-tree($test/actual)}
             {ramh:atts-table-rect($test/actual//*[not(./*)])}
-        </div>
+            </div>
         else () 
         }
     </div>

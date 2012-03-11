@@ -8,7 +8,7 @@
 	<p:option name="checklist_html" select="'checklist.html'" />
 
 	<p:input port="source">
-		<p:document href="../../sbg-synq-out/bmstore.xml" />
+		<p:document href="../../sbg-synq-out/sbg-bmimport.xml" />
 	</p:input>
 
 	<p:input port="sbg-synq-status">

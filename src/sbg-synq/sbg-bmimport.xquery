@@ -1,41 +1,18 @@
 module namespace sbgbm = "http://sbg-synq.nl/sbg-benchmark";
 declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
 declare namespace sbgm="http://sbg-synq.nl/sbg-metingen";
-
-
-(: laat alleen de attributen met een text-waarde in de default namespace door; 
-  stript dus de applicatie-attributen :)
-(: filter de attributen van een enkel element :)
-declare function sbgbm:filter-atts( $nd as element() ) as attribute()* 
-{
-$nd/@*[namespace-uri() = ''][string-length(.) gt 0] 
-}; 
-
-
-(: forceer uniek :)
-declare function sbgbm:build-sbg-nevendiagnose( $zt as element(Zorgtraject), $diagn as node()* ) 
-as element(sbggz:NevendiagnoseCode)*
-{
-for $diag in distinct-values($diagn[zorgtrajectnummer eq $zt/@zorgtrajectnummer]/nevendiagnoseCode/text())
-return <sbggz:NevendiagnoseCode nevendiagnoseCode="{$diag}"/>
-};
-
-(: zoek de behandelaars bij een zorgtraject  :)
-(: filter ongeldige er uit; forceer uniek ? :)
-declare function sbgbm:build-sbg-behandelaar( $zt as element(Zorgtraject), $behs as node()*  ) 
-as element(sbggz:Behandelaar)* {
-for $beh in $behs[zorgtrajectnummer eq $zt/@zorgtrajectnummer][primairOfNeven/text()][beroep/text()][alias/text()]
-let $pon := $beh/primairOfNeven,
-    $beroep := $beh/beroep,
-    $alias := $beh/alias
-return <sbggz:Behandelaar primairOfNeven="{$pon}" beroep="{$beroep}" alias="{$alias}"/>
-};
+declare namespace sbgem = "http://sbg-synq.nl/epd-meting";
+declare default element namespace "http://sbggz.nl/schema/import/5.0.1";
+(:  :)
 
 (: maak een doc met geldige datums voor de batch; datum is verplicht; 
-  val terug op default de 3 maanden tot laatste einde maand voor datum  :)
-declare function sbgbm:batch-gegevens($za as element(zorgaanbieder)) as element(batch-gegevens) {
+  val terug op default de 3 maanden tot laatste einde maand voor datum  
+  $ts := data($batch/@datumCreatie),
+  laten vallen? is nu technische export-datum; systeemafhankelijk
+  :)
+declare function sbgbm:batch-gegevens($za as element()) as element(batch-gegevens) {
 let $batch := $za/batch[1],  (: voer alleen de de eerste batch uit :)
-    $ts := data($batch/@datumCreatie),
+    $ts := (data($batch/@*[local-name() eq 'datumCreatie']), current-dateTime())[1],
     $today := fn:current-date(),
     $dom := fn:day-from-date($today),
     $default-eind := $today - xs:dayTimeDuration( concat( 'P', $dom, 'D' )), (: eind vorige maand :)
@@ -51,9 +28,11 @@ let $batch := $za/batch[1],  (: voer alleen de de eerste batch uit :)
     
 return <batch-gegevens>
     <meetperiode>{$meetperiode}</meetperiode>
-    <startdatum>{$start}</startdatum>
-    <einddatum>{$eind}</einddatum>
-    <timestamp>{$ts}</timestamp>
+    <sbggz:zorgaanbieder-agb>{data($za/@code)}</sbggz:zorgaanbieder-agb>
+    <sbggz:zorgaanbieder>{$za/*[local-name() eq 'naam']}</sbggz:zorgaanbieder>
+    <sbggz:startdatum>{$start}</sbggz:startdatum>
+    <sbggz:einddatum>{$eind}</sbggz:einddatum>
+    <sbggz:timestamp>{$ts}</sbggz:timestamp>
 </batch-gegevens>
 };
 
@@ -64,72 +43,70 @@ declare function sbgbm:in-periode( $begin as xs:date, $eind as xs:date, $datum a
 };
 
 (: kijk of einddatum dbc in periode batch valt; laat ook dbc zonder einddatum door :)
-declare function sbgbm:dbc-in-periode-batch( $inst as element(batch-gegevens), $dbcs as element(DBCTraject)* ) 
-as element(DBCTraject)* 
+declare function sbgbm:dbc-in-periode-batch( $inst as element(batch-gegevens), $dbcs as element(sbggz:DBCTraject)* ) 
+as element(sbggz:DBCTraject)* 
 {
     for $dbc in $dbcs
-    return  if ( sbgbm:in-periode( $inst/startdatum, $inst/einddatum, $dbc/@einddatumDBC) or string($dbc/@einddatumDBC) eq '' )
+    return  if ( sbgbm:in-periode( $inst/sbggz:startdatum, $inst/sbggz:einddatum, $dbc/@sbggz:einddatumDBC) or string($dbc/@sbggz:einddatumDBC) eq '' )
             then $dbc else ()
  };
     
 (: geef alleen de patienten met relevante dbcs  :)
-declare function sbgbm:filter-batchperiode($inst as element(batch-gegevens), $patient-meting as element(Patient)*) 
-as element(Patient)* 
+declare function sbgbm:filter-batchperiode($inst as element(batch-gegevens), $patient-meting as element(sbggz:Patient)*) 
+as element(sbggz:Patient)* 
 {
 for $pm in $patient-meting
-let $dbcs := sbgbm:dbc-in-periode-batch($inst, $pm/Zorgtraject/DBCTraject)
+let $dbcs := sbgbm:dbc-in-periode-batch($inst, $pm/sbggz:Zorgtraject/sbggz:DBCTraject)
 return if (count($dbcs) gt 0) then $pm else ()
 };
 
+declare function sbgbm:filter-sbg-atts( $atts as attribute()* )
+as attribute()*
+{
+for $att in $atts[namespace-uri() eq 'http://sbggz.nl/schema/import/5.0.1' or namespace-uri() eq ''][data(.)]
+return attribute { local-name($att) } { data($att) }
+};
+
+declare function sbgbm:filter-sbg-elt( $elt as element() )
+as element()*
+{
+if ( namespace-uri($elt) eq 'http://sbggz.nl/schema/import/5.0.1' or namespace-uri($elt) eq '' )
+then element  { local-name($elt) } 
+              { sbgbm:filter-sbg-atts($elt/@*)
+              ,
+              for $e in $elt/*
+              return sbgbm:filter-sbg-elt( $e )
+              }
+else ()
+};
 
 (: neem de patient-meting-objecten, links naar epd, behandelaar en diagnose-bestanden,
     selecteer patient metingen uit gewenste periode
     voeg nevendiagnose en behandelaar in om Patient compleet te maken.
-    kopieer de juiste attributen volgens sbg-schema  :)
-declare function sbgbm:build-sbg-bmimport (
-    $za as element(zorgaanbieder), 
-    $patient-meting as element(Patient)*, 
-    $behs as node()*, 
-    $diagn as node()* ) 
+    kopieer de juiste attributen volgens sbg-schema  
+    xmlns="http://sbggz.nl/schema/import/5.0.1" xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1"
+    eejj-mm-dd hh:mm:ss
+    :)
+declare function sbgbm:build-sbg-bmimport( $za as element(), $patient-meting as element(sbggz:Patient)* )
 as element(sbggz:BenchmarkImport) 
 {
 let $batch := sbgbm:batch-gegevens($za)
 return  
-<sbggz:BenchmarkImport versie="5.0"
-        startdatumAangeleverdePeriode="{$batch/startdatum}" 
-        einddatumAangeleverdePeriode="{$batch/einddatum}" 
-        datumCreatie="{$batch/timestamp}" 
+<BenchmarkImport versie="5.0" 
+        startdatumAangeleverdePeriode="{substring(string($batch/sbggz:startdatum), 1, 10)}" 
+        einddatumAangeleverdePeriode="{substring(string($batch/sbggz:einddatum), 1, 10)}" 
+        datumCreatie="{replace(substring( string($batch/sbggz:timestamp), 1, 19), 'T', ' ')}" 
     >
-    <sbggz:Zorgaanbieder zorgaanbiedercode="{$za/@code}" zorgaanbiedernaam="{$za/naam}">
+    <Zorgaanbieder zorgaanbiedercode="{$batch/sbggz:zorgaanbieder-agb}" zorgaanbiedernaam="{$batch/sbggz:zorgaanbieder}">
     {
     for $patient in sbgbm:filter-batchperiode($batch, $patient-meting)
-    return element  { 'sbggz:Patient' } { sbgbm:filter-atts( $patient ) 
+    return element  { 'Patient' } 
+                    { sbgbm:filter-sbg-atts($patient/@*) 
                       ,
-                      for $zt in $patient/Zorgtraject
-                      let $dbcs := sbgbm:dbc-in-periode-batch($batch, $zt/DBCTraject)
-                      return element { 'sbggz:Zorgtraject' }
-                          { sbgbm:filter-atts( $zt )
-                          ,
-                          sbgbm:build-sbg-nevendiagnose($zt, $diagn) 
-                          union sbgbm:build-sbg-behandelaar($zt, $behs)
-                          union 
-                          (for $dbc in $dbcs
-                           return element { 'sbggz:DBCTraject' }
-                           { sbgbm:filter-atts($dbc)
-                           ,
-                            for $meting in $dbc/Meting[not(@sbgm:instrument-ongeldig)]
-                            return element { 'sbggz:Meting' } 
-                            { sbgbm:filter-atts($meting)
-                            ,
-                            for $item in $meting/Item
-                             return element { 'sbggz:Item' }
-                             { sbgbm:filter-atts($item) }
-                            }
-                            }
-                           )
-                          }
-                 }
+                      for $zt in $patient/sbggz:Zorgtraject
+                      return sbgbm:filter-sbg-elt($zt)
+                    }
     }
-    </sbggz:Zorgaanbieder>
-</sbggz:BenchmarkImport>
+    </Zorgaanbieder>
+</BenchmarkImport>
 };

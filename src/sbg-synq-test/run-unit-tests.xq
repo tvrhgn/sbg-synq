@@ -4,6 +4,7 @@ import module namespace sbgi="http://sbg-synq.nl/sbg-instrument" at '../sbg-synq
 import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at '../sbg-synq/sbg-metingen.xquery';
 import module namespace sbgbm="http://sbg-synq.nl/sbg-benchmark" at '../sbg-synq/sbg-bmimport.xquery';
 import module namespace sbgem="http://sbg-synq.nl/epd-meting" at '../sbg-synq/epd-meting.xquery';
+declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
 
 
 declare variable $test-doc := /*; 
@@ -65,13 +66,31 @@ return
 element { 'test' } { $test/@* union attribute { 'pass' } { $pass }, 
   element {'setup' } { 
     for $elt in $setup 
-    return element { local-name($elt) } { $elt/@* }
+    (: return element { local-name($elt) } { $elt/@*, $elt/text() } :)
+    return $elt
   }
   union $test/description
   union $test/expected 
   union $act-elt 
   }     
 };
+
+(:
+ ??
+ test-compare-namespace.xq in home
+:)
+declare function local:atts-equal-ns( $exp as element(), $val as element() )
+as xs:boolean
+{
+let $keys := for $n in $exp/@* return name($n)
+let $atts-eq := for $k in $keys  
+                let $att := $val/@*[name(.) eq $k]
+                return $att and data($att) eq data($exp/@*[name(.) eq $k])
+
+return 
+    every $v in $atts-eq satisfies $v eq true()
+};  
+
 
 (: vergelijk de attribuut-waarden van $exp met de corresponderende in $val :)
 declare function local:atts-equal( $exp as node(), $val as node()* )
@@ -191,6 +210,56 @@ for $test in $tests
     return local:build-test-result( $test, $pass, ($dbc, $zorgdomein, $metingen),  $result )
 };
 
+declare function local:test-vertaal-elts( $tests as element(test)*, $ctx as element() )
+as element(test)*
+{
+(: setup bevat 1 row en 1 string+ met namen voor const waarden
+$act := <value>{$result}</value>,
+$act := element { 'value' } { attribute { 'marker' } { 'OK' } union $result },
+$result := sbgem:vertaal-elt-naar-att-sbg( 'locatiecode', $row ),
+$expected := $test/expected/value,
+$expected := <value sbggz:locatiecode="A"/>,
+        
+        $result := attribute { 'sbgem:locatiecode' } {  "A" },
+
+:)
+for $test in $tests
+    let $def := $test/setup/def,
+        $row := $test/setup/row,
+        $expected := $test/expected/value,                
+        
+        $param := distinct-values( tokenize($def/text(), ', ')),
+        
+        $result := sbgem:vertaal-elt-naar-att-sbg( $param, $row ),
+        
+        $act := element { 'value' } { $result },
+        
+        $pass :=  local:atts-equal-ns( $expected, $act )
+        
+        return local:build-test-result( $test, $pass, ($def, $row),  $act )    
+    
+};
+
+(: 
+SJABLOON
+
+for $test in $tests
+    let $def := $test/setup/,
+        $row := $test/setup/,
+        $expected := $test/expected/,                
+               
+        $result := 
+        
+        $act := element { 'value' } { $result },
+        
+        $pass :=  ( $expected, $act )
+        
+return local:build-test-result( $test, false(), ($def, $row),  <box pass="{$pass}">{$act}</box> )    
+};
+:)
+
+
+
 
 (: run de sbge:selecteer-domein() test :)
 (: maakt gebruik van globale setup $zorgdomeinen :)
@@ -238,6 +307,31 @@ for $test in $group//test
     return element { 'test' } { $test/@* union attribute { 'pass' } { $pass }, $test/*, $actual-elt }
 };
 
+
+declare function local:test-filter-elts( $tests as element(test)*, $ctx as element() )
+as element(test)*
+{
+for $test in $tests
+    let $def := $test/setup/def,
+        $row := $test/setup/row,
+        $expected := $test/expected/value,                
+        
+        $param := distinct-values( tokenize($def/text(), ', ')),
+        
+        $result := sbgem:vertaal-elt-naar-filter-sbg( $param, $row ),
+        
+        $act := element { 'value' } { $result },
+        
+        $pass :=  local:atts-equal-ns( $expected, $act )
+        
+        return local:build-test-result( $test, $pass, ($def, $row),  $act )    
+    
+};
+
+
+
+
+(: dispatch functie :)
 declare function local:run-tests() as element(result)
 {
 <result>{$test-doc/setup}{
@@ -259,6 +353,8 @@ return <group>{$group/*[not(local-name()='test')]}
     else if ( $functie = 'sbge:kandidaat-metingen' ) then local:test-kandidaat-metingen( $tests, $ctx  )
     else if ( $functie = 'sbge:maak-meetparen' ) then local:test-maak-meetparen( $tests, $ctx  )
     else if ( $functie = 'sbge:bepaal-zorgdomein' ) then local:test-bepaal-zorgdomein( $tests, $ctx  )
+    else if ( $functie = 'sbgem:vertaal-elt-naar-att-ns' ) then local:test-vertaal-elts( $tests, $ctx  )
+    else if ( $functie = 'sbgem:vertaal-elt-naar-filter-sbg' ) then local:test-filter-elts( $tests, $ctx  )
     
      
     else if ( $functie = 'fall-through' ) then () else ()

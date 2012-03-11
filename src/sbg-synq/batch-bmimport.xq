@@ -23,14 +23,18 @@ let $za := sbgza:build-zorgaanbieder( $zorgaanbieder ),
     $sbg-rom := sbgm:sbg-metingen($za/rom/*, $za/rom-items/*, $instrumenten),
     
       (: construeer Patient; koppel de Metingen aan de DBCTrajecten :)
-    (: combineer de metingen met de dbcs :)
-    $patient-meting := sbgem:patient-meting-epd( $za/epd/*, $sbg-rom, $za/sbg-zorgdomeinen/* ),
+    (: combineer de metingen met de dbcs 
+    $patient-meting := sbgem:xpatient-meting-epd( $za/epd/*, $sbg-rom, $za/sbg-zorgdomeinen/* ),
+    :)
+    $patient-meting := sbgem:maak-patient-meting( $za/epd/*, $za/behandelaar/*, $za/nevendiagnose/*, $sbg-rom, $za/sbg-zorgdomeinen/* ),
     
     (: definitieve selectie van metingen in bestand :)
-    $sbg-patient-meting := sbge:sbg-patient-meting( $patient-meting, $za/sbg-zorgdomeinen/* ),
+    $sbg-patient-meting := sbge:sbg-patient-meting( $patient-meting, $za/sbg-zorgdomeinen/* )
     
-    (: construeer BenchmarkImport op basis van de instellingen in zorgaanbieder (meetperiode en aanleverperiode); voeg NevendiagnoseCode en Behandelaar toe  :)
-    $bmimport := sbgbm:build-sbg-bmimport($zorgaanbieder, $sbg-patient-meting,  $za/behandelaar/*, $za/nevendiagnose/* )
+    (: construeer BenchmarkImport op basis van de instellingen in zorgaanbieder (meetperiode en aanleverperiode); voeg NevendiagnoseCode en Behandelaar toe
+    $bmimport := sbgbm:build-sbg-bmimport($zorgaanbieder, $sbg-patient-meting,  $za/behandelaar/*, $za/nevendiagnose/* )  
+    :)
+    
 return $bmimport
 
 

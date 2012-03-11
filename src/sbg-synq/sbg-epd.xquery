@@ -1,6 +1,10 @@
 module namespace sbge = "http://sbg-synq.nl/sbg-epd";
+declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
 
-(: pas de koppelregels toe :)
+
+(: pas de koppelregels toe op de procesinfo (zie epd-meting.xquery)
+plaats de sbggz-attributen in de doel-ns
+ :)
 
 import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at 'sbg-metingen.xquery';
 import module namespace sbgem="http://sbg-synq.nl/epd-meting" at 'epd-meting.xquery';
@@ -17,7 +21,7 @@ NB: metingen zijn niet uniek in het resultaat
 :)
 
 declare function sbge:dbc-metingen( 
-$metingen as element(sbgem:Meting)*,  
+$metingen as element(Meting)*,  
 $domein as element(zorgdomein), 
 $peildatums as xs:date+
 ) 
@@ -50,7 +54,7 @@ return if ( sbge:in-periode($m/@datum, $peildatum, $meetperiode-voor, $meetperio
 (: overweeg om een leeg element te retourneren? :)
 (: neem de getypeerde metingen en verdeel ze in voor/na metingen :)
 declare function sbge:kandidaat-metingen( 
-$metingen as element(sbgem:Meting)*,  
+$metingen as element(Meting)*,  
 $domein as element(zorgdomein), 
 $peildatums as xs:date+
 ) 
@@ -122,10 +126,10 @@ return
 declare function sbge:dbc-peildatums-zorgdomein($dbc as element(), $zorgdomein as element(zorgdomein) ) 
 as xs:date*
 {
-let $e-sessie := if ( $zorgdomein[@peildatums-eenvoudig eq 'true'] ) then "-negeer-" else data($dbc/@datumEersteSessie)
-let $l-sessie := if ( $zorgdomein[@peildatums-eenvoudig eq 'true'] ) then "-negeer-" else data($dbc/@datumLaatsteSessie)
-let $begin := data($dbc/@startdatumDBC)
-let $eind := data($dbc/@einddatumDBC)
+let $e-sessie := if ( $zorgdomein[@peildatums-eenvoudig eq 'true'] ) then "-negeer-" else data($dbc/@sbggz:datumEersteSessie)
+let $l-sessie := if ( $zorgdomein[@peildatums-eenvoudig eq 'true'] ) then "-negeer-" else data($dbc/@sbggz:datumLaatsteSessie)
+let $begin := data($dbc/@sbggz:startdatumDBC)
+let $eind := data($dbc/@sbggz:einddatumDBC)
 
 return (  if ( $e-sessie castable as xs:date ) 
               then xs:date($e-sessie)
@@ -148,7 +152,7 @@ als er een conflict is met het zorgdomein van de metingen, wordt het eerste zorg
 Dit dient om uitval van metingen te beperken.
 Opm: dit maakt de betekenis van zorgdomein dus vager
 :)
-declare function sbge:bepaal-zorgdomein ( $zorgtraject as element(sbgem:Zorgtraject), $metingen as element(sbgem:Meting)* ) 
+declare function sbge:bepaal-zorgdomein ( $zorgtraject as element(sbgem:Zorgtraject), $metingen as element(Meting)* ) 
 as xs:string
 {
 let $zd-zt := data($zorgtraject/@sbgem:zorgdomeinCode),
@@ -162,26 +166,28 @@ else  $zds-meting[1]
 
 
 (: vervang sbgem:zorgdomein-code :) 
-declare function sbge:maak-zorgtraject( $zt as element(sbgem:Zorgtraject), $zorgdomein-code as xs:string, $dbcs as element(DBCTraject)* ) 
-as element(Zorgtraject)
+declare function sbge:maak-zorgtraject( $zt as element(sbgem:Zorgtraject), $zorgdomein-code as xs:string, $dbcs as element(sbggz:DBCTraject)* ) 
+as element(sbggz:Zorgtraject)
 { 
-element { 'Zorgtraject' } 
+element { 'sbggz:Zorgtraject' } 
         { $zt/@*[local-name() ne 'sbgem:zorgdomeinCode']
-           union attribute { 'zorgdomeinCode' } { $zorgdomein-code }
-        , $dbcs 
+           union attribute { 'sbggz:zorgdomeinCode' } { $zorgdomein-code }
+        ,
+        $zt/sbggz:*, 
+        $dbcs 
 }
 };
 
 (: maak dbc; filter de juiste metingen :)
-declare function sbge:maak-dbc( $dbc as element(sbgem:DBCTraject), $metingen as element(sbgem:Meting)*, $zorgdomein as element(zorgdomein)  ) 
-as element(DBCTraject)
+declare function sbge:maak-dbc( $dbc as element(sbgem:DBCTraject), $metingen as element(Meting)*, $zorgdomein as element(zorgdomein)  ) 
+as element(sbggz:DBCTraject)
 { 
 let $peildatums := sbge:dbc-peildatums-zorgdomein($dbc, $zorgdomein),
 
     $kandidaten := sbge:kandidaat-metingen($metingen, $zorgdomein, $peildatums),
     $optimale-meetpaar := sbge:optimale-meetpaar($kandidaten, $zorgdomein)
 return 
-    element { 'DBCTraject' } 
+    element { 'sbggz:DBCTraject' } 
         { $dbc/@*,
         $optimale-meetpaar//Meting
         (:
@@ -195,12 +201,12 @@ return
 (: beginpunt is het Patient-object met alle metingen uit epd-meting :)
 (: dit is de laatste step; hierna hoeven alleen de correcte attributen gefilterd :)
 (: - controleer zorgdomein; neem evt over uit meting :)
-declare function sbge:patient-sbg-meting( $patient as element(sbgem:Patient), $domeinen as element(sbg-zorgdomeinen) ) 
-as element(Patient)
+declare function sbge:patient-sbg-meting( $patient as element(sbgem:Patient), $domeinen as element(zorgdomein)* ) 
+as element(sbggz:Patient)
 {
-let $clientmetingen := $patient//sbgem:Meting
+let $clientmetingen := $patient//Meting
 return 
-   element { 'Patient' } 
+   element { 'sbggz:Patient' } 
            { $patient/@*
              union attribute { 'sbge:aantal-metingen' } { count($clientmetingen) }
        ,
@@ -208,7 +214,7 @@ return
        let $zorgdomein-code := if ( $clientmetingen ) 
                                then sbge:bepaal-zorgdomein( $zt, $clientmetingen ) 
                                else data($zt/@sbgem:zorgdomeinCode),
-           $zorgdomein := $domeinen//zorgdomein[@zorgdomeinCode eq $zorgdomein-code],
+           $zorgdomein := $domeinen[@zorgdomeinCode eq $zorgdomein-code],
            $zorgdomein-metingen := $clientmetingen (: geldig in zorgdomein? :),
            
            $dbcs := for $dbc in $zt/sbgem:DBCTraject 
@@ -219,8 +225,8 @@ return
     }
 };
 
-declare function sbge:sbg-patient-meting( $patient as element(sbgem:Patient)*, $domeinen as element(sbg-zorgdomeinen) ) 
-as element(Patient)*
+declare function sbge:sbg-patient-meting( $patient as element(sbgem:Patient)*, $domeinen as element(zorgdomein)* ) 
+as element(sbggz:Patient)*
 {
 for $p in $patient
 return sbge:patient-sbg-meting($p,$domeinen)

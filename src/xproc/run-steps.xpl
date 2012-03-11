@@ -67,7 +67,7 @@
 			import module namespace sbgem="http://sbg-synq.nl/epd-meting" at '../sbg-synq/epd-meting.xquery';		
 			let $za := //zorgaanbieder
 			return element { 'result' } { (), $za, 
-				element { 'patient-meting' } { (), sbgem:patient-meting-epd( $za/epd/*, .//Meting, $za/sbg-zorgdomeinen/* ) }
+				element { 'patient-meting' } { (), sbgem:maak-patient-meting( $za/epd/*, $za/behandelaar/*, $za/nevendiagnose/*, .//Meting, $za/sbg-zorgdomeinen/* ) }
 				}
 			</c:query>
 			</p:inline>
@@ -90,7 +90,30 @@
 			import module namespace sbge="http://sbg-synq.nl/sbg-epd" at '../sbg-synq/sbg-epd.xquery';		
 			let $za := //zorgaanbieder
 			return element { 'result' } { (), $za, 
-				element { 'sbg-patient-meting' } { (), sbge:sbg-patient-meting( //patient-meting/*, $za/sbg-zorgdomeinen/* ) }
+				element { 'sbg-patient-meting' } { (), sbge:sbg-patient-meting( //patient-meting/*, $za/sbg-zorgdomeinen//zorgdomein ) }
+				}
+			</c:query>
+			</p:inline>
+		</p:input>
+		<p:input port="parameters">
+			<p:empty />
+		</p:input>
+	</p:xquery>
+
+	<p:xquery name="sbg-benchmark-info">
+		<p:input port="source">
+			<p:pipe step="sbg-patient-meting" port="result" />
+		</p:input>
+	
+		<p:input port="query">
+			<p:inline>
+				<c:query>
+			import module namespace sbgbm = "http://sbg-synq.nl/sbg-benchmark" at '../sbg-synq/sbg-bmimport.xquery';
+			declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
+								
+			let $za := //zorgaanbieder
+			return element { 'result' } { (), $za, 
+				element { 'benchmark-info' } { (), sbgbm:build-sbg-bmimport( $za, //sbg-patient-meting//sbggz:Patient ) }
 				}
 			</c:query>
 			</p:inline>
@@ -127,6 +150,13 @@
 		<p:with-option name="href" select="concat( $tmp.dir,'/sbg-patient-meting.xml')" />
 		<p:input port="source" select="//sbg-patient-meting">
 			<p:pipe step="sbg-patient-meting" port="result" />
+		</p:input>
+	</p:store>
+
+	<p:store name="store-benchmark-info">
+		<p:with-option name="href" select="concat( $tmp.dir,'/sbg-bmimport.xml')" />
+		<p:input port="source" select="//benchmark-info">
+			<p:pipe step="sbg-benchmark-info" port="result" />
 		</p:input>
 	</p:store>
 

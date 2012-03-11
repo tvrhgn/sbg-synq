@@ -3,7 +3,11 @@
 	
 	<p:option name="report_dir" select="'../../sbg-synq-out'" />
 	<p:input port="source">
+			<p:document href="../sbg-synq-test/test-epd-meting.xml" />
+<!-- 
 		<p:document href="../sbg-synq-test/test-koppelproces.xml" />
+ -->
+ 
 	</p:input>
 
 	<p:output port="result" sequence="true">

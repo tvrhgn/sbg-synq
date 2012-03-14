@@ -56,6 +56,19 @@ return $ctx//*[local-name() eq $elt-name][@*[local-name() eq $att-name][. eq $at
 else $elt
 };
 
+declare function local:get-object-ns($ctx, $elt as element()?) 
+as element()?
+{
+let $deref := xs:boolean($elt/@ref) 
+return if ( $deref  ) then  
+let $att := $elt/@*[local-name() ne 'ref'][1]
+let $elt-name := name($elt)
+let $att-name := name($att)
+let $att-val :=  data($att)
+return $ctx//*[name() eq $elt-name][@*[name() eq $att-name][. eq $att-val]][1]
+else $elt
+};
+
 (: vorm de test om naar het resultaat formaat :) 
 declare function local:build-test-result( $test as element(test), $pass as xs:boolean, $setup as element()*, $actual as element()* ) 
 as element(test)
@@ -133,17 +146,18 @@ let $pass := every $v in $pass-all satisfies $v eq true()
 return $len-eq and ($both-empty or $pass)
 };
 
+(: ---------- group functies ------------------------ :)
 
 declare function local:test-dbc-peildatums( $tests as element(test)*, $ctx as element() ) 
 as element(test)* 
 {
 for $test in $tests
-let $dbc := local:get-object($ctx, $test/setup/DBCTraject[1]),
+let $dbc := local:get-object-ns($ctx, $test/setup/sbgem:DBCTraject[1]),
     $zorgdomein := local:get-object($ctx, $test/setup/zorgdomein[1]),
                         
     $expected := $test/expected/value/text(),
         
-    $peildatums := sbge:dbc-peildatums-zorgdomein($dbc, $zorgdomein ),
+    $peildatums := sbge:dbc-peildatums-zorgdomein($dbc, $zorgdomein ), 
     
     $test-string := concat( string($peildatums[1]), ', ', string($peildatums[2])),
     $pass := $expected eq $test-string,
@@ -156,7 +170,7 @@ as element(test)*
 {
 (: setup bevat 1 dbc, 1 zorgdomein en N metingen :)
 for $test in $tests
-    let $dbc := local:get-object($ctx, $test/setup/DBCTraject),
+    let $dbc := local:get-object-ns($ctx, $test/setup/sbgem:DBCTraject),
         $zorgdomein := local:get-object($ctx, $test/setup/zorgdomein),
         $metingen := for $ref in $test/setup/Meting
                      return local:get-object($ctx, $ref),
@@ -194,7 +208,7 @@ as element(test)*
 {
 (: setup bevat 1 dbc, 1 zorgdomein en N metingen :)
 for $test in $tests
-    let $dbc := local:get-object($ctx, $test/setup/DBCTraject),
+    let $dbc := local:get-object-ns($ctx, $test/setup/sbgem:DBCTraject),
         $zorgdomein := local:get-object($ctx, $test/setup/zorgdomein),
         $metingen := for $ref in $test/setup/Meting
                      return local:get-object($ctx, $ref),
@@ -258,56 +272,6 @@ return local:build-test-result( $test, false(), ($def, $row),  <box pass="{$pass
 };
 :)
 
-
-
-
-(: run de sbge:selecteer-domein() test :)
-(: maakt gebruik van globale setup $zorgdomeinen :)
-declare function local:test-selecteer-zorgdomein($tests as element(test)*, $zorgdomeinen as element(sbg-zorgdomeinen) ) as element(test)* {
-    for $test in $tests
-    let $dbc := $test/setup/dbc,
-        $expected := $test/expected/*,
-        
-        $zd := sbgem:selecteer-domein( $dbc, $zorgdomeinen ),
-        
-        $pass := every $att in $expected/@*  satisfies contains( $zd/@*, $att )  and local-name($zd) = local-name($expected),
-        $actual := element { local-name($zd) } { local:filter-atts( $zd, $expected ), local:filter-elts( $zd, $expected ) },
-        $actual-elt := if ( $pass ) then () else element { 'actual' } { $actual, () }  
-    return element { 'test' } { $test/@* union attribute { 'pass' } { $pass }, $test/* union $actual-elt }     
-};
-
-declare function local:test-bereken-score( $tests, $instrumenten ) as element(test)* {
-    for $test in $tests
-    let $meting := $test/setup/meting,
-        $expected := xs:double($test/expected/value/text()),
-        $instr := $instrumenten[@code=data($meting/@instrument)][1],
-        
-        $score := sbgi:bereken-totaalscore-sbg( $instr, $meting/item ),
-        
-        $pass := $score = $expected,
-        $actual-elt := if ( $pass ) then () else element { 'actual' } { <value>{$score}</value> }  
-    return element { 'test' } { $test/@* union attribute { 'pass' } { $pass }, $test/* union $actual-elt }     
-
-};
-
-
-declare function local:test-filter-periode( $group as element(group)* ) as element(test)* {
-let $batch := $group/setup/batch-gegevens
-for $test in $group//test
-    (: we testen een filter, dus input en output hebben hetzelfde type :)
-    let $patient := $test/setup/Patient,
-        $expected := $test/expected/Patient,
-        
-        $actual := sbgbm:filter-batchperiode( $batch, $patient ),
-        
-        $check-result := every $pat in $expected satisfies index-of( $actual/@koppelnummer, $pat/@koppelnummer), 
-        $pass := (count($actual) eq count($expected) and $check-result),                 
-        
-        $actual-elt := if ( $pass ) then () else element { 'actual' } { $actual }    
-    return element { 'test' } { $test/@* union attribute { 'pass' } { $pass }, $test/*, $actual-elt }
-};
-
-
 declare function local:test-filter-elts( $tests as element(test)*, $ctx as element() )
 as element(test)*
 {
@@ -329,8 +293,6 @@ for $test in $tests
 };
 
 
-
-
 (: dispatch functie :)
 declare function local:run-tests() as element(result)
 {
@@ -346,10 +308,10 @@ let $functie := $group/function/text(),
 return <group>{$group/*[not(local-name()='test')]}
 { 
 
-    if ( $functie = 'sbge:selecteer-domein' ) then local:test-selecteer-zorgdomein( $tests, $zorgdomeinen )
-    else if ( $functie = 'sbgi:bereken-totaalscore-sbg' ) then local:test-bereken-score( $tests, $instrumenten )
-    else if ( $functie = 'sbgbm:filter-batchperiode' ) then local:test-filter-periode( $group  )
+    if ( $functie = 'sbge:selecteer-domein' ) then ()
+    
     else if ( $functie = 'sbge:dbc-peildatums-zorgdomein' ) then local:test-dbc-peildatums( $tests, $ctx  )
+    
     else if ( $functie = 'sbge:kandidaat-metingen' ) then local:test-kandidaat-metingen( $tests, $ctx  )
     else if ( $functie = 'sbge:maak-meetparen' ) then local:test-maak-meetparen( $tests, $ctx  )
     else if ( $functie = 'sbge:bepaal-zorgdomein' ) then local:test-bepaal-zorgdomein( $tests, $ctx  )

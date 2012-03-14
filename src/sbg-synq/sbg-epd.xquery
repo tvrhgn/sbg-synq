@@ -120,7 +120,7 @@ return
 };
 
 
-(: NIEUW
+(: 
   functie die altijd twee datums retourneert :)
 (: kijkt naar het attribuut 'peildatums-eenvoudig' op zorgdomein om sessie datums evt te negeren :)
 declare function sbge:dbc-peildatums-zorgdomein($dbc as element(), $zorgdomein as element(zorgdomein) ) 

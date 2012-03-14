@@ -138,17 +138,33 @@ return <div class="table-tree">
    
 };
 
+declare function ramh:html-doc-head($content as element(div),  $head-content as element()* )
+as element(html)
+{
+<html>
+    <head>{$head-content}</head>
+<body>{$content}</body>
+</html>
+};
 
+declare function ramh:html-doc-jquery($content as element(div),  $css as xs:string? )
+as element(html)
+{
+let $css-href := if (string-length($css) gt 0) then $css else 'sbg-ram.css',
+    $head := (
 
+    <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.8.9.custom.css"></link>,
+    <link href="{$css-href}" rel="stylesheet" type="text/css"/>,
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>,
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    )
+return ramh:html-doc-head($content, $head)
+};
 
 (: maak een html-doc; geef 1 css href mee voor onmiddellijk resultaat; scripts e.d. elders :)  
 declare function ramh:html-doc($content as element(div),  $css as xs:string? )
 as element(html)
 {
 let $css-href := if (string-length($css) gt 0) then $css else 'sbg-ram.css' 
-return <html><head>
- <link href="{$css-href}" rel="stylesheet" type="text/css"/>
-</head>
-<body>{$content}</body>
-</html>
+return ramh:html-doc-head($content, <link href="{$css-href}" rel="stylesheet" type="text/css"/>)
 };

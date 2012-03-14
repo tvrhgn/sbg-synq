@@ -1,0 +1,100 @@
+<tests versie="0.98" 
+xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1" 
+xmlns:sbgem="http://sbg-synq.nl/epd-meting"
+xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
+>
+  <setup >
+    <sbg-zorgdomeinen>
+
+      <zorgdomein code="02" zorgdomeinCode="02">
+	<meetperiode>P3M</meetperiode>
+	<naam>Volwassenen kort</naam>
+	<meetdomein>
+	  <naam>Klachten en symptomen</naam>
+	    <instrument code="BSI"/>
+	</meetdomein>
+	<meetdomein>
+	  <naam>Functioneren</naam>
+	    <instrument code="OQ45-func"/>
+	</meetdomein>
+	<meetdomein>
+	  <naam>Kwaliteit van leven</naam>
+	    <instrument scoringsregels="false" code="SF36"/>
+	</meetdomein>
+      </zorgdomein>
+
+      <zorgdomein code="01" zorgdomeinCode="01" peildatums-eenvoudig="true">
+	<naam>Volwassenen lang EPA</naam>
+	<meetperiode min-afstand="P6M" max-afstand="P18M">
+	  <meetperiode-voor>P9M</meetperiode-voor>
+	  <meetperiode-na>P3M</meetperiode-na>
+	</meetperiode>
+	<meetdomein>
+	  <naam>Functioneren</naam>
+	  <instrument code="HoNOS-12" />
+	  <instrument code="CAN" />
+	</meetdomein>
+	<meetdomein>
+	  <naam>Kwaliteit van leven</naam>
+	  <instrument code="MANSA-7" />
+	</meetdomein>
+	<meetdomein>
+	  <naam>Ernst problematiek</naam>
+	  <instrument code="BPRS" />
+	</meetdomein>
+      </zorgdomein>
+    </sbg-zorgdomeinen>
+
+    <epd>
+	<!-- gesloten dbcs 2011 -->
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-01" sbggz:startdatumDBC="2010-01-01" sbggz:einddatumDBC="2011-01-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-02" sbggz:startdatumDBC="2010-02-01" sbggz:einddatumDBC="2011-02-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-03" sbggz:startdatumDBC="2010-03-01" sbggz:einddatumDBC="2011-03-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-04" sbggz:startdatumDBC="2010-04-01" sbggz:einddatumDBC="2011-04-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-05" sbggz:startdatumDBC="2010-05-01" sbggz:einddatumDBC="2011-05-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-06" sbggz:startdatumDBC="2010-06-01" sbggz:einddatumDBC="2011-06-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-07" sbggz:startdatumDBC="2010-07-01" sbggz:einddatumDBC="2011-07-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-08" sbggz:startdatumDBC="2010-08-01" sbggz:einddatumDBC="2011-08-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-09" sbggz:startdatumDBC="2010-09-01" sbggz:einddatumDBC="2011-09-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-10" sbggz:startdatumDBC="2010-10-01" sbggz:einddatumDBC="2011-10-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-11" sbggz:startdatumDBC="2010-11-01" sbggz:einddatumDBC="2011-11-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-12" sbggz:startdatumDBC="2010-12-01" sbggz:einddatumDBC="2011-12-01"/>
+
+	<!-- open dbcs 2011 -->
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-01-open" sbggz:startdatumDBC="2011-01-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-02-open" sbggz:startdatumDBC="2011-02-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-03-open" sbggz:startdatumDBC="2011-03-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-04-open" sbggz:startdatumDBC="2011-04-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-05-open" sbggz:startdatumDBC="2011-05-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-06-open" sbggz:startdatumDBC="2011-06-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-07-open" sbggz:startdatumDBC="2011-07-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-08-open" sbggz:startdatumDBC="2011-08-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-09-open" sbggz:startdatumDBC="2011-09-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-10-open" sbggz:startdatumDBC="2011-10-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-11-open" sbggz:startdatumDBC="2011-11-01"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-12-open" sbggz:startdatumDBC="2011-12-01"/>
+    </epd>
+
+  </setup>
+
+  <group >
+    <function>sbgbm:selecteer zorgtrajecten</function>
+    <description>selecteer zorgtrajecten op basis van zorgaanbieder-instellingen</description>
+
+    <test name="testscenario 0" code="0">
+      <description>neem alle zorgtrajecten</description>
+      <setup>
+	<sbg-patient-meting>
+	  <sbggz:Patient>
+	    <sbggz:Zorgtraject sbggz:zorgdomeinCode="02">
+	      <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="2010-01"/>
+	    </sbggz:Zorgtraject>
+	  </sbggz:Patient>
+	</sbg-patient-meting>
+      </setup>
+      <expected>
+	<value>02</value>
+      </expected>
+    </test>
+  </group>
+</tests>

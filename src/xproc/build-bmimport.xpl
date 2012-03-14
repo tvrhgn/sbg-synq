@@ -64,8 +64,10 @@
 				<c:query>
 			import module namespace sbgza="http://sbg-synq.nl/zorgaanbieder" at '../sbg-synq/zorgaanbieder.xquery';
 			import module namespace sbgbm="http://sbg-synq.nl/sbg-benchmark" at '../sbg-synq/sbg-bmimport.xquery';
+			declare namespace sbggz = "http://sbggz.nl/schema/import/5.0.1";
+			
 			let $za := sbgza:build-zorgaanbieder( //zorgaanbieder )
-			let $bmimport := sbgbm:build-sbg-bmimport($za, //Patient,  $za/behandelaar/*, $za/nevendiagnose/* )
+			let $bmimport := sbgbm:build-sbg-bmimport($za, //sbggz:Patient )
 			return $bmimport
 			</c:query>
 			</p:inline>

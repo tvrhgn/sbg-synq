@@ -1,7 +1,9 @@
 module namespace sbgbm = "http://sbg-synq.nl/sbg-benchmark";
-declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
+declare namespace sbggz = "http://sbggz.nl/schema/import/5.0.1"; (:TODO breng batchgegevens over naar za: (schema/sbg-synq-config) of behandel als atomic? :)
+declare namespace sbgza="http://sbg-synq.nl/zorgaanbieder";
 declare namespace sbgm="http://sbg-synq.nl/sbg-metingen";
 declare namespace sbgem = "http://sbg-synq.nl/epd-meting";
+
 declare default element namespace "http://sbggz.nl/schema/import/5.0.1";
 (:  :)
 
@@ -36,30 +38,7 @@ return <batch-gegevens>
 </batch-gegevens>
 };
 
-(: inclusive :)
-declare function sbgbm:in-periode( $begin as xs:date, $eind as xs:date, $datum as xs:anyAtomicType? ) as xs:boolean
-{
-    $datum castable as xs:date and xs:date($datum) ge $begin and xs:date($datum) le $eind 
-};
-
-(: kijk of einddatum dbc in periode batch valt; laat ook dbc zonder einddatum door :)
-declare function sbgbm:dbc-in-periode-batch( $inst as element(batch-gegevens), $dbcs as element(sbggz:DBCTraject)* ) 
-as element(sbggz:DBCTraject)* 
-{
-    for $dbc in $dbcs
-    return  if ( sbgbm:in-periode( $inst/sbggz:startdatum, $inst/sbggz:einddatum, $dbc/@sbggz:einddatumDBC) or string($dbc/@sbggz:einddatumDBC) eq '' )
-            then $dbc else ()
- };
-    
-(: geef alleen de patienten met relevante dbcs  :)
-declare function sbgbm:filter-batchperiode($inst as element(batch-gegevens), $patient-meting as element(sbggz:Patient)*) 
-as element(sbggz:Patient)* 
-{
-for $pm in $patient-meting
-let $dbcs := sbgbm:dbc-in-periode-batch($inst, $pm/sbggz:Zorgtraject/sbggz:DBCTraject)
-return if (count($dbcs) gt 0) then $pm else ()
-};
-
+(: filter de attributen in de doel-ns :)
 declare function sbgbm:filter-sbg-atts( $atts as attribute()* )
 as attribute()*
 {
@@ -67,6 +46,7 @@ for $att in $atts[namespace-uri() eq 'http://sbggz.nl/schema/import/5.0.1' or na
 return attribute { local-name($att) } { data($att) }
 };
 
+(: filter een elt en de children  :)
 declare function sbgbm:filter-sbg-elt( $elt as element() )
 as element()*
 {
@@ -79,6 +59,69 @@ then element  { local-name($elt) }
               }
 else ()
 };
+
+(: inclusive :)
+declare function sbgbm:in-periode( $begin as xs:date, $eind as xs:date, $datum as xs:anyAtomicType? ) as xs:boolean
+{
+    $datum castable as xs:date and xs:date($datum) ge $begin and xs:date($datum) le $eind 
+};
+
+(: kijk of einddatum dbc in periode batch valt; laat ook dbc zonder einddatum door als de startdatum voor de einddatum van batch valt 
+
+or ( string($dbc/@einddatumDBC) eq '' ) and days-from-duration( xs:date($dbc/@startdatumDBC) - xs:date($inst/sbggz:einddatum) ) lt 0 )
+:)
+declare function sbgbm:dbc-in-periode-batch( $inst as element(batch-gegevens), $dbcs as element(DBCTraject)* ) 
+as element(DBCTraject)* 
+{
+    for $dbc in $dbcs
+    return  if ( sbgbm:in-periode( $inst/sbggz:startdatum, $inst/sbggz:einddatum, $dbc/@sbggz:einddatumDBC) 
+                or ( not($dbc/@sbggz:einddatumDBC)  and days-from-duration( xs:date($dbc/@sbggz:startdatumDBC) - xs:date($inst/sbggz:einddatum) ) lt 0 ))  
+            then $dbc else ()
+ };
+
+
+(: bouw patient opnieuw op voeg alleen zorgtrajecten in met dbcs in periode en voeg alleen dbcs in periode in
+in het resultaat komen dus mogelijk patienten voor zonder zorgtraject; die zijn sbg-ongeldig
+filter ook de niet doel-attributen weg
+:)
+declare function sbgbm:filter-sbg-dbc-in-periode( $inst as element(batch-gegevens), $pat as element(Patient) )
+as element(Patient)
+{
+element  { name($pat) } 
+         { sbgbm:filter-sbg-atts($pat/@*),
+           for $zt in $pat/Zorgtraject
+           let $dbcs := sbgbm:dbc-in-periode-batch($inst, $zt/DBCTraject)
+           return if ( count($dbcs) gt 0 ) 
+                    then
+                        element { name($zt) } 
+                                { sbgbm:filter-sbg-atts($zt/@*),                     
+                                    for $dbc in $dbcs return sbgbm:filter-sbg-elt( $dbc )
+                                }
+                    else ()
+         }
+};
+
+
+(: filter de dbcs uit en retourneer de patienten die dbcs overhouden :)
+declare function sbgbm:filter-batchperiode($inst as element(batch-gegevens), $pats as element(Patient)*) 
+as element(Patient)* 
+{
+let $selectie := for $pat in $pats
+                    return sbgbm:filter-sbg-dbc-in-periode($inst,$pat)
+return $selectie[./Zorgtraject]
+};
+
+    
+(: geef alleen de patienten met relevante dbcs  TODO: filter ook alleen de relevante dbcs? :)
+declare function sbgbm:xfilter-batchperiode($inst as element(batch-gegevens), $pats as element(Patient)*) 
+as element(Patient)* 
+{
+for $pat in $pats
+let $dbcs := sbgbm:dbc-in-periode-batch($inst, $pat/Zorgtraject/DBCTraject)
+return if (count($dbcs) gt 0) then $pat else ()
+};
+
+
 
 (: neem de patient-meting-objecten, links naar epd, behandelaar en diagnose-bestanden,
     selecteer patient metingen uit gewenste periode
@@ -99,13 +142,7 @@ return
     >
     <Zorgaanbieder zorgaanbiedercode="{$batch/sbggz:zorgaanbieder-agb}" zorgaanbiedernaam="{$batch/sbggz:zorgaanbieder}">
     {
-    for $patient in sbgbm:filter-batchperiode($batch, $patient-meting)
-    return element  { 'Patient' } 
-                    { sbgbm:filter-sbg-atts($patient/@*) 
-                      ,
-                      for $zt in $patient/sbggz:Zorgtraject
-                      return sbgbm:filter-sbg-elt($zt)
-                    }
+    sbgbm:filter-batchperiode($batch, $patient-meting)
     }
     </Zorgaanbieder>
 </BenchmarkImport>

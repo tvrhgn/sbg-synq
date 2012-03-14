@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests versie="0.98">
+
+  <group xmlns:sbgem="http://sbg-synq.nl/epd-meting"
+	 xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1">
+    <function>sbgem:vertaal-elt-naar-att-ns</function>
+    <description>plaats geselecteerde attributen in default ns, andere in sbgem:</description>
+
+    <test name="testscenario 0" code="0">
+      <description>minimaal 1 def attribuut</description>
+      <setup>
+	<row>
+	  <locatiecode>A</locatiecode>
+	  <GAFscore>50</GAFscore>
+	</row>
+	<def>locatiecode</def>
+      </setup>
+      <expected>
+	<value sbggz:locatiecode="A" sbgem:GAFscore="50"/>
+      </expected>
+    </test>
+
+    <test name="testscenario 1" code="1">
+      <description>twee constante attributen</description>
+      <setup>
+	<row>
+	  <locatiecode>A</locatiecode>
+	  <GAFscore>50</GAFscore>
+	</row>
+	<def>locatiecode, GAFscore</def>
+      </setup>
+      <expected>
+	<value xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1" sbggz:locatiecode="A" sbggz:GAFscore="50"/>
+      </expected>
+    </test>
+
+  </group>
+
+
+  <group xmlns:sbgem="http://sbg-synq.nl/epd-meting"
+	 xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1">
+    <function>sbgem:vertaal-elt-naar-filter-sbg</function>
+    <description>filter de waarden die meteen naar de doel-ns kunnen</description>
+    <test name="testscenario 0" code="0">
+      <description>laat geen input door </description>
+      <setup>
+	<row>
+	  <locatiecode>A</locatiecode>
+	  <GAFscore>50</GAFscore>
+	</row>
+	<def>geen-locatiecode</def>
+      </setup>
+      <expected>
+	<value/>
+      </expected>
+    </test>
+
+    <test name="testscenario 1" code="1">
+      <description>selecteer 1 elt </description>
+      <setup>
+	<row>
+	  <locatiecode>A</locatiecode>
+	  <GAFscore>50</GAFscore>
+	</row>
+	<def>locatiecode</def>
+      </setup>
+      <expected>
+	<value sbggz:locatiecode="A"/>
+      </expected>
+    </test>
+
+  </group>
+
+
+</tests>

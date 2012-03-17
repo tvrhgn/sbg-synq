@@ -7,7 +7,7 @@ lower-case(replace($str, "\s+", "-" ))
 declare function ramh:ns-short( $ns as xs:string )
 as xs:string
 {
-    concat( substring-after( $ns, '.nl/' ) , ':' )
+    concat( substring-after( $ns, '/' ) , ':' )
 };
 
 declare function ramh:att-td ( $att as attribute() )
@@ -61,6 +61,9 @@ return ramh:att-td( attribute { 'caption' } { $label })
 }</tr>
 };
 
+
+(: maak een regel in een tabel met kop-regel boven :)
+
 declare function ramh:atts-tr-rect( $elt as element(), $header as xs:string* )
 as element(tr)
 {
@@ -79,6 +82,7 @@ distinct-values(
     return local-name($att))
 };
 
+(: -- hieronder de tabel-typen die de module-gebruiker nodig heeft --:)
 
 (: maak een verticale tabel voor het huidie element :)
 declare function ramh:atts-table-label( $elt as element() ) 
@@ -86,7 +90,7 @@ as element(table)
 {
 <table>{
 let $name := local-name($elt)
-return <tr class="{concat('table-header ', $name)}"><td>{$name}</td><td>{count($elt/preceding-sibling::*[local-name() eq $name]) + 1}</td></tr>
+return <tr class="{concat('object-label ', $name)}"><td>{$name}</td><td class="count-preceding">{count($elt/preceding-sibling::*[local-name() eq $name]) + 1}</td></tr>
 }{
 for $att in $elt/@*
 let $att-name := local-name($att)
@@ -95,6 +99,7 @@ return ramh:att-tr-label($att)
 }</table>
 };
 
+
 (: maak een horizontale tabel met een kopregel voor een serie gelijksoortige element  :)
 declare function ramh:atts-table-rect( $elts as element()* ) 
 as element(table)
@@ -102,7 +107,8 @@ as element(table)
 let $name := local-name($elts[1])
 let $header := ramh:rect-header($elts)
 let $caption :=  <tr class="{concat('table-header ', $name)}">
-        <td>{$name}</td><td>{count($elts)}</td>
+        <td class="count-children">{count($elts)}</td>
+        <td class="{concat('object-label ', $name)}">{$name}</td>
         {for $i in 3 to count($header) return <td/>}
         </tr>
 return <table>{$caption}{ramh:tr( $header )}{
@@ -110,17 +116,18 @@ return <table>{$caption}{ramh:tr( $header )}{
     return ramh:atts-tr-rect($elt, $header)}</table>
 };
 
-(: maak een table met 1 rij :)
+(: maak een table met 1 rij; tel het aantal children:)
 declare function ramh:atts-table-single( $elt as element(), $header as xs:string* )
 as element(table)
 {
 <table class="single">
 <tr class="single">
-<td>{local-name($elt)}</td>
 {
 for $h in $header
 return ramh:att-td-compact($elt/@*[local-name() eq $h])
-}<td class="count-children">{count($elt/*)}</td></tr></table>
+}<td class="count-children">{count($elt/*)}</td>
+<td class="object-label">{local-name($elt)}</td>
+</tr></table>
 }; 
 
 
@@ -137,6 +144,29 @@ return <div class="table-tree">
  </div>
    
 };
+
+(: draag de data van een element en geselecteerde subelementn (namen) over naar 1 niveau van atts 
+werkt alleen als de qnames uniek zijn; alles wordt omgezet naar een attribute :)
+declare function ramh:flatten-sub-elts($elt as element(), $sub-elts as xs:string*)
+as element()
+{
+let $subs := $elt/*[count(index-of($sub-elts, local-name())) ge 1],
+    $atts := $subs/@*,
+    $text-atts := for $e in $subs[text()] return attribute { name($e) } { $e/text() }
+return element { name($elt) }
+        { $elt/@*
+          union $atts
+          union $text-atts
+        }
+};
+
+(: loop een hierarchie af en pik alle waarden en plaats in een labeled tree :) 
+declare function ramh:atts-table-flatten( $elt as element(), $sub-elts as xs:string* ) 
+as element(table)
+{
+ramh:atts-table-label(ramh:flatten-sub-elts($elt, $sub-elts))
+};
+
 
 declare function ramh:html-doc-head($content as element(div),  $head-content as element()* )
 as element(html)

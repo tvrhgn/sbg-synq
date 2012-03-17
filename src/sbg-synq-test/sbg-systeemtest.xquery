@@ -1,5 +1,10 @@
 module namespace sbgtest = 'http://sbg-synq.nl/sbg-test';
 
+(: oud ?
+- testinfo naar sbg-ram
+- extra tests niet nodig?
+:)
+
 (: bibliotheek van tests tegen een sbg uitvoerbestand :)
 (: mini-vocabulaire: run-tests(doc, codelijst) geeft elementen in (test-results ( result*)) :) 
 (: met attributen bron (verwijzing naar sbg-spreadsheet) en waarde (true of false) op het elt result :)
@@ -46,11 +51,10 @@ declare function sbgtest:add-tests( $test-doc as element(test-results), $tests a
 
 (: hier worden de tests gedaan :)
 (: was: declare function sbgtest:run-tests( $sbg-doc as document-node(), $code-doc as element(sbg-codelijsten) ) as element(test-results) :)
-declare function sbgtest:run-tests( $sbg-doc as element(sbg:BenchmarkImport), $code-doc as element(sbg-codelijsten) ) as element(test-results) 
+declare function sbgtest:run-tests( $sbg-doc as element(sbg:BenchmarkImport), $code-doc as element(sbg-codelijsten) ) 
+as element(test-results) 
 {
-let $sbg-atts := element { 'batch-gegevens' } { $sbg-doc/@*, () },
-    (: was: element { 'batch-gegevens' } { $sbg-doc//sbg:BenchmarkImport/@*, () },
-      atts van het document-element kun je niet rechstreeks adresseren :)
+let $sbg-atts := element { 'batch-gegevens' } { $sbg-doc/@*, () }, (: neem de elt van het doc over :)
      
     $zorgaanbieder := $sbg-doc//sbg:Zorgaanbieder,
     $patient := $zorgaanbieder//sbg:Patient,

@@ -14,34 +14,11 @@ declare option saxon:output "omit-xml-declaration=yes";
 (: param :)
 
 
-(:
-declare variable $test-doc := doc('sbg-systeemtest.xml')/sbg-systeemtest;
-declare variable $schema-result external;
-declare variable $sbg-synq-status-doc as xs:string external;
-declare variable $schema-status-doc as xs:string external;
-declare variable $sbg-cl := doc('sbg-codelijst.xml')/sbg-codelijsten;
-declare variable $sbg-zorgdomein := doc( 'sbg-zorgdomein' )/sbg-zorgdomeinen; 
-declare variable $sbg-input-doc := doc('../sbg-testdata/bmstore-anon.xml');
-
-sbgtest:add-tests( , $schema-status );
-declare variable $test-result := sbgtest:add-tests($test-run, $schema-status//result[@waarde = 'true']);
-declare variable $test-result := $test-run;
- :)
 (: input :) 
 declare variable $context-doc := .;
 declare variable $test-result := $context-doc//test-results;
 declare variable $test-doc := $context-doc//sbg-systeemtest;
 declare variable $xkenmerken := $context-doc//kenmerken;
-
-(:
-declare variable $schema-status := doc($schema-status-doc)/test-results;
-declare variable $sbg-synq-status := doc($sbg-synq-status-doc)/test-results;
-declare variable $test-run := sbgtest:run-tests($sbg-input-doc, $sbg-cl);
-declare variable $test-result.1 := sbgtest:add-tests($test-run, $schema-status//result);
-declare variable $test-result := sbgtest:add-tests($test-result.1, $sbg-synq-status//result[@waarde = 'true']);
-:)
-
-
 
 (: deze kenmerken zijn zoekstrings in de aspect tekst; worden als tags toegevoegd aan test voor representatie:)
 declare variable $kenmerken := <kenmerken>
@@ -107,6 +84,8 @@ let $cnt := count($test-doc//test),
     $cnt-sbg-synq := count($test-result//result[@waarde=true()][@type eq 'sbg-synq']),
     $cnt-ok := count($test-result//result[@waarde=true()][@type ne 'sbg-synq']),
     
+    $cnt-niet-getest := $cnt - ($cnt-nok + $cnt-ok + $cnt-sbg-synq),
+    
     $groep-namen := distinct-values($test-doc//hoofdgroep/name/text()),
     $subgroep-namen := distinct-values($test-doc//hoofdgroep/subgroep/name/text()),
     $ssubgroep-namen := distinct-values($test-doc//hoofdgroep/subgroep/subsubgroep/name/text())
@@ -120,7 +99,7 @@ return
 
 <h2>{$test-result//test-info/document[1]/text()}</h2>
 <div id = "resultaatcontrols">
-    <div id="missed" class="test-control s-missed off">niet getest {$cnt - ($cnt-nok + $cnt-ok + $cnt-sbg-synq)}</div>
+    <div id="missed" class="test-control s-missed off">niet getest </div>
     <div id="fail" class="test-control s-fail off">niet OK {$cnt-nok}</div>
     <div id="pass" class="test-control s-pass off">OK {$cnt-ok}</div>
     <div id="schema" class="test-control s-schema off">in schema {$cnt-schema}</div>

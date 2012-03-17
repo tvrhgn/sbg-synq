@@ -94,7 +94,9 @@ element  { name($pat) }
            return if ( count($dbcs) gt 0 ) 
                     then
                         element { name($zt) } 
-                                { sbgbm:filter-sbg-atts($zt/@*),                     
+                                { sbgbm:filter-sbg-atts($zt/@*),
+                                    $zt/sbggz:NevendiagnoseCode, 
+                                    $zt/sbggz:Behandelaar, 
                                     for $dbc in $dbcs return sbgbm:filter-sbg-elt( $dbc )
                                 }
                     else ()

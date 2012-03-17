@@ -3,8 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" queryBinding="xpath"
 	xsi:schemaLocation="http://purl.oclc.org/dsdl/schematron schematron.xsd">
 	<iso:ns prefix="sbggz" uri="http://sbggz.nl/schema/import/5.0.1" />
-	<iso:let name="rx_datum2029" value="'20[0-2][0-9]-[0-1][0-9]-[0-3][0-9]'" />
-	<iso:let name="rx_hhmmss" value="' [0-2][0-9]:[0-6][0-9]:[0-6][0-9]'" />
+	<iso:let name="rx_datum2029_pre" value="'^20[0-2][0-9]-[0-1][0-9]-[0-3][0-9]'" />
+	<iso:let name="rx_datum2029" value="'^20[0-2][0-9]-[0-1][0-9]-[0-3][0-9]$'" />
+	<iso:let name="rx_hhmmss" value="' [0-2][0-9]:[0-6][0-9]:[0-6][0-9]$'" />
 	<iso:let name="rx_hhmmss_alt"
 		value="'T[0-2][0-9]:[0-6][0-9]:[0-6][0-9]\.[0-9]+\+[0-2][0-9]:00'" />
 	<iso:let name="rx_dbc_diagnose" value="'(as(1|2)_[0-9.]+|nb)'" />
@@ -35,8 +36,9 @@
 	<iso:let name="cl-aardmeting"
 		value="$codelijsten//codelijst[@attribuut='aardMeting']/item/@code" />
 
+	<!-- wrap source om ook de document atts te controleren -->
 	<iso:pattern id="atts-BenchmarkImport">
-		<iso:rule context="/sbggz:BenchmarkImport">
+		<iso:rule context="sbggz:BenchmarkImport">
 			<iso:assert test="data(@versie) = '5.0'"
 				role="Attribuut Controle_12 + Attribuut Controle_13">Versie
 				batchimport; Wordt de juiste
@@ -53,11 +55,11 @@
 				Begindatum aangeleverde periode; Wordt er altijd een waarde getoond
 			</iso:assert>
 			<iso:assert
-				test="matches(@datumCreatie, concat($rx_datum2029, $rx_hhmmss_alt ))"
+				test="matches(@datumCreatie, concat($rx_datum2029_pre, $rx_hhmmss ))"
 				role="Attribuut Controle_7 + Attribuut Controle_8">Attribuut Controle_7 / Datum creatie; Is het formaat van de
 				datum "eejj-mm-dd hh:mm:ss + Attribuut Controle_8 / Datum creatie;
 				Wordt er altijd een waarde getoond   </iso:assert>
-			<iso:assert test="matches(@einddatumAangeleverdePeriode, $rx_datum2029 )"
+			<iso:assert test="matches(string(@einddatumAangeleverdePeriode), $rx_datum2029 )"
 				role="Attribuut Controle_10 + Attribuut Controle_11">Attribuut Controle_10 / Einddatum
 				aangeleverde periode; Is het
 				formaat van de datum "eejj-mm-dd" +

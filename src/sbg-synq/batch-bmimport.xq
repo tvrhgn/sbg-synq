@@ -29,7 +29,7 @@ let $za := sbgza:build-zorgaanbieder( $zorgaanbieder ),
     $patient-meting := sbgem:maak-patient-meting( $za/epd/*, $za/behandelaar/*, $za/nevendiagnose/*, $sbg-rom, $za/sbg-zorgdomeinen/* ),
     
     (: definitieve selectie van metingen in bestand :)
-    $sbg-patient-meting := sbge:sbg-patient-meting( $patient-meting, $za/sbg-zorgdomeinen/* ),
+    $sbg-patient-meting := sbge:sbg-patient-meting( $patient-meting, $za/sbg-zorgdomeinen//zorgdomein ),
     
     (: construeer BenchmarkImport op basis van de instellingen in zorgaanbieder (meetperiode en aanleverperiode); voeg NevendiagnoseCode en Behandelaar toe
     $bmimport := sbgbm:build-sbg-bmimport($zorgaanbieder, $sbg-patient-meting,  $za/behandelaar/*, $za/nevendiagnose/* )  

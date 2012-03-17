@@ -10,26 +10,37 @@ declare variable $ui-script := <script>
 $(function(){
     $("#group-tabs").tabs();
     $(".test-accordion-fail").accordion({autoHeight: false, collapsible: true});
-    $(".test-accordion-fail").accordion("activate",false);
     $(".test-accordion-pass").accordion({autoHeight: false, collapsible: true});
     $(".test-accordion-pass").accordion("activate",false)
 });
 ]]>
 </script>;
 
-declare function local:view-object($obj as element() ) 
-as element(div)
+(:
+ local:view-object($obj/meetperiode))
+else if ( $name eq 'meetperiode' and $obj/@* ) then (ramh:atts-table-label($obj), local:view-object($obj/meetperiode-voor), local:view-object($obj/meetperiode-na))
+
+else if ( starts-with($name, 'meetperiode') ) then <div class="value">{concat( $name, ': ', data($obj))}</div>
+
+:)
+declare function local:view-object($obj as element()* ) 
+as element(div)*
 {
 let $name := local-name($obj)
-return <div>{
+return <div class="{$name}">{
 if ( $name eq 'DBCTraject' ) then ramh:atts-table-label($obj)
-else if ( $name eq 'Zorgtraject' ) then ramh:atts-table-rect($obj) 
-else if ( $name eq 'zorgdomein' ) then (ramh:atts-table-rect($obj), ramh:atts-table-label($obj/meetperiode) )
-else if ( $name eq 'value' ) then <div class="value">{data($obj/value)}</div>
+else if ( $name eq 'Zorgtraject' ) then ramh:atts-table-label($obj) 
+else if ( $name eq 'zorgdomein' ) then ramh:atts-table-flatten($obj, ('naam', 'meetperiode')) 
+
+else if ( $name eq 'value' )   then <div class="value">{data($obj)}</div>
+
 else if ( $name eq 'Meting' ) then if ( count($obj/preceding-sibling::*[local-name() eq 'Meting']) eq 0 )
                                     then ramh:atts-table-rect(($obj, $obj/following-sibling::*[local-name() eq 'Meting']))
                                     else ()
-else <div class="container">{for $o in $obj/* return local:view-object($o)}</div>
+                                    
+else if ( $name eq 'meetparen' ) then (ramh:atts-table-tree($obj), local:view-object($obj//Meting[1]))
+else if ( $name eq 'kandidaat-metingen' ) then (ramh:atts-table-tree($obj), local:view-object($obj/voor/Meting[1]), local:view-object($obj/na/Meting[1]))
+else for $o in $obj/* return local:view-object($o)
 }</div>
 }; 
 
@@ -68,9 +79,12 @@ return
       <div class="expected">{
           for $obj in $test/expected/* return local:view-object($obj)
       }</div>
-      <div class="actual">{
-          for $obj in $test/actual/* return local:view-object($obj)
-      }</div>
+      { if ( not($pass) ) 
+        then <div class="actual">{
+            for $obj in $test/actual/* return local:view-object($obj)
+            }</div>
+        else ()
+      }
    </div>
 </div>
  };

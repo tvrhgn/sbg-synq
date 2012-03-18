@@ -1,5 +1,15 @@
 module namespace ramh = "http://sbg-ram.nl/html";
 
+declare variable $ramh:reverse-ns := <reverse-ns>
+<ns uri="http://sbg-synq.nl/sbg-epd">sbge</ns>
+<ns uri="http://sbg-synq.nl/sbg-instrument">sbgi</ns>
+<ns uri="http://sbg-synq.nl/sbg-metingen">sbgm</ns>
+<ns uri="http://sbg-synq.nl/sbg-benchmark">sbgbm</ns>
+<ns uri="http://sbg-synq.nl/epd-meting">sbgem</ns>
+<ns uri="http://sbg-synq.nl/zorgaanbieder">sbgza</ns>
+<ns uri= "http://sbggz.nl/schema/import/5.0.1">sbggz</ns>
+</reverse-ns>;
+
 declare function ramh:css-name($str as xs:string) as xs:string {
 lower-case(replace($str, "\s+", "-" ))
 };
@@ -7,7 +17,7 @@ lower-case(replace($str, "\s+", "-" ))
 declare function ramh:ns-short( $ns as xs:string )
 as xs:string
 {
-    concat( substring-after( $ns, '/' ) , ':' )
+    concat( $ramh:reverse-ns/ns[@uri eq $ns]/text(), ':' )
 };
 
 declare function ramh:att-td ( $att as attribute() )
@@ -152,8 +162,8 @@ as element()
 {
 let $subs := $elt/*[count(index-of($sub-elts, local-name())) ge 1],
     $atts := $subs/@*,
-    $text-atts := for $e in $subs[text()] return attribute { name($e) } { $e/text() }
-return element { name($elt) }
+    $text-atts := for $e in $subs[text()] return attribute { local-name($e) } { $e/text() }
+return element { local-name($elt) }
         { $elt/@*
           union $atts
           union $text-atts

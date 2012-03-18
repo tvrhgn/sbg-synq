@@ -28,8 +28,13 @@ as element(div)*
 {
 let $name := local-name($obj)
 return <div class="{$name}">{
-if ( $name eq 'DBCTraject' ) then ramh:atts-table-label($obj)
-else if ( $name eq 'Zorgtraject' ) then ramh:atts-table-label($obj) 
+if ( $name eq 'DBCTraject' ) then (ramh:atts-table-label($obj), for $o in $obj/* return local:view-object($o))
+else if ( $name eq 'Patient' ) then (ramh:atts-table-label($obj), for $o in $obj/* return local:view-object($o))
+
+else if ( $name eq 'Zorgtraject' ) then (ramh:atts-table-label($obj), for $o in $obj/* return local:view-object($o))
+else if ( $name eq 'zorgaanbieder' ) then ramh:atts-table-flatten($obj/batch[1], ('einddatumAangeleverdePeriode', 'aanleverperiode'))
+else if ( $name eq 'batch' ) then (ramh:atts-table-label($obj), for $o in $obj/* return local:view-object($o))
+else if ( $name eq 'batch-gegevens' ) then ramh:atts-table-label($obj)  
 else if ( $name eq 'zorgdomein' ) then ramh:atts-table-flatten($obj, ('naam', 'meetperiode')) 
 
 else if ( $name eq 'value' )   then <div class="value">{data($obj)}</div>

@@ -47,54 +47,208 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
 
     <epd>
 	<!-- gesloten dbcs 2011 -->
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-01" sbggz:startdatumDBC="2010-01-01" sbggz:einddatumDBC="2011-01-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-02" sbggz:startdatumDBC="2010-02-01" sbggz:einddatumDBC="2011-02-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-03" sbggz:startdatumDBC="2010-03-01" sbggz:einddatumDBC="2011-03-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-04" sbggz:startdatumDBC="2010-04-01" sbggz:einddatumDBC="2011-04-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-05" sbggz:startdatumDBC="2010-05-01" sbggz:einddatumDBC="2011-05-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-06" sbggz:startdatumDBC="2010-06-01" sbggz:einddatumDBC="2011-06-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-07" sbggz:startdatumDBC="2010-07-01" sbggz:einddatumDBC="2011-07-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-08" sbggz:startdatumDBC="2010-08-01" sbggz:einddatumDBC="2011-08-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-09" sbggz:startdatumDBC="2010-09-01" sbggz:einddatumDBC="2011-09-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-10" sbggz:startdatumDBC="2010-10-01" sbggz:einddatumDBC="2011-10-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-11" sbggz:startdatumDBC="2010-11-01" sbggz:einddatumDBC="2011-11-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-12" sbggz:startdatumDBC="2010-12-01" sbggz:einddatumDBC="2011-12-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-01" sbggz:startdatumDBC="2010-01-01" sbggz:einddatumDBC="2011-01-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-02" sbggz:startdatumDBC="2010-02-01" sbggz:einddatumDBC="2011-02-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-03" sbggz:startdatumDBC="2010-03-01" sbggz:einddatumDBC="2011-03-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-04" sbggz:startdatumDBC="2010-04-01" sbggz:einddatumDBC="2011-04-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-05" sbggz:startdatumDBC="2010-05-01" sbggz:einddatumDBC="2011-05-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-06" sbggz:startdatumDBC="2010-06-01" sbggz:einddatumDBC="2011-06-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-07" sbggz:startdatumDBC="2010-07-01" sbggz:einddatumDBC="2011-07-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-08" sbggz:startdatumDBC="2010-08-01" sbggz:einddatumDBC="2011-08-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-09" sbggz:startdatumDBC="2010-09-01" sbggz:einddatumDBC="2011-09-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-10" sbggz:startdatumDBC="2010-10-01" sbggz:einddatumDBC="2011-10-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-11" sbggz:startdatumDBC="2010-11-01" sbggz:einddatumDBC="2011-11-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-12" sbggz:startdatumDBC="2010-12-01" sbggz:einddatumDBC="2011-12-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-13" sbggz:startdatumDBC="2011-01-01" sbggz:einddatumDBC="2011-12-31"/>
 
 	<!-- open dbcs 2011 -->
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-01-open" sbggz:startdatumDBC="2011-01-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-02-open" sbggz:startdatumDBC="2011-02-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-03-open" sbggz:startdatumDBC="2011-03-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-04-open" sbggz:startdatumDBC="2011-04-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-05-open" sbggz:startdatumDBC="2011-05-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-06-open" sbggz:startdatumDBC="2011-06-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-07-open" sbggz:startdatumDBC="2011-07-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-08-open" sbggz:startdatumDBC="2011-08-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-09-open" sbggz:startdatumDBC="2011-09-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-10-open" sbggz:startdatumDBC="2011-10-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-11-open" sbggz:startdatumDBC="2011-11-01"/>
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="2011-12-open" sbggz:startdatumDBC="2011-12-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-05-maart-2012" sbggz:startdatumDBC="2011-05-01" sbggz:einddatumDBC="2012-03-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-06-maart-2012" sbggz:startdatumDBC="2011-06-01" sbggz:einddatumDBC="2012-03-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-07-open" sbggz:startdatumDBC="2011-07-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-08-open" sbggz:startdatumDBC="2011-08-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-09-open" sbggz:startdatumDBC="2011-09-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-10-open" sbggz:startdatumDBC="2011-10-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-11-open" sbggz:startdatumDBC="2011-11-01"/>
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-12-open" sbggz:startdatumDBC="2011-12-01"/>
+
+	<!-- dbc met metingen -->
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-01-meting-A" sbggz:startdatumDBC="2011-01-01" sbggz:einddatumDBC="2012-01-01">
+	  <Meting datum="2011-02-01" typeMeting="1"/>
+	  <Meting datum="2011-12-01" typeMeting="2"/>
+	</sbggz:DBCTraject>
+	<!-- meting over jaargrens -->
+	<sbggz:DBCTraject sbggz:DBCTrajectnummer="DBC-01-meting-B" sbggz:startdatumDBC="2011-01-01" sbggz:einddatumDBC="2012-01-01">
+	  <Meting datum="2011-02-01" typeMeting="1"/>
+	  <Meting datum="2012-01-10" typeMeting="2"/>
+	</sbggz:DBCTraject>
+
     </epd>
+
+    <zorgaanbieders>
+      <!-- stel in op laatste 3 maanden 2011 -->
+      <zorgaanbieder code="11111111">
+	<naam>Test zorgaanbieder</naam>
+	<batch datumCreatie="2012-03-01">
+	  <aanleverperiode>P3M</aanleverperiode>
+	  <einddatumAangeleverdePeriode>2011-12-31</einddatumAangeleverdePeriode>
+	</batch>
+      </zorgaanbieder>
+
+    </zorgaanbieders>
 
   </setup>
 
+
+
+  <group  xmlns:sbgza="http://sbg-synq.nl/zorgaanbieder">
+    <function>sbgza:batch-gegevens</function>
+    <test name="testscenario 0" code="0">
+      <description>instellen batch-periode</description>
+      <setup>
+	<zorgaanbieder ref="true" code="11111111"/>
+      </setup>
+      <expected>
+	<sbgza:batch-gegevens startdatum="2011-10-01" einddatum="2011-12-31"/>
+      </expected>
+    </test>
+
+    <test name="testscenario 1" code="1">
+      <description>overnemen agb-code</description>
+      <setup>
+	<zorgaanbieder ref="true" code="11111111"/>
+      </setup>
+      <expected>
+	<sbgza:batch-gegevens agb-code="11111111"/>
+      </expected>
+    </test>
+
+    <test name="testscenario 2" code="2">
+      <description>overnemen datumCreatie</description>
+      <setup>
+	<zorgaanbieder ref="true" code="11111111"/>
+      </setup>
+      <expected>
+	<sbgza:batch-gegevens datumCreatie="2012-03-01"/>
+      </expected>
+    </test>
+  </group>
+
   <group >
-    <function>sbgbm:selecteer zorgtrajecten</function>
-    <description>selecteer zorgtrajecten op basis van zorgaanbieder-instellingen</description>
+    <function>sbgbm:filter-sbg-dbc-in-periode</function>
+    <description>selecteer patienten met dbcs in batch-periode</description>
 
     <test name="testscenario 0" code="0">
       <description>neem alle zorgtrajecten</description>
       <setup>
+	<zorgaanbieder ref="true" code="11111111"/>
 	<sbg-patient-meting>
-	  <sbggz:Patient>
-	    <sbggz:Zorgtraject sbggz:zorgdomeinCode="02">
-	      <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="2010-01"/>
+	  <sbggz:Patient sbggz:koppelnummer="001">
+	    <sbggz:Zorgtraject zorgtrajectnummer="1" sbggz:zorgdomeinCode="02">
+	      <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-10"/>
+	      <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-11"/>
+	    </sbggz:Zorgtraject>
+	  </sbggz:Patient>
+	  <sbggz:Patient sbggz:koppelnummer="002">
+	    <sbggz:Zorgtraject zorgtrajectnummer="1" sbggz:zorgdomeinCode="02">
+	      <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-11"/>
+	      <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-12"/>
 	    </sbggz:Zorgtraject>
 	  </sbggz:Patient>
 	</sbg-patient-meting>
       </setup>
       <expected>
-	<value>02</value>
+	  <Patient koppelnummer="001">
+	    <Zorgtraject>
+	      <DBCTraject DBCTrajectnummer="DBC-10"/>
+	      <DBCTraject DBCTrajectnummer="DBC-11"/>
+	    </Zorgtraject>
+	  </Patient>
+	  <Patient koppelnummer="002">
+	    <Zorgtraject>
+	      <DBCTraject DBCTrajectnummer="DBC-11"/>
+	      <DBCTraject DBCTrajectnummer="DBC-12"/>
+	    </Zorgtraject>
+	  </Patient>
       </expected>
     </test>
+
+    <test name="testscenario 1" code="1">
+      <description>filter gesloten voor periode</description>
+      <setup>
+	<zorgaanbieder code="21111111">
+	  <naam>Test zorgaanbieder B</naam>
+	  <batch>
+	    <aanleverperiode>P3M</aanleverperiode>
+	    <einddatumAangeleverdePeriode>2011-12-31</einddatumAangeleverdePeriode>
+	  </batch>
+      </zorgaanbieder>
+      <sbg-patient-meting>
+	<sbggz:Patient sbggz:koppelnummer="001">
+	  <sbggz:Zorgtraject zorgtrajectnummer="1">
+	    <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-08"/>
+	    <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-09"/>
+	  </sbggz:Zorgtraject>
+	</sbggz:Patient>
+
+	<sbggz:Patient sbggz:koppelnummer="002">
+	  <sbggz:Zorgtraject zorgtrajectnummer="1">
+	    <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-04"/>
+	    <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-11"/>
+	    <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-12"/>
+	    <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-08-open"/>
+	  </sbggz:Zorgtraject>
+	</sbggz:Patient>
+      </sbg-patient-meting>
+      </setup>
+      <expected>
+	<sbggz:Patient sbggz:koppelnummer="002">
+	  <sbggz:Zorgtraject sbggz:zorgdomeinCode="02">
+	    <sbggz:DBCTraject DBCTrajectnummer="DBC-11"/>
+	    <sbggz:DBCTraject DBCTrajectnummer="DBC-12"/>
+	    <sbggz:DBCTraject DBCTrajectnummer="DBC-08-open"/>
+	  </sbggz:Zorgtraject>
+	</sbggz:Patient>
+      </expected>
+    </test>
+
+    <test name="testscenario 2" code="2">
+      <description>wijzig gesloten na periode</description>
+      <setup>
+	<zorgaanbieder code="21111111">
+	  <naam>Test zorgaanbieder B</naam>
+	  <batch>
+	    <aanleverperiode>P3M</aanleverperiode>
+	    <einddatumAangeleverdePeriode>2011-12-31</einddatumAangeleverdePeriode>
+	  </batch>
+      </zorgaanbieder>
+      <sbg-patient-meting>
+	<sbggz:Patient sbggz:koppelnummer="001">
+	  <sbggz:Zorgtraject zorgtrajectnummer="1">
+	    <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-13"/>
+	  </sbggz:Zorgtraject>
+	</sbggz:Patient>
+
+	<sbggz:Patient sbggz:koppelnummer="002">
+	  <sbggz:Zorgtraject zorgtrajectnummer="1">
+	    <sbggz:DBCTraject ref="true" sbggz:DBCTrajectnummer="DBC-05-maart-2012"/>
+	  </sbggz:Zorgtraject>
+	</sbggz:Patient>
+      </sbg-patient-meting>
+      </setup>
+      <expected>
+	<sbggz:Patient sbggz:koppelnummer="001">
+	  <sbggz:Zorgtraject zorgtrajectnummer="1">
+	    <sbggz:DBCTraject DBCTrajectnummer="DBC-13"/>
+	  </sbggz:Zorgtraject>
+	</sbggz:Patient>
+	<sbggz:Patient sbggz:koppelnummer="002">
+	  <sbggz:Zorgtraject sbggz:zorgdomeinCode="02">
+	    <sbggz:DBCTraject DBCTrajectnummer="DBC-05-maart-2012" startdatumDBC="2011-05-01" />
+	  </sbggz:Zorgtraject>
+	</sbggz:Patient>
+      </expected>
+    </test>
+
   </group>
+
 </tests>

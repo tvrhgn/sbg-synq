@@ -4,6 +4,7 @@ import module namespace sbgi="http://sbg-synq.nl/sbg-instrument" at '../sbg-synq
 import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at '../sbg-synq/sbg-metingen.xquery';
 import module namespace sbgbm="http://sbg-synq.nl/sbg-benchmark" at '../sbg-synq/sbg-bmimport.xquery';
 import module namespace sbgem="http://sbg-synq.nl/epd-meting" at '../sbg-synq/epd-meting.xquery';
+import module namespace sbgza="http://sbg-synq.nl/zorgaanbieder"at '../sbg-synq/zorgaanbieder.xquery';
 declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
 
 
@@ -60,14 +61,28 @@ declare function local:get-object-ns($ctx, $elt as element()?)
 as element()?
 {
 let $deref := xs:boolean($elt/@ref) 
-return if ( $deref  ) then  
-let $att := $elt/@*[local-name() ne 'ref'][1]
-let $elt-name := name($elt)
-let $att-name := name($att)
-let $att-val :=  data($att)
-return $ctx//*[name() eq $elt-name][@*[name() eq $att-name][. eq $att-val]][1]
-else $elt
+return 
+if ( $deref  ) 
+then   
+   let $att := $elt/@*[local-name() ne 'ref'][1],
+       $elt-name := name($elt),
+       $att-name := name($att),
+       $att-val :=  data($att)
+    return $ctx//*[name() eq $elt-name][@*[name() eq $att-name][. eq $att-val]][1]
+else 
+    element { name($elt) }
+             { $elt/@*,
+              for $e in $elt/* return local:get-object-ns($ctx, $e) 
+             }
 };
+
+declare function local:get-objects-ns($ctx, $elts as element()*) 
+as element()*
+{
+for $o in $elts
+return local:get-object-ns($ctx, $o)
+};
+
 
 (: vorm de test om naar het resultaat formaat :) 
 declare function local:build-test-result( $test as element(test), $pass as xs:boolean, $setup as element()*, $actual as element()* ) 
@@ -145,6 +160,25 @@ let $pass-all :=
 let $pass := every $v in $pass-all satisfies $v eq true()
 return $len-eq and ($both-empty or $pass)
 };
+
+declare function local:sub1-equal( $expected as node(), $result as node() )
+as xs:boolean
+{
+let $sub1-eq := for $elt in $expected/*
+                let $val := $result/*[local-name() eq local-name($elt)]
+                return local:data-equal($elt, $val) 
+return (every $v in $sub1-eq satisfies $v eq true())
+};
+
+(: dont reimplement deepequal ? :)
+declare function local:data-equal( $expected as node(), $result as node() )
+as xs:boolean
+{
+let $atts-eq := local:atts-equal-ns($expected,$result),
+    $data-eq := data($expected) eq data($result)
+return $atts-eq and $data-eq      
+};
+
 
 (: ---------- group functies ------------------------ :)
 
@@ -254,9 +288,12 @@ for $test in $tests
     
 };
 
+
 (: 
 SJABLOON
-
+declare function local:test-vertaal-elts( $tests as element(test)*, $ctx as element() )
+as element(test)*
+{
 for $test in $tests
     let $def := $test/setup/,
         $row := $test/setup/,
@@ -271,6 +308,47 @@ for $test in $tests
 return local:build-test-result( $test, false(), ($def, $row),  <box pass="{$pass}">{$act}</box> )    
 };
 :)
+
+declare function local:test-batch-gegevens($tests as element(test)*, $ctx as element() )
+as element(test)*
+{
+for $test in $tests
+    let $za := local:get-object( $ctx, $test/setup/zorgaanbieder ),
+        $expected := $test/expected/*[1],
+               
+        $result := sbgza:batch-gegevens($za),
+        $pass :=  local:atts-equal($expected,$result)
+        
+return local:build-test-result( $test, $pass, ($za), $result  )    
+}; 
+
+(: doe tellingen op de sub-elementen in de hoop dat de juiste ontbreken :)
+declare function local:gelijke-patienten($expected as element(sbggz:Patient)*, $result as element(sbggz:Patient)* )
+{
+let $cmp := for $pat in $expected
+    let $res := $result[@sbggz:koppelnummer eq $pat/@sbggz:koppelnummer]
+    return exists($res) 
+        and count($pat//sbggz:Zorgtraject) eq count($res//sbggz:Zorgtraject) 
+        and count($pat//sbggz:DBCtraject ) eq count($res//sbggz:DBCtraject)
+        and count($pat//Meting ) eq count($res//Meting)
+return count($expected) eq count($result) and (every $v in $cmp satisfies $v eq true() )        
+};
+
+declare function local:test-filter-periode($tests as element(test)*, $ctx as element() )
+as element(test)*
+{
+for $test in $tests
+    let $za := local:get-object( $ctx, $test/setup/zorgaanbieder ),
+        $pats := local:get-objects-ns($ctx, $test/setup//sbggz:Patient ),
+        $expected := local:get-objects-ns($ctx, $test/expected//sbggz:Patient ),
+               
+        $result := sbgbm:filter-batchperiode( sbgza:batch-gegevens($za), $pats ),
+        $pass := local:gelijke-patienten($expected,$result),
+        $act := <box>{$result}</box>
+        
+        
+return local:build-test-result( $test, $pass, ($za, $pats), $act  )    
+}; 
 
 declare function local:test-filter-elts( $tests as element(test)*, $ctx as element() )
 as element(test)*
@@ -317,7 +395,8 @@ return <group>{$group/*[not(local-name()='test')]}
     else if ( $functie = 'sbge:bepaal-zorgdomein' ) then local:test-bepaal-zorgdomein( $tests, $ctx  )
     else if ( $functie = 'sbgem:vertaal-elt-naar-att-ns' ) then local:test-vertaal-elts( $tests, $ctx  )
     else if ( $functie = 'sbgem:vertaal-elt-naar-filter-sbg' ) then local:test-filter-elts( $tests, $ctx  )
-    
+    else if ( $functie = 'sbgbm:filter-sbg-dbc-in-periode' ) then local:test-filter-periode( $tests, $ctx  )
+    else if ( $functie = 'sbgza:batch-gegevens' ) then local:test-batch-gegevens($tests, $ctx )
      
     else if ( $functie = 'fall-through' ) then () else ()
      

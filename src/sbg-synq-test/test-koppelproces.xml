@@ -4,9 +4,9 @@ xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1"
 xmlns:sbgem="http://sbg-synq.nl/epd-meting"
 xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
 >
+  <description label="koppelproces">zorgdomein-afhankelijk filteren van geldige dbc / meting-combinaties</description>
   <setup >
     <sbg-zorgdomeinen>
-
       <zorgdomein code="02" zorgdomeinCode="02">
 	<meetperiode>P3M</meetperiode>
 	<naam>Volwassenen kort</naam>

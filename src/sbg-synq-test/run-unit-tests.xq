@@ -8,7 +8,7 @@ import module namespace sbgza="http://sbg-synq.nl/zorgaanbieder"at '../sbg-synq/
 declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
 
 
-declare variable $test-doc := /*; 
+declare variable $test-doc := .; 
 
 (: filter atts of elts van de verkregen waarde ($actual) op basis van $expected:)
 (: expected in de setup wordt daarmee een sjabloon voor weergave :)
@@ -326,10 +326,10 @@ return local:build-test-result( $test, $pass, ($za), $result  )
 declare function local:gelijke-patienten($expected as element(sbggz:Patient)*, $result as element(sbggz:Patient)* )
 {
 let $cmp := for $pat in $expected
-    let $res := $result[@sbggz:koppelnummer eq $pat/@sbggz:koppelnummer]
+    let $res := $result[@koppelnummer eq $pat/@koppelnummer]
     return exists($res) 
         and count($pat//sbggz:Zorgtraject) eq count($res//sbggz:Zorgtraject) 
-        and count($pat//sbggz:DBCtraject ) eq count($res//sbggz:DBCtraject)
+        and count($pat//DBCtraject ) eq count($res//DBCtraject)
         and count($pat//Meting ) eq count($res//Meting)
 return count($expected) eq count($result) and (every $v in $cmp satisfies $v eq true() )        
 };
@@ -372,12 +372,14 @@ for $test in $tests
 
 
 (: dispatch functie :)
-declare function local:run-tests() as element(result)
+declare function local:run-tests($tests as element(tests)) as element(result)
 {
-<result>{$test-doc/setup}{
-let $ctx := $test-doc/setup,
-    $zorgdomeinen := $test-doc/setup/sbg-zorgdomeinen,
-    $instrumenten := sbgi:laad-instrumenten($test-doc/setup/sbg-instrumenten)
+<result>
+{$tests/description}
+{$tests/setup}{
+let $ctx := $tests/setup,
+    $zorgdomeinen := $ctx/sbg-zorgdomeinen,
+    $instrumenten := sbgi:laad-instrumenten($ctx/sbg-instrumenten)
 
 for $group in $test-doc//group
 let $functie := $group/function/text(),
@@ -386,10 +388,9 @@ let $functie := $group/function/text(),
 return <group>{$group/*[not(local-name()='test')]}
 { 
 
-    if ( $functie = 'sbge:selecteer-domein' ) then ()
+    if ( $functie = 'start-dispatch' ) then ()
     
     else if ( $functie = 'sbge:dbc-peildatums-zorgdomein' ) then local:test-dbc-peildatums( $tests, $ctx  )
-    
     else if ( $functie = 'sbge:kandidaat-metingen' ) then local:test-kandidaat-metingen( $tests, $ctx  )
     else if ( $functie = 'sbge:maak-meetparen' ) then local:test-maak-meetparen( $tests, $ctx  )
     else if ( $functie = 'sbge:bepaal-zorgdomein' ) then local:test-bepaal-zorgdomein( $tests, $ctx  )
@@ -407,4 +408,5 @@ return <group>{$group/*[not(local-name()='test')]}
 
 (: local:run-tests()//group[functie/text()="sbge:patient-dbc-meting"] :)
 
-local:run-tests()
+for $tests in $test-doc/tests
+return local:run-tests($tests)

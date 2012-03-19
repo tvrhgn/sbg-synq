@@ -1,6 +1,6 @@
 import module namespace ramh = "http://sbg-ram.nl/html" at "ram-html.xquery";
 
-declare variable $result := /*;
+declare variable $result := .;
 
 declare variable $jquery := <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>;
 declare variable $jquery-ui := <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>;
@@ -8,7 +8,11 @@ declare variable $jquery-ui := <script src="https://ajax.googleapis.com/ajax/lib
 declare variable $ui-script := <script>
 <![CDATA[
 $(function(){
-    $("#group-tabs").tabs();
+    $("#result-doc").tabs();
+    $("#group-tabs-1").tabs();
+    $("#group-tabs-2").tabs();
+    $("#group-tabs-3").tabs();
+    
     $(".test-accordion-fail").accordion({autoHeight: false, collapsible: true});
     $(".test-accordion-pass").accordion({autoHeight: false, collapsible: true});
     $(".test-accordion-pass").accordion("activate",false)
@@ -17,10 +21,6 @@ $(function(){
 </script>;
 
 (:
- local:view-object($obj/meetperiode))
-else if ( $name eq 'meetperiode' and $obj/@* ) then (ramh:atts-table-label($obj), local:view-object($obj/meetperiode-voor), local:view-object($obj/meetperiode-na))
-
-else if ( starts-with($name, 'meetperiode') ) then <div class="value">{concat( $name, ': ', data($obj))}</div>
 
 :)
 declare function local:view-object($obj as element()* ) 
@@ -32,39 +32,26 @@ if ( $name eq 'DBCTraject' ) then (ramh:atts-table-label($obj), for $o in $obj/*
 else if ( $name eq 'Patient' ) then (ramh:atts-table-label($obj), for $o in $obj/* return local:view-object($o))
 
 else if ( $name eq 'Zorgtraject' ) then (ramh:atts-table-label($obj), for $o in $obj/* return local:view-object($o))
-else if ( $name eq 'zorgaanbieder' ) then ramh:atts-table-flatten($obj/batch[1], ('einddatumAangeleverdePeriode', 'aanleverperiode'))
+else if ( $name eq 'zorgaanbieder' ) then ramh:table-flatten($obj/batch[1], ('einddatumAangeleverdePeriode', 'aanleverperiode'))
 else if ( $name eq 'batch' ) then (ramh:atts-table-label($obj), for $o in $obj/* return local:view-object($o))
 else if ( $name eq 'batch-gegevens' ) then ramh:atts-table-label($obj)  
-else if ( $name eq 'zorgdomein' ) then ramh:atts-table-flatten($obj, ('naam', 'meetperiode')) 
+else if ( $name eq 'zorgdomein' ) then ramh:table-flatten($obj, ('naam', 'meetperiode')) 
 
-else if ( $name eq 'value' )   then <div class="value">{data($obj)}</div>
+else if ( $obj/@* and $name eq 'value' )   then ramh:atts-table-label($obj)
+else if ( $name eq 'value' or $name eq 'def' )   then <div class="value">{data($obj)}</div>
 
 else if ( $name eq 'Meting' ) then if ( count($obj/preceding-sibling::*[local-name() eq 'Meting']) eq 0 )
                                     then ramh:atts-table-rect(($obj, $obj/following-sibling::*[local-name() eq 'Meting']))
                                     else ()
                                     
 else if ( $name eq 'meetparen' ) then (ramh:atts-table-tree($obj), local:view-object($obj//Meting[1]))
+else if ( $name eq 'row' ) then ramh:table-flatten( $obj, for $elt in $obj/* return local-name($elt))
 else if ( $name eq 'kandidaat-metingen' ) then (ramh:atts-table-tree($obj), local:view-object($obj/voor/Meting[1]), local:view-object($obj/na/Meting[1]))
 else for $o in $obj/* return local:view-object($o)
 }</div>
 }; 
 
-(: maak een ul met een id eindigend op -tab
-declare function local:jquery-tabs($elts as element(), $label as xs:string )
-as element(ul)
-{
-let $name := local-name($elts[1])
-return 
-<ul id="{concat($name, '-tabs')}">{
-    for $elt at $ix in $elts
-    let $tab-id := concat($name, '-', $ix )
-    return <li><a href="{concat( '#', $tab-id)}" class="{concat( $name, '-tab')}">{data($elt/*[local-name() eq $label])}</a></li>
-}</ul>
-};
 
-<span class="{concat( 'status pass-', $pass)}">{$test/@code}</span>
- :)
- 
  (: return h3 / div pairs for accordion :)
  declare function local:test-accordion( $tests as element()* )
  as element(div)
@@ -95,37 +82,46 @@ return
  };
  
 
-let $content := 
-    <div id="group-tabs">
+let $content :=
+
+<div id="result-doc">
+{ramh:jquery-tabs-ul($result//result, 'description')}
+{for $tests at $ix in $result//result
+  return  
+  <div class="result-tab" id="{concat( 'result-', $ix)}">
+    <div id="{concat( 'group-tabs-', $ix)}" >
     <ul>{ 
-        for $group at $group_ix in $result/group
-        let $gr-id := concat( 'group', $group_ix )
+        for $group at $group_ix in $tests/group
+        let $gr-id := concat( 'group_', $ix, '_', $group_ix )
         return <li><a href="{concat( '#', $gr-id)}">{$group/function/text()}</a></li>
     }</ul>
     
     {
-    for $group at $group_ix in $result/group
-    let $gr-id := concat( 'group', $group_ix )
+    for $group at $group_ix in $tests/group
+    let $gr-id := concat( 'group_', $ix, '_', $group_ix )
     return 
     <div id="{$gr-id}" class="group-tab">
-    
-    <p>{$group/description}</p>
-    {if ($group/test[@pass eq 'false'] ) then <h2 class="fail">fail</h2> else ()}
-    <div class="test-accordion-fail">{
-    for $test at $test_ix in $group/test[@pass eq 'false']
-    let $view := local:test-accordion($test),
-        $accordion := ($view/h3, $view/div)
-    return  $accordion
-    }</div>
-    <h2 class="pass">pass</h2>
-    <div class="test-accordion-pass">{
-    for $test at $test_ix in $group/test[@pass ne 'false']
-    let $view := local:test-accordion($test),
-        $accordion := ($view/h3, $view/div)
-    return  $accordion
-    }</div>
+        <p>{$group/description}</p>
+        {if ($group/test[@pass eq 'false'] ) then <h2 class="fail">fail</h2> else ()}
+        <div class="test-accordion-fail">{
+        for $test at $test_ix in $group/test[@pass eq 'false']
+        let $view := local:test-accordion($test),
+            $accordion := ($view/h3, $view/div)
+        return  $accordion
+        }</div>
+        <h2 class="pass">pass</h2>
+        <div class="test-accordion-pass">{
+        for $test at $test_ix in $group/test[@pass ne 'false']
+        let $view := local:test-accordion($test),
+            $accordion := ($view/h3, $view/div)
+        return  $accordion
+        }</div>
     </div>
-  }</div>  
+    }</div>  
+    </div>
+}</div>
+
+
 return ramh:html-doc-jquery( <div>{$ui-script}{$content}</div>, "" )
 
 

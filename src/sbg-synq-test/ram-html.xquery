@@ -171,7 +171,7 @@ return element { local-name($elt) }
 };
 
 (: loop een hierarchie af en pik alle waarden en plaats in een labeled tree :) 
-declare function ramh:atts-table-flatten( $elt as element(), $sub-elts as xs:string* ) 
+declare function ramh:table-flatten( $elt as element(), $sub-elts as xs:string* ) 
 as element(table)
 {
 ramh:atts-table-label(ramh:flatten-sub-elts($elt, $sub-elts))
@@ -186,6 +186,21 @@ as element(html)
 <body>{$content}</body>
 </html>
 };
+
+
+(: maak een ul met een id eindigend op -tab :)
+declare function ramh:jquery-tabs-ul($elts as element()*, $label as xs:string )
+as element(ul)
+{
+let $name := local-name($elts[1])
+return 
+    <ul id="{concat($name, '-tabs')}">{
+        for $elt at $ix in $elts
+        let $tab-id := concat($name, '-', $ix )
+        return <li><a href="{concat( '#', $tab-id)}" class="{concat( $name, '-tab')}">{data(  ($elt/*[local-name() eq $label]/@label, $elt/@*[local-name() eq $label], $elt/*[local-name() eq $label]) [1]       ) }</a></li>
+}</ul>
+};
+
 
 declare function ramh:html-doc-jquery($content as element(div),  $css as xs:string? )
 as element(html)

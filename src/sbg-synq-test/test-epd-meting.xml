@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tests versie="0.98">
-
+    <description label="xml">filter de doel-attributen</description>
   <group xmlns:sbgem="http://sbg-synq.nl/epd-meting"
 	 xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1">
     <function>sbgem:vertaal-elt-naar-att-ns</function>

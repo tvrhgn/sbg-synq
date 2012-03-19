@@ -12,7 +12,8 @@ import module namespace sbgza="http://sbg-synq.nl/zorgaanbieder"at '../sbg-synq/
 declare default element namespace "http://sbggz.nl/schema/import/5.0.1";
 
 
-(: filter de attributen in de doel-ns :)
+
+(: filter de attributen in de doel-ns en zet ze in default ns:)
 declare function sbgbm:filter-sbg-atts( $atts as attribute()* )
 as attribute()*
 {
@@ -21,10 +22,13 @@ return attribute { local-name($att) } { data($att) }
 };
 
 (: filter een elt en de children  :)
-declare function sbgbm:filter-sbg-elt( $elt as element() )
+declare function sbgbm:filter-sbg-elt( $elt as element()* )
 as element()*
 {
-if ( namespace-uri($elt) eq 'http://sbggz.nl/schema/import/5.0.1' or namespace-uri($elt) eq '' )
+if ( not(exists($elt)) ) 
+then ()
+else 
+if( namespace-uri($elt) eq 'http://sbggz.nl/schema/import/5.0.1' or namespace-uri($elt) eq '' )
 then element  { local-name($elt) } 
               { sbgbm:filter-sbg-atts($elt/@*)
               ,
@@ -91,16 +95,16 @@ declare function sbgbm:filter-sbg-dbc-in-periode( $inst as element(sbgza:batch-g
 as element(Patient)
 {
 element
-{ name($pat) } 
+{ local-name($pat) } 
 { sbgbm:filter-sbg-atts($pat/@*),
     for $zt in $pat/Zorgtraject
     let $dbcs := sbgbm:dbc-in-periode($zt/DBCTraject, $inst/@startdatum cast as xs:date, $inst/@einddatum cast as xs:date )
     return if ( count($dbcs) gt 0 ) 
            then
-              element { name($zt) } 
+              element { local-name($zt) } 
                       { sbgbm:filter-sbg-atts($zt/@*),
-                        $zt/sbggz:NevendiagnoseCode, 
-                        $zt/sbggz:Behandelaar, 
+                        sbgbm:filter-sbg-elt($zt/sbggz:NevendiagnoseCode), 
+                        sbgbm:filter-sbg-elt($zt/sbggz:Behandelaar), 
                         for $dbc in $dbcs 
                         return sbgbm:filter-sbg-elt( $dbc )
                       }

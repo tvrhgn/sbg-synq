@@ -3,6 +3,7 @@ xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1"
 xmlns:sbgem="http://sbg-synq.nl/epd-meting"
 xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
 >
+  <description label="batch">selectie van patienten door batch-instellingen</description>
   <setup >
     <sbg-zorgdomeinen>
 

@@ -3,6 +3,7 @@ xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1"
 xmlns:sbgem="http://sbg-synq.nl/epd-meting"
 xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
 >
+  <description label="zorgaanbieder">test werking van zorgaanbieder (batch-instellingen)</description>
   <setup >
     <sbg-zorgdomeinen>
       <zorgdomein code="02" zorgdomeinCode="02">
@@ -157,18 +158,18 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
 	</sbg-patient-meting>
       </setup>
       <expected>
-	  <Patient koppelnummer="001">
-	    <Zorgtraject>
-	      <DBCTraject DBCTrajectnummer="DBC-10"/>
-	      <DBCTraject DBCTrajectnummer="DBC-11"/>
-	    </Zorgtraject>
-	  </Patient>
-	  <Patient koppelnummer="002">
-	    <Zorgtraject>
+	  <sbggz:Patient koppelnummer="001">
+	    <sbggz:Zorgtraject>
+	      <sbggz:DBCTraject DBCTrajectnummer="DBC-10"/>
+	      <sbggz:DBCTraject DBCTrajectnummer="DBC-11"/>
+	    </sbggz:Zorgtraject>
+	  </sbggz:Patient>
+	  <sbggz:Patient koppelnummer="002">
+	    <sbggz:Zorgtraject>
 	      <DBCTraject DBCTrajectnummer="DBC-11"/>
 	      <DBCTraject DBCTrajectnummer="DBC-12"/>
-	    </Zorgtraject>
-	  </Patient>
+	    </sbggz:Zorgtraject>
+	  </sbggz:Patient>
       </expected>
     </test>
 
@@ -201,8 +202,8 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       </sbg-patient-meting>
       </setup>
       <expected>
-	<sbggz:Patient sbggz:koppelnummer="002">
-	  <sbggz:Zorgtraject sbggz:zorgdomeinCode="02">
+	<sbggz:Patient koppelnummer="002">
+	  <sbggz:Zorgtraject zorgdomeinCode="02">
 	    <sbggz:DBCTraject DBCTrajectnummer="DBC-11"/>
 	    <sbggz:DBCTraject DBCTrajectnummer="DBC-12"/>
 	    <sbggz:DBCTraject DBCTrajectnummer="DBC-08-open"/>
@@ -236,13 +237,13 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       </sbg-patient-meting>
       </setup>
       <expected>
-	<sbggz:Patient sbggz:koppelnummer="001">
+	<sbggz:Patient koppelnummer="001">
 	  <sbggz:Zorgtraject zorgtrajectnummer="1">
 	    <sbggz:DBCTraject DBCTrajectnummer="DBC-13"/>
 	  </sbggz:Zorgtraject>
 	</sbggz:Patient>
-	<sbggz:Patient sbggz:koppelnummer="002">
-	  <sbggz:Zorgtraject sbggz:zorgdomeinCode="02">
+	<sbggz:Patient koppelnummer="002">
+	  <sbggz:Zorgtraject zorgdomeinCode="02">
 	    <sbggz:DBCTraject DBCTrajectnummer="DBC-05-maart-2012" startdatumDBC="2011-05-01" />
 	  </sbggz:Zorgtraject>
 	</sbggz:Patient>

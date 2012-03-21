@@ -7,11 +7,16 @@ module namespace sbgza = "http://sbg-synq.nl/zorgaanbieder";
 declare function sbgza:get-collection( $zorgaanbieder as element(zorgaanbieder), $name as xs:string ) as element()*
 {
     let $ref := $zorgaanbieder//collection[@name=$name][1]
-    return element { $name } { (), doc(data($ref/@uri))//*[local-name()=data($ref/@elt)] }
+    return 
+        element { $name } 
+                { (), 
+                  doc(data($ref/@uri))//*[local-name()=data($ref/@elt)] 
+                }
 };
 
-(: maak een doc met geldige datums voor de batch; datum is verplicht; 
-  val terug op default de 3 maanden tot laatste einde maand voor datum  
+(: maak een elt met geldige datums voor de batch; 
+  val terug op default de 3 maanden tot laatste einde maand voor datum
+    
   $ts := data($batch/@datumCreatie),
   laten vallen? is nu technische export-datum; systeemafhankelijk
   :)
@@ -41,6 +46,7 @@ return
                 union attribute { 'datumCreatie' } {$ts}, ()
              }
 };
+
 
 
 (: hieronder de gedefinieerde standaard collecties :)

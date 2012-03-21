@@ -3,6 +3,10 @@
 	name="sbg-batch" version="1.0">
 
 	<p:documentation>
+	
+	VEROUDERD
+	batch-bmimport.xq neemt te veel hooi op de vork?
+	
 		aanroep:
 		calabash.sh
 		-i config=/absolute/path/zorgaanbieder.xml

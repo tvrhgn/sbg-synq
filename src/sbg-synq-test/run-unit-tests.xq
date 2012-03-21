@@ -330,8 +330,11 @@ let $cmp := for $pat in $expected
     return exists($res) 
         and count($pat//sbggz:Zorgtraject) eq count($res//sbggz:Zorgtraject) 
         and count($pat//DBCtraject ) eq count($res//DBCtraject)
+        and count($pat//DBCtraject[@einddatumDBC] ) eq count($res//DBCtraject[@einddatumDBC])
         and count($pat//Meting ) eq count($res//Meting)
-return count($expected) eq count($result) and (every $v in $cmp satisfies $v eq true() )        
+        and count($pat//Meting[@typemeting eq '1'] ) eq count($res//Meting[@typemeting eq '1'])
+return count($expected) eq count($result) 
+        and (every $v in $cmp satisfies $v eq true() )        
 };
 
 declare function local:test-filter-periode($tests as element(test)*, $ctx as element() )
@@ -345,7 +348,6 @@ for $test in $tests
         $result := sbgbm:filter-batchperiode( sbgza:batch-gegevens($za), $pats ),
         $pass := local:gelijke-patienten($expected,$result),
         $act := <box>{$result}</box>
-        
         
 return local:build-test-result( $test, $pass, ($za, $pats), $act  )    
 }; 

@@ -10,7 +10,7 @@
 
 	<!-- het benchmark-bestand voor analyse -->
 	<p:input port="source">
-		<p:document href="../../sbg-synq-out/bmstore.xml" />
+		<p:document href="../../sbg-synq-out/sbg-bmimport.xml" />
 	</p:input>
 
 	<!-- een bestand met de sbg codelijsten -->

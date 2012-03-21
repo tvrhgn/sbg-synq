@@ -64,42 +64,45 @@ let $code := (data($instr/@sbg-code), data($instr/@code))[1]
 return
 if ( $code ) 
 then attribute { 'gebruiktMeetinstrument' } { $code  }
-else attribute { 'sbgm:instrument-ongeldig' } { true() }
-     union attribute { 'sbgm:gebruiktMeetinstrument' } { $instr-code }
+else 
+  attribute { 'sbgm:instrument-ongeldig' } { true() }
+  union attribute { 'sbgm:gebruiktMeetinstrument' } { $instr-code }
 };
 
 
 
 (: Items worden aan Metingen gekoppeld via een meting-id; van Metingen wordt de client bekend gemaakt via een koppelnummer :)
+(: controle nog niet relevant 
+          let $item-geldig := sbgm:meting-item-geldig($md, $instr),
+            $geldig-att := if ( $item-geldig ) then () else attribute { 'sbgm:geldig' } { 'false' }
+            :)
+     (: union $geldig-att :)
 declare function sbgm:sbg-metingen($meting as node()*, $metingdetail as node()*, $instrumenten-lib as element(instrument)+) 
 as element(Meting)*
 {
 for $m in $meting
 let $items := $metingdetail[meting-id eq $m/meting-id],
     $instr := $instrumenten-lib[@code eq $m/gebruiktMeetinstrument], 
-    $instr-att := sbgm:instrument-att($m/gebruiktMeetinstrument, $instr),
-      
-    $atts := attribute { 'sbgm:meting-id' } { $m/meting-id/text() } 
-        union attribute { 'sbgm:koppelnummer'} {$m/koppelnummer/text()} 
-        union attribute { 'datum'} {$m/datum/text()}
-        union attribute { 'aardMeting' } { $m/aardMeting/text() }
-        union $instr-att
-        union sbgm:score-att($m,$items,$instr)
-        union sbgm:respondent-att($m,$instr)
+    $instr-att := sbgm:instrument-att($m/gebruiktMeetinstrument, $instr)
 return 
-element { 'Meting' } { $atts,   
-    for $md in $items[itemnummer/text()]
-		  (: controle nog niet relevant 
-		  let $item-geldig := sbgm:meting-item-geldig($md, $instr),
-		    $geldig-att := if ( $item-geldig ) then () else attribute { 'sbgm:geldig' } { 'false' }
-		    :)
+ element 
+    { 'Meting' } 
+    { attribute { 'sbgm:meting-id' } { $m/meting-id/text() } 
+      union attribute { 'sbgm:koppelnummer'} {$m/koppelnummer/text()} 
+      union attribute { 'datum'} {$m/datum/text()}
+      union attribute { 'aardMeting' } { $m/aardMeting/text() }
+      union $instr-att
+      union sbgm:score-att($m,$items,$instr)
+      union sbgm:respondent-att($m,$instr)
+      ,
+      for $md in $items[itemnummer/text()]
 	  (: niet altijd een getal :)
-	order by xs:integer(replace($md/itemnummer, "[^0-9.-]", "")), $md/itemnummer
-	return 
-	element { 'Item' } {
-	attribute { 'itemnummer' } {$md/itemnummer} 
-	union attribute { 'score' } { $md/score }
-	 (: union $geldig-att :)
-	}
-}
+	  order by xs:integer(replace($md/itemnummer, "[^0-9.-]", "")), $md/itemnummer
+	  return 
+	    element { 'Item' }
+	            { attribute { 'itemnummer' } {$md/itemnummer} 
+	              union attribute { 'score' } { $md/score}
+	     
+	            }
+    }
 };

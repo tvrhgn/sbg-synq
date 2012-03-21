@@ -3,6 +3,7 @@ import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at 'sbg-metingen.
 declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
 
 
+(: dit zijn de attributen die meteen in de doel-ns gezet worden :)
 declare variable $sbgem:dbc-atts := ('DBCTrajectnummer','DBCPrestatieCode','startdatumDBC','einddatumDBC','datumEersteSessie','datumLaatsteSessie','redenEindeDBC','redenNonResponseVoormeting','redenNonResponseNameting');
 declare variable $sbgem:patient-atts := ('koppelnummer','geboorteJaar', 'geboorteMaand', 'geslacht', 'postcodegebied', 'geboortelandpatient', 'geboortelandVader', 'geboortelandMoeder', 'leefsituatie', 'opleidingsniveau');
 declare variable $sbgem:zorgtraject-atts := ('zorgtrajectnummer', 'locatiecode', 'primaireDiagnoseCode', 'GAFscore'); (: , zorgdomeinCode ; reservecodes:)
@@ -135,6 +136,7 @@ return
       }
 };
 
+
 (: hier komt de onbewerkte epd-data binnen. de Metingen zijn al aangemaakt.
  Patient wordt hier voor het eerst opgebouwd; attributen worden in de juiste ns gezet; alle Metingen worden per patient ingevoegd.
  koppeling aan nevendiagnose en behandelaar.
@@ -158,5 +160,4 @@ return
            <sbgem:metingen>{sbgem:annoteer-metingen($metingen[@sbgm:koppelnummer eq $client] ,$domeinen//zorgdomein)}</sbgem:metingen>,
            sbgem:annoteer-zorgtrajecten($client-dbcs, $behs, $diagn, $domeinen//zorgdomein)
        }
-       
 };

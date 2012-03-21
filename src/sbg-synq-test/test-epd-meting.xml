@@ -4,7 +4,21 @@
   <group xmlns:sbgem="http://sbg-synq.nl/epd-meting"
 	 xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1">
     <function>sbgem:vertaal-elt-naar-att-ns</function>
-    <description>plaats geselecteerde attributen in default ns, andere in sbgem:</description>
+
+    <description label="vertaal input">
+      <p>sbg-synq verwacht input in een rij-formaat xml. Van elke rij worden de subelementen vertaald naar attributen.</p>
+<p>Sommige attributen worden meteen in de doel namespace (sbggz:) geplaatst. Een attribuut in die namespace wordt nooit meer gewijzigd cq heeft bij binnenkomst zijn definitieve waarde. Andere attributen komen in de sbgem: namespace. Die zijn nuttig om voorlopige waarden vast te houden of voor alternatieve rapportage (proces-informatie).</p>
+<h3>setup</h3>
+<ul>
+<li>de namen van de elementen die meteen overgezet worden in de doel-ns</li>
+<li>een rij met sub-elementen</li>
+</ul>
+<h3>verwacht</h3>
+<p>een reeks attributen (ten behoeve van de test tegen een element 'value' geplakt)</p>
+<h3>functie</h3>
+<code>sbgem:vertaal-elt-naar-att-sbg($def as xs:string+, $nd as node())  as attribute()*</code>
+
+</description>
 
     <test name="testscenario 0" code="0">
       <description>minimaal 1 def attribuut</description>

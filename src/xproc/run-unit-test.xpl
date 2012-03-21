@@ -8,7 +8,6 @@
 
 
 	<p:output port="result" sequence="true">
-		<p:pipe step="store-test-result" port="result" />
 		<p:pipe step="store-checklist" port="result" />
 	</p:output>
 
@@ -42,6 +41,7 @@
 		</p:xquery>
 	</p:for-each>
 
+<!--  meng andere tests in -->
 	<p:wrap-sequence name="test-result" wrapper="doc">
 		<p:input port="source">
 			<p:pipe step="tests" port="result" />

@@ -138,7 +138,7 @@ return (  if ( $e-sessie castable as xs:date )
                  then xs:date($begin ) 
                  else xs:date('1900-01-01')   (: kunstmatig minimum :)
          ,
-         if ( $l-sessie castable as xs:date ) 
+         if ( $l-sessie castable as xs:date and $eind )  (: negeer laatste sessie al einddatum ontbreekt :) 
               then xs:date($l-sessie ) 
               else 
                  if ( $eind castable as xs:date ) 

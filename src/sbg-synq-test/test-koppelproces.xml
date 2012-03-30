@@ -517,6 +517,37 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
     </test>
 
 
+
+
+    <test name="testscenario alleen voormeting" code="13">
+      <description>
+	 DBC die pas open is; negeer sessiedatum
+      </description>
+      <setup>
+    <sbgem:DBCTraject sbgem:koppelnummer="10106998" sbgem:zorgtrajectnummer="60014" sbggz:DBCTrajectnummer="10106998600141" sbggz:startdatumDBC="2012-01-01" sbgem:cl-zorgcircuit="4" sbggz:datumEersteSessie="2012-01-30" sbggz:datumLaatsteSessie="2012-02-09" sbgem:geslacht="1" sbgem:geboorteJaar="1998" sbgem:geboorteMaand="02" sbgem:opleidingsniveau="99" sbgem:leefsituatie="99" sbgem:postcodegebied="5266" sbgem:primaireDiagnoseCode="as1_6.01.02.01" sbgem:locatiecode="1151703"></sbgem:DBCTraject>
+
+	<zorgdomein ref="true" zorgdomeinCode="02"/>
+
+    <Meting aardMeting="" gebruiktMeetinstrument="SPsy-prob" sbgm:meting-id="102005" totaalscoreMeting="19" sbgm:geen-respondent="true" datum="2012-01-06" sbgm:koppelnummer="10106998" sbgem:meetdomein="Klachten en problemen" sbgem:zorgdomein="04"></Meting>
+    <Meting datum="2012-01-06" gebruiktMeetinstrument="NOSIK" sbgm:koppelnummer="10106998" sbgm:geen-respondent="true" aardMeting="" sbgm:meting-id="102006" totaalscoreMeting="68" sbgem:meetdomein="Ouderlijke stress" sbgem:zorgdomein="04"></Meting>
+    <Meting aardMeting="" gebruiktMeetinstrument="NOSIK" totaalscoreMeting="67" sbgm:koppelnummer="10106998" datum="2012-01-16" sbgm:meting-id="102007" sbgm:geen-respondent="true" sbgem:meetdomein="Ouderlijke stress" sbgem:zorgdomein="04"></Meting>
+    <Meting aardMeting="" sbgm:meting-id="102008" datum="2012-01-17" gebruiktMeetinstrument="SPsy-prob" totaalscoreMeting="8" sbgm:koppelnummer="10106998" sbgm:geen-respondent="true" sbgem:meetdomein="Klachten en problemen" sbgem:zorgdomein="04"></Meting>
+    <Meting sbgm:geen-respondent="true" aardMeting="3" totaalscoreMeting="14" gebruiktMeetinstrument="HoNOSCA" sbgm:koppelnummer="10106998" datum="2012-01-19" sbgm:meting-id="102053" sbgem:meetdomein="Functioneren" sbgem:zorgdomein="04"></Meting>
+
+
+
+      </setup>
+      <expected>
+	<meetparen>
+	  <meetpaar alleen-na="true">
+	    <Meting sbgm:meting-id="ROM meting 32" typemeting="2"/>
+	  </meetpaar>
+	</meetparen>
+     </expected>
+    </test>
+
+
+
   </group>
 
   <group>
@@ -705,6 +736,23 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
 	<value>2011-03-10, 2012-03-10</value>
       </expected>
     </test>
+
+
+    <test name="testscenario 4" code="4">
+      <description>
+	zorgdomein 02: negeer laatste sessiedatum voor open DBC
+      </description>
+      <setup>
+    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10106998600141" sbggz:startdatumDBC="2012-01-01" sbggz:datumEersteSessie="2012-01-30" sbggz:datumLaatsteSessie="2012-02-09" />
+	<zorgdomein ref="true" zorgdomeinCode="02"/>
+      </setup>
+      <expected>
+	<value>2012-01-30, 2100-01-01</value>
+      </expected>
+    </test>
+
+
+
 
   </group>
 

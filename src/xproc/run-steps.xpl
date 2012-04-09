@@ -54,13 +54,16 @@
 					let $za :=
 					sbgza:build-zorgaanbieder( ./zorgaanbieder ),
 					$instrumenten :=
-					sbgi:laad-instrumenten( $za/instrumenten/sbg-instrumenten )
+					sbgi:laad-instrumenten( $za/instrumenten//instrument ),
+					
+					$metingen :=
+					sbgm:build-Metingen($za/rom/*, $za/rom-items/*)
 					return
 					element { 'result' }{
 					(), $za,
 					element { 'metingen' }{ 
 					(),
-					sbgm:sbg-metingen($za/rom/*, $za/rom-items/*,
+					sbgm:sbg-metingen($metingen,
 					$instrumenten) 
 					}
 					}
@@ -87,6 +90,10 @@
 					import module namespace
 					sbgem="http://sbg-synq.nl/epd-meting" at
 					'../sbg-synq/epd-meting.xquery';
+					
+					 declare namespace
+					sbgm="http://sbg-synq.nl/sbg-metingen";
+					
 					let $za := //zorgaanbieder
 					return
 					element { 'result' } {
@@ -95,7 +102,7 @@
 					(),
 					sbgem:maak-patient-meting( $za/epd/*,
 					$za/behandelaar/*,
-					$za/nevendiagnose/*, .//Meting,
+					$za/nevendiagnose/*, .//sbgm:Meting,
 					$za/sbg-zorgdomeinen/* ) 
 					}
 					}

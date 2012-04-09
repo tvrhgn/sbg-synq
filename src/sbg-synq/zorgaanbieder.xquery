@@ -50,18 +50,15 @@ return
 
 
 (: hieronder de gedefinieerde standaard collecties :)
-declare function sbgza:build-zorgaanbieder( $za as element(zorgaanbieder) ) as element(zorgaanbieder)
+declare function sbgza:build-zorgaanbieder( $za as element(zorgaanbieder) ) as element(sbgza:zorgaanbieder)
 {
 let $zorgdomeinen :=  sbgza:get-collection($za, 'sbg-zorgdomeinen'),
-    $instr-lib  :=  sbgza:get-collection($za, 'instrumenten'),
-    $epd := sbgza:get-collection($za,  'epd' ),
-    $rom := sbgza:get-collection($za,  'rom' ),
-    $behandelaar := sbgza:get-collection($za, 'behandelaar'),
-    $nevendiagnose  :=  sbgza:get-collection($za, 'nevendiagnose'),
-    $rom-items := sbgza:get-collection($za, 'rom-items')
-    return element { 'zorgaanbieder' } { $za/@*, $za/* 
-            union ( $epd, $rom, $zorgdomeinen, $instr-lib, $behandelaar, $nevendiagnose, $rom-items )
-            }     
+    $instr-lib  :=  sbgza:get-collection($za, 'instrumenten')
+
+    return element { 'sbgza:zorgaanbieder' } 
+                   { $za/@*, 
+                    ( $za/*, $zorgdomeinen, $instr-lib)
+                   }     
 
 };
 

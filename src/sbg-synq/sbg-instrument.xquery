@@ -1,41 +1,14 @@
 module namespace sbgi = "http://sbg-synq.nl/sbg-instrument";
-(: TODO meervoudige schalen, uitzonderingen, controles :)
+(: TODO meervoudige schalen :)
 
-(: voeg hier en daar extra attributen toe voor visuele controle :)
-declare variable $sbgi:debug := false();
-
-(: selecteer de items van de schaal en bereken de score voor elk item :)
-(: TODO missed items :)
-declare function sbgi:schaal-score( $schaal as element(schaal)?, $items as element()*) as element()*
-{
-  for $item in $schaal/score-items/item
-  let $select :=  $items[itemnummer/text() = $item/text()],
-      $ruwe-score := if ( $select/score/text() ) then $select/score/text() cast as xs:double else -1,
-      $omscoren := $item/@omscoren = 'true',
-      $score := if ( $omscoren ) then fn:abs($ruwe-score - ($item/@min + $item/@max)) else $ruwe-score,
-      $debug-atts := if ( $sbgi:debug ) then attribute { 'omscoren' } { $omscoren } union attribute { 'ruwe-score' } { $ruwe-score } else ()
-      return element { 'score' } { attribute { 'itemnummer' } { $item/text() }, $debug-atts, $score }
-};
-
-
-declare function sbgi:schaal-functie( $schaal as element(schaal), $items as node()+ ) as xs:double
-{
-if ( $schaal/berekening/@functie = 'sum' ) 
-then fn:sum(sbgi:schaal-score($schaal, $items))
-else if ( $schaal/berekening/@functie = 'avg' )
-then fn:avg(sbgi:schaal-score($schaal, $items))
-else -1
-};
-
+(: deprecated :)
 (: bereken de totaalscore door de juiste elementen te selecteren en de juiste functie toe te passen :)
 (: de items die worden meegegeven moeten een itemnummer en een score element hebben :)
 declare function sbgi:bereken-totaalscore-sbg( $instr as element(instrument)?, $items as node()* ) as xs:double
 {
-let  $schaal := $instr//schaal[@definitie eq 'sbg'][1] 
-return if ( exists( $schaal ) and count($items) gt 0 ) 
-       then sbgi:schaal-functie( $schaal, $items )  
-       else -2
+-4
 };
+
 (: deprecated :)
 declare function sbgi:bereken-totaalscore( $instr as element(instrument)?, $items as node()* ) as xs:double
 {
@@ -43,49 +16,112 @@ sbgi:bereken-totaalscore-sbg($instr,$items)
 };
 
 
-(: ---- parsen instrument data                         --- :)
-(: onderstaande code hoort bij het laden parsen van het bron sbg-instrument bestand :)
-(: model: score is een getal >= 0 en itemnummer is een integer > 0 :)
-
-(: rationale: maakt het editen van de instrumenten-bibliotheek gemakkelijker; bezwaar: bron van verduistering :)
-(: punt is dat de instrument-bibliotheek nog met de hand bijgehouden wordt... :)
-
-(: hulp functie om string '1, 2, 3, 4' om te zetten in een lijst van elementen 'item' :)
-declare function sbgi:expand-items( $item-str as text()?) 
-	as element(item)*
+(: verwerk Items die omgescoord moeten worden :)
+declare function sbgi:item-omscores( $items as element(Item)*, $min as xs:double?, $max as xs:double? )
+as xs:double*
 {
-  for $it in fn:tokenize($item-str, ' ?,')
-  return <item>{fn:normalize-space($it)}</item>
+for $i in $items
+let $ruwe-score := if ( $i/@score castable as xs:double ) then xs:double($i/@score) else -1
+return fn:abs($ruwe-score - ($min + $max))
+};
+
+(: haal scores op van items :)
+declare function sbgi:item-scores( $meting as element(Meting), $instr as element(sbgi:instrument) )
+as xs:double*
+{
+let $items :=     $meting//Item[@itemnummer][index-of(tokenize($instr/@score-items, ' '), @itemnummer ) gt 0],
+    $o-items :=   $meting//Item[@itemnummer][index-of(tokenize($instr/@omscoor-items, ' '), @itemnummer ) gt 0]
+return ( 
+    for $i in ($items except $o-items)
+    return xs:double($i/@score)
+    ,
+    sbgi:item-omscores($o-items, data($instr/@item-min), data($instr/@item-max))
+    )
+};
+
+(: pas functie toe op scores :)
+(: score -3 is een indicator dat de functie bekend is :)
+declare function sbgi:instr-functie( $scores as xs:double*, $functie as xs:string ) 
+as xs:double
+{
+if ( $functie = 'sum' ) 
+then fn:sum($scores)
+else if ( $functie = 'avg' )
+then fn:avg($scores)
+else -3
 };
 
 
-(: lees het brondocument van instrumenten in en bereid de instrumenten voor :)
-(: grotendeels een kopie van het brondocument :)
-declare function sbgi:laad-instrumenten( $doc as element(sbg-instrumenten) )
-as element(instrument)*
+(: bereken de totaalscore door de juiste elementen te selecteren en de juiste functie toe te passen :)
+(: score -2 is een indicator dat de score niet berekend kan worden: geen scores of geen functie :)
+(: of is het beter het berekenen van de score te weigeren als bepaalde asserts fail :)
+declare function sbgi:bereken-score( $meting as element(Meting), $instr as element(sbgi:instrument)? ) as xs:double
 {
-for $instr in $doc//instrument
-let $item-str := $instr/schaal/items/text(),
-$all := $instr/schaal/items/@all = 'true',
-$functie := fn:normalize-space($instr/schaal/berekening/@functie),
-$score-items := if ( $all ) then 
-                <score-items all="true">{
-                    for $ix in 1 to xs:integer($instr/@aantal-vragen)
-                    return <item>{$ix}</item>
-                }</score-items> 
-                else <score-items bron-tekst="{$item-str}">{sbgi:expand-items($item-str)}</score-items>,
-$omscoren := $instr/schaal/omscoren,
-(: TODO for each; ondersteun verschillende score ranges op een item :)
-$omscoor-items :=  <omscoor-items>{sbgi:expand-items($omscoren/text())}</omscoor-items>,
-$nw-score-items := <score-items>{for $it in $score-items//item
-                    let $omscoren := exists($omscoor-items//item[./text()=$it/text()]),
-                        $att := if ($omscoren) then attribute { 'omscoren' } { 'true' } else ()
-                    return element { 'item' } { $att, $it/text() }
-                    }</score-items>
-    return  element { 'instrument' } { $instr/@*,
-       $instr/naam,
-       $instr/verwijzing,
-       element { 'schaal' } { $instr/schaal/@*, $nw-score-items, $instr/schaal/berekening}
-    }
+let  $scores := sbgi:item-scores($meting, $instr),
+    $functie := data($instr/schaal/@functie)
+return if ( exists($functie) and count($scores) gt 0 ) 
+       then sbgi:instr-functie( $scores, $functie )  
+       else -2
+};
+
+(: hulp-functie om de handmatig gewijzigde itemstrings te normalizeren :)
+declare function sbgi:schaal-items( $item-str as xs:string? ) 
+as xs:string*
+{
+for $s in fn:tokenize(normalize-space($item-str), ' ?,') 
+return replace($s, "\s", "")
+};
+
+(: geef een compacte en genormaliseerde weergave van een instrument uit het definitiebestand :)
+(: gebruik controle-attribuut bij definieren van instrumenten :)
+declare function sbgi:laad-instrument( $instr as element(instrument) )
+as element(sbgi:instrument)
+{   (: voorkeur voor sbg-definitie, anders schaal 1 :)
+    let $schaal := ($instr/schaal[@definitie eq 'sbg'], $instr/schaal[1])[1],
+        $score-items := if ( data($schaal/items/@all) eq 'true' and $instr/@aantal-vragen castable as xs:integer ) 
+                    then 
+                        for $ix in 1 to xs:integer($instr/@aantal-vragen)
+                        return xs:string($ix)
+                    else 
+                        sbgi:schaal-items($schaal/items/text())
+                    ,
+     
+                        
+     $omscoor-items :=  sbgi:schaal-items($schaal/omscoren/text()),
+     $omscoren := count( $omscoor-items ) gt 0,
+     
+     $omscoor-atts:= if ( $omscoren ) then (
+                        attribute { 'item-min' } { xs:double($schaal/omscoren/@min) }, 
+                        attribute { 'item-max' } { xs:double($schaal/omscoren/@max) }  
+                        ) 
+                        else (),
+     $controle := if ( $omscoren and not($schaal/omscoren/@min and $schaal/omscoren/@max) ) 
+                  then 'omscoren ongeldig'
+                  else if ( $schaal/items/@all eq 'true' and not( $instr/@aantal-vragen castable as xs:integer ) )
+                      then 'items niet af te leiden'
+                      else if ( not( $schaal/@min and $schaal/@max ) ) then 'schaal grenzen niet bekend'
+                      else 'instrument geldig'
+return  
+   element { 'sbgi:instrument' } 
+           { $instr/@*
+             union attribute { 'controle' } { $controle }
+             union attribute { 'score-items' } { $score-items }
+             union attribute { 'omscoor-items' } { $omscoor-items }
+             union $omscoor-atts
+             ,
+             element { 'schaal' } 
+                     { $instr/schaal/@*
+                      union $instr/schaal/berekening/@functie
+                      
+                     }
+           }
+};
+
+(: lees het brondocument van instrumenten in en bereid de instrumenten voor :)
+declare function sbgi:laad-instrumenten( $instrs as element(instrument)* )
+as element(sbgi:instrument)*
+{
+for $instr in $instrs
+return sbgi:laad-instrument($instr)
 };
 

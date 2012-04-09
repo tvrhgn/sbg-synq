@@ -12,6 +12,7 @@ $(function(){
     $("#group-tabs-1").tabs();
     $("#group-tabs-2").tabs();
     $("#group-tabs-3").tabs();
+    $("#group-tabs-4").tabs();
     
     $(".test-accordion-fail").accordion({autoHeight: false, collapsible: true});
     $(".test-accordion-pass").accordion({autoHeight: false, collapsible: true});
@@ -43,6 +44,11 @@ else if ( $name eq 'value' or $name eq 'def' )   then <div class="value">{data($
 else if ( $name eq 'Meting' ) then if ( count($obj/preceding-sibling::*[local-name() eq 'Meting']) eq 0 )
                                     then ramh:atts-table-rect(($obj, $obj/following-sibling::*[local-name() eq 'Meting']))
                                     else ()
+else if ( $name eq 'Item' ) then if ( count($obj/preceding-sibling::*[local-name() eq 'Item']) eq 0 )
+                                    then ramh:atts-table-rect(($obj, $obj/following-sibling::*[local-name() eq 'Item']))
+                                    else ()                                    
+
+else if ( $name eq 'instrument' ) then ramh:elt-tree($obj)
                                     
 else if ( $name eq 'meetparen' ) then (ramh:atts-table-tree($obj), local:view-object($obj//Meting[1]))
 else if ( $name eq 'row' ) then ramh:table-flatten( $obj, for $elt in $obj/* return local-name($elt))

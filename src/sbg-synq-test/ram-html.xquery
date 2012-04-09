@@ -92,6 +92,67 @@ distinct-values(
     return local-name($att))
 };
 
+
+declare function ramh:count-levels($elt as node() )
+as xs:integer
+{
+if ( $elt/* ) then 
+1 + max( for $e in $elt/* return ramh:count-levels( $e )) 
+else 1
+};
+
+declare function ramh:empty-cells( $cnt as xs:integer )
+as element(td)*
+{
+for $i in 1 to $cnt return <td></td>
+};
+
+declare function ramh:att-tr-infix ( $skip as xs:integer, $att as attribute(), $append as xs:integer )
+as element(tr)
+{
+<tr>
+{ramh:empty-cells($skip)}
+{ramh:att-td-label( $att )}
+{ramh:att-td( $att )}
+{ramh:empty-cells($append)}
+</tr>
+};
+
+declare function ramh:atts-tr-infix ( $skip as xs:integer, $atts as attribute()*, $append as xs:integer )
+as element(tr)*
+{
+for $att in $atts
+return ramh:att-tr-infix( $skip, $att, $append )
+};
+
+declare function ramh:elt-tr-infix( $skip as xs:integer, $elt as element(), $width as xs:integer )
+as element(table)*
+{
+let $name := local-name($elt),
+    $append := $width - $skip - 2
+return <div>
+<table class="{concat( 'ram-tree ', $name)}">
+<tr>{ramh:empty-cells($skip)}
+    <td class="{concat( 'ram-tree-elt ', $name)}">{$name}</td>
+    <td class="{concat( 'ram-tree-elt-desc ', $name)}">{$elt/text()}</td>
+     {ramh:empty-cells( $append )
+}</tr>
+{ramh:atts-tr-infix( $skip, $elt/@*, $append)}
+</table>
+{ for $e in $elt/* return ramh:elt-tr-infix( $skip + 1, $e, $width )} 
+</div>//table
+};
+
+declare function ramh:elt-tree( $elt as element() )
+as element(table)*
+{
+let $levels := ramh:count-levels($elt),
+    $width := $levels + 1
+
+return ramh:elt-tr-infix( 0, $elt, $width )
+
+};
+
 (: -- hieronder de tabel-typen die de module-gebruiker nodig heeft --:)
 
 (: maak een verticale tabel voor het huidie element :)
@@ -116,6 +177,37 @@ as element(table)
 {
 let $name := local-name($elts[1])
 let $header := ramh:rect-header($elts)
+let $caption :=  <tr class="{concat('table-header ', $name)}">
+        <td class="count-children">{count($elts)}</td>
+        <td class="{concat('object-label ', $name)}">{$name}</td>
+        {for $i in 3 to count($header) return <td/>}
+        </tr>
+return <table>{$caption}{ramh:tr( $header )}{
+    for $elt in $elts
+    return ramh:atts-tr-rect($elt, $header)}</table>
+};
+
+(: maak een horizontale tabel met een kopregel voor een serie gelijksoortige element  :)
+declare function ramh:atts-table-rect-label( $elts as element()*, $label as xs:string ) 
+as element(table)
+{
+let $name := local-name($elts[1])
+let $header := ramh:rect-header($elts)
+let $caption :=  <tr class="{concat('table-header ', $name)}">
+        <td class="count-children">{count($elts)}</td>
+        <td class="{concat('object-label ', $name)}">{$label}</td>
+        {for $i in 3 to count($header) return <td/>}
+        </tr>
+return <table>{$caption}{ramh:tr( $header )}{
+    for $elt in $elts
+    return ramh:atts-tr-rect($elt, $header)}</table>
+};
+
+(: maak een horizontale tabel met een kopregel voor een serie gelijksoortige element  :)
+declare function ramh:atts-table-rect-header( $elts as element()*, $header as xs:string+ ) 
+as element(table)
+{
+let $name := local-name($elts[1])
 let $caption :=  <tr class="{concat('table-header ', $name)}">
         <td class="count-children">{count($elts)}</td>
         <td class="{concat('object-label ', $name)}">{$name}</td>

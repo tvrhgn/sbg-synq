@@ -11,12 +11,17 @@
 		<p:pipe step="store-checklist" port="result" />
 	</p:output>
 
+<!--  <p:document href="../sbg-synq-test/test-koppelproces.xml" />
+			<p:document href="../sbg-synq-test/test-zorgaanbieder.xml" />
+			<p:document href="../sbg-synq-test/test-epd-meting.xml" />
+			 -->
 
 	<p:wrap-sequence name="test-docs" wrapper="ctx">
 		<p:input port="source" sequence="true">
 			<p:document href="../sbg-synq-test/test-koppelproces.xml" />
 			<p:document href="../sbg-synq-test/test-zorgaanbieder.xml" />
 			<p:document href="../sbg-synq-test/test-epd-meting.xml" />
+			<p:document href="../sbg-synq-test/unit-tests-instrument.xml" />
 		</p:input>
 	</p:wrap-sequence>
 

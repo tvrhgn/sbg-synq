@@ -1,5 +1,5 @@
 module namespace sbgem = "http://sbg-synq.nl/epd-meting";
-import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at 'sbg-metingen.xquery';
+declare namespace sbgm="http://sbg-synq.nl/sbg-metingen";
 declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
 
 
@@ -70,15 +70,15 @@ let $zds := for $domein in sbgem:zoek-domein($dbc, $domeinen)
 (: neem de metingen van client over en annoteer de zorg/meetdomeinen :)
 (: todo: dit kan toch naar sbgm: ? :)
 (: todo: verwerking attributen is slordig ? :)
-declare function sbgem:annoteer-metingen( $metingen as element(Meting)*, $domeinen as element(zorgdomein)* )
-as element(Meting)*
+declare function sbgem:annoteer-metingen( $metingen as element(sbgm:Meting)*, $domeinen as element(zorgdomein)* )
+as element(sbgem:Meting)*
 {
 for $meting in $metingen
-let $instr-zd := $domeinen//instrument[@code eq $meting/@gebruiktMeetinstrument], 
+let $instr-zd := $domeinen//instrument[@code eq $meting/@sbggz:gebruiktMeetinstrument], 
     $zorgdomein := $instr-zd/../../@zorgdomeinCode,
     $meetdomein := string-join( distinct-values($instr-zd/../naam/text()), ', ' )
 order by $meting/@datum
-return element { 'Meting' } 
+return element { 'sbgem:Meting' } 
         { $meting/@* 
             union attribute { 'sbgem:zorgdomein' } { $zorgdomein }
             union attribute { 'sbgem:meetdomein' } { $meetdomein },
@@ -146,7 +146,7 @@ declare function sbgem:maak-patient-meting(
     $dbcs as node()*, 
     $behs as node()*, 
     $diagn as node()*, 
-    $metingen as element(Meting)*,
+    $metingen as element(sbgm:Meting)*,
     $domeinen as element(sbg-zorgdomeinen) ) 
 as element(sbgem:Patient) *
 {

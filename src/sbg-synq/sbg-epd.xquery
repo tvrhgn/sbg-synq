@@ -6,8 +6,8 @@ declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
 plaats de sbggz-attributen in de doel-ns
  :)
 
-import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at 'sbg-metingen.xquery';
-import module namespace sbgem="http://sbg-synq.nl/epd-meting" at 'epd-meting.xquery';
+declare namespace sbgm="http://sbg-synq.nl/sbg-metingen";
+declare namespace sbgem="http://sbg-synq.nl/epd-meting";
 
 (: datum +/- periode inclusief :)
 declare function sbge:in-periode( $datum as xs:date, $peildatum as xs:date, $periode-voor as xs:yearMonthDuration, $periode-na as xs:yearMonthDuration ) as xs:boolean
@@ -17,15 +17,16 @@ declare function sbge:in-periode( $datum as xs:date, $peildatum as xs:date, $per
 
 (: bereid kandidaat-metingen voor;
 selecteer de metingen en typeer ze tov de dbc-peildatums; ; sorteer ze op afstand tot peildatum  
-NB: metingen zijn niet uniek in het resultaat 
+NB: metingen zijn niet uniek in het resultaat
+metingen staan nu in de doel-ns 
 :)
 
 declare function sbge:dbc-metingen( 
-$metingen as element(Meting)*,  
+$metingen as element(sbgem:Meting)*,  
 $domein as element(zorgdomein), 
 $peildatums as xs:date+
 ) 
-as element(Meting)*
+as element(sbggz:Meting)*
 { 
 for $peildatum at $ix in $peildatums
 let $periode-voor := ($domein/meetperiode/meetperiode-voor/text(), $domein/meetperiode/text())[1],
@@ -36,14 +37,14 @@ let $periode-voor := ($domein/meetperiode/meetperiode-voor/text(), $domein/meetp
     $meetperiode-na := if ( $periode-na castable as xs:yearMonthDuration ) 
                          then xs:yearMonthDuration( $periode-na)
                          else xs:yearMonthDuration("P3M") 
-for $m in $metingen[data(@datum)]
-let $afstand := xs:date($m/@datum) - xs:date($peildatum),
+for $m in $metingen[data(@sbggz:datum)]
+let $afstand := xs:date($m/@sbggz:datum) - xs:date($peildatum),
     $voor-peildatum := $afstand le xs:dayTimeDuration('P0D')
 order by abs(fn:days-from-duration($afstand)) 
-return if ( sbge:in-periode($m/@datum, $peildatum, $meetperiode-voor, $meetperiode-na ) ) then 
-    element {'Meting' } {
+return if ( sbge:in-periode($m/@sbggz:datum, $peildatum, $meetperiode-voor, $meetperiode-na ) ) then 
+    element {'sbggz:Meting' } {
                 $m/@*
-                union attribute { 'typemeting' } { $ix } 
+                union attribute { 'sbggz:typemeting' } { $ix } 
                 union attribute { 'sbge:afstand' } { $afstand }
                 union attribute { 'sbge:voor-peildatum' } { $voor-peildatum },
                 $m/*
@@ -54,7 +55,7 @@ return if ( sbge:in-periode($m/@datum, $peildatum, $meetperiode-voor, $meetperio
 (: overweeg om een leeg element te retourneren? :)
 (: neem de getypeerde metingen en verdeel ze in voor/na metingen :)
 declare function sbge:kandidaat-metingen( 
-$metingen as element(Meting)*,  
+$metingen as element(sbgem:Meting)*,  
 $domein as element(zorgdomein), 
 $peildatums as xs:date+
 ) 
@@ -62,20 +63,20 @@ as element(kandidaat-metingen)
 {
 let $metingen-met-type := sbge:dbc-metingen( $metingen, $domein, $peildatums )
 return <kandidaat-metingen>
-    <voor>{$metingen-met-type[@typemeting eq '1']}</voor>
-    <na>{$metingen-met-type[@typemeting eq '2']}</na>
+    <voor>{$metingen-met-type[@sbggz:typemeting eq '1']}</voor>
+    <na>{$metingen-met-type[@sbggz:typemeting eq '2']}</na>
  </kandidaat-metingen>       
 };
 
 (: maak geldige meetparen bij gegeven voormeting; start bij metingen met hetzelfde instrument en meetdomein :)
-declare function sbge:zoek-nameting( $vm as element(Meting), $na-metingen as element(Meting)*, $zorgdomein as element(zorgdomein)? )
+declare function sbge:zoek-nameting( $vm as element(sbggz:Meting), $na-metingen as element(sbggz:Meting)*, $zorgdomein as element(zorgdomein)? )
 as element(meetpaar)*
 {
-let $nms := $na-metingen[@sbgm:meting-id ne $vm/@sbgm:meting-id][@gebruiktMeetinstrument eq $vm/@gebruiktMeetinstrument]
+let $nms := $na-metingen[@sbgm:meting-id ne $vm/@sbgm:meting-id][@sbggz:gebruiktMeetinstrument eq $vm/@sbggz:gebruiktMeetinstrument]
                         [not(@sbge:meetdomein) or (./@sbge:meetdomein eq $vm/@sbge:meetdomein)]
 for $nm in $nms
-let $v-datum := xs:date($vm/@datum),
-    $n-datum := xs:date($nm/@datum),
+let $v-datum := xs:date($vm/@sbggz:datum),
+    $n-datum := xs:date($nm/@sbggz:datum),
     $interval :=  days-from-duration($n-datum - $v-datum),
     $som-afstand := abs(days-from-duration($vm/@sbge:afstand)) + abs(days-from-duration($nm/@sbge:afstand)),
     $zd-mper := $zorgdomein/meetperiode,
@@ -152,7 +153,7 @@ als er een conflict is met het zorgdomein van de metingen, wordt het eerste zorg
 Dit dient om uitval van metingen te beperken.
 Opm: dit maakt de betekenis van zorgdomein dus vager
 :)
-declare function sbge:bepaal-zorgdomein ( $zorgtraject as element(sbgem:Zorgtraject), $metingen as element(Meting)* ) 
+declare function sbge:bepaal-zorgdomein ( $zorgtraject as element(sbgem:Zorgtraject), $metingen as element(sbgem:Meting)* ) 
 as xs:string
 {
 let $zd-zt := data($zorgtraject/@sbgem:zorgdomeinCode),
@@ -179,7 +180,7 @@ element { 'sbggz:Zorgtraject' }
 };
 
 (: maak dbc; filter de juiste metingen :)
-declare function sbge:maak-dbc( $dbc as element(sbgem:DBCTraject), $metingen as element(Meting)*, $zorgdomein as element(zorgdomein)  ) 
+declare function sbge:maak-dbc( $dbc as element(sbgem:DBCTraject), $metingen as element(sbgem:Meting)*, $zorgdomein as element(zorgdomein)  ) 
 as element(sbggz:DBCTraject)
 { 
 let $peildatums := sbge:dbc-peildatums-zorgdomein($dbc, $zorgdomein),
@@ -189,7 +190,7 @@ let $peildatums := sbge:dbc-peildatums-zorgdomein($dbc, $zorgdomein),
 return 
     element { 'sbggz:DBCTraject' } 
         { $dbc/@*,
-        $optimale-meetpaar//Meting
+        $optimale-meetpaar//sbggz:Meting
         (:
         data($peildatums) 
         $metingen
@@ -204,7 +205,7 @@ return
 declare function sbge:patient-sbg-meting( $patient as element(sbgem:Patient), $domeinen as element(zorgdomein)* ) 
 as element(sbggz:Patient)
 {
-let $clientmetingen := $patient//Meting
+let $clientmetingen := $patient//sbgem:Meting
 return 
    element { 'sbggz:Patient' } 
            { $patient/@*

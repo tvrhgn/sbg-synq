@@ -67,7 +67,7 @@
 					$instrumenten) 
 					}
 					}
-				</c:query>
+									</c:query>
 			</p:inline>
 		</p:input>
 		<p:input port="parameters">

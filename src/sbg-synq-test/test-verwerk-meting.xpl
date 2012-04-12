@@ -7,8 +7,9 @@
 	version="1.0"
 	name="test-verwerk-meting">
 
+<!-- <p:document href="/home/thijs/tmp/PDI/output/sbg/selectie/Meting.xml" />  -->
 	<p:input port="source">
-		<p:document href="/home/thijs/tmp/PDI/output/sbg/selectie/Meting.xml" />
+		 <p:document href="/home/thijs/tmp/sbg-synq-out/Meting.xml" /> 
 	</p:input>
 
 	<p:input port="instrumenten-lib">

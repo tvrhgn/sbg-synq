@@ -9,7 +9,7 @@ declare variable $sbgm:meting-atts := ('datum','aardMeting');
 (: 'typeRespondent','gebruiktMeetinstrument','totaalscoreMeting', 'metingReserve01' :)
 
 (: items worden alleen maar overgeheveld :)
-declare variable $sbgm:item-atts := ('item','itemnummer', 'score');
+declare variable $sbgm:item-atts := ('itemnummer', 'score');
 
 
 declare function sbgm:splits-atts-sbg($def as xs:string+, $nds as node()*) 
@@ -32,10 +32,10 @@ as attribute()*
        then fn:count($meting/Item) eq xs:integer( $instr/@aantal-vragen ) 
        else true() ) :)
 
-declare function sbgm:meting-geldig( $meting as element(Meting), $instr as element(sbgi:instrument)?, $score as xs:double )
+declare function sbgm:meting-geldig( $meting as element(meting), $instr as element(sbgi:instrument)?, $score as xs:double )
 as xs:boolean
 {
-  not( $score lt 0)
+  not( $score lt 0) 
   and $score ge xs:double($instr/schaal/@min) 
  
 };
@@ -44,7 +44,7 @@ as xs:boolean
 als de meting een element typeRespondent heeft: gebruik die waarde,
 als het instrument een @typeRespondent heeft: gebruik dat als default
 maak anders geen attribuut aan ==> meting ongeldig  :) 
-declare function sbgm:respondent-att($meting as element(Meting), $instr as element(sbgi:instrument)? ) 
+declare function sbgm:respondent-att($meting as element(meting), $instr as element(sbgi:instrument)? ) 
 as attribute()*
 {
 if ( $meting/@typeRespondent )
@@ -55,7 +55,7 @@ else if ( $instr/@typeRespondent )
 };
 
 (: neem de totaalscore over uit de meting of bereken hem adhv de items :)
-declare function sbgm:score-att($meting as element(Meting), $instr as element(sbgi:instrument)? ) 
+declare function sbgm:score-att($meting as element(meting), $instr as element(sbgi:instrument)? ) 
 as attribute()* 
 {
 let $score := if ( $meting/@totaalscoreMeting castable as xs:double ) 
@@ -88,13 +88,13 @@ declare function sbgm:maak-sbg-item($item as element(Item))
 as element(sbggz:Item)
 {
 element { 'sbggz:Item' } {  
-          $item/@*
+          sbgm:splits-atts-sbg( $sbgm:item-atts, $item/@*)
         }
 };
 
 
 (:  :)
-declare function sbgm:maak-sbg-meting($meting as element(Meting)*, $instr as element(sbgi:instrument)?) 
+declare function sbgm:maak-sbg-meting($meting as element(meting)*, $instr as element(sbgi:instrument)?) 
 as element(sbgm:Meting)
 {
 element 
@@ -109,7 +109,7 @@ element
     }
 };
 
-declare function sbgm:sbg-metingen($metingen as element(Meting)*, $instr-lib as element(sbgi:instrument)+) 
+declare function sbgm:sbg-metingen($metingen as element(meting)*, $instr-lib as element(sbgi:instrument)+) 
 as element(sbgm:Meting)*
 {
 for $m in $metingen
@@ -122,37 +122,22 @@ return sbgm:maak-sbg-meting($m, $instr)
 (: stap 1: combineer Meting en Item tot Meting met Item
 dit is dus de eerste join; hier worden ook de elementen omgezet in atts
 Het is veel efficienter dit eerst te doen
- :)
-declare function sbgm:elt-filter-atts( $elt as element(), $atts as xs:string* )
+
+declare function sbgm:build-Meting( $meting as element(meting), $items as element(item)* ) 
+as element(Meting) 
 {
-  element { name($elt) }
-  { $elt/@*[not(index-of( local-name(), $atts) gt 0)],
-  $elt/text()
-}
-};
-
-declare function sbgm:build-atts( $row as element() ) as attribute()* {
-  for $elt in $row/*
-  return attribute { local-name($elt) } { data($elt) }
-};
-
-declare function sbgm:build-Item( $mi-row as element() ) as element(Item) {
-  element { 'Item' } { sbgm:build-atts( $mi-row ) }
-};
-
-declare function sbgm:build-Meting( $m-row as element(), $mi-rows as element()* ) as element(Meting) {
-  let $atts := sbgm:build-atts( $m-row )
-  return 
-    element { 'Meting' } 
-    { $atts,  
-    for $mi in $mi-rows 
-    return sbgm:elt-filter-atts( sbgm:build-Item( $mi ), 'meting-id' )
+element { 'Meting' } 
+    { $metingen/@*,  
+    for $item in $items 
+    return element { 'Item' } { $item/@* }
     }
 };
 
-declare function sbgm:build-Metingen( $m-rows as element()*, $mi-rows as element()* ) as element(Meting)*
+declare function sbgm:build-Metingen( $metingen as element(meting-doc), $items as element(item-doc) ) as element(Meting)*
 {
-for $mt in $m-rows
-let $mi := $mi-rows[meting-id/text() eq $mt/meting-id/text()]
-return sbgm:build-Meting( $mt, $mi )
+for $meting in $metingen/meting
+let $id := $meting/@meting-id,
+    $its := $items/meting[@meting-id eq $id]/item
+return sbgm:build-Meting( $meting, $items )
 };
+ :)

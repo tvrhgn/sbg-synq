@@ -84,7 +84,7 @@ else
 };
 
 
-declare function sbgm:maak-sbg-item($item as element(Item)) 
+declare function sbgm:maak-sbg-item($item as element(item)) 
 as element(sbggz:Item)
 {
 element { 'sbggz:Item' } {  
@@ -104,7 +104,7 @@ element
       union sbgm:score-att($meting,$instr)
       union sbgm:respondent-att($meting,$instr)
       ,
-      for $item in $meting/Item
+      for $item in $meting/item
       return sbgm:maak-sbg-item($item)
     }
 };
@@ -117,27 +117,3 @@ let $instr := $instr-lib[@code eq $m/@gebruiktMeetinstrument]
 return sbgm:maak-sbg-meting($m, $instr)
 };
 
-
-
-(: stap 1: combineer Meting en Item tot Meting met Item
-dit is dus de eerste join; hier worden ook de elementen omgezet in atts
-Het is veel efficienter dit eerst te doen
-
-declare function sbgm:build-Meting( $meting as element(meting), $items as element(item)* ) 
-as element(Meting) 
-{
-element { 'Meting' } 
-    { $metingen/@*,  
-    for $item in $items 
-    return element { 'Item' } { $item/@* }
-    }
-};
-
-declare function sbgm:build-Metingen( $metingen as element(meting-doc), $items as element(item-doc) ) as element(Meting)*
-{
-for $meting in $metingen/meting
-let $id := $meting/@meting-id,
-    $its := $items/meting[@meting-id eq $id]/item
-return sbgm:build-Meting( $meting, $items )
-};
- :)

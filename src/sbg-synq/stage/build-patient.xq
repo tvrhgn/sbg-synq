@@ -18,12 +18,14 @@ let $koppelnrs := distinct-values( $pats/@koppelnummer )
 return <patient-doc>{
 for $nr in $koppelnrs
 let $pat := $pats[@koppelnummer eq $nr]
+(: selecteer de laatste voor de meest up to date gegevens ?  -1 ?? :)
+let $p := $pat[count($pat) - 1] 
 let $ztnrs := distinct-values( $pat/@zorgtrajectnummer )
 let $meting := $metingen[@koppelnummer eq $nr]/meting
 return 
   element { 'patient' } 
   {  
-  $pat[1]/@*[exists(index-of( $patient-atts, local-name()))] , 
+  $p/@*[exists(index-of( $patient-atts, local-name()))]   ,
   $meting, 
   for $nr in $ztnrs
   let $zts := $pat[@zorgtrajectnummer eq $nr],

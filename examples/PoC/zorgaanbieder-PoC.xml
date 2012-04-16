@@ -4,8 +4,8 @@
 	<naam>Test Zorgaanbieder 1</naam>
 	<batch datum="2011-08-12">
 		<meetperiode>P3M</meetperiode>
-		<aanleverperiode>P12M</aanleverperiode>
-		<einddatumAangeleverdePeriode>2012-08-31</einddatumAangeleverdePeriode>
+		<aanleverperiode>P6M</aanleverperiode>
+		<einddatumAangeleverdePeriode>2011-12-31</einddatumAangeleverdePeriode>
 	</batch>
 	
 	<!--  alleen de eerste batch wordt uitgevoerd; logboek hieronder -->
@@ -15,11 +15,12 @@
 		<aanleverperiode>P36M</aanleverperiode>
 		<einddatumAangeleverdePeriode>2012-12-31</einddatumAangeleverdePeriode>
 	</batch>
+	
 	<!-- programma instellingen, configuratie van sbg-synq -->
 	<!-- NB in een echte configuratie zijn de uris absoluut -->
 	<sbg-synq>
-		<collection name='sbg-zorgdomeinen' elt='sbg-zorgdomeinen' uri='../../examples/sbg-zorgdomeinen.xml'/>
-		<collection name='instrumenten' elt='sbg-instrumenten' uri='../../examples/sbg-instrumenten.xml'/>
+		<collection name='sbg-zorgdomeinen' elt='sbg-zorgdomeinen' uri='/home/thijs/git/sbg-synq/examples/sbg-zorgdomeinen.xml'/>
+		<collection name='instrumenten' elt='sbg-instrumenten' uri='/home/thijs/git/sbg-synq/examples/sbg-instrumenten.xml'/>
 	</sbg-synq>
 	
 	<!--  data-collecties, configuration over convention? wat doe je waar?

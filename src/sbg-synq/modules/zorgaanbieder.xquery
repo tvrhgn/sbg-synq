@@ -20,7 +20,7 @@ declare function sbgza:get-collection( $zorgaanbieder as element(zorgaanbieder),
   $ts := data($batch/@datumCreatie),
   laten vallen? is nu technische export-datum; systeemafhankelijk
   :)
-declare function sbgza:batch-gegevens($za as element(zorgaanbieder)) 
+declare function sbgza:batch-gegevens($za as element()) 
 as element(sbgza:batch-gegevens) {
 let $batch := $za/batch[1],  (: voer alleen de de eerste batch uit :)
     $ts := (data($batch/@*[local-name() eq 'datumCreatie']), current-dateTime())[1],

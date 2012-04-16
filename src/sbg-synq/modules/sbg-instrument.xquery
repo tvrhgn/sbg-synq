@@ -17,7 +17,7 @@ sbgi:bereken-totaalscore-sbg($instr,$items)
 
 
 (: verwerk Items die omgescoord moeten worden :)
-declare function sbgi:item-omscores( $items as element(Item)*, $min as xs:double?, $max as xs:double? )
+declare function sbgi:item-omscores( $items as element(item)*, $min as xs:double?, $max as xs:double? )
 as xs:double*
 {
 for $i in $items
@@ -26,11 +26,11 @@ return fn:abs($ruwe-score - ($min + $max))
 };
 
 (: haal scores op van items :)
-declare function sbgi:item-scores( $meting as element(Meting), $instr as element(sbgi:instrument) )
+declare function sbgi:item-scores( $meting as element(meting), $instr as element(sbgi:instrument) )
 as xs:double*
 {
-let $items :=     $meting//Item[@itemnummer][index-of(tokenize($instr/@score-items, ' '), @itemnummer ) gt 0],
-    $o-items :=   $meting//Item[@itemnummer][index-of(tokenize($instr/@omscoor-items, ' '), @itemnummer ) gt 0]
+let $items :=     $meting/item[@itemnummer][index-of(tokenize($instr/@score-items, ' '), @itemnummer ) gt 0],
+    $o-items :=   $meting/item[@itemnummer][index-of(tokenize($instr/@omscoor-items, ' '), @itemnummer ) gt 0]
 return ( 
     for $i in ($items except $o-items)
     return xs:double($i/@score)
@@ -55,7 +55,7 @@ else -3
 (: bereken de totaalscore door de juiste elementen te selecteren en de juiste functie toe te passen :)
 (: score -2 is een indicator dat de score niet berekend kan worden: geen scores of geen functie :)
 (: of is het beter het berekenen van de score te weigeren als bepaalde asserts fail :)
-declare function sbgi:bereken-score( $meting as element(Meting), $instr as element(sbgi:instrument)? ) as xs:double
+declare function sbgi:bereken-score( $meting as element(meting), $instr as element(sbgi:instrument)? ) as xs:double
 {
 let  $scores := sbgi:item-scores($meting, $instr),
     $functie := data($instr/schaal/@functie)

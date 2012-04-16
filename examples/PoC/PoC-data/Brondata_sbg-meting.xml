@@ -1631,4 +1631,12 @@
   <xtotaalscoreMeting>13</xtotaalscoreMeting>
 </Row>
 
+<Row>
+  <meting-id>70107</meting-id>
+  <koppelnummer>14375</koppelnummer>
+  <gebruiktMeetinstrument>BSI</gebruiktMeetinstrument>
+  <datum>2011-01-06</datum>
+  <aardMeting>geen-items</aardMeting>
+</Row>
+
 </Rows>

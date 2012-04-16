@@ -1,4 +1,6 @@
 module namespace sbgbm = "http://sbg-synq.nl/sbg-benchmark";
+
+import module namespace sbgza="http://sbg-synq.nl/zorgaanbieder"at 'zorgaanbieder.xquery';
 declare namespace sbggz = "http://sbggz.nl/schema/import/5.0.1"; (:TODO breng batchgegevens over naar za: (schema/sbg-synq-config) of behandel als atomic? :)
 
 declare namespace sbgm="http://sbg-synq.nl/sbg-metingen";
@@ -7,7 +9,7 @@ declare namespace sbgem = "http://sbg-synq.nl/epd-meting";
 (: uses-relatie eigenlijk niet gewenst ? 
 declare namespace sbgza="http://sbg-synq.nl/zorgaanbieder";
 :)
-import module namespace sbgza="http://sbg-synq.nl/zorgaanbieder"at '../sbg-synq/zorgaanbieder.xquery';
+
 
 declare default element namespace "http://sbggz.nl/schema/import/5.0.1";
 

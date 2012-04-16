@@ -6,7 +6,11 @@ declare namespace  sbggz = "http://sbggz.nl/schema/import/5.0.1";
 (: dit zijn de attributen die meteen in de doel-ns gezet worden :)
 declare variable $sbgem:dbc-atts := ('DBCTrajectnummer','DBCPrestatieCode','startdatumDBC','einddatumDBC','datumEersteSessie','datumLaatsteSessie','redenEindeDBC','redenNonResponseVoormeting','redenNonResponseNameting');
 declare variable $sbgem:patient-atts := ('koppelnummer','geboorteJaar', 'geboorteMaand', 'geslacht', 'postcodegebied', 'geboortelandpatient', 'geboortelandVader', 'geboortelandMoeder', 'leefsituatie', 'opleidingsniveau');
-declare variable $sbgem:zorgtraject-atts := ('zorgtrajectnummer', 'locatiecode', 'primaireDiagnoseCode', 'GAFscore'); (: , zorgdomeinCode ; reservecodes:)
+declare variable $sbgem:zorgtraject-atts := ('zorgtrajectnummer', 'locatiecode', 'primaireDiagnoseCode', 'GAFscore');
+ (: , zorgdomeinCode ; reservecodes:)
+declare variable $sbgem:behandelaar-atts := ( 'primairOfNeven', 'beroep', 'alias' );
+
+    
 
 (: neem de sub-elementen direct onder elt. als er text-content is, vertaal die dan naar een attribuut met de naam van het sub-element.
 bepaal namespace van attribuut op basis van param $def: als de naam van het sub-element voorkomt in $def, gebruik dan de doel ns, anders de module-ns
@@ -39,6 +43,22 @@ as attribute()*
            else ()
 };
 
+
+
+declare function sbgem:splits-atts-sbg($def as xs:string+, $nds as node()*) 
+as attribute()* 
+{
+    for $att in $nds
+    let $name := local-name($att),
+        $q-name := if ( exists(index-of( $def, $name ))) 
+                      then concat('sbggz:', $name )  
+                      else concat( 'sbgem:', $name )
+    return 
+        attribute { $q-name } 
+                  { data($att) }
+};
+
+
 (: eerste zorgdomein-selectie: 
   gebaseerd op zorgcircuit, diagnose en locatie zoals aangegeven in sbg-zorgdomeinen.xml :)
 (: primaireDiagnoseCode, cl-zorgcircuit, locatiecode zijn verplichte elementen van dbc :)
@@ -56,20 +76,51 @@ where matches($circuit, $rx-circuit) and matches( $locatie, $rx-locatie ) and ma
 return $zd
 };
 
-(: selecteer juist domein; het eerste zorgdomein dat in aanmerking komt; gebruik prioriteit aan de data-kant om selectie te sturen 'XX' is max code:)
-declare function sbgem:selecteer-domein ($dbc as node(), $domeinen as element(zorgdomein)*) 
+(: let $match-diagnose := ($diagnose, "x")[1] ,
+    $match-circuit := ($circuit, "x")[1] ,
+    $match-locatie := ($locatie, "x")[1] 
+:)
+
+declare function sbgem:zoek-domein-str($diagnose as xs:string?, $circuit as xs:string?, $locatie as xs:string?,
+$domeinen as element(zorgdomein)*) 
+as element(zorgdomein)* 
+{
+for $zd in $domeinen
+let $rx-circuit := ($zd/koppel-dbc/@zorgcircuit, "")[1],
+    $rx-diagnose := ($zd/koppel-dbc/@diagnose, "")[1],
+    $rx-locatie := ($zd/koppel-dbc/@locatie, "")[1],
+    $match := matches($circuit, $rx-circuit) and matches( $locatie, $rx-locatie ) and matches($diagnose, $rx-diagnose)
+where $match
+return <zorgdomein zorgdomeinCode='{$zd/@zorgdomeinCode}'>{$zd/koppel-dbc}</zorgdomein>
+};
+
+(: hier komt altijd een domein uit; het eerste dat in aanmerking komt of zorgdomein XX :)
+declare function sbgem:bepaal-domein ($diagnose as xs:string?, $circuit as xs:string?, $locatie as xs:string?,
+$domeinen as element(zorgdomein)*) 
 as element(zorgdomein)
 {
-let $zds := for $domein in sbgem:zoek-domein($dbc, $domeinen) 
+let $zds := for $domein in sbgem:zoek-domein-str($diagnose, $circuit, $locatie, $domeinen) 
                            union <zorgdomein zorgdomeinCode='XX'><naam>onbekend</naam></zorgdomein>
             order by $domein/koppel-dbc/@priority empty greatest, $domein/@zorgdomeinCode
             return $domein
  return $zds[1]
 };
 
+
+(: het eerste zorgdomein dat in aanmerking komt; gebruik prioriteit aan de data-kant om selectie te sturen 'XX' is max code :)
+declare function sbgem:selecteer-domein ($dbc as node(), $domeinen as element(zorgdomein)*) 
+as element(zorgdomein)
+{
+let $zds := for $domein in sbgem:zoek-domein($dbc, $domeinen) 
+                           union <zorgdomein zorgdomeinCode='XXXXXXX'><naam>onbekend</naam></zorgdomein>
+            order by $domein/koppel-dbc/@priority empty greatest, $domein/@zorgdomeinCode
+            return $domein
+ return $zds[1]
+};
+
 (: neem de metingen van client over en annoteer de zorg/meetdomeinen :)
-(: todo: dit kan toch naar sbgm: ? :)
-(: todo: verwerking attributen is slordig ? :)
+(: todo: dit kan toch naar sbgm: ? nee: dan moet sbgm ineens kennis hebben van zorgdomeinen :)
+(: verwerking meting attributen gebeurt wel in sbgm :)
 declare function sbgem:annoteer-metingen( $metingen as element(sbgm:Meting)*, $domeinen as element(zorgdomein)* )
 as element(sbgem:Meting)*
 {
@@ -86,28 +137,24 @@ return element { 'sbgem:Meting' }
 };
 
 (: forceer uniek :)
-declare function sbgem:maak-nevendiagnose( $diagn as node()* ) 
+declare function sbgem:maak-nevendiagnose( $diagn as element(nevendiagnose)* ) 
 as element(sbggz:NevendiagnoseCode)*
 {
-for $diag in distinct-values($diagn/nevendiagnoseCode/text())
+for $diag in distinct-values($diagn/@nevendiagnoseCode)
 return 
     element { 'sbggz:NevendiagnoseCode' }
-            {    attribute { 'nevendiagnoseCode' } {$diag}
+            {    attribute { 'sbggz:nevendiagnoseCode' } { $diag }
             }
 };
 
-declare function sbgem:maak-behandelaar( $behs as node()*  ) 
+declare function sbgem:maak-behandelaar( $behs as element(behandelaar)*  ) 
 as element(sbggz:Behandelaar)* {
-for $beh in $behs[primairOfNeven/text()][beroep/text()][alias/text()]
-let $pon := $beh/primairOfNeven,
-    $beroep := $beh/beroep,
-    $alias := $beh/alias
-return 
-    element { 'sbggz:Behandelaar' } 
-            {   attribute { 'primairOfNeven' } {$pon} 
-                union attribute { 'beroep' }  {$beroep}
-                union attribute { 'alias' }   {$alias}
-            }
+for $beh in $behs
+let $geldig := data($beh/@primairOfNeven) ne '' and data($beh/@beroep) ne '' and data($beh/@alias) ne '',
+ $geldig-att := if ( $geldig ) then () else attribute { 'ongeldig' } { true() }
+ return element { 'sbggz:Behandelaar' } {
+                sbgem:splits-atts-sbg($sbgem:behandelaar-atts, $beh/@*) 
+                }
 };
 
        
@@ -124,40 +171,65 @@ return
     element { 'sbgem:Zorgtraject' } 
             { sbgem:vertaal-elt-naar-filter-sbg( $sbgem:zorgtraject-atts, $zt-dbc )
                union attribute { 'sbgem:zorgdomeinCode' } { $zorgdomein/@zorgdomeinCode }
+               
                 ,
             sbgem:maak-behandelaar($beh),
             sbgem:maak-nevendiagnose($diag),
             for $dbc in $zt-dbcs
             order by $dbc/startDatum
             return 
-               element { 'sbgem:DBCTraject' } 
+               element { 'sbgem:xDBCTraject' } 
                             { sbgem:vertaal-elt-naar-att-sbg( $sbgem:dbc-atts, $dbc) 
                   }
       }
 };
 
+(: neem de gegevens over van de laatste dbc voor het zdomein (hetzelfde gebeurt eerder voor diagnosecode, locatie) :)
+declare function sbgem:annoteer-zorgtraject( $zt as element(zorgtraject), $domeinen as element(zorgdomein)* )
+as element( sbgem:Zorgtraject )
+{
+let $zt-dbcs := $zt/dbctraject,
+    $zt-dbc := $zt/dbctraject[position() eq last()],
+    $beh := $zt/behandelaar,
+    $diag := $zt/nevendiagnose,
+    $zorgdomein := sbgem:bepaal-domein( $zt/@primaireDiagnoseCode, $zt-dbc/@cl-zorgcircuit, $zt/@locatiecode, $domeinen )
+return 
+    element { 'sbgem:Zorgtraject' } 
+            { sbgem:splits-atts-sbg( $sbgem:zorgtraject-atts, $zt/@* )
+               union attribute { 'sbgem:zorgdomeinCode' } { $zorgdomein/@zorgdomeinCode }
+                ,
+              
+            sbgem:maak-behandelaar($beh),
+            sbgem:maak-nevendiagnose($diag),
+            for $dbc in $zt-dbcs
+            order by $dbc/@startDatum
+            return 
+               element { 'sbgem:DBCTraject' } 
+                            { sbgem:splits-atts-sbg( $sbgem:dbc-atts, $dbc/@* ) 
+                  }
+      }
+};
 
-(: hier komt de onbewerkte epd-data binnen. de Metingen zijn al aangemaakt.
- Patient wordt hier voor het eerst opgebouwd; attributen worden in de juiste ns gezet; alle Metingen worden per patient ingevoegd.
- koppeling aan nevendiagnose en behandelaar.
- NB dit formaat is geschikt voor proces-informatie
-:)
+declare function sbgem:verwerk-zorgtrajecten( $zts as element(zorgtraject)*, $domeinen as element(zorgdomein)* )
+as element( sbgem:Zorgtraject )*
+{
+for $zt in $zts
+return sbgem:annoteer-zorgtraject($zt,$domeinen)
+};
+
+
 declare function sbgem:maak-patient-meting( 
-    $dbcs as node()*, 
-    $behs as node()*, 
-    $diagn as node()*, 
-    $metingen as element(sbgm:Meting)*,
-    $domeinen as element(sbg-zorgdomeinen) ) 
+    $pats as element(patient)*, 
+    $metingen as element(metingen)*,
+    $domeinen as element(zorgdomein)* ) 
 as element(sbgem:Patient) *
 {
-for $client in distinct-values( $dbcs/koppelnummer/text() )
-let $client-dbcs := $dbcs[koppelnummer eq $client], 
-    $laatste-dbc := $client-dbcs[last()]
+for $pat in $pats
 return 
    element { 'sbgem:Patient' } 
            { 
-           sbgem:vertaal-elt-naar-filter-sbg( $sbgem:patient-atts, $laatste-dbc ),
-           <sbgem:metingen>{sbgem:annoteer-metingen($metingen[@sbgm:koppelnummer eq $client] ,$domeinen//zorgdomein)}</sbgem:metingen>,
-           sbgem:annoteer-zorgtrajecten($client-dbcs, $behs, $diagn, $domeinen//zorgdomein)
+           sbgem:splits-atts-sbg($sbgem:patient-atts, $pat/@* ),
+           <sbgem:metingen>{sbgem:annoteer-metingen($metingen[@koppelnummer eq $pat/@koppelnummer]/sbgm:Meting ,$domeinen)}</sbgem:metingen>,
+           sbgem:verwerk-zorgtrajecten($pat/zorgtraject, $domeinen)
        }
 };

@@ -24,6 +24,29 @@
   </Row>
   <Row>
     <zorgaanbiedercode>00022011</zorgaanbiedercode>
+    <koppelnummer>00000001</koppelnummer>
+    <pseudoBSN>123</pseudoBSN>
+    <geslacht>1</geslacht>
+    <postcodegebied>3000</postcodegebied>
+    <geboortelandPatient>NL</geboortelandPatient>
+    <geboortelandVader>NL</geboortelandVader>
+    <geboortelandMoeder>NL</geboortelandMoeder>
+    <leefsituatie>10</leefsituatie>
+    <opleidingsniveau>33</opleidingsniveau>
+    <zorgtrajectnummer>1</zorgtrajectnummer>
+    <locatiecode>Loc 1</locatiecode>
+    <primaireDiagnoseCode>as1_1.01.01</primaireDiagnoseCode>
+    <GAFscore>50</GAFscore>
+    <DBCTrajectnummer>2</DBCTrajectnummer>
+    <DBCPrestatieCode>204000015004</DBCPrestatieCode>
+    <startdatumDBC>2011-05-16</startdatumDBC>
+    <datumEersteSessie>2011-05-21</datumEersteSessie>
+    <geboorteJaar>1970</geboorteJaar>
+    <redenNonResponseNameting>02</redenNonResponseNameting>
+    <cl-zorgcircuit>2</cl-zorgcircuit>
+  </Row>
+  <Row>
+    <zorgaanbiedercode>00022011</zorgaanbiedercode>
     <koppelnummer>00000002</koppelnummer>
     <pseudoBSN>123</pseudoBSN>
     <geslacht>1</geslacht>

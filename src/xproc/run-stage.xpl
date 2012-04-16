@@ -169,10 +169,25 @@
 	</p:xquery>
 	
 	
-	<p:store name="store-patient-meting">
+	<p:store name="store-patient-in-doc">
+		<p:with-option name="href" select="concat( $stage.dir,'/patient-in-doc.xml')" />
+		<p:input port="source">
+			<p:pipe step="maak-patient" port="result" />
+		</p:input>
+	</p:store>
+	
+		
+	<p:store name="store-metingen">
 		<p:with-option name="href" select="concat( $stage.dir,'/metingen.xml')" />
 		<p:input port="source">
 			<p:pipe step="maak-meting" port="result" />
+		</p:input>
+	</p:store>
+
+	<p:store name="store-patient-meting">
+		<p:with-option name="href" select="concat( $stage.dir,'/patient-meting.xml')" />
+		<p:input port="source">
+			<p:pipe step="patient-meting" port="result" />
 		</p:input>
 	</p:store>
 

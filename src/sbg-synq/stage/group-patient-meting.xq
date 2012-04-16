@@ -14,6 +14,6 @@ let $meting := $metingen[@koppelnummer eq $pat]
 order by $pat
 return <patient koppelnummer="{$pat}">{
     for $m in $meting
-    return element { 'meting' } { $m/@* } 
+    return element { 'meting' } { $m/@*[local-name() ne 'koppelnummer'] } 
 }</patient>
 }</meting-doc>

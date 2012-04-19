@@ -54,6 +54,7 @@ return if ( sbge:in-periode($m/@sbggz:datum, $peildatum, $meetperiode-voor, $mee
 
 (: overweeg om een leeg element te retourneren? :)
 (: neem de getypeerde metingen en verdeel ze in voor/na metingen :)
+(: NB er gaan sbgem:Metingen in en er komen sbggz:Metingen uit :)
 declare function sbge:kandidaat-metingen( 
 $metingen as element(sbgem:Meting)*,  
 $domein as element(zorgdomein), 
@@ -159,7 +160,7 @@ as xs:string
 let $zd-zt := data($zorgtraject/@sbgem:zorgdomeinCode),
     $sbg-metingen := $metingen[not(@sbgm:instrument-ongeldig)],
     $zds-meting := distinct-values( tokenize( string-join($sbg-metingen/@sbgem:zorgdomein, ' '), ' '))
-return if ( not($sbg-metingen) or index-of( $zds-meting, $zd-zt )  )  
+return if ( not($sbg-metingen) or exists(index-of( $zds-meting, $zd-zt )  ))  
 then $zorgtraject/@sbgem:zorgdomeinCode
 (: zds-meting kan nog steeds meer zorgdomeinen bevatten; neem de eerste :) 
 else  $zds-meting[1]

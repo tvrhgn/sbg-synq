@@ -9,28 +9,30 @@ declare variable $patient-atts := ('koppelnummer','geboorteJaar', 'geboorteMaand
 declare variable $zorgtraject-atts := ('zorgtrajectnummer', 'locatiecode', 'primaireDiagnoseCode', 'GAFscore', zorgdomeinCode);
 
 
-let $pats := .//patient
-let $behs := .//*[behandelaar]
-let $nevendiagnoses := .//*[nevendiagnose]
-let $metingen := .//*[meting]
+let $pats := .//patient[not(*)]
+let $behs := .//zorgtraject[behandelaar]
+let $nevendiagnoses := .//zorgtraject[nevendiagnose]
+let $metingen := .//patient[meting]
 
 let $koppelnrs := distinct-values( $pats/@koppelnummer )
 return <patient-doc>{
+
 for $nr in $koppelnrs
-let $pat := $pats[@koppelnummer eq $nr]
-(: selecteer de laatste voor de meest up to date gegevens ?  -1 ?? :)
-let $p := $pat[count($pat) - 1] 
-let $ztnrs := distinct-values( $pat/@zorgtrajectnummer )
+let $dbcs := $pats[@koppelnummer eq $nr]
+(: selecteer de laatste voor de meest up to date gegevens ?? :)
+let $pat := $dbcs[count($dbcs)] 
+let $ztnrs := distinct-values( $dbcs/@zorgtrajectnummer )
 let $meting := $metingen[@koppelnummer eq $nr]/meting
+
+
 return 
-  element { 'patient' } 
-  {  
-  $p/@*[exists(index-of( $patient-atts, local-name()))]   ,
-  $meting, 
-  for $nr in $ztnrs
-  let $zts := $pat[@zorgtrajectnummer eq $nr],
-    $beh := $behs[@zorgtrajectnummer eq $nr]/behandelaar,
-    $nevend := $nevendiagnoses[@zorgtrajectnummer eq $nr]/nevendiagnose
+  element { 'patient' } {  
+    $pat/@*[exists(index-of( $patient-atts, local-name()))]  ,
+  ($meting,
+  for $ztnr in $ztnrs
+  let $zts := $dbcs[@zorgtrajectnummer eq $ztnr],
+    $beh := $behs[@zorgtrajectnummer eq $ztnr]/behandelaar,
+    $nevend := $nevendiagnoses[@zorgtrajectnummer eq $ztnr]/nevendiagnose
     
   return 
     element { 'zorgtraject' }
@@ -45,5 +47,5 @@ return
       { $dbc/@*[not(exists(index-of( ($patient-atts, $zorgtraject-atts), local-name())))]  }
     )
     }
-  }
+  )}
 }</patient-doc>

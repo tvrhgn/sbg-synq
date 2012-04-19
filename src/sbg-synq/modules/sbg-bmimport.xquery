@@ -41,6 +41,15 @@ then
 else ()
 };
 
+declare function sbgbm:new-filter-sbg-elt( $elt as element()? )
+as element()*
+{
+element { local-name($elt) } { $elt/@sbggz:*, 
+    for $e in $elt/sbggz:*
+    return sbgbm:filter-sbg-elt($e)
+}
+};
+
 declare function sbgbm:filter-sbg-elts( $elts as element()* )
 as element()*
 {
@@ -74,12 +83,23 @@ return
      if ( $open or $was-toen-open ) 
      then 
         let $atts := $dbc/@*[local-name() ne 'einddatumDBC'][local-name() ne 'datumLaatsteSessie'],
-            $metingen := $dbc/*[xs:date(@datum) le $eind][@typemeting eq '1']
+            $metingen := $dbc/sbggz:Meting[xs:date(@sbggz:datum) le $eind][@sbggz:typemeting eq '1']
         return 
             element { 'DBCTraject' } { $atts, $metingen }
      else ()
  };
 
+declare function sbgbm:build-dbc( $dbc as element(DBCTraject) )
+as element (DBCTraject )
+{
+element { 'DBCTraject' } { $dbc/@sbggz:*,
+    for $m in $dbc/sbggz:Meting
+    return element { 'Meting' } { $m/@sbggz:*,
+        for $i in $m/sbggz:Item
+        return element { 'Item' } { $i/@sbggz:* }
+        }
+    }
+};
 
 (: bouw patient opnieuw op voeg alleen zorgtrajecten in met dbcs in periode en voeg alleen dbcs in periode in
 in het resultaat komen dus mogelijk patienten voor zonder zorgtraject; die zijn sbg-ongeldig
@@ -97,10 +117,9 @@ element
            then
               element { local-name($zt) } 
                       { sbgbm:filter-sbg-atts($zt/@*),
-                        sbgbm:filter-sbg-elts($zt/sbggz:NevendiagnoseCode), 
-                        sbgbm:filter-sbg-elts($zt/sbggz:Behandelaar), 
-                        for $dbc in $dbcs 
-                        return sbgbm:filter-sbg-elt( $dbc )
+                        ( sbgbm:filter-sbg-elts($zt/sbggz:NevendiagnoseCode), 
+                        sbgbm:filter-sbg-elts($zt/sbggz:Behandelaar),
+                        sbgbm:filter-sbg-elts($dbcs) )
                       }
            else ()
 }

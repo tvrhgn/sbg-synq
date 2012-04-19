@@ -23,7 +23,7 @@
 	
 	
 	<p:output port="result">
-		<p:pipe step="store-selectie" port="result" />
+		<p:pipe step="metingen" port="result" />
 	</p:output>
 
 
@@ -45,13 +45,13 @@
 	</p:xquery>
 
 
-		
+ 		
 	<p:store name="store-selectie">
 		<p:with-option name="href" select="concat( $stage.dir,'/sbgm-metingen.xml')" />
 		<p:input port="source">
 			<p:pipe step="metingen" port="result" />
 		</p:input>
 	</p:store>
-	
+<!---->
 
 </p:declare-step>

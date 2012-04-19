@@ -12,9 +12,10 @@
 		op meting voor item op koppelnummer voor
 		meting
 		- opbouwen meting-doc inclusief items
-		- opbouwen patient-doc inclusief metingen en zorgtraject
-		
-		NB in dit gedeelte worden de sbg-synq modules niet gebruikt; 
+		- opbouwen patient-doc
+		inclusief metingen en zorgtraject
+
+		NB in dit gedeelte worden de sbg-synq modules niet gebruikt;
 		het dient alleen om de data klaar te zetten in de default ns
 	</p:documentation>
 
@@ -44,6 +45,14 @@
 		<p:pipe step="maak-patient" port="result" />
 	</p:output>
 
+	<p:output port="metingen">
+		<p:pipe step="maak-meting" port="result" />
+	</p:output>
+
+	<p:output port="patient-meting">
+		<p:pipe step="patient-meting" port="result" />
+	</p:output>
+	
 
 	<p:declare-step type="px:elt-row-att" name="elt-row-att">
 		<p:input port="source">
@@ -167,29 +176,15 @@
 		</p:input>
 		<p:with-param name="-doc-" select="x-doc-x" />
 	</p:xquery>
-	
-	
-	<p:store name="store-patient-in-doc">
-		<p:with-option name="href" select="concat( $stage.dir,'/patient-in-doc.xml')" />
+
+<!--
+ 	<p:store name="store-selectie">
+		<p:with-option name="href"
+			select="concat( $stage.dir,'/store-selectie.xml')" />
 		<p:input port="source">
 			<p:pipe step="maak-patient" port="result" />
 		</p:input>
 	</p:store>
-	
-		
-	<p:store name="store-metingen">
-		<p:with-option name="href" select="concat( $stage.dir,'/metingen.xml')" />
-		<p:input port="source">
-			<p:pipe step="maak-meting" port="result" />
-		</p:input>
-	</p:store>
-
-	<p:store name="store-patient-meting">
-		<p:with-option name="href" select="concat( $stage.dir,'/patient-meting.xml')" />
-		<p:input port="source">
-			<p:pipe step="patient-meting" port="result" />
-		</p:input>
-	</p:store>
-
-
+  
+--> 
 </p:declare-step>

@@ -1,4 +1,6 @@
 import module namespace ramh = "http://sbg-ram.nl/html" at "ram-html.xquery";
+declare namespace sbgem="http://sbg-synq.nl/epd-meting";
+declare namespace sbggz = "http://sbggz.nl/schema/import/5.0.1";
 
 declare variable $result := .;
 
@@ -41,18 +43,18 @@ else if ( $name eq 'zorgdomein' ) then ramh:table-flatten($obj, ('naam', 'meetpe
 else if ( $obj/@* and $name eq 'value' )   then ramh:atts-table-label($obj)
 else if ( $name eq 'value' or $name eq 'def' )   then <div class="value">{data($obj)}</div>
 
-else if ( $name eq 'Meting' ) then if ( count($obj/preceding-sibling::*[local-name() eq 'Meting']) eq 0 )
-                                    then ramh:atts-table-rect(($obj, $obj/following-sibling::*[local-name() eq 'Meting']))
+else if ( $name eq 'Meting' or $name eq 'meting') then if ( count($obj/preceding-sibling::*[local-name() eq 'Meting' or local-name() eq 'meting']) eq 0 )
+                                    then ramh:atts-table-rect(($obj, $obj/following-sibling::*[local-name() eq 'Meting' or local-name() eq 'meting']))
                                     else ()
-else if ( $name eq 'Item' ) then if ( count($obj/preceding-sibling::*[local-name() eq 'Item']) eq 0 )
-                                    then ramh:atts-table-rect(($obj, $obj/following-sibling::*[local-name() eq 'Item']))
+else if ( $name eq 'Item' or $name eq 'item' ) then if ( count($obj/preceding-sibling::*[local-name() eq 'Item' or local-name() eq 'item']) eq 0 )
+                                    then ramh:atts-table-rect(($obj, $obj/following-sibling::*[local-name() eq 'Item' or local-name() eq 'item']))
                                     else ()                                    
 
 else if ( $name eq 'instrument' ) then ramh:elt-tree($obj)
                                     
-else if ( $name eq 'meetparen' ) then (ramh:atts-table-tree($obj), local:view-object($obj//Meting[1]))
+else if ( $name eq 'meetparen' ) then (ramh:atts-table-tree($obj), local:view-object($obj//sbggz:Meting[1]))
 else if ( $name eq 'row' ) then ramh:table-flatten( $obj, for $elt in $obj/* return local-name($elt))
-else if ( $name eq 'kandidaat-metingen' ) then (ramh:atts-table-tree($obj), local:view-object($obj/voor/Meting[1]), local:view-object($obj/na/Meting[1]))
+else if ( $name eq 'kandidaat-metingen' ) then (ramh:atts-table-tree($obj), local:view-object($obj/voor/sbggz:Meting[1]), local:view-object($obj/na/sbgem:Meting[1]))
 else for $o in $obj/* return local:view-object($o)
 }</div>
 }; 

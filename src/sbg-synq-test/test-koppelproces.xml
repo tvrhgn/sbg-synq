@@ -55,52 +55,54 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
 		    sbggz:datumEersteSessie="2011-03-10" sbggz:datumLaatsteSessie="2012-03-10"/>
 
 	<sbgem:DBCTraject sbggz:DBCTrajectnummer="duur4M" startdatumDBC="2011-03-10" einddatumDBC="2011-07-10"/>
-
     </epd>
 
     <rom>
 
       <!-- volledige set EPA duur DBC 12M -->
-      <Meting sbgm:meting-id="ROM meting 1" gebruiktMeetinstrument="CAN" datum="2010-06-14"/>
-      <Meting sbgm:meting-id="ROM meting 2" gebruiktMeetinstrument="CAN" datum="2010-06-15"/>
-      <Meting sbgm:meting-id="ROM meting 3" gebruiktMeetinstrument="CAN" datum="2010-06-16"/>
-      <Meting sbgm:meting-id="ROM meting 4" gebruiktMeetinstrument="CAN" datum="2011-03-15"/>
-      <Meting sbgm:meting-id="ROM meting 5" gebruiktMeetinstrument="CAN" datum="2011-03-16"/>
-      <Meting sbgm:meting-id="ROM meting 6" gebruiktMeetinstrument="CAN" datum="2011-03-17"/>
-      <Meting sbgm:meting-id="ROM meting 7" gebruiktMeetinstrument="CAN" datum="2011-06-15"/>
-      <Meting sbgm:meting-id="ROM meting 8" gebruiktMeetinstrument="CAN" datum="2011-06-16"/>
-      <Meting sbgm:meting-id="ROM meting 9" gebruiktMeetinstrument="CAN" datum="2011-06-17"/>
-      <Meting sbgm:meting-id="ROM meting 10" gebruiktMeetinstrument="CAN" datum="2011-06-15"/>
-      <Meting sbgm:meting-id="ROM meting 11" gebruiktMeetinstrument="CAN" datum="2011-06-16"/>
-      <Meting sbgm:meting-id="ROM meting 12" gebruiktMeetinstrument="CAN" datum="2011-06-17"/>
-      <Meting sbgm:meting-id="ROM meting 13" gebruiktMeetinstrument="CAN" datum="2012-03-15"/>
-      <Meting sbgm:meting-id="ROM meting 14" gebruiktMeetinstrument="CAN" datum="2012-03-16"/>
-      <Meting sbgm:meting-id="ROM meting 15" gebruiktMeetinstrument="CAN" datum="2012-03-17"/>
-      <Meting sbgm:meting-id="ROM meting 16" gebruiktMeetinstrument="CAN" datum="2012-06-15"/>
-      <Meting sbgm:meting-id="ROM meting 17" gebruiktMeetinstrument="CAN" datum="2012-06-16"/>
-      <Meting sbgm:meting-id="ROM meting 18" gebruiktMeetinstrument="CAN" datum="2012-06-17"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 1" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2010-06-14"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 2" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2010-06-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 3" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2010-06-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 4" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2011-03-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 5" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2011-03-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 6" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2011-03-17"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 7" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2011-06-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 8" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2011-06-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 9" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2011-06-17"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 10" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2011-06-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 11" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2011-06-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 12" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2011-06-17"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 13" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2012-03-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 14" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2012-03-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 15" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2012-03-17"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 16" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2012-06-15"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 17" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2012-06-16"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 18" sbggz:gebruiktMeetinstrument="CAN" sbggz:datum="2012-06-17"/>
 
       <!-- zorgdomein kort gerelateerd aan begindatum 2011-03-16 -->
-      <Meting sbgm:meting-id="ROM meting 19" gebruiktMeetinstrument="BSI" datum="	2010-12-09" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 20" gebruiktMeetinstrument="BSI" datum="	2010-12-10" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 21" gebruiktMeetinstrument="BSI" datum="	2010-12-11" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 22" gebruiktMeetinstrument="BSI" datum="	2011-03-09" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 23" gebruiktMeetinstrument="BSI" datum="	2011-03-10" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 24" gebruiktMeetinstrument="BSI" datum="	2011-03-11" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 25" gebruiktMeetinstrument="BSI" datum="	2011-06-09" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 26" gebruiktMeetinstrument="BSI" datum="	2011-06-10" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 27" gebruiktMeetinstrument="BSI" datum="	2011-06-11" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 19" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2010-12-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 20" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2010-12-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 21" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2010-12-11" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 22" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2011-03-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 23" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2011-03-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 24" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2011-03-11" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 25" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2011-06-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 26" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2011-06-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 27" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2011-06-11" sbgem:zorgdomein="02 21"/>
 
       <!-- zorgdomein kort gerelateerd aan DBC met begindatum 2011-03-16; gerelateerd aan einddatum bij duur 12M -->
-      <Meting sbgm:meting-id="ROM meting 28" gebruiktMeetinstrument="BSI" datum="	2011-12-09" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 29" gebruiktMeetinstrument="BSI" datum="	2011-12-10" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 30" gebruiktMeetinstrument="BSI" datum="	2011-12-11" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 31" gebruiktMeetinstrument="BSI" datum="	2012-03-09" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 32" gebruiktMeetinstrument="BSI" datum="	2012-03-10" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 33" gebruiktMeetinstrument="BSI" datum="	2012-03-11" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 34" gebruiktMeetinstrument="BSI" datum="	2012-06-09" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 35" gebruiktMeetinstrument="BSI" datum="	2012-06-10" sbgem:zorgdomein="02 21"/>
-      <Meting sbgm:meting-id="ROM meting 36" gebruiktMeetinstrument="BSI" datum="	2012-06-11" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 28" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2011-12-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 29" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2011-12-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 30" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2011-12-11" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 31" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2012-03-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 32" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2012-03-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 33" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2012-03-11" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 34" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2012-06-09" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 35" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2012-06-10" sbgem:zorgdomein="02 21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting 36" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2012-06-11" sbgem:zorgdomein="02 21"/>
+
+      <sbgem:Meting sbgm:meting-id="ROM meting zd01-1" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2012-06-11" sbgem:zorgdomein="21"/>
+      <sbgem:Meting sbgm:meting-id="ROM meting zd01-2" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2012-06-11" sbgem:zorgdomein="21"/>
 
 
     </rom>
@@ -124,7 +126,7 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <description>geen conflict: neem zorgdomein over uit EPD</description>
       <setup>
 	<sbgem:Zorgtraject sbgem:zorgdomeinCode="02"/>
-	<Meting ref="true" meting-id="ROM meting 28"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 28"/>
       </setup>
       <expected>
 	<value>02</value>
@@ -135,7 +137,7 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <description>geen conflict: neem zorgdomein over uit EPD II</description>
       <setup>
 	<sbgem:Zorgtraject sbgem:zorgdomeinCode="21"/>
-	<Meting ref="true" meting-id="ROM meting 28"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 28"/>
       </setup>
       <expected>
 	<value>21</value>
@@ -146,9 +148,9 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <description>wel conflict: neem waarde over uit meting</description>
       <setup>
 	<sbgem:Zorgtraject sbgem:zorgdomeinCode="01"/>
-	<Meting ref="true" meting-id="ROM meting 28"/>
-	<Meting ref="true" meting-id="ROM meting 29"/>
-	<Meting ref="true" meting-id="ROM meting 30"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 28"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 29"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 30"/>
       </setup>
       <expected>
 	<value>02</value>
@@ -159,12 +161,12 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <description>wel conflict: neem zorgdomein over dat het vaakst voorkomt in metingen</description>
       <setup>
 	<sbgem:Zorgtraject sbgem:zorgdomeinCode="01"/>
-	<Meting ref="true" meting-id="ROM meting 28"/>
-	<Meting ref="true" meting-id="ROM meting 29"/>
-	<Meting ref="true" meting-id="ROM meting 30"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 29"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting zd01-1"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting zd01-2"/>
       </setup>
       <expected>
-	<value>x02</value>
+	<value>21</value>
       </expected>
     </test>
 
@@ -183,30 +185,30 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="1"/>
 	<zorgdomein ref="true" zorgdomeinCode="01"/>
-	<Meting ref="true" meting-id="ROM meting 1"/>
-	<Meting ref="true" meting-id="ROM meting 2"/>
-	<Meting ref="true" meting-id="ROM meting 3"/>
-	<Meting ref="true" meting-id="ROM meting 4"/>
-	<Meting ref="true" meting-id="ROM meting 5"/>
-	<Meting ref="true" meting-id="ROM meting 6"/>
-	<Meting ref="true" meting-id="ROM meting 7"/>
-	<Meting ref="true" meting-id="ROM meting 8"/>
-	<Meting ref="true" meting-id="ROM meting 9"/>
-	<Meting ref="true" meting-id="ROM meting 10"/>
-	<Meting ref="true" meting-id="ROM meting 11"/>
-	<Meting ref="true" meting-id="ROM meting 12"/>
-	<Meting ref="true" meting-id="ROM meting 13"/>
-	<Meting ref="true" meting-id="ROM meting 14"/>
-	<Meting ref="true" meting-id="ROM meting 15"/>
-	<Meting ref="true" meting-id="ROM meting 16"/>
-	<Meting ref="true" meting-id="ROM meting 17"/>
-	<Meting ref="true" meting-id="ROM meting 18"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 1"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 2"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 3"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 4"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 5"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 6"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 7"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 8"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 9"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 10"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 11"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 12"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 13"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 14"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 15"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 16"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 17"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 18"/>
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar>
-	    <Meting sbgm:meting-id="ROM meting 5" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 14" typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 5" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 14" sbggz:typemeting="2"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -220,14 +222,14 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="1"/>
 	<zorgdomein ref="true" zorgdomeinCode="01"/>
-	<Meting ref="true" meting-id="ROM meting 1"/>
-	<Meting ref="true" meting-id="ROM meting 12"/>
-	<Meting ref="true" meting-id="ROM meting 13"/>
-	<Meting ref="true" meting-id="ROM meting 14"/>
-	<Meting ref="true" meting-id="ROM meting 15"/>
-	<Meting ref="true" meting-id="ROM meting 16"/>
-	<Meting ref="true" meting-id="ROM meting 17"/>
-	<Meting ref="true" meting-id="ROM meting 18"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 1"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 12"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 13"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 14"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 15"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 16"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 17"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 18"/>
       </setup>
       <expected>
 	<meetparen>
@@ -244,14 +246,14 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="1"/>
 	<zorgdomein ref="true" zorgdomeinCode="01"/>
-	<Meting ref="true" meting-id="ROM meting 4"/>
-	<Meting ref="true" meting-id="ROM meting 8"/>
-	<Meting ref="true" meting-id="ROM meting 12"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 4"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 8"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 12"/>
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar>
-	    <Meting sbgm:meting-id="ROM meting 4" typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 4" sbggz:typemeting="1"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -265,18 +267,18 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="1"/>
 	<zorgdomein ref="true" zorgdomeinCode="01"/>
-	<Meting ref="true" meting-id="ROM meting 3"/>
-	<Meting ref="true" meting-id="ROM meting 13"/>
-	<Meting ref="true" meting-id="ROM meting 14"/>
-	<Meting ref="true" meting-id="ROM meting 15"/>
-	<Meting ref="true" meting-id="ROM meting 16"/>
-	<Meting ref="true" meting-id="ROM meting 17"/>
-	<Meting ref="true" meting-id="ROM meting 18"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 3"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 13"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 14"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 15"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 16"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 17"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 18"/>
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar>
-	    <Meting sbgm:meting-id="ROM meting 3" typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 3" sbggz:typemeting="1"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -290,18 +292,18 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="1"/>
 	<zorgdomein ref="true" zorgdomeinCode="01"/>
-	<Meting ref="true" meting-id="ROM meting 3"/>
-	<Meting ref="true" meting-id="ROM meting 12"/>
-	<Meting ref="true" meting-id="ROM meting 13"/>
-	<Meting ref="true" meting-id="ROM meting 14"/>
-	<Meting ref="true" meting-id="ROM meting 15"/>
-	<Meting ref="true" meting-id="ROM meting 16"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 3"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 12"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 13"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 14"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 15"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 16"/>
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar>
-	    <Meting sbgm:meting-id="ROM meting 3" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 12" typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 3" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 12" sbggz:typemeting="2"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -314,15 +316,15 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="1"/>
 	<zorgdomein ref="true" zorgdomeinCode="01"/>
-	<Meting ref="true" meting-id="ROM meting 7"/>
-	<Meting ref="true" meting-id="ROM meting 13"/>
-	<Meting ref="true" meting-id="ROM meting 16"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 7"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 13"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 16"/>
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar>
-	    <Meting sbgm:meting-id="ROM meting 7" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 13" typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 7" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 13" sbggz:typemeting="2"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -335,15 +337,15 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="1"/>
 	<zorgdomein ref="true" zorgdomeinCode="01"/>
-	<Meting ref="true" meting-id="ROM meting 7"/>
-	<Meting ref="true" meting-id="ROM meting 12"/>
-	<Meting ref="true" meting-id="ROM meting 16"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 7"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 12"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 16"/>
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar>
-	    <Meting sbgm:meting-id="ROM meting 7" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 16" typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 7" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 16" sbggz:typemeting="2"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -357,30 +359,30 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="2"/>
 	<zorgdomein ref="true" zorgdomeinCode="02"/>
-	<Meting ref="true" meting-id="ROM meting 19"/>
-	<Meting ref="true" meting-id="ROM meting 20"/>
-	<Meting ref="true" meting-id="ROM meting 21"/>
-	<Meting ref="true" meting-id="ROM meting 22"/>
-	<Meting ref="true" meting-id="ROM meting 23"/>
-	<Meting ref="true" meting-id="ROM meting 24"/>
-	<Meting ref="true" meting-id="ROM meting 25"/>
-	<Meting ref="true" meting-id="ROM meting 26"/>
-	<Meting ref="true" meting-id="ROM meting 27"/>
-	<Meting ref="true" meting-id="ROM meting 28"/>
-	<Meting ref="true" meting-id="ROM meting 29"/>
-	<Meting ref="true" meting-id="ROM meting 30"/>
-	<Meting ref="true" meting-id="ROM meting 31"/>
-	<Meting ref="true" meting-id="ROM meting 32"/>
-	<Meting ref="true" meting-id="ROM meting 33"/>
-	<Meting ref="true" meting-id="ROM meting 34"/>
-	<Meting ref="true" meting-id="ROM meting 35"/>
-	<Meting ref="true" meting-id="ROM meting 36"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 19"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 20"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 21"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 22"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 23"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 24"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 25"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 26"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 27"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 28"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 29"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 30"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 31"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 32"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 33"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 34"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 35"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 36"/>
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar>
-	    <Meting sbgm:meting-id="ROM meting 23" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 32" typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 23" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 32" sbggz:typemeting="2"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -393,30 +395,30 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="3"/>
 	<zorgdomein ref="true" zorgdomeinCode="02"/>
-	<Meting ref="true" meting-id="ROM meting 19"/>
-	<Meting ref="true" meting-id="ROM meting 20"/>
-	<Meting ref="true" meting-id="ROM meting 21"/>
-	<Meting ref="true" meting-id="ROM meting 22"/>
-	<Meting ref="true" meting-id="ROM meting 23"/>
-	<Meting ref="true" meting-id="ROM meting 24"/>
-	<Meting ref="true" meting-id="ROM meting 25"/>
-	<Meting ref="true" meting-id="ROM meting 26"/>
-	<Meting ref="true" meting-id="ROM meting 27"/>
-	<Meting ref="true" meting-id="ROM meting 28"/>
-	<Meting ref="true" meting-id="ROM meting 29"/>
-	<Meting ref="true" meting-id="ROM meting 30"/>
-	<Meting ref="true" meting-id="ROM meting 31"/>
-	<Meting ref="true" meting-id="ROM meting 32"/>
-	<Meting ref="true" meting-id="ROM meting 33"/>
-	<Meting ref="true" meting-id="ROM meting 34"/>
-	<Meting ref="true" meting-id="ROM meting 35"/>
-	<Meting ref="true" meting-id="ROM meting 36"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 19"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 20"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 21"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 22"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 23"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 24"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 25"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 26"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 27"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 28"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 29"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 30"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 31"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 32"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 33"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 34"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 35"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 36"/>
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar>
-	    <Meting sbgm:meting-id="ROM meting 23" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 32" typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 23" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 32" sbggz:typemeting="2"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -430,22 +432,22 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="3"/>
 	<zorgdomein ref="true" zorgdomeinCode="02"/>
-	<Meting ref="true" meting-id="ROM meting 19"/>
-	<Meting ref="true" meting-id="ROM meting 27"/>
-	<Meting ref="true" meting-id="ROM meting 28"/>
-	<Meting ref="true" meting-id="ROM meting 29"/>
-	<Meting ref="true" meting-id="ROM meting 30"/>
-	<Meting ref="true" meting-id="ROM meting 31"/>
-	<Meting ref="true" meting-id="ROM meting 32"/>
-	<Meting ref="true" meting-id="ROM meting 33"/>
-	<Meting ref="true" meting-id="ROM meting 34"/>
-	<Meting ref="true" meting-id="ROM meting 35"/>
-	<Meting ref="true" meting-id="ROM meting 36"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 19"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 27"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 28"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 29"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 30"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 31"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 32"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 33"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 34"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 35"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 36"/>
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar alleen-na="true">
-	    <Meting ref="true" meting-id="ROM meting 32"/>
+	    <sbggz:Meting ref="true" sbgm:meting-id="ROM meting 32"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -459,13 +461,13 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="3"/>
 	<zorgdomein ref="true" zorgdomeinCode="02"/>
-	<Meting ref="true" meting-id="ROM meting 21"/>
-	<Meting ref="true" meting-id="ROM meting 25"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 21"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 25"/>
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar>
-	    <Meting sbgm:meting-id="ROM meting 21" typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 21" sbggz:typemeting="1"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -478,15 +480,15 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="duur4M"/>
 	<zorgdomein ref="true" zorgdomeinCode="02"/>
-	<Meting ref="true" meting-id="ROM meting 25"/>
-	<Meting ref="true" meting-id="ROM meting 26"/>
-	<Meting ref="true" meting-id="ROM meting 27"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 25"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 26"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 27"/>
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar>
-	    <Meting sbgm:meting-id="ROM meting 25" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 27" typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 25" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 27" sbggz:typemeting="2"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -499,18 +501,18 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="3"/>
 	<zorgdomein ref="true" zorgdomeinCode="02"/>
-	<Meting ref="true" meting-id="ROM meting 31"/>
-	<Meting ref="true" meting-id="ROM meting 32"/>
-	<Meting ref="true" meting-id="ROM meting 33"/>
-	<Meting ref="true" meting-id="ROM meting 34"/>
-	<Meting ref="true" meting-id="ROM meting 35"/>
-	<Meting ref="true" meting-id="ROM meting 36"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 31"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 32"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 33"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 34"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 35"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 36"/>
 
       </setup>
       <expected>
 	<meetparen>
 	  <meetpaar alleen-na="true">
-	    <Meting sbgm:meting-id="ROM meting 32" typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 32" sbggz:typemeting="2"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -521,26 +523,85 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
 
     <test name="testscenario alleen voormeting" code="13">
       <description>
-	 DBC die pas open is; negeer sessiedatum
+	 DBC die pas open is; negeer laatste sessiedatum
       </description>
       <setup>
     <sbgem:DBCTraject sbgem:koppelnummer="10106998" sbgem:zorgtrajectnummer="60014" sbggz:DBCTrajectnummer="10106998600141" sbggz:startdatumDBC="2012-01-01" sbgem:cl-zorgcircuit="4" sbggz:datumEersteSessie="2012-01-30" sbggz:datumLaatsteSessie="2012-02-09" sbgem:geslacht="1" sbgem:geboorteJaar="1998" sbgem:geboorteMaand="02" sbgem:opleidingsniveau="99" sbgem:leefsituatie="99" sbgem:postcodegebied="5266" sbgem:primaireDiagnoseCode="as1_6.01.02.01" sbgem:locatiecode="1151703"></sbgem:DBCTraject>
 
 	<zorgdomein ref="true" zorgdomeinCode="02"/>
 
-    <Meting aardMeting="" gebruiktMeetinstrument="SPsy-prob" sbgm:meting-id="102005" totaalscoreMeting="19" sbgm:geen-respondent="true" datum="2012-01-06" sbgm:koppelnummer="10106998" sbgem:meetdomein="Klachten en problemen" sbgem:zorgdomein="04"></Meting>
-    <Meting datum="2012-01-06" gebruiktMeetinstrument="NOSIK" sbgm:koppelnummer="10106998" sbgm:geen-respondent="true" aardMeting="" sbgm:meting-id="102006" totaalscoreMeting="68" sbgem:meetdomein="Ouderlijke stress" sbgem:zorgdomein="04"></Meting>
-    <Meting aardMeting="" gebruiktMeetinstrument="NOSIK" totaalscoreMeting="67" sbgm:koppelnummer="10106998" datum="2012-01-16" sbgm:meting-id="102007" sbgm:geen-respondent="true" sbgem:meetdomein="Ouderlijke stress" sbgem:zorgdomein="04"></Meting>
-    <Meting aardMeting="" sbgm:meting-id="102008" datum="2012-01-17" gebruiktMeetinstrument="SPsy-prob" totaalscoreMeting="8" sbgm:koppelnummer="10106998" sbgm:geen-respondent="true" sbgem:meetdomein="Klachten en problemen" sbgem:zorgdomein="04"></Meting>
-    <Meting sbgm:geen-respondent="true" aardMeting="3" totaalscoreMeting="14" gebruiktMeetinstrument="HoNOSCA" sbgm:koppelnummer="10106998" datum="2012-01-19" sbgm:meting-id="102053" sbgem:meetdomein="Functioneren" sbgem:zorgdomein="04"></Meting>
+    <sbgem:Meting aardMeting="" sbggz:gebruiktMeetinstrument="SPsy-prob" sbgm:meting-id="102005" totaalscoreMeting="19" sbgm:geen-respondent="true" sbggz:datum="2012-01-06" sbgm:koppelnummer="10106998" sbgem:meetdomein="Klachten en problemen" sbgem:zorgdomein="04"></sbgem:Meting>
+    <sbgem:Meting sbggz:datum="2012-01-06" sbggz:gebruiktMeetinstrument="NOSIK" sbgm:koppelnummer="10106998" sbgm:geen-respondent="true" aardMeting="" sbgm:meting-id="102006" totaalscoreMeting="68" sbgem:meetdomein="Ouderlijke stress" sbgem:zorgdomein="04"></sbgem:Meting>
+    <sbgem:Meting aardMeting="" sbggz:gebruiktMeetinstrument="NOSIK" totaalscoreMeting="67" sbgm:koppelnummer="10106998" sbggz:datum="2012-01-16" sbgm:meting-id="102007" sbgm:geen-respondent="true" sbgem:meetdomein="Ouderlijke stress" sbgem:zorgdomein="04"></sbgem:Meting>
+    <sbgem:Meting aardMeting="" sbgm:meting-id="102008" sbggz:datum="2012-01-17" sbggz:gebruiktMeetinstrument="SPsy-prob" totaalscoreMeting="8" sbgm:koppelnummer="10106998" sbgm:geen-respondent="true" sbgem:meetdomein="Klachten en problemen" sbgem:zorgdomein="04"></sbgem:Meting>
+    <sbgem:Meting sbgm:geen-respondent="true" aardMeting="3" totaalscoreMeting="14" sbggz:gebruiktMeetinstrument="HoNOSCA" sbgm:koppelnummer="10106998" sbggz:datum="2012-01-19" sbgm:meting-id="102053" sbgem:meetdomein="Functioneren" sbgem:zorgdomein="04"></sbgem:Meting>
 
 
 
       </setup>
       <expected>
 	<meetparen>
-	  <meetpaar alleen-na="true">
-	    <Meting sbgm:meting-id="ROM meting 32" typemeting="2"/>
+	  <meetpaar alleen-voor="true">
+	    <sbggz:Meting sbgm:meting-id="102053" sbggz:typemeting="1"/>
+	  </meetpaar>
+	</meetparen>
+     </expected>
+    </test>
+
+
+
+    <test name="nameting in DBC 1" code="14">
+      <description>
+	 dubbelrol voor 1 meting
+      </description>
+      <setup>
+
+    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503841" sbggz:startdatumDBC="2010-09-29" sbggz:einddatumDBC="2011-09-28" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2010-10-01" sbggz:datumLaatsteSessie="2011-09-21" sbggz:redenEindeDBC="4" sbggz:DBCPrestatieCode="101011053146"/>
+<!--    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503842" sbggz:startdatumDBC="2011-09-29" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2011-10-06" sbggz:datumLaatsteSessie="2012-03-26"/>
+-->
+	<zorgdomein ref="true" zorgdomeinCode="02"/>
+
+    <sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbgm:instrument-respondent="true" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbggz:typeRespondent="01" sbgem:meetdomein="Klachten en symptomen" sbgem:zorgdomein="02 21"/>
+
+    <sbgem:Meting sbggz:typeRespondent="03" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbgm:meting-id="82443" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
+    <sbgem:Meting sbggz:totaalscoreMeting="12" sbggz:gebruiktMeetinstrument="OQ45-sd" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbgm:meting-id="82424" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
+
+
+
+      </setup>
+      <expected>
+	<meetparen>
+	  <meetpaar alleen-voor="true">
+	    <sbggz:Meting sbgm:meting-id="102053" sbggz:typemeting="1"/>
+	  </meetpaar>
+	</meetparen>
+     </expected>
+    </test>
+
+
+    <test name="voormeting in DBC 2" code="14">
+      <description>
+	 dubbelrol voor 1 meting
+      </description>
+      <setup>
+
+
+    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503842" sbggz:startdatumDBC="2011-09-29" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2011-10-06" sbggz:datumLaatsteSessie="2012-03-26"/>
+
+	<zorgdomein ref="true" zorgdomeinCode="02"/>
+
+    <sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbgm:instrument-respondent="true" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbggz:typeRespondent="01" sbgem:meetdomein="Klachten en symptomen" sbgem:zorgdomein="02 21"/>
+
+    <sbgem:Meting sbggz:typeRespondent="03" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbgm:meting-id="82443" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
+    <sbgem:Meting sbggz:totaalscoreMeting="12" sbggz:gebruiktMeetinstrument="OQ45-sd" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbgm:meting-id="82424" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
+
+
+
+      </setup>
+      <expected>
+	<meetparen>
+	  <meetpaar alleen-voor="true">
+	    <sbggz:Meting sbgm:meting-id="102053" sbggz:typemeting="1"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -561,47 +622,47 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="1"/>
 	<zorgdomein ref="true" zorgdomeinCode="01"/>
-	<Meting ref="true" meting-id="ROM meting 1"/>
-	<Meting ref="true" meting-id="ROM meting 2"/>
-	<Meting ref="true" meting-id="ROM meting 3"/>
-	<Meting ref="true" meting-id="ROM meting 4"/>
-	<Meting ref="true" meting-id="ROM meting 5"/>
-	<Meting ref="true" meting-id="ROM meting 6"/>
-	<Meting ref="true" meting-id="ROM meting 7"/>
-	<Meting ref="true" meting-id="ROM meting 8"/>
-	<Meting ref="true" meting-id="ROM meting 9"/>
-	<Meting ref="true" meting-id="ROM meting 10"/>
-	<Meting ref="true" meting-id="ROM meting 11"/>
-	<Meting ref="true" meting-id="ROM meting 12"/>
-	<Meting ref="true" meting-id="ROM meting 13"/>
-	<Meting ref="true" meting-id="ROM meting 14"/>
-	<Meting ref="true" meting-id="ROM meting 15"/>
-	<Meting ref="true" meting-id="ROM meting 16"/>
-	<Meting ref="true" meting-id="ROM meting 17"/>
-	<Meting ref="true" meting-id="ROM meting 18"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 1"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 2"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 3"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 4"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 5"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 6"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 7"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 8"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 9"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 10"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 11"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 12"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 13"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 14"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 15"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 16"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 17"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 18"/>
       </setup>
       <expected>
 	<kandidaat-metingen>
 	  <voor>
-	    <Meting sbgm:meting-id="ROM meting 5" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 4" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 6" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 7" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 10" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 8" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 11" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 3" typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 5" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 4" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 6" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 7" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 10" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 8" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 11" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 3" sbggz:typemeting="1"/>
 	  </voor>
 	  <na>
-	    <Meting sbgm:meting-id="ROM meting 14" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 13" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 15" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 16" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 17" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 9" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 12" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 8" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 11" typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 14" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 13" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 15" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 16" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 17" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 9" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 12" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 8" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 11" sbggz:typemeting="2"/>
 	  </na>
 	</kandidaat-metingen>
       </expected>
@@ -614,44 +675,44 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="2"/>
 	<zorgdomein ref="true" zorgdomeinCode="02"/>
-	<Meting ref="true" meting-id="ROM meting 19"/>
-	<Meting ref="true" meting-id="ROM meting 20"/>
-	<Meting ref="true" meting-id="ROM meting 21"/>
-	<Meting ref="true" meting-id="ROM meting 22"/>
-	<Meting ref="true" meting-id="ROM meting 23"/>
-	<Meting ref="true" meting-id="ROM meting 24"/>
-	<Meting ref="true" meting-id="ROM meting 25"/>
-	<Meting ref="true" meting-id="ROM meting 26"/>
-	<Meting ref="true" meting-id="ROM meting 27"/>
-	<Meting ref="true" meting-id="ROM meting 28"/>
-	<Meting ref="true" meting-id="ROM meting 29"/>
-	<Meting ref="true" meting-id="ROM meting 30"/>
-	<Meting ref="true" meting-id="ROM meting 31"/>
-	<Meting ref="true" meting-id="ROM meting 32"/>
-	<Meting ref="true" meting-id="ROM meting 33"/>
-	<Meting ref="true" meting-id="ROM meting 34"/>
-	<Meting ref="true" meting-id="ROM meting 35"/>
-	<Meting ref="true" meting-id="ROM meting 36"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 19"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 20"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 21"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 22"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 23"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 24"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 25"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 26"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 27"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 28"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 29"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 30"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 31"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 32"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 33"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 34"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 35"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 36"/>
       </setup>
       <expected>
 	<kandidaat-metingen>
 	  <voor>
-	    <Meting sbgm:meting-id="ROM meting 23" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 22" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 24" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 21" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 20" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 25" typemeting="1"/>
-	    <Meting sbgm:meting-id="ROM meting 26" typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 23" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 22" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 24" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 21" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 20" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 25" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 26" sbggz:typemeting="1"/>
 	  </voor>
 	  <na>
-	    <Meting sbgm:meting-id="ROM meting 32" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 31" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 33" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 30" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 29" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 34" typemeting="2"/>
-	    <Meting sbgm:meting-id="ROM meting 35" typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 32" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 31" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 33" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 30" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 29" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 34" sbggz:typemeting="2"/>
+	    <sbggz:Meting sbgm:meting-id="ROM meting 35" sbggz:typemeting="2"/>
 	  </na>
 	</kandidaat-metingen>
       </expected>
@@ -680,8 +741,8 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:DBCTraject ref="true" sbggz:DBCTrajectnummer="2"/>
 	<zorgdomein ref="true" zorgdomeinCode="02"/>
-	<Meting ref="true" meting-id="ROM meting 19"/>
-	<Meting ref="true" meting-id="ROM meting 36"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 19"/>
+	<sbgem:Meting ref="true" sbgm:meting-id="ROM meting 36"/>
       </setup>
       <expected>
 	<kandidaat-metingen>
@@ -754,6 +815,44 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
 
 
 
+  </group>
+
+  <group >
+    <function>sbge:patient-sbg-meting</function>
+    <description>Voer het koppelproces uit voor alle dbc-s van een client</description>
+
+    <test name="testscenario 1" code="1">
+      <description>meting met dubbelrol</description>
+      <setup>
+	<sbgem:Patient sbggz:koppelnummer="10095619" sbggz:geslacht="2" sbggz:geboorteJaar="1968" sbggz:opleidingsniveau="99" sbggz:leefsituatie="99" sbgem:geboortelandPatient="NL" >
+	  <sbgem:metingen>
+	    <sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbgm:instrument-respondent="true" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbggz:typeRespondent="01" sbgem:meetdomein="Klachten en symptomen" sbgem:zorgdomein="02 21">
+	    </sbgem:Meting>
+	    <sbgem:Meting sbggz:totaalscoreMeting="12" sbggz:gebruiktMeetinstrument="OQ45-sd" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbgm:meting-id="82424" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen">
+	    </sbgem:Meting>
+	    <sbgem:Meting sbggz:typeRespondent="03" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbgm:meting-id="82443" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen">
+	    </sbgem:Meting>
+	  </sbgem:metingen>
+	  <sbgem:Zorgtraject sbggz:primaireDiagnoseCode="as1_6.01.01.02.03" sbggz:locatiecode="3102117C" sbggz:zorgtrajectnummer="50384" sbgem:zorgdomeinCode="02" sbggz:GAFscore="45">
+	    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503841" sbggz:startdatumDBC="2010-09-29" sbggz:einddatumDBC="2011-09-28" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2010-10-01" sbggz:datumLaatsteSessie="2011-09-21" sbggz:redenEindeDBC="4" sbggz:DBCPrestatieCode="101011053146"/>
+	    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503842" sbggz:startdatumDBC="2011-09-29" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2011-10-06" sbggz:datumLaatsteSessie="2012-03-26"/>
+	  </sbgem:Zorgtraject>
+	</sbgem:Patient>
+
+      </setup>
+      <expected>
+	<sbggz:Patient sbggz:koppelnummer="10095619">
+	  <sbggz:Zorgtraject>
+	    <sbgem:DBCTraject sbggz:einddatumDBC="2011-09-28">
+	      <sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbggz:typemeting="2"/>
+	    </sbgem:DBCTraject>
+	    <sbgem:DBCTraject sbggz:startdatumDBC="2011-09-29">
+	      <sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbggz:typemeting="1"/>
+	    </sbgem:DBCTraject>
+	  </sbggz:Zorgtraject>
+	</sbggz:Patient>
+      </expected>
+    </test>
   </group>
 
 

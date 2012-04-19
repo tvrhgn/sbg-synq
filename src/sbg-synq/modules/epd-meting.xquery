@@ -107,8 +107,9 @@ let $zds := for $domein in sbgem:zoek-domein-str($diagnose, $circuit, $locatie, 
 };
 
 
-(: het eerste zorgdomein dat in aanmerking komt; gebruik prioriteit aan de data-kant om selectie te sturen 'XX' is max code :)
-declare function sbgem:selecteer-domein ($dbc as node(), $domeinen as element(zorgdomein)*) 
+(: OUD 
+   het eerste zorgdomein dat in aanmerking komt; gebruik prioriteit aan de data-kant om selectie te sturen 'XX' is max code :)
+declare function sbgem:xselecteer-domein ($dbc as node(), $domeinen as element(zorgdomein)*) 
 as element(zorgdomein)
 {
 let $zds := for $domein in sbgem:zoek-domein($dbc, $domeinen) 
@@ -158,32 +159,6 @@ let $geldig := data($beh/@primairOfNeven) ne '' and data($beh/@beroep) ne '' and
 };
 
        
-declare function sbgem:annoteer-zorgtrajecten( $dbcs as node()*, $behs as node()*, $diagn as node()*, $domeinen as element(zorgdomein)* )
-as element( sbgem:Zorgtraject )*
-{
-for $zt in distinct-values($dbcs/zorgtrajectnummer)
-let $zt-dbcs := $dbcs[zorgtrajectnummer eq $zt],
-    $beh := $behs[zorgtrajectnummer eq $zt],
-    $diag := $diagn[zorgtrajectnummer eq $zt],
-    $zt-dbc := $zt-dbcs[last()],   (: ga uit van 1 zdomein, diagnosecode, locatie etc over van laatste dbc in dit zorgtraject :)
-    $zorgdomein := sbgem:selecteer-domein( $zt-dbc, $domeinen )
-return 
-    element { 'sbgem:Zorgtraject' } 
-            { sbgem:vertaal-elt-naar-filter-sbg( $sbgem:zorgtraject-atts, $zt-dbc )
-               union attribute { 'sbgem:zorgdomeinCode' } { $zorgdomein/@zorgdomeinCode }
-               
-                ,
-            sbgem:maak-behandelaar($beh),
-            sbgem:maak-nevendiagnose($diag),
-            for $dbc in $zt-dbcs
-            order by $dbc/startDatum
-            return 
-               element { 'sbgem:xDBCTraject' } 
-                            { sbgem:vertaal-elt-naar-att-sbg( $sbgem:dbc-atts, $dbc) 
-                  }
-      }
-};
-
 (: neem de gegevens over van de laatste dbc voor het zdomein (hetzelfde gebeurt eerder voor diagnosecode, locatie) :)
 declare function sbgem:annoteer-zorgtraject( $zt as element(zorgtraject), $domeinen as element(zorgdomein)* )
 as element( sbgem:Zorgtraject )

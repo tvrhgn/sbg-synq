@@ -5,6 +5,7 @@
 
 	<p:documentation>
 		promoveer patient en sbgm:Meting
+		maak bestand met sbgem:Patient met alle metingen
 	</p:documentation>
 
 	<p:option name="stage.dir" select="'../../sbg-synq-out/stage'" />
@@ -20,9 +21,15 @@
 	<p:input port="meting-doc">
 		<p:document href="../../sbg-synq-out/stage/sbgm-metingen.xml" />
 	</p:input>
-	
-	
+
+	<!--  patient met alle metingen; basis voor proces-info -->	
 	<p:output port="result">
+		<!-- <p:pipe step="store-selectie" port="result" />  -->
+		<p:pipe step="epd-meting" port="result" />
+	</p:output>
+	
+		<!--  patient met metingen in dbc na toepassen sbg koppelproces -->
+	<p:output port="sbg-epd-meting">
 		<!-- <p:pipe step="store-selectie" port="result" />  -->
 		<p:pipe step="sbg-patient-meting" port="result" />
 	</p:output>
@@ -66,7 +73,8 @@
 			<p:empty />
 		</p:input>
 	</p:xquery>
-	
+
+	<!--		
 	<p:store name="store-selectie">
 		<p:with-option name="href" select="concat( $stage.dir,'/epd-meting.xml')" />
 		<p:input port="source" >
@@ -74,16 +82,8 @@
 			
 		</p:input>
 	</p:store>
-	
  
-	<p:store name="store-sbg-epd">
-		<p:with-option name="href" select="concat( $stage.dir,'/sbg-epd-meting.xml')" />
-		<p:input port="source" >
-		<p:pipe step="sbg-patient-meting" port="result" />		
-			
-		</p:input>
-	</p:store>
-	<!--	 -->
+ -->
 	 
 	<!--  todo: store proces-info: sbg-status -->
 

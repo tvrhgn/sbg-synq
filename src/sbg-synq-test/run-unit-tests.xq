@@ -1,10 +1,10 @@
 (: XQuery main module :)
-import module namespace sbge="http://sbg-synq.nl/sbg-epd" at '../sbg-synq/sbg-epd.xquery';
-import module namespace sbgi="http://sbg-synq.nl/sbg-instrument" at '../sbg-synq/sbg-instrument.xquery';
-import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at '../sbg-synq/sbg-metingen.xquery';
-import module namespace sbgbm="http://sbg-synq.nl/sbg-benchmark" at '../sbg-synq/sbg-bmimport.xquery';
-import module namespace sbgem="http://sbg-synq.nl/epd-meting" at '../sbg-synq/epd-meting.xquery';
-import module namespace sbgza="http://sbg-synq.nl/zorgaanbieder" at '../sbg-synq/zorgaanbieder.xquery';
+import module namespace sbge="http://sbg-synq.nl/sbg-epd" at '../sbg-synq/modules/sbg-epd.xquery';
+import module namespace sbgi="http://sbg-synq.nl/sbg-instrument" at '../sbg-synq/modules/sbg-instrument.xquery';
+import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at '../sbg-synq/modules/sbg-metingen.xquery';
+import module namespace sbgbm="http://sbg-synq.nl/sbg-benchmark" at '../sbg-synq/modules/sbg-bmimport.xquery';
+import module namespace sbgem="http://sbg-synq.nl/epd-meting" at '../sbg-synq/modules/epd-meting.xquery';
+import module namespace sbgza="http://sbg-synq.nl/zorgaanbieder" at '../sbg-synq/modules/zorgaanbieder.xquery';
 
 import module namespace unit='http://sbg-synq.nl/unit-test' at 'unit-test.xquery';
 
@@ -41,13 +41,14 @@ as element(test)*
 for $test in $tests
     let $dbc := unit:get-object-ns($ctx, $test/setup/sbgem:DBCTraject),
         $zorgdomein := unit:get-object($ctx, $test/setup/zorgdomein),
-        $metingen := for $ref in $test/setup/Meting
-                     return unit:get-object($ctx, $ref),
+        $metingen := for $ref in $test/setup/sbgem:Meting
+                     return unit:get-object-ns($ctx, $ref),
                         
         $expected := $test/expected/kandidaat-metingen,
         
         $peildatums := sbge:dbc-peildatums-zorgdomein($dbc, $zorgdomein ),
         $result := sbge:kandidaat-metingen( $metingen, $zorgdomein, $peildatums ),
+        
         
         $pass :=  unit:ordered-set-equal( $expected/voor/*, $result/voor/*)
                   and unit:ordered-set-equal( $expected/na/*, $result/na/*)
@@ -61,7 +62,7 @@ as element(test)*
 (: setup bevat 1 zorgtraject en N metingen :)
 for $test in $tests
     let $zt := $test/setup/sbgem:Zorgtraject,
-        $metingen := for $ref in $test/setup/Meting
+        $metingen := for $ref in $test/setup/sbgem:Meting
                      return unit:get-object($ctx, $ref),
                         
         $expected := $test/expected/value,
@@ -79,7 +80,7 @@ as element(test)*
 for $test in $tests
     let $dbc := unit:get-object-ns($ctx, $test/setup/sbgem:DBCTraject),
         $zorgdomein := unit:get-object($ctx, $test/setup/zorgdomein),
-        $metingen := for $ref in $test/setup/Meting
+        $metingen := for $ref in $test/setup/sbgem:Meting
                      return unit:get-object($ctx, $ref),
                         
         $expected := $test/expected/meetparen,
@@ -88,7 +89,7 @@ for $test in $tests
         $kandidaten := sbge:kandidaat-metingen( $metingen, $zorgdomein, $peildatums ),
         $result := sbge:optimale-meetpaar( $kandidaten, $zorgdomein ),
         
-        $pass :=  unit:set-equal( $expected//Meting, $result//Meting, 'meting-id')
+        $pass :=  unit:set-equal( $expected//sbggz:Meting, $result//sbggz:Meting, 'meting-id')
         
     return unit:build-test-result( $test, $pass, ($dbc, $zorgdomein, $metingen),  $result )
 };
@@ -124,6 +125,7 @@ for $test in $tests
 };
 
 
+
 (: 
 SJABLOON
 declare function local:test-vertaal-elts( $tests as element(test)*, $ctx as element() )
@@ -149,7 +151,7 @@ as element(test)*
 {
 for $test in $tests
     let $instr-def := unit:get-object($ctx, $test/setup/instrument),
-        $meting := unit:get-object($ctx, $test/setup/Meting),
+        $meting := unit:get-object($ctx, $test/setup/meting),
         $expected := $test/expected/value,
                         
         $instr := sbgi:laad-instrument($instr-def),
@@ -160,7 +162,7 @@ for $test in $tests
         
         $pass :=  data($expected) eq data($act)
         
-return unit:build-test-result( $test, $pass, ($instr-def, $meting//Item),  $act )    
+return unit:build-test-result( $test, $pass, ($instr-def, $meting//item),  $act )    
 };
 
 declare function local:test-score-items( $tests as element(test)*, $ctx as element() )
@@ -168,7 +170,7 @@ as element(test)*
 {
 for $test in $tests
     let $instr-def := unit:get-object($ctx, $test/setup/instrument),
-        $meting := unit:get-object($ctx, $test/setup/Meting),
+        $meting := unit:get-object($ctx, $test/setup/meting),
         $expected := unit:double-seq($test/expected/value/text()),
                         
         $instr := sbgi:laad-instrument($instr-def),
@@ -180,7 +182,7 @@ for $test in $tests
         
         $pass := unit:set-equal-atomic( $expected, $result )
         
-return unit:build-test-result( $test, $pass, ($instr-def, $meting//Item),  $act )    
+return unit:build-test-result( $test, $pass, ($instr-def, $meting//item),  $act )    
 };
 
 
@@ -204,10 +206,10 @@ let $cmp := for $pat in $expected
     let $res := $result[@koppelnummer eq $pat/@koppelnummer]
     return exists($res) 
         and count($pat//sbggz:Zorgtraject) eq count($res//sbggz:Zorgtraject) 
-        and count($pat//DBCtraject ) eq count($res//DBCtraject)
-        and count($pat//DBCtraject[@einddatumDBC] ) eq count($res//DBCtraject[@einddatumDBC])
-        and count($pat//Meting ) eq count($res//Meting)
-        and count($pat//Meting[@typemeting eq '1'] ) eq count($res//Meting[@typemeting eq '1'])
+        and count($pat//sbggz:DBCtraject ) eq count($res//sbggz:DBCtraject)
+        and count($pat//sbggz:DBCtraject[@einddatumDBC] ) eq count($res//sbggz:DBCtraject[@einddatumDBC])
+        and count($pat//sbggz:Meting ) eq count($res//sbggz:Meting)
+        and count($pat//sbggz:Meting[@typemeting eq '1'] ) eq count($res//sbggz:Meting[@typemeting eq '1'])
 return count($expected) eq count($result) 
         and (every $v in $cmp satisfies $v eq true() )        
 };
@@ -247,6 +249,23 @@ for $test in $tests
     
 };
 
+declare function local:patient-sbg-meting( $tests as element(test)*, $ctx as element() )
+as element(test)*
+{
+for $test in $tests
+    let $pat := $test/setup/sbgem:Patient,
+        $zds := $ctx//zorgdomein,
+        $expected := $test/expected/sbggz:Patient,                
+               
+        $result := sbge:patient-sbg-meting($pat, $zds),
+        
+        $pass :=  false()
+                
+return unit:build-test-result( $test, false(), ($pat, $zds), $result )    
+};
+
+
+
 
 (: dispatch functie :)
 declare function local:run-tests($tests as element(tests)) as element(result)
@@ -256,7 +275,7 @@ declare function local:run-tests($tests as element(tests)) as element(result)
 {$tests/setup}{
 let $ctx := $tests/setup,
     $zorgdomeinen := $ctx/sbg-zorgdomeinen,
-    $instrumenten := sbgi:laad-instrumenten($ctx/sbg-instrumenten)
+    $instrumenten := sbgi:laad-instrumenten($ctx/instrument)
 
 for $group in $test-doc//group
 let $functie := $group/function/text(),
@@ -271,6 +290,7 @@ return <group>{$group/*[not(local-name()='test')]}
     else if ( $functie = 'sbge:kandidaat-metingen' ) then local:test-kandidaat-metingen( $tests, $ctx  )
     else if ( $functie = 'sbge:maak-meetparen' ) then local:test-maak-meetparen( $tests, $ctx  )
     else if ( $functie = 'sbge:bepaal-zorgdomein' ) then local:test-bepaal-zorgdomein( $tests, $ctx  )
+    else if ( $functie = 'sbge:patient-sbg-meting' ) then local:patient-sbg-meting( $tests, $ctx  )
     else if ( $functie = 'sbgem:vertaal-elt-naar-att-ns' ) then local:test-vertaal-elts( $tests, $ctx  )
     else if ( $functie = 'sbgem:vertaal-elt-naar-filter-sbg' ) then local:test-filter-elts( $tests, $ctx  )
     else if ( $functie = 'sbgbm:filter-sbg-dbc-in-periode' ) then local:test-filter-periode( $tests, $ctx  )

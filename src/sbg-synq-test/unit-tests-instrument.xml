@@ -72,45 +72,45 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
     </sbg-instrumenten>
 
     <metingen>
-      <Meting datum="2012-02-29" meting-id="meting-1">
-	<Item itemnummer="1" score="1"/>
-	<Item itemnummer="2" score="1"/>
-	<Item itemnummer="3" score="1"/>
-	<Item itemnummer="4" score="1"/>
-	<Item itemnummer="5" score="1"/>
-	<Item itemnummer="6" score="1"/>
-	<Item itemnummer="7" score="1"/>
-	<Item itemnummer="8" score="1"/>
-	<Item itemnummer="9" score="1"/>
-	<Item itemnummer="10" score="1"/>
-      </Meting>
+      <meting datum="2012-02-29" meting-id="meting-1">
+	<item itemnummer="1" score="1"/>
+	<item itemnummer="2" score="1"/>
+	<item itemnummer="3" score="1"/>
+	<item itemnummer="4" score="1"/>
+	<item itemnummer="5" score="1"/>
+	<item itemnummer="6" score="1"/>
+	<item itemnummer="7" score="1"/>
+	<item itemnummer="8" score="1"/>
+	<item itemnummer="9" score="1"/>
+	<item itemnummer="10" score="1"/>
+      </meting>
 
-      <Meting datum="2012-02-29" meting-id="meting-2">
-	<Item itemnummer="1" score="1"/>
-	<Item itemnummer="2" score="1"/>
-	<Item itemnummer="3" score="1"/>
-	<Item itemnummer="4" score="1"/>
-	<Item itemnummer="5" score="1"/>
-	<Item itemnummer="6" score="1"/>
-	<Item itemnummer="7" score="5"/>
-	<Item itemnummer="8" score="5"/>
-	<Item itemnummer="9" score="1"/>
-	<Item itemnummer="10" score="1"/>
-      </Meting>
+      <meting datum="2012-02-29" meting-id="meting-2">
+	<item itemnummer="1" score="1"/>
+	<item itemnummer="2" score="1"/>
+	<item itemnummer="3" score="1"/>
+	<item itemnummer="4" score="1"/>
+	<item itemnummer="5" score="1"/>
+	<item itemnummer="6" score="1"/>
+	<item itemnummer="7" score="5"/>
+	<item itemnummer="8" score="5"/>
+	<item itemnummer="9" score="1"/>
+	<item itemnummer="10" score="1"/>
+      </meting>
 
 
-      <Meting datum="2012-02-29" meting-id="meting-3">
-	<Item itemnummer="1" score="0"/>
-	<Item itemnummer="2" score="1"/>
-	<Item itemnummer="3" score="2"/>
-	<Item itemnummer="4" score="3.0"/>
-	<Item itemnummer="5" score="4"/>
-	<Item itemnummer="6" score="5"/>
-	<Item itemnummer="7" score="6"/>
-	<Item itemnummer="8" score="7"/>
-	<Item itemnummer="9" score="8"/>
-	<Item itemnummer="10" score="9"/>
-      </Meting>
+      <meting datum="2012-02-29" meting-id="meting-3">
+	<item itemnummer="1" score="0"/>
+	<item itemnummer="2" score="1"/>
+	<item itemnummer="3" score="2"/>
+	<item itemnummer="4" score="3.0"/>
+	<item itemnummer="5" score="4"/>
+	<item itemnummer="6" score="5"/>
+	<item itemnummer="7" score="6"/>
+	<item itemnummer="8" score="7"/>
+	<item itemnummer="9" score="8"/>
+	<item itemnummer="10" score="9"/>
+      </meting>
 
     </metingen>
   </setup>
@@ -121,7 +121,7 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
 
     <test name="TEST minimum itemscore" code="score-1">
       <setup>
-	<Meting ref="true" meting-id="meting-1"/>
+	<meting ref="true" meting-id="meting-1"/>
 	<instrument ref="true" code="TEST"/>
       </setup>
       <expected><value>10</value></expected>
@@ -129,7 +129,7 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
 
     <test name="TEST minimum totaalscore" code="score-2">
       <setup>
-	<Meting ref="true" meting-id="meting-2"/>
+	<meting ref="true" meting-id="meting-2"/>
 	<instrument ref="true" code="TEST"/>
       </setup>
       <expected><value>18</value></expected>
@@ -138,14 +138,14 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
 
     <test name="TEST-O minimum itemscore" code="score-3">
       <setup>
-	<Meting ref="true" meting-id="meting-1"/>
+	<meting ref="true" meting-id="meting-1"/>
 	<instrument ref="true" code="TEST-O"/>
       </setup>
       <expected><value>18</value></expected>
     </test>
     <test name="TEST-O minimum totaalscore" code="score-4">
       <setup>
-	<Meting ref="true" meting-id="meting-2"/>
+	<meting ref="true" meting-id="meting-2"/>
 	<instrument ref="true" code="TEST-O"/>
       </setup>
       <expected><value>10</value></expected>
@@ -161,7 +161,7 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
 
     <test name="TEST selecteer alle item-scores" code="score-5">
       <setup>
-	<Meting ref="true" meting-id="meting-1"/>
+	<meting ref="true" meting-id="meting-1"/>
 	<instrument ref="true" code="TEST"/>
       </setup>
       <expected><value>1, 1, 1, 1, 1, 1, 1, 1, 1, 1</value></expected>
@@ -169,7 +169,7 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
 
     <test name="TEST-S selecteer item-scores" code="score-6">
       <setup>
-	<Meting ref="true" meting-id="meting-3"/>
+	<meting ref="true" meting-id="meting-3"/>
 	<instrument ref="true" code="TEST-S"/>
       </setup>
       <expected><value>3, 4, 5, 6, 7</value></expected>

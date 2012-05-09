@@ -21,7 +21,6 @@
 
 	<p:option name="stage.dir" select="'../../sbg-synq-out/stage'" />
 
-
 	<p:input port="meting-doc">
 		<p:document href="../../examples/PoC/PoC-data/Brondata_sbg-meting.xml" />
 	</p:input>
@@ -38,8 +37,6 @@
 	<p:input port="item-doc">
 		<p:document href="../../examples/PoC/PoC-data/Brondata_sbg-item.xml" />
 	</p:input>
-
-
 
 	<p:output port="result">
 		<p:pipe step="maak-patient" port="result" />

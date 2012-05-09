@@ -180,6 +180,25 @@ element { 'sbggz:Zorgtraject' }
 }
 };
 
+(: laat alleen geldige metingen door :)
+declare function sbge:maak-metingen( $metingen as element(sbggz:Meting)* )
+as element (sbggz:Meting)*
+{
+for $m in $metingen
+return if ( $m/@totaalscoreMeting eq '999' ) 
+        then 
+            if ( count($m/sbggz:Item) gt 0 and count( $m/sbggz:Item[not(@itemnummer)][not(@score)] ) eq 0 )
+            then $m
+            else ()
+        else 
+          element { 'sbggz:Meting' } { $m/@sbggz:*,
+            for $i in $m/sbggz:Item[exists(@sbggz:itemnummer)][exists(@sbggz:score)] (: verplichte attributen :)
+            return 
+                element { 'sbggz:Item' } { $i/@sbggz:* }
+        }
+};
+
+
 (: maak dbc; filter de juiste metingen :)
 declare function sbge:maak-dbc( $dbc as element(sbgem:DBCTraject), $metingen as element(sbgem:Meting)*, $zorgdomein as element(zorgdomein)  ) 
 as element(sbggz:DBCTraject)
@@ -191,7 +210,7 @@ let $peildatums := sbge:dbc-peildatums-zorgdomein($dbc, $zorgdomein),
 return 
     element { 'sbggz:DBCTraject' } 
         { $dbc/@*,
-        $optimale-meetpaar//sbggz:Meting
+        sbge:maak-metingen( $optimale-meetpaar//sbggz:Meting )
         (:
         data($peildatums) 
         $metingen

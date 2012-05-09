@@ -29,8 +29,8 @@ return fn:abs($ruwe-score - ($min + $max))
 declare function sbgi:item-scores( $meting as element(meting), $instr as element(sbgi:instrument) )
 as xs:double*
 {
-let $items :=     $meting/item[@itemnummer][index-of(tokenize($instr/@score-items, ' '), @itemnummer ) gt 0],
-    $o-items :=   $meting/item[@itemnummer][index-of(tokenize($instr/@omscoor-items, ' '), @itemnummer ) gt 0]
+let $items :=     $meting/item[@itemnummer][exists(index-of(tokenize($instr/@score-items, ' '), @itemnummer ))],
+    $o-items :=   $meting/item[@itemnummer][exists(index-of(tokenize($instr/@omscoor-items, ' '), @itemnummer ))]
 return ( 
     for $i in ($items except $o-items)
     return xs:double($i/@score)
@@ -38,6 +38,16 @@ return (
     sbgi:item-omscores($o-items, data($instr/@item-min), data($instr/@item-max))
     )
 };
+
+(: honosca heeft zijn eigen manier om missing values te coderen
+9 = missed en moet meegenomen worden als 0
+:)
+declare function sbgi:sum-honosca( $scores as xs:double+ ) 
+as xs:double
+{
+sum( $scores[. ne 9] )
+};
+
 
 (: pas functie toe op scores :)
 (: score -3 is een indicator dat de functie bekend is :)
@@ -48,6 +58,8 @@ if ( $functie = 'sum' )
 then fn:sum($scores)
 else if ( $functie = 'avg' )
 then fn:avg($scores)
+else if ( $functie = 'sum-honosca' )
+then sbgi:sum-honosca($scores)
 else -3
 };
 
@@ -58,11 +70,16 @@ else -3
 declare function sbgi:bereken-score( $meting as element(meting), $instr as element(sbgi:instrument)? ) as xs:double
 {
 let  $scores := sbgi:item-scores($meting, $instr),
-    $functie := data($instr/schaal/@functie)
+    $functie := data($instr//@functie)
 return if ( exists($functie) and count($scores) gt 0 ) 
        then sbgi:instr-functie( $scores, $functie )  
-       else -2
+       else count($scores)
 };
+
+
+
+
+
 
 (: hulp-functie om de handmatig gewijzigde itemstrings te normalizeren :)
 declare function sbgi:schaal-items( $item-str as xs:string? ) 

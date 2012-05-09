@@ -882,5 +882,78 @@
   <score>2</score>
 </Row>
 
+<!-- voorbeeld Honosca -->
+
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>1</itemnummer>
+  <score>1</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>2</itemnummer>
+  <score>1</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>3</itemnummer>
+  <score>2</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>4</itemnummer>
+  <score>1</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>5</itemnummer>
+  <score>1</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>6</itemnummer>
+  <score>1</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>7</itemnummer>
+  <score>0</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>8a</itemnummer>
+  <score>0</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>8c</itemnummer>
+  <score>0</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>9</itemnummer>
+  <score>1</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>10</itemnummer>
+  <score>2</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>11</itemnummer>
+  <score>9</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>12</itemnummer>
+  <score>9</score>
+</Row>
+<Row>
+  <meting-id>70108</meting-id>
+  <itemnummer>13</itemnummer>
+  <score>2</score>
+</Row>
+
 </Rows>
 

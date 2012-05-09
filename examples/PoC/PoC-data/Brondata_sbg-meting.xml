@@ -1639,4 +1639,12 @@
   <aardMeting>geen-items</aardMeting>
 </Row>
 
+<Row>
+  <meting-id>70108</meting-id>
+  <koppelnummer>13475</koppelnummer>
+  <gebruiktMeetinstrument>HoNOSCA</gebruiktMeetinstrument>
+  <datum>2011-10-06</datum>
+  <aardMeting>4</aardMeting>
+</Row>
+
 </Rows>

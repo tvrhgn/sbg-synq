@@ -3,7 +3,7 @@
 	name="maak-sbg-bmimport" version="1.0">
 
 	<p:documentation>
-		doe de slectie volgens de instellingen, maak een export-bestand en anonimiseer 
+		doe de selectie volgens de instellingen, maak een export-bestand en anonimiseer 
 	</p:documentation>
 
 	<p:input port="config">
@@ -83,6 +83,7 @@
 			<p:pipe step="anonimiseer" port="result" />
 		</p:input>
 	</p:store>
+	
 	<p:store name="store-benchmark-info">
 		<p:with-option name="href" select="$bm-info.doc" />
 		<p:input port="source" select="/benchmark-info">

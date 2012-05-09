@@ -178,4 +178,23 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
   </group>
 
 
+
+
+  <group >
+    <function>sbgi:sum-honosca</function>
+    <description>test honosca</description>
+
+    <test name="TEST selecteer alle item-scores" code="score-6">
+      <setup>
+
+
+      </setup>
+      <expected>
+      <value>1, 1, 1, 1, 1, 1, 1, 1, 1, 1</value>
+      </expected>
+    </test>
+
+  </group>
+
+
 </tests>

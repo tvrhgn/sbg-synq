@@ -142,6 +142,9 @@ return $selectie[./sbggz:Zorgtraject] (: zie filter-sbg-dbc-in-periode; als er g
      
     xmlns="http://sbggz.nl/schema/import/5.0.1" xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1"
     eejj-mm-dd hh:mm:ss
+
+        datumCreatie="{replace(substring( string($batch/@datumCreatie), 1, 19), 'T', ' ')}" 
+
     :)
 declare function sbgbm:build-sbg-bmimport( $za as element(), $patient-meting as element(sbggz:Patient)* )
 as element(sbggz:BenchmarkImport) 
@@ -151,7 +154,8 @@ return
 <BenchmarkImport versie="5.0" 
         startdatumAangeleverdePeriode="{substring(string($batch/@startdatum), 1, 10)}" 
         einddatumAangeleverdePeriode="{substring(string($batch/@einddatum), 1, 10)}" 
-        datumCreatie="{replace(substring( string($batch/@datumCreatie), 1, 19), 'T', ' ')}" 
+        datumCreatie="{$batch/@datumCreatie}" 
+
     >
     <Zorgaanbieder zorgaanbiedercode="{$batch/@agb-code}" zorgaanbiedernaam="{$batch/@zorgaanbieder}">
     {

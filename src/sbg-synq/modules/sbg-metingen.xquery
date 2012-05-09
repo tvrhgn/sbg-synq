@@ -25,19 +25,23 @@ as attribute()*
                   { data($att) }
 };
 
-(: score niet ongeldig; datum niet leeg; instrument gevonden in bibliotheek; score in range en aantal items correct als items bekend zijn 
- and $score ge data($instr/schaal/@min) 
-  and $score le data($instr/schaal/@max)
-  and (if ( exists( $instr/@aantal-vragen) ) 
-       then fn:count($meting/Item) eq xs:integer( $instr/@aantal-vragen ) 
-       else true() ) :)
+(: score niet ongeldig; datum niet leeg; 
+instrument gevonden in bibliotheek; 
+score in range en aantal items correct als 80% van de items bekend zijn
+ 
+:)
 
 declare function sbgm:meting-geldig( $meting as element(meting), $instr as element(sbgi:instrument)?, $score as xs:double )
 as xs:boolean
 {
   not( $score lt 0) 
-  and $score ge xs:double($instr/schaal/@min) 
- 
+  and $score ge (xs:double($instr/schaal/@min), 0)[1]
+  and $score le (xs:double($instr/schaal/@max), 10000)[1]
+  and (if ( exists( $instr/@aantal-vragen) ) 
+       then 
+       
+        fn:count($meting/Item[not(@missed)]) ge 0.8 * xs:integer( $instr/@aantal-vragen ) 
+       else true() ) 
 };
 
 (: construeer een attribuut typeRespondent op basis van input gegevens  meting en geselecteerd instrument
@@ -84,12 +88,24 @@ else
 };
 
 
-declare function sbgm:maak-sbg-item($item as element(item)) 
-as element(sbggz:Item)
+(: in dit model zijn de item-scores altijd integers :)
+declare function sbgm:maak-sbg-item($item as element(item), $instr as element(sbgi:instrument)?) 
+as element(sbggz:Item)?
 {
-element { 'sbggz:Item' } {  
-          sbgm:splits-atts-sbg( $sbgm:item-atts, $item/@*)
+let $score := (xs:integer($item/@score), -1)[1],
+    $missed-att := 
+        if ( $score lt (xs:integer($instr/schaal/items/@min), 0)[1] 
+            or $score gt (xs:integer($instr/schaal/items/@max), 100)[1] )
+        then attribute { 'sbgm:missed' } { true() }
+        else ()
+return
+    if ( $item/@itemnummer ) (: items zonder nummer kunnen achterwege blijven :) 
+    then
+        element { 'sbggz:Item' } {  
+            sbgm:splits-atts-sbg( $sbgm:item-atts, $item/@*)
+            union $missed-att
         }
+else ()
 };
 
 
@@ -105,7 +121,7 @@ element
       union sbgm:respondent-att($meting,$instr)
       ,
       for $item in $meting/item
-      return sbgm:maak-sbg-item($item)
+      return sbgm:maak-sbg-item($item, $instr)
     }
 };
 

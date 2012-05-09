@@ -1,4 +1,6 @@
 <sbg-instrumenten>
+<!--  voorbeeld instrumenten-bibliotheek - niet geautoriseerd -->
+
   <instrument code="BSI" aantal-vragen="53" typeRespondent="01">
     <naam>BSI Brief Symptom Inventory</naam>
     <schaal min="0" max="4" code="TOT">
@@ -320,10 +322,11 @@ Te excluderen items 6, 15, 49,
     <naam>HoNOSCA The Health of the Nation Outcome Scales for Children and
     Adolescents</naam>
     <schaal min="0" max="52" code="TOT">
-      <items all="true"/>
-      <berekening functie="sum">Sommatie van de 13 items</berekening>
+      <items all="true" min="0" max="4"/>
+      <berekening functie="sum-honosca">Sommatie van de 13 items</berekening>
     </schaal>
   </instrument>
+
   <instrument code="Kidscr27S">
     <naam>Kidscreen 27-S, 27 item versie door kind (8-18) ingevuld</naam>
     <schaal min="5" max="135" code="TOT">

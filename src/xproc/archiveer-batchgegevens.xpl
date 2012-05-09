@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
 	xmlns:c="http://www.w3.org/ns/xproc-step" xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1"
 	name="archiveer-batchgegevens" version="1.0">
@@ -11,12 +12,14 @@
 	</p:documentation>
 
 	<!-- INPUT poorten -->
-	<!-- het bestand met de instellingen voor de batch -->
+	<!-- het configuratie bestand -->
 	<p:input port="config">
 		<p:document href="../../examples/PoC/zorgaanbieder-PoC.xml" />
 	</p:input>
 
-	<!-- de uitvoer van de laatste stap van de batch (maak-bmimport) -->
+	<!-- bron om in te voegen in archief-->
+	<!-- standaard de  resultaat van de store --> 
+	<!-- (de bestandsnaam van het import bestand) -->
 	<p:input port="source">
 		<p:document href="../../sbg-synq-out/stage/fn-bmimport.xml" />
 	</p:input>
@@ -39,6 +42,8 @@
 
 	<!-- STEPS -->
 	<!-- voer script volgende-batch.xq uit -->
+	<!-- hier wordt de volgende batch ingesteld op eind van de maand volgend 
+		op de huidige batch,met een aanleverperiode van 3M -->
 	<p:xquery name="config.nieuw">
 		<p:input port="source">
 			<p:pipe step="archiveer-batchgegevens" port="config" />
@@ -69,10 +74,6 @@
 			<p:pipe step="archiveer-batchgegevens" port="source" />
 		</p:input>
 	</p:insert>
-
-	<!-- <p:viewport name="za-archief.inhoud" match="zorgaanbieder-archief"> 
-		<p:viewport-source> <p:pipe step="archiveer-batchgegevens" port="za-archief" 
-		/> </p:viewport-source> <p:identity /> </p:viewport> -->
 
 	<!-- voeg de tot hier opgebouwde log-versie van het configuratie-bestand 
 		toe aan bestaande archief -->

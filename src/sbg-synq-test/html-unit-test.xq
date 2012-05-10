@@ -130,6 +130,6 @@ let $content :=
 }</div>
 
 
-return ramh:html-doc-jquery( <div>{$ui-script}{$content}</div>, "" )
+return ramh:html-doc-jquery( <div>{$ui-script}{$content}</div>, "css/sbg-ram.css" )
 
 

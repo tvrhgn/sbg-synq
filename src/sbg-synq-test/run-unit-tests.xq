@@ -185,6 +185,44 @@ for $test in $tests
 return unit:build-test-result( $test, $pass, ($instr-def, $meting//item),  $act )    
 };
 
+declare function local:test-honosca-sum( $tests as element(test)*, $ctx as element() )
+as element(test)*
+{
+for $test in $tests
+    let $instr-def := unit:get-object($ctx, $test/setup/instrument),
+        $meting := unit:get-object($ctx, $test/setup/meting),
+        $expected := xs:double($test/expected/value/text()),
+                        
+        $instr := sbgi:laad-instrument($instr-def),
+          
+        $result := sbgi:bereken-score($meting,$instr),
+        
+        $act := element { 'value' } { $result },
+        
+        $pass := $expected eq $result
+        
+return unit:build-test-result( $test, $pass, ($instr, $meting//item),  $act )    
+};
+
+
+declare function local:test-sbg-metingen( $tests as element(test)*, $ctx as element() )
+as element(test)*
+{
+for $test in $tests
+    let $instr-def := unit:get-object($ctx, $test/setup/instrument),
+        $meting := unit:get-object($ctx, $test/setup/meting),
+        $expected := $test/expected/*,
+                        
+        $instr := sbgi:laad-instrument($instr-def),
+          
+        $result := sbgm:sbg-metingen($meting, $instr),
+        
+        $pass :=  unit:atts-equal( $expected, $result )
+        
+return unit:build-test-result( $test, $pass, ($instr, $meting/item),  $result )    
+};
+
+
 
 declare function local:test-batch-gegevens($tests as element(test)*, $ctx as element() )
 as element(test)*
@@ -297,7 +335,8 @@ return <group>{$group/*[not(local-name()='test')]}
     else if ( $functie = 'sbgza:batch-gegevens' ) then local:test-batch-gegevens($tests, $ctx )
     else if ( $functie = 'sbgi:bereken-score' ) then local:test-bereken-score($tests, $ctx )
     else if ( $functie = 'sbgi:item-scores' ) then local:test-score-items($tests, $ctx )
-     
+    else if ( $functie = 'sbgi:honosca-sum' ) then local:test-honosca-sum($tests, $ctx )
+    else if ( $functie = 'sbgm:sbg-metingen' ) then local:test-sbg-metingen($tests,$ctx)
     else if ( $functie = 'fall-through' ) then () else ()
      
 }

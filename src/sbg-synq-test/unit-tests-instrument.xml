@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tests versie="0.98"
 xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1" 
+xmlns:sbgm="http://sbg-synq.nl/sbg-metingen" 
 xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
 >
   <description label="instrument">instrument functies</description>
@@ -69,6 +70,16 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
 	  <berekening>Sommatie van alle items</berekening>
 	</schaal>
       </instrument>
+
+      <instrument code="HoNOSCA">
+	<naam>HoNOSCA The Health of the Nation Outcome Scales for Children and
+	Adolescents</naam>
+	<schaal min="0" max="52" code="TOT">
+	  <items min="0" max="4">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13</items>
+	  <berekening functie="sum-honosca">Sommatie van de 13 items (negeer items met score 9)</berekening>
+	</schaal>
+      </instrument>
+
     </sbg-instrumenten>
 
     <metingen>
@@ -97,7 +108,6 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
 	<item itemnummer="9" score="1"/>
 	<item itemnummer="10" score="1"/>
       </meting>
-
 
       <meting datum="2012-02-29" meting-id="meting-3">
 	<item itemnummer="1" score="0"/>
@@ -179,18 +189,176 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
 
 
 
-
   <group >
-    <function>sbgi:sum-honosca</function>
-    <description>test honosca</description>
+    <function>sbgi:honosca-sum</function>
+    <description>test totaalscore honosca</description>
 
-    <test name="TEST selecteer alle item-scores" code="score-6">
+    <test name="Test honosca 1" code="score-6">
       <setup>
-
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting datum="2011-03-16" totaalscoreMeting="23" gebruiktMeetinstrument="HoNOSCA" typemeting="1">
+	  <item itemnummer="1" score="0"/>
+	  <item itemnummer="2" score="3"/>
+	  <item itemnummer="3" score="0"/>
+	  <item itemnummer="4" score="1"/>
+	  <item itemnummer="5" score="0"/>
+	  <item itemnummer="6" score="1"/>
+	  <item itemnummer="7" score="9"/>
+	  <item itemnummer="8" score="1"/>
+	  <item itemnummer="9" score="2"/>
+	  <item itemnummer="10" score="3"/>
+	  <item itemnummer="11" score="0"/>
+	  <item itemnummer="12" score="4"/>
+	  <item itemnummer="13" score="2"/>
+	  <item itemnummer="14" score="4"/>
+	  <item itemnummer="15" score="0"/>
+	</meting>
 
       </setup>
       <expected>
-      <value>1, 1, 1, 1, 1, 1, 1, 1, 1, 1</value>
+	<value>17</value>
+      </expected>
+    </test>
+
+
+    <test name="Test honosca 2" code="score-7">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting datum="2011-03-16" totaalscoreMeting="23" gebruiktMeetinstrument="HoNOSCA" typemeting="1">
+	  <item itemnummer="1" score="9"/>
+	  <item itemnummer="2" score="9"/>
+	  <item itemnummer="3" score="9"/>
+	  <item itemnummer="4" score="9"/>
+	  <item itemnummer="5" score="9"/>
+	  <item itemnummer="6" score="9"/>
+	  <item itemnummer="7" score="9"/>
+	  <item itemnummer="8" score="9"/>
+	  <item itemnummer="9" score="9"/>
+	  <item itemnummer="10" score="9"/>
+	  <item itemnummer="11" score="9"/>
+	  <item itemnummer="12" score="9"/>
+	  <item itemnummer="13" score="9"/>
+	  <item itemnummer="14" score="4"/>
+	  <item itemnummer="15" score="4"/>
+	</meting>
+
+      </setup>
+      <expected>
+	<value>0</value>
+      </expected>
+    </test>
+
+  </group>
+ 
+  <group >
+    <function>sbgm:sbg-metingen</function>
+    <description>Een SBG-meting heeft informatie over het aantal missed items en eventueel wordt een score berekend cq geimputeerd.</description>
+
+    <test name="Test sbg-meting 1" code="score-7">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting datum="2011-03-16" gebruiktMeetinstrument="HoNOSCA" typemeting="1">
+	  <item itemnummer="1" score="0"/>
+	  <item itemnummer="2" score="3"/>
+	  <item itemnummer="3" score="0"/>
+	  <item itemnummer="4" score="1"/>
+	  <item itemnummer="5" score="0"/>
+	  <item itemnummer="6" score="1"/>
+	  <item itemnummer="7" score="9"/>
+	  <item itemnummer="8" score="1"/>
+	  <item itemnummer="9" score="2"/>
+	  <item itemnummer="10" score="3"/>
+	  <item itemnummer="11" score="0"/>
+	  <item itemnummer="12" score="4"/>
+	  <item itemnummer="13" score="2"/>
+	  <item itemnummer="14" score="4"/>
+	  <item itemnummer="15" score="0"/>
+	</meting>
+      </setup>
+      <expected>
+	<sbgm:Meting sbgm:items-missed-perc="8" sbggz:totaalscoreMeting="18"/>
+      </expected>
+    </test>
+
+
+    <test name="Test sbg-meting 3" code="score-8">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting datum="2011-03-16" gebruiktMeetinstrument="HoNOSCA" typemeting="1">
+	  <item itemnummer="1" score="9"/>
+	  <item itemnummer="2" score="9"/>
+	  <item itemnummer="3" score="9"/>
+	  <item itemnummer="4" score="9"/>
+	  <item itemnummer="5" score="9"/>
+	  <item itemnummer="6" score="9"/>
+	  <item itemnummer="7" score="9"/>
+	  <item itemnummer="8" score="9"/>
+	  <item itemnummer="9" score="9"/>
+	  <item itemnummer="10" score="9"/>
+	  <item itemnummer="11" score="9"/>
+	  <item itemnummer="12" score="9"/>
+	  <item itemnummer="13" score="9"/>
+	  <item itemnummer="14" score="4"/>
+	  <item itemnummer="15" score="4"/>
+	</meting>
+
+      </setup>
+      <expected>
+	<sbgm:Meting sbgm:items-missed-perc="100" sbggz:totaalscoreMeting="0"/>
+      </expected>
+    </test>
+
+
+    <test name="Test sbg-meting 4" code="score-9">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting datum="2011-03-16" gebruiktMeetinstrument="HoNOSCA">
+	  <item itemnummer="1" score="9"/>
+	  <item itemnummer="2" score="9"/>
+	  <item itemnummer="3" score="1"/>
+	  <item itemnummer="4" score="1"/>
+	  <item itemnummer="5" score="1"/>
+	  <item itemnummer="6" score="1"/>
+	  <item itemnummer="7" score="1"/>
+	  <item itemnummer="8" score="1"/>
+	  <item itemnummer="9" score="1"/>
+	  <item itemnummer="10" score="1"/>
+	  <item itemnummer="11" score="1"/>
+	  <item itemnummer="12" score="1"/>
+	  <item itemnummer="13" score="1"/>
+	  <item itemnummer="14" score="4"/>
+	  <item itemnummer="15" score="4"/>
+	</meting>
+      </setup>
+      <expected>
+	<sbgm:Meting sbggz:totaalscoreMeting="13" />
+      </expected>
+    </test>
+
+
+    <test name="Test sbg-meting 5" code="score-9">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting datum="2011-03-16" gebruiktMeetinstrument="HoNOSCA">
+	  <item itemnummer="1" score="9"/>
+	  <item itemnummer="2" score="9"/>
+	  <item itemnummer="3" score="3"/>
+	  <item itemnummer="4" score="3"/>
+	  <item itemnummer="5" score="3"/>
+	  <item itemnummer="6" score="3"/>
+	  <item itemnummer="7" score="3"/>
+	  <item itemnummer="8" score="3"/>
+	  <item itemnummer="9" score="3"/>
+	  <item itemnummer="10" score="3"/>
+	  <item itemnummer="11" score="3"/>
+	  <item itemnummer="12" score="3"/>
+	  <item itemnummer="13" score="3"/>
+	  <item itemnummer="14" score="4"/>
+	  <item itemnummer="15" score="4"/>
+	</meting>
+      </setup>
+      <expected>
+	<sbgm:Meting sbggz:totaalscoreMeting="39" />
       </expected>
     </test>
 

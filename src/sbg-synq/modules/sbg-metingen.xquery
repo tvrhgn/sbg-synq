@@ -37,11 +37,7 @@ as xs:boolean
   not( $score lt 0) 
   and $score ge (xs:double($instr/schaal/@min), 0)[1]
   and $score le (xs:double($instr/schaal/@max), 10000)[1]
-  and (if ( exists( $instr/@aantal-vragen) ) 
-       then 
-       
-        fn:count($meting/Item[not(@missed)]) ge 0.8 * xs:integer( $instr/@aantal-vragen ) 
-       else true() ) 
+   
 };
 
 (: construeer een attribuut typeRespondent op basis van input gegevens  meting en geselecteerd instrument
@@ -94,8 +90,8 @@ as element(sbggz:Item)?
 {
 let $score := (xs:integer($item/@score), -1)[1],
     $missed-att := 
-        if ( $score lt (xs:integer($instr/schaal/items/@min), 0)[1] 
-            or $score gt (xs:integer($instr/schaal/items/@max), 100)[1] )
+        if ( $score lt xs:integer($instr/@item-min )
+            or $score gt xs:integer($instr/@item-max ) ) 
         then attribute { 'sbgm:missed' } { true() }
         else ()
 return
@@ -108,20 +104,49 @@ return
 else ()
 };
 
+(: vul de item-scores aan op basis van gemiddelde; alleen geldig bij som-type totaal-score
+eis is dat minimaal 80% van de items geldig is
+score-att wordt hier opnieuw opgebouwd
+ :) 
+declare function sbgm:imputeer-score( $score-att as attribute()*, $cnt-missed as xs:integer, $cnt-items as xs:integer )
+as attribute()* 
+{
+ let $score := xs:double($score-att[local-name() eq 'totaalscoreMeting'])
+ return 
+    attribute { 'sbggz:totaalscoreMeting' } { ($score div ( $cnt-items - $cnt-missed )) * $cnt-items }
+    union $score-att[local-name() ne 'totaalscoreMeting']
+    union attribute { 'geimputeerd' } { 'true' }
+};
 
 (:  :)
 declare function sbgm:maak-sbg-meting($meting as element(meting)*, $instr as element(sbgi:instrument)?) 
 as element(sbgm:Meting)
 {
-element 
+let $items := for $item in $meting/item
+      return sbgm:maak-sbg-item($item, $instr),
+     $cnt-missed := count($items[@sbgm:missed]),
+     $cnt-items := xs:integer($instr/@aantal-items), 
+     $missed-perc := if ( exists($items[@sbgm:missed]))  
+                     then round( 100 *  $cnt-missed div $cnt-items )
+                     else 0,
+     $missed-att := if ( $missed-perc gt 0 )  
+                    then attribute { 'sbgm:items-missed-perc' } { $missed-perc }
+                    else (),
+    $score-att0 := sbgm:score-att($meting,$instr),
+    $score-att := if ( $missed-perc gt 0 and $missed-perc lt 80 and contains( $instr/schaal/@functie, 'sum' )) 
+        then sbgm:imputeer-score( $score-att0, $cnt-missed, $cnt-items ) 
+        else $score-att0
+             
+return       
+    element 
     { 'sbgm:Meting' } 
     { sbgm:splits-atts-sbg($sbgm:meting-atts, $meting/@*[not(exists(index-of( ('gebruiktMeetinstrument', 'totaalscoreMeting', 'typeRespondent'), local-name())))])  
       union sbgm:instrument-att($meting/@gebruiktMeetinstrument, $instr)
-      union sbgm:score-att($meting,$instr)
+      union $score-att
       union sbgm:respondent-att($meting,$instr)
+      union $missed-att
       ,
-      for $item in $meting/item
-      return sbgm:maak-sbg-item($item, $instr)
+      $items
     }
 };
 

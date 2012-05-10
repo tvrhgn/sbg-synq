@@ -809,6 +809,7 @@
     <score>1</score>
     <meting-id>000000192011-04-15SCL90</meting-id>
   </Row>
+
 <!-- voorbeeld Honos65 -->
 
 <Row>
@@ -882,8 +883,9 @@
   <score>2</score>
 </Row>
 
-<!-- voorbeeld Honosca -->
 
+
+<!-- voorbeeld Honosca -->
 <Row>
   <meting-id>70108</meting-id>
   <itemnummer>1</itemnummer>

@@ -107,11 +107,22 @@ as element(sbgi:instrument)
      $omscoor-items :=  sbgi:schaal-items($schaal/omscoren/text()),
      $omscoren := count( $omscoor-items ) gt 0,
      
-     $omscoor-atts:= if ( $omscoren ) then (
+     $item-atts := if ( $omscoren ) then (
                         attribute { 'item-min' } { xs:double($schaal/omscoren/@min) }, 
                         attribute { 'item-max' } { xs:double($schaal/omscoren/@max) }  
                         ) 
-                        else (),
+                        else
+                        ( 
+                        if ( $schaal/items/@min ) 
+                        then attribute { 'item-min' } { data($schaal/items/@min) }
+                        else attribute { 'item-min' } { 0 }
+                        ,
+                        if ( $schaal/items/@max and not($omscoren) ) 
+                        then attribute { 'item-max' } { data($schaal/items/@max) }
+                        else attribute { 'item-max' } { 10000 }
+                        )
+                     ,
+                     
      $controle := if ( $omscoren and not($schaal/omscoren/@min and $schaal/omscoren/@max) ) 
                   then 'omscoren ongeldig'
                   else if ( $schaal/items/@all eq 'true' and not( $instr/@aantal-vragen castable as xs:integer ) )
@@ -121,10 +132,11 @@ as element(sbgi:instrument)
 return  
    element { 'sbgi:instrument' } 
            { $instr/@*
+             union attribute { 'aantal-items' } { count($score-items) + count($omscoor-items) }
              union attribute { 'controle' } { $controle }
              union attribute { 'score-items' } { $score-items }
              union attribute { 'omscoor-items' } { $omscoor-items }
-             union $omscoor-atts
+             union $item-atts
              ,
              element { 'schaal' } 
                      { $instr/schaal/@*

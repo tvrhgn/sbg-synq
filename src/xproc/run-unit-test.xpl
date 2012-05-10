@@ -1,4 +1,4 @@
-<p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
+ <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
 	name="run-unit-tests" version="1.0">
 
 	<p:option name="report_dir" select="'../../sbg-synq-out'" />

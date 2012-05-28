@@ -73,8 +73,10 @@ return <kandidaat-metingen>
 declare function sbge:zoek-nameting( $vm as element(sbggz:Meting), $na-metingen as element(sbggz:Meting)*, $zorgdomein as element(zorgdomein)? )
 as element(meetpaar)*
 {
-let $nms := $na-metingen[@sbgm:meting-id ne $vm/@sbgm:meting-id][@sbggz:gebruiktMeetinstrument eq $vm/@sbggz:gebruiktMeetinstrument]
+let $nms := $na-metingen[@sbgm:meting-id ne $vm/@sbgm:meting-id]
+                        [@sbggz:gebruiktMeetinstrument eq $vm/@sbggz:gebruiktMeetinstrument]
                         [not(@sbge:meetdomein) or (./@sbge:meetdomein eq $vm/@sbge:meetdomein)]
+                        [@sbggz:datum gt $vm/@sbggz:datum]
 for $nm in $nms
 let $v-datum := xs:date($vm/@sbggz:datum),
     $n-datum := xs:date($nm/@sbggz:datum),
@@ -225,7 +227,7 @@ return
 declare function sbge:patient-sbg-meting( $patient as element(sbgem:Patient), $domeinen as element(zorgdomein)* ) 
 as element(sbggz:Patient)
 {
-let $clientmetingen := $patient//sbgem:Meting
+let $clientmetingen := $patient//sbgem:Meting[not(@sbgm:score-ongeldig)][not(@sbgm:te-veel-items-ongeldig)]
 return 
    element { 'sbggz:Patient' } 
            { $patient/@*

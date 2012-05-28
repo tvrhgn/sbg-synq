@@ -44,6 +44,44 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
 	  <instrument code="BPRS" />
 	</meetdomein>
       </zorgdomein>
+
+      <zorgdomein zorgdomeinCode="04">
+	<naam>Kinderen en Jeugd</naam>
+	<meetdomein>
+	  <naam>Klachten en problemen</naam>
+	  <instrument code="CBCL1_5-5"/>
+	  <instrument code="CBCL-6-18"/>
+	  <instrument code="SPsy-prob"/>
+	  <instrument code="SDQ-T3-4"/>
+	  <instrument code="SDQ-T4-16"/>
+	  <instrument code="SDQ-P3-4"/>
+	  <instrument code="SDQ-P4-16"/>
+	  <instrument code="SDQ-S11-17"/>
+	  <instrument code="C-TRF"/>
+	  <instrument code="TRF4-11"/>
+	  <instrument code="TRF12-18"/>
+	  <instrument code="YSR"/>
+	</meetdomein>
+	<meetdomein>
+	  <naam>Ouderlijke stress</naam>
+	  <instrument code="OBVL"/>
+	  <instrument code="NOSIK"/>
+	</meetdomein>
+	<meetdomein>
+	  <naam>Functioneren</naam>
+	  <instrument code="HoNOSCA"/>
+	</meetdomein>
+	<meetdomein>
+	  <naam>Kwaliteit van leven</naam>
+	  <instrument code="Kidscr27S"/>
+	  <instrument code="Kidscr27P"/>
+	  <instrument code="Kidscr52S"/>
+	  <instrument code="Kidscr52P"/>
+	</meetdomein>
+	<koppel-dbc zorgcircuit="4" priority="97"/>
+      </zorgdomein>
+
+
     </sbg-zorgdomeinen>
 
     <epd>
@@ -54,7 +92,7 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
 	<sbgem:DBCTraject sbggz:DBCTrajectnummer="3" sbggz:startdatumDBC="2011-03-09" sbggz:einddatumDBC="2012-03-09"
 		    sbggz:datumEersteSessie="2011-03-10" sbggz:datumLaatsteSessie="2012-03-10"/>
 
-	<sbgem:DBCTraject sbggz:DBCTrajectnummer="duur4M" startdatumDBC="2011-03-10" einddatumDBC="2011-07-10"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="duur4M" sbggz:startdatumDBC="2011-03-10" sbggz:einddatumDBC="2011-07-10"/>
     </epd>
 
     <rom>
@@ -556,23 +594,21 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       </description>
       <setup>
 
-    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503841" sbggz:startdatumDBC="2010-09-29" sbggz:einddatumDBC="2011-09-28" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2010-10-01" sbggz:datumLaatsteSessie="2011-09-21" sbggz:redenEindeDBC="4" sbggz:DBCPrestatieCode="101011053146"/>
-<!--    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503842" sbggz:startdatumDBC="2011-09-29" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2011-10-06" sbggz:datumLaatsteSessie="2012-03-26"/>
--->
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503841" sbggz:startdatumDBC="2010-09-29" sbggz:einddatumDBC="2011-09-28" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2010-10-01" sbggz:datumLaatsteSessie="2011-09-21" sbggz:redenEindeDBC="4" sbggz:DBCPrestatieCode="101011053146"/>
+	<!--    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503842" sbggz:startdatumDBC="2011-09-29" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2011-10-06" sbggz:datumLaatsteSessie="2012-03-26"/>
+	-->
 	<zorgdomein ref="true" zorgdomeinCode="02"/>
 
-    <sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbgm:instrument-respondent="true" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbggz:typeRespondent="01" sbgem:meetdomein="Klachten en symptomen" sbgem:zorgdomein="02 21"/>
+	<sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbgm:instrument-respondent="true" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbggz:typeRespondent="01" sbgem:meetdomein="Klachten en symptomen" sbgem:zorgdomein="02 21"/>
 
-    <sbgem:Meting sbggz:typeRespondent="03" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbgm:meting-id="82443" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
-    <sbgem:Meting sbggz:totaalscoreMeting="12" sbggz:gebruiktMeetinstrument="OQ45-sd" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbgm:meting-id="82424" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
-
-
+	<sbgem:Meting sbggz:typeRespondent="03" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbgm:meting-id="82443" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
+	<sbgem:Meting sbggz:totaalscoreMeting="12" sbggz:gebruiktMeetinstrument="OQ45-sd" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbgm:meting-id="82424" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
 
       </setup>
       <expected>
 	<meetparen>
-	  <meetpaar alleen-voor="true">
-	    <sbggz:Meting sbgm:meting-id="102053" sbggz:typemeting="1"/>
+	  <meetpaar alleen-na="true">
+	    <sbggz:Meting sbgm:meting-id="82423" sbggz:typemeting="2"/>
 	  </meetpaar>
 	</meetparen>
      </expected>
@@ -586,14 +622,14 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 
 
-    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503842" sbggz:startdatumDBC="2011-09-29" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2011-10-06" sbggz:datumLaatsteSessie="2012-03-26"/>
+	<sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503842" sbggz:startdatumDBC="2011-09-29" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2011-10-06" sbggz:datumLaatsteSessie="2012-03-26"/>
 
 	<zorgdomein ref="true" zorgdomeinCode="02"/>
 
-    <sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbgm:instrument-respondent="true" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbggz:typeRespondent="01" sbgem:meetdomein="Klachten en symptomen" sbgem:zorgdomein="02 21"/>
+	<sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbgm:instrument-respondent="true" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbggz:typeRespondent="01" sbgem:meetdomein="Klachten en symptomen" sbgem:zorgdomein="02 21"/>
 
-    <sbgem:Meting sbggz:typeRespondent="03" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbgm:meting-id="82443" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
-    <sbgem:Meting sbggz:totaalscoreMeting="12" sbggz:gebruiktMeetinstrument="OQ45-sd" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbgm:meting-id="82424" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
+	<sbgem:Meting sbggz:typeRespondent="03" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbgm:meting-id="82443" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
+	<sbgem:Meting sbggz:totaalscoreMeting="12" sbggz:gebruiktMeetinstrument="OQ45-sd" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbgm:meting-id="82424" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
 
 
 
@@ -601,10 +637,10 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <expected>
 	<meetparen>
 	  <meetpaar alleen-voor="true">
-	    <sbggz:Meting sbgm:meting-id="102053" sbggz:typemeting="1"/>
+	    <sbggz:Meting sbgm:meting-id="82423" sbggz:typemeting="1"/>
 	  </meetpaar>
 	</meetparen>
-     </expected>
+      </expected>
     </test>
 
 
@@ -826,12 +862,9 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       <setup>
 	<sbgem:Patient sbggz:koppelnummer="10095619" sbggz:geslacht="2" sbggz:geboorteJaar="1968" sbggz:opleidingsniveau="99" sbggz:leefsituatie="99" sbgem:geboortelandPatient="NL" >
 	  <sbgem:metingen>
-	    <sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbgm:instrument-respondent="true" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbggz:typeRespondent="01" sbgem:meetdomein="Klachten en symptomen" sbgem:zorgdomein="02 21">
-	    </sbgem:Meting>
-	    <sbgem:Meting sbggz:totaalscoreMeting="12" sbggz:gebruiktMeetinstrument="OQ45-sd" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbgm:meting-id="82424" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen">
-	    </sbgem:Meting>
-	    <sbgem:Meting sbggz:typeRespondent="03" sbggz:datum="2011-11-06" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbgm:meting-id="82443" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen">
-	    </sbgem:Meting>
+	    <sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbgm:instrument-respondent="true" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="0" sbggz:typeRespondent="01" sbgem:meetdomein="Klachten en symptomen" sbgem:zorgdomein="02 21"/>
+	    <sbgem:Meting sbggz:totaalscoreMeting="12" sbggz:gebruiktMeetinstrument="OQ45-sd" sbggz:datum="2011-11-07" sbggz:aardMeting="3" sbgm:meting-id="82424" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
+	    <sbgem:Meting sbggz:typeRespondent="03" sbggz:datum="2011-11-08" sbggz:aardMeting="3" sbggz:gebruiktMeetinstrument="xBSI" sbggz:totaalscoreMeting="0" sbgm:meting-id="82443" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
 	  </sbgem:metingen>
 	  <sbgem:Zorgtraject sbggz:primaireDiagnoseCode="as1_6.01.01.02.03" sbggz:locatiecode="3102117C" sbggz:zorgtrajectnummer="50384" sbgem:zorgdomeinCode="02" sbggz:GAFscore="45">
 	    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10095619503841" sbggz:startdatumDBC="2010-09-29" sbggz:einddatumDBC="2011-09-28" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2010-10-01" sbggz:datumLaatsteSessie="2011-09-21" sbggz:redenEindeDBC="4" sbggz:DBCPrestatieCode="101011053146"/>
@@ -842,17 +875,194 @@ xmlns:sbgm="http://sbg-synq.nl/sbg-metingen"
       </setup>
       <expected>
 	<sbggz:Patient sbggz:koppelnummer="10095619">
-	  <sbggz:Zorgtraject>
-	    <sbgem:DBCTraject sbggz:einddatumDBC="2011-09-28">
-	      <sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbggz:typemeting="2"/>
-	    </sbgem:DBCTraject>
-	    <sbgem:DBCTraject sbggz:startdatumDBC="2011-09-29">
-	      <sbgem:Meting sbgm:meting-id="82423" sbggz:datum="2011-11-06" sbggz:typemeting="1"/>
-	    </sbgem:DBCTraject>
+	  <sbggz:Zorgtraject sbggz:zorgtrajectnummer="50384">
+	    <sbggz:DBCTraject sbggz:DBCTrajectnummer="10095619503841" sbggz:einddatumDBC="2011-09-28">
+	      <sbggz:Meting sbggz:datum="2011-11-06" sbggz:gebruiktMeetinstrument="BSI" sbggz:typemeting="2"/>
+	    </sbggz:DBCTraject>
+	    <sbggz:DBCTraject sbggz:DBCTrajectnummer="10095619503842" sbggz:startdatumDBC="2011-09-29">
+	      <sbggz:Meting sbggz:datum="2011-11-06" sbggz:gebruiktMeetinstrument="BSI" sbggz:typemeting="1"/>
+	    </sbggz:DBCTraject>
 	  </sbggz:Zorgtraject>
 	</sbggz:Patient>
       </expected>
     </test>
+
+
+    <test name="testscenario 2" code="2">
+      <description>voormeting niet na nameting</description>
+      <setup>
+	<sbgem:Patient xmlns:sbgem="http://sbg-synq.nl/epd-meting" xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1" xmlns:sbgm="http://sbg-synq.nl/sbg-metingen" sbggz:koppelnummer="10086207" sbggz:geslacht="1" sbggz:geboorteJaar="2001" sbggz:geboorteMaand="10" sbggz:geboortelandVader="NL" sbggz:geboortelandMoeder="NL" sbggz:opleidingsniveau="99" sbggz:leefsituatie="60" sbgem:geboortelandPatient="NL" sbggz:postcodegebied="5402">
+	  <sbgem:metingen>
+	    <sbgem:Meting sbggz:datum="2010-08-04" sbggz:aardMeting="4" sbggz:totaalscoreMeting="7" sbggz:typeRespondent="02" sbgm:meting-id="21260" sbggz:gebruiktMeetinstrument="HoNOSCA" sbgem:meetdomein="Functioneren" sbgem:zorgdomein="04"/>
+	    <sbgem:Meting sbggz:datum="2010-09-22" sbggz:totaalscoreMeting="11" sbgm:meting-id="21261" sbggz:typeRespondent="02" sbggz:aardMeting="4" sbggz:gebruiktMeetinstrument="HoNOSCA" sbgem:meetdomein="Functioneren" sbgem:zorgdomein="04"/>
+	    <sbgem:Meting sbggz:aardMeting="4" sbggz:datum="2010-11-24" sbggz:typeRespondent="02" sbggz:totaalscoreMeting="12" sbggz:gebruiktMeetinstrument="HoNOSCA" sbgm:meting-id="21262" sbgem:meetdomein="Functioneren" sbgem:zorgdomein="04">
+	    </sbgem:Meting>
+	    <sbgem:Meting sbggz:datum="2011-12-22" sbggz:totaalscoreMeting="20" sbggz:typeRespondent="10" sbggz:gebruiktMeetinstrument="SPsy-prob" sbgm:meting-id="91703" sbggz:aardMeting="3" sbgem:zorgdomein="04" sbgem:meetdomein="Klachten en problemen">
+	    </sbgem:Meting>
+	    <sbgem:Meting sbggz:typeRespondent="05" sbggz:aardMeting="3" sbggz:totaalscoreMeting="101" sbggz:gebruiktMeetinstrument="NOSIK" sbggz:datum="2011-12-22" sbgm:meting-id="91704" sbgem:zorgdomein="04" sbgem:meetdomein="Ouderlijke stress">
+	    </sbgem:Meting>
+	    <sbgem:Meting sbgm:meting-id="91705" sbggz:gebruiktMeetinstrument="NOSIK" sbggz:typeRespondent="04" sbggz:totaalscoreMeting="125" sbggz:aardMeting="3" sbggz:datum="2011-12-24" sbgem:meetdomein="Ouderlijke stress" sbgem:zorgdomein="04">
+	    </sbgem:Meting>
+	    <sbgem:Meting sbggz:totaalscoreMeting="10" sbggz:typeRespondent="10" sbggz:gebruiktMeetinstrument="SPsy-prob" sbggz:datum="2012-03-02" sbggz:aardMeting="4" sbgm:meting-id="91706" sbgem:zorgdomein="04" sbgem:meetdomein="Klachten en problemen">
+	    </sbgem:Meting>
+	    <sbgem:Meting sbggz:datum="2012-03-02" sbggz:gebruiktMeetinstrument="NOSIK" sbgm:meting-id="91707" sbggz:typeRespondent="05" sbggz:aardMeting="4" sbggz:totaalscoreMeting="87" sbgem:meetdomein="Ouderlijke stress" sbgem:zorgdomein="04">
+	    </sbgem:Meting>
+	    <sbgem:Meting sbggz:aardMeting="4" sbggz:datum="2012-03-05" sbgm:meting-id="91708" sbggz:typeRespondent="04" sbggz:gebruiktMeetinstrument="NOSIK" sbggz:totaalscoreMeting="109" sbgem:meetdomein="Ouderlijke stress" sbgem:zorgdomein="04">
+	    </sbgem:Meting>
+	    <sbgem:Meting sbgm:meting-id="91743" sbggz:aardMeting="3" sbggz:typeRespondent="02" sbggz:gebruiktMeetinstrument="HoNOSCA" sbggz:totaalscoreMeting="16" sbggz:datum="2012-01-31" sbgem:meetdomein="Functioneren" sbgem:zorgdomein="04">
+	    </sbgem:Meting>
+	  </sbgem:metingen>
+
+	  <sbgem:Zorgtraject sbggz:primaireDiagnoseCode="as1_1.04.05" sbggz:GAFscore="50" sbggz:locatiecode="KPOOSS" sbgem:zorgdomeinCode="04" sbggz:zorgtrajectnummer="40713">
+<!--	    <sbggz:NevendiagnoseCode sbggz:nevendiagnoseCode="as1_1.05.01.01"/>
+	    <sbggz:NevendiagnoseCode sbggz:nevendiagnoseCode="as2_18.02"/>
+-->
+	    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10086207407131" sbggz:startdatumDBC="2009-07-29" sbggz:einddatumDBC="2010-07-26" sbgem:cl-zorgcircuit="4" sbggz:datumEersteSessie="2009-09-28" sbggz:datumLaatsteSessie="2009-12-11" sbggz:redenEindeDBC="1" sbggz:DBCPrestatieCode="101002000034"/>
+	    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10086207407132" sbggz:startdatumDBC="2010-07-27" sbggz:einddatumDBC="2011-01-26" sbgem:cl-zorgcircuit="4" sbggz:datumEersteSessie="2010-09-24" sbggz:datumLaatsteSessie="2010-09-24" sbggz:redenEindeDBC="1" sbggz:DBCPrestatieCode="202000000018"/>
+	    <sbgem:DBCTraject sbggz:DBCTrajectnummer="10086207407133" sbggz:startdatumDBC="2011-11-24" sbgem:cl-zorgcircuit="4" sbggz:datumEersteSessie="2011-12-23" sbggz:datumLaatsteSessie="2012-02-28"/>
+	  </sbgem:Zorgtraject>
+	</sbgem:Patient>
+      </setup>
+
+      <expected>
+	<sbggz:Patient sbggz:koppelnummer="10086207">
+	  <sbggz:Zorgtraject sbggz:zorgtrajectnummer="40713">
+	    <sbggz:DBCTraject sbggz:DBCTrajectnummer="10086207407131"/>
+	    <sbggz:DBCTraject sbggz:DBCTrajectnummer="10086207407132"  >
+	      <sbggz:Meting sbggz:datum="2010-09-22" sbggz:typemeting="1"/>
+	      <sbggz:Meting sbggz:datum="2010-11-24" sbggz:typemeting="2"/>
+	    </sbggz:DBCTraject>
+	    <sbggz:DBCTraject sbggz:DBCTrajectnummer="10086207407133">
+	      <sbggz:Meting sbggz:datum="2011-12-22" sbggz:typemeting="1"/>
+	    </sbggz:DBCTraject>
+	  </sbggz:Zorgtraject>
+	</sbggz:Patient>
+      </expected>
+    </test>
+
+
+    <test name="testscenario 3" code="3">
+      <description>voormeting niet na nameting 3</description>
+      <setup>
+	<sbgem:Patient sbggz:koppelnummer="10060608" sbggz:geslacht="2" sbggz:geboorteJaar="1954" sbggz:geboortelandVader="NL" sbggz:geboortelandMoeder="NL" sbggz:opleidingsniveau="99" sbggz:leefsituatie="99" sbgem:geboortelandPatient="NL" sbggz:postcodegebied="5236">
+	  <sbgem:metingen>
+	    <sbgem:Meting sbgm:meting-id="22726" sbggz:typeRespondent="01" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2010-06-23" sbggz:aardMeting="3" sbggz:totaalscoreMeting="1.1" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen"/>
+	      <sbgem:Meting sbgm:meting-id="22728" sbggz:totaalscoreMeting="999" sbggz:datum="2010-06-23" sbggz:typeRespondent="10" sbggz:gebruiktMeetinstrument="SF36" sbggz:aardMeting="3" sbgem:zorgdomein="02" sbgem:meetdomein="Kwaliteit van leven">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbgm:meting-id="22729" sbggz:datum="2010-10-12" sbggz:aardMeting="4" sbggz:typeRespondent="01" sbggz:gebruiktMeetinstrument="BSI" sbggz:totaalscoreMeting="1.3" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:datum="2010-10-12" sbgm:meting-id="22730" sbggz:typeRespondent="10" sbggz:totaalscoreMeting="999" sbggz:aardMeting="4" sbggz:gebruiktMeetinstrument="SF36" sbgem:zorgdomein="02" sbgem:meetdomein="Kwaliteit van leven">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:totaalscoreMeting="1.3" sbggz:datum="2011-03-01" sbgm:meting-id="28758" sbggz:gebruiktMeetinstrument="BSI" sbggz:aardMeting="4" sbggz:typeRespondent="01" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:typeRespondent="10" sbggz:gebruiktMeetinstrument="SF36" sbggz:datum="2011-03-01" sbgm:meting-id="28759" sbggz:totaalscoreMeting="999" sbggz:aardMeting="4" sbgem:zorgdomein="02" sbgem:meetdomein="Kwaliteit van leven">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:datum="2011-07-07" sbggz:gebruiktMeetinstrument="BSI" sbgm:meting-id="28761" sbggz:typeRespondent="01" sbggz:totaalscoreMeting="1.1" sbggz:aardMeting="4" sbgem:zorgdomein="02 21" sbgem:meetdomein="Klachten en symptomen">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbgm:meting-id="28762" sbggz:aardMeting="4" sbggz:gebruiktMeetinstrument="SF36" sbggz:datum="2011-07-07" sbggz:totaalscoreMeting="999" sbggz:typeRespondent="10" sbgem:meetdomein="Kwaliteit van leven" sbgem:zorgdomein="02">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:aardMeting="4" sbggz:datum="2011-11-09" sbggz:totaalscoreMeting="1.3" sbggz:typeRespondent="01" sbgm:meting-id="28764" sbggz:gebruiktMeetinstrument="BSI" sbgem:meetdomein="Klachten en symptomen" sbgem:zorgdomein="02 21">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:totaalscoreMeting="999" sbggz:aardMeting="4" sbggz:typeRespondent="10" sbgm:meting-id="28765" sbggz:datum="2011-11-09" sbggz:gebruiktMeetinstrument="SF36" sbgem:zorgdomein="02" sbgem:meetdomein="Kwaliteit van leven">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbgm:meting-id="28767" sbggz:aardMeting="4" sbggz:totaalscoreMeting="0.6" sbggz:typeRespondent="01" sbggz:gebruiktMeetinstrument="BSI" sbggz:datum="2012-04-11" sbgem:meetdomein="Klachten en symptomen" sbgem:zorgdomein="02 21">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:datum="2012-04-11" sbggz:typeRespondent="10" sbggz:gebruiktMeetinstrument="SF36" sbggz:aardMeting="4" sbggz:totaalscoreMeting="999" sbgm:meting-id="28768" sbgem:meetdomein="Kwaliteit van leven" sbgem:zorgdomein="02">
+	      </sbgem:Meting>
+	    </sbgem:metingen>
+	    <sbgem:Zorgtraject sbggz:zorgtrajectnummer="46239" sbggz:GAFscore="65" sbggz:primaireDiagnoseCode="as1_3.03" sbgem:zorgdomeinCode="02" sbggz:locatiecode="2142401">
+	      <sbgem:DBCTraject sbggz:DBCTrajectnummer="10060608462391" sbggz:startdatumDBC="2010-03-16" sbggz:einddatumDBC="2011-03-15" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2010-04-23" sbggz:datumLaatsteSessie="2010-10-18" sbggz:redenEindeDBC="4" sbggz:DBCPrestatieCode="101004000115"/>
+	      <sbgem:DBCTraject sbggz:DBCTrajectnummer="10060608462392" sbggz:startdatumDBC="2011-03-16" sbggz:einddatumDBC="2012-03-14" sbgem:cl-zorgcircuit="2" sbggz:datumEersteSessie="2011-09-12" sbggz:datumLaatsteSessie="2011-09-12" sbggz:redenEindeDBC="4" sbggz:DBCPrestatieCode="202000000019"/>
+	    </sbgem:Zorgtraject>
+	  </sbgem:Patient>
+
+	</setup>
+	<expected>
+	<sbggz:Patient sbggz:koppelnummer="10060608">
+	  <sbggz:Zorgtraject sbggz:zorgtrajectnummer="49697">
+	    <sbggz:DBCTraject sbggz:DBCTrajectnummer="10094833520701">
+	      <sbggz:Meting sbggz:datum="2010-06-23" sbggz:gebruiktMeetinstrument="BSI" sbggz:typemeting="1"/>
+	      <sbggz:Meting sbggz:datum="2010-10-12" sbggz:gebruiktMeetinstrument="BSI" sbggz:typemeting="2"/>
+	    </sbggz:DBCTraject>
+	  </sbggz:Zorgtraject>
+	</sbggz:Patient>
+	</expected>
+      </test>
+<!--
+
+
+
+	  <sbgem:Patient xmlns:sbgem="http://sbg-synq.nl/epd-meting" xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1" xmlns:sbgm="http://sbg-synq.nl/sbg-metingen" sbggz:koppelnummer="10094833" sbggz:geslacht="1" sbggz:geboorteJaar="2007" sbggz:geboorteMaand="02" sbggz:geboortelandVader="NL" sbggz:geboortelandMoeder="NL" sbggz:opleidingsniveau="99" sbggz:leefsituatie="99" sbgem:geboortelandPatient="NL" sbggz:postcodegebied="5469">
+	    <sbgem:metingen>
+	      <sbgem:Meting sbggz:totaalscoreMeting="17" sbggz:gebruiktMeetinstrument="SDQ-T3-4" sbggz:typeRespondent="06" sbggz:aardMeting="3" sbgm:meting-id="23228" sbggz:datum="2010-10-05" sbgem:meetdomein="Klachten en problemen" sbgem:zorgdomein="04">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:aardMeting="4" sbgm:meting-id="23229" sbggz:gebruiktMeetinstrument="SDQ-T3-4" sbggz:totaalscoreMeting="18" sbggz:typeRespondent="06" sbggz:datum="2010-12-08" sbgem:zorgdomein="04" sbgem:meetdomein="Klachten en problemen">
+	      </sbgem:Meting>
+	    </sbgem:metingen>
+	    <sbgem:Zorgtraject sbggz:locatiecode="KPOOSS" sbggz:primaireDiagnoseCode="as1_19.04" sbggz:GAFscore="60" sbgem:zorgdomeinCode="04" sbggz:zorgtrajectnummer="49697">
+	    </sbgem:Zorgtraject>
+	    <sbgem:Zorgtraject sbggz:primaireDiagnoseCode="as1_15.01.05.02" sbggz:zorgtrajectnummer="52070" sbggz:locatiecode="KPOOSS" sbgem:zorgdomeinCode="04">
+	      <sbgem:DBCTraject sbggz:DBCTrajectnummer="10094833520701" sbggz:startdatumDBC="2010-12-23" sbggz:einddatumDBC="2011-08-10" sbgem:cl-zorgcircuit="4" sbggz:datumEersteSessie="2011-01-13" sbggz:datumLaatsteSessie="2011-05-19" sbggz:redenEindeDBC="1" sbggz:DBCPrestatieCode="101005000197"/>
+	    </sbgem:Zorgtraject>
+	  </sbgem:Patient>
+
+
+
+      <test name="testscenario 4" code="4">
+	<description>voormeting niet na nameting 4</description>
+	<setup>
+
+	  <sbgem:Patient xmlns:sbgem="http://sbg-synq.nl/epd-meting" xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1" xmlns:sbgm="http://sbg-synq.nl/sbg-metingen" sbggz:koppelnummer="10102410" sbggz:geslacht="2" sbggz:geboorteJaar="1996" sbggz:geboorteMaand="09" sbggz:geboortelandVader="NL" sbggz:geboortelandMoeder="NL" sbggz:opleidingsniveau="99" sbggz:leefsituatie="99" sbgem:geboortelandPatient="NL" sbggz:postcodegebied="5628">
+	    <sbgem:metingen>
+	      <sbgem:Meting sbgm:meting-id="50547" sbggz:typeRespondent="10" sbggz:datum="2011-07-17" sbggz:gebruiktMeetinstrument="SPsy-prob" sbggz:totaalscoreMeting="17" sbgem:zorgdomein="04" sbgem:meetdomein="Klachten en problemen">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbgm:meting-id="50595" sbggz:aardMeting="3" sbggz:typeRespondent="02" sbggz:gebruiktMeetinstrument="HoNOSCA" sbggz:datum="2011-07-18" sbggz:totaalscoreMeting="17" sbgem:zorgdomein="04" sbgem:meetdomein="Functioneren">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:typeRespondent="02" sbgm:meting-id="50596" sbggz:aardMeting="4" sbggz:gebruiktMeetinstrument="HoNOSCA" sbggz:datum="2011-10-12" sbggz:totaalscoreMeting="1" sbgem:zorgdomein="04" sbgem:meetdomein="Functioneren">
+	      </sbgem:Meting>
+	    </sbgem:metingen>
+	    <sbgem:Zorgtraject sbggz:locatiecode="KPOVEL" sbgem:zorgdomeinCode="04" sbggz:primaireDiagnoseCode="as1_1.04.05" sbggz:zorgtrajectnummer="56016">
+	      <sbggz:NevendiagnoseCode sbggz:nevendiagnoseCode="as2_18.02"/>
+	      <sbgem:DBCTraject sbggz:DBCTrajectnummer="10102410560161" sbggz:startdatumDBC="2011-07-07" sbggz:einddatumDBC="2012-01-04" sbgem:cl-zorgcircuit="4" sbggz:datumEersteSessie="2011-10-11" sbggz:datumLaatsteSessie="2011-10-11" sbggz:redenEindeDBC="1" sbggz:DBCPrestatieCode="101000000024"/>
+	    </sbgem:Zorgtraject>
+	  </sbgem:Patient>
+	</setup>
+	<expected>
+	</expected>
+      </test>
+
+      <test name="testscenario 2" code="2">
+	<description>voormeting niet na nameting</description>
+	<setup>
+
+
+	  <sbgem:Patient xmlns:sbgem="http://sbg-synq.nl/epd-meting" xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1" xmlns:sbgm="http://sbg-synq.nl/sbg-metingen" sbggz:koppelnummer="10104258" sbggz:geslacht="2" sbggz:geboorteJaar="1999" sbggz:geboorteMaand="08" sbggz:geboortelandVader="NL" sbggz:geboortelandMoeder="NL" sbggz:opleidingsniveau="99" sbggz:leefsituatie="99" sbgem:geboortelandPatient="NL" sbggz:postcodegebied="5709">
+	    <sbgem:metingen>
+	      <sbgem:Meting sbggz:datum="2011-09-30" sbgm:meting-id="65950" sbggz:gebruiktMeetinstrument="SPsy-prob" sbggz:totaalscoreMeting="28" sbggz:typeRespondent="10" sbgem:zorgdomein="04" sbgem:meetdomein="Klachten en problemen">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:totaalscoreMeting="122" sbggz:datum="2011-10-04" sbgm:meting-id="65951" sbggz:gebruiktMeetinstrument="NOSIK" sbggz:typeRespondent="05" sbgem:meetdomein="Ouderlijke stress" sbgem:zorgdomein="04">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbgm:meting-id="65952" sbggz:typeRespondent="04" sbggz:gebruiktMeetinstrument="NOSIK" sbggz:datum="2011-10-04" sbggz:totaalscoreMeting="90" sbgem:meetdomein="Ouderlijke stress" sbgem:zorgdomein="04">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:typeRespondent="01" sbggz:gebruiktMeetinstrument="SPsy-prob" sbgm:meting-id="65953" sbggz:totaalscoreMeting="15" sbggz:datum="2011-10-05" sbgem:zorgdomein="04" sbgem:meetdomein="Klachten en problemen">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:typeRespondent="06" sbggz:totaalscoreMeting="15" sbggz:aardMeting="3" sbgm:meting-id="65982" sbggz:gebruiktMeetinstrument="SDQ-T4-16" sbggz:datum="2011-10-17" sbgem:meetdomein="Klachten en problemen" sbgem:zorgdomein="04">
+	      </sbgem:Meting>
+	      <sbgem:Meting sbggz:gebruiktMeetinstrument="HoNOSCA" sbggz:aardMeting="3" sbggz:datum="2011-11-03" sbggz:typeRespondent="02" sbggz:totaalscoreMeting="5" sbgm:meting-id="65998" sbgem:zorgdomein="04" sbgem:meetdomein="Functioneren">
+	      </sbgem:Meting>
+	    </sbgem:metingen>
+	    <sbgem:Zorgtraject sbggz:locatiecode="KPOHEL" sbggz:zorgtrajectnummer="57599" sbgem:zorgdomeinCode="04" sbggz:primaireDiagnoseCode="as1_1.05.01.01">
+	      <sbggz:NevendiagnoseCode sbggz:nevendiagnoseCode="as2_18.02"/>
+	      <sbgem:DBCTraject sbggz:DBCTrajectnummer="10104258575991" sbggz:startdatumDBC="2011-09-22" sbggz:einddatumDBC="2012-02-16" sbgem:cl-zorgcircuit="4" sbggz:datumEersteSessie="2011-12-01" sbggz:datumLaatsteSessie="2011-12-29" sbggz:redenEindeDBC="1" sbggz:DBCPrestatieCode="101000000022"/>
+	    </sbgem:Zorgtraject>
+	  </sbgem:Patient>
+
+      </setup>
+      <expected>
+      </expected>
+    </test>
+
+-->
   </group>
 
 

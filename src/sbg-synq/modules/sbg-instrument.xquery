@@ -35,7 +35,7 @@ return (
     for $i in ($items except $o-items)
     return xs:double($i/@score)
     ,
-    sbgi:item-omscores($o-items, data($instr/@item-min), data($instr/@item-max))
+    sbgi:item-omscores($o-items, data($instr/@item-omscoor-min), data($instr/@item-omscoor-max))
     )
 };
 
@@ -108,8 +108,8 @@ as element(sbgi:instrument)
      $omscoren := count( $omscoor-items ) gt 0,
      
      $item-atts := if ( $omscoren ) then (
-                        attribute { 'item-min' } { xs:double($schaal/omscoren/@min) }, 
-                        attribute { 'item-max' } { xs:double($schaal/omscoren/@max) }  
+                        attribute { 'item-omscoor-min' } { xs:double($schaal/omscoren/@min) }, 
+                        attribute { 'item-omscoor-max' } { xs:double($schaal/omscoren/@max) }  
                         ) 
                         else
                         ( 
@@ -117,7 +117,7 @@ as element(sbgi:instrument)
                         then attribute { 'item-min' } { data($schaal/items/@min) }
                         else attribute { 'item-min' } { 0 }
                         ,
-                        if ( $schaal/items/@max and not($omscoren) ) 
+                        if ( $schaal/items/@max  ) 
                         then attribute { 'item-max' } { data($schaal/items/@max) }
                         else attribute { 'item-max' } { 10000 }
                         )

@@ -115,25 +115,40 @@ as attribute()*
  return 
     attribute { 'sbggz:totaalscoreMeting' } { ($score div ( $cnt-items - $cnt-missed )) * $cnt-items }
     union $score-att[local-name() ne 'totaalscoreMeting']
-    union attribute { 'geimputeerd' } { 'true' }
+    union attribute { 'sbgm:geimputeerd' } { 'true' }
 };
 
 (:  :)
 declare function sbgm:maak-sbg-meting($meting as element(meting)*, $instr as element(sbgi:instrument)?) 
 as element(sbgm:Meting)
 {
-let $items := for $item in $meting/item
-      return sbgm:maak-sbg-item($item, $instr),
+let $items := for $item in tokenize( $instr/@score-items, ' ' )
+              let $it := $meting/item[@itemnummer eq $item]
+              return if ( $it ) 
+                     then sbgm:maak-sbg-item($it, $instr)
+                     else 
+                        element { 'sbggz:Item' } {
+                            attribute { 'sbggz:itenmummer' } { $item }
+                            union attribute { 'sbgm:missed' } { true() } 
+                        }
+        ,
      $cnt-missed := count($items[@sbgm:missed]),
      $cnt-items := xs:integer($instr/@aantal-items), 
      $missed-perc := if ( exists($items[@sbgm:missed]))  
                      then round( 100 *  $cnt-missed div $cnt-items )
                      else 0,
+     
      $missed-att := if ( $missed-perc gt 0 )  
                     then attribute { 'sbgm:items-missed-perc' } { $missed-perc }
                     else (),
+                    
+     $missed-imputeer := $missed-perc gt 0 and $missed-perc le 80,
+     $missed-ongeldig-att := if ( $missed-perc gt 80 )
+            then attribute  { 'sbgm:te-veel-items-ongeldig' } { true() }
+            else (),
+ 
     $score-att0 := sbgm:score-att($meting,$instr),
-    $score-att := if ( $missed-perc gt 0 and $missed-perc lt 80 and contains( $instr/schaal/@functie, 'sum' )) 
+    $score-att := if ( $missed-imputeer and contains( $instr/schaal/@functie, 'sum' )) 
         then sbgm:imputeer-score( $score-att0, $cnt-missed, $cnt-items ) 
         else $score-att0
              
@@ -145,6 +160,7 @@ return
       union $score-att
       union sbgm:respondent-att($meting,$instr)
       union $missed-att
+      union $missed-ongeldig-att
       ,
       $items
     }

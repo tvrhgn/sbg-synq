@@ -201,9 +201,8 @@ for $test in $tests
         
         $pass := $expected eq $result
         
-return unit:build-test-result( $test, $pass, ($instr, $meting//item),  $act )    
+return unit:build-test-result( $test, $pass, ($instr-def, $meting//item),  $act )    
 };
-
 
 declare function local:test-sbg-metingen( $tests as element(test)*, $ctx as element() )
 as element(test)*
@@ -221,7 +220,6 @@ for $test in $tests
         
 return unit:build-test-result( $test, $pass, ($instr, $meting/item),  $result )    
 };
-
 
 
 declare function local:test-batch-gegevens($tests as element(test)*, $ctx as element() )
@@ -251,6 +249,39 @@ let $cmp := for $pat in $expected
 return count($expected) eq count($result) 
         and (every $v in $cmp satisfies $v eq true() )        
 };
+
+(: zorgtrajectnummers, dbc-trajectnummers en meting-datum verplicht :)
+declare function local:gelijke-patient-atts($expected as element(), $result as element()? )
+{
+let $pat-equal := unit:atts-equal-ns($expected,$result)
+let $zt-equal := every $z in 
+                 for $zt in $expected//*[local-name() eq 'Zorgtraject']
+                 let $zt-r := $result/*[local-name() eq 'Zorgtraject'][@sbggz:zorgtrajectnummer eq $zt/@sbggz:zorgtrajectnummer]
+                 return if ( $zt-r ) 
+                    then unit:atts-equal-ns($zt, $zt-r)
+                    else  true()
+                 satisfies $z eq true()
+
+let $dbc-equal := every $d in 
+                    for $dbc in $expected//*[local-name() eq 'DBCtraject']
+                    let $dbc-r := $result//*[local-name() eq 'DBCtraject'][@sbggz:DBCTrajectnummer eq $dbc/@sbggz:DBCTrajectnummer]
+                    return unit:atts-equal-ns($dbc, $dbc-r)
+                   satisfies $d eq true()
+let $meting-equal := every $m in 
+                    for $mt in $expected//*[local-name() eq 'Meting']
+                    let $mt-rs := $result//*[local-name() eq 'Meting']
+                              
+                    return if ( exists($mt-rs[@sbggz:datum eq $mt/@sbggz:datum]
+                                        [@sbggz:gebruiktMeetinstrument eq $mt/@sbggz:gebruiktMeetinstrument]
+                                        [@sbggz:typemeting eq $mt/@sbggz:typemeting]) ) 
+                           then true() else false()
+                    satisfies $m eq true()
+
+return $pat-equal and $zt-equal and $dbc-equal and $meting-equal            
+                
+};
+
+
 
 declare function local:test-filter-periode($tests as element(test)*, $ctx as element() )
 as element(test)*
@@ -297,9 +328,9 @@ for $test in $tests
                
         $result := sbge:patient-sbg-meting($pat, $zds),
         
-        $pass :=  false()
+        $pass :=  local:gelijke-patient-atts($expected,$result)
                 
-return unit:build-test-result( $test, false(), ($pat, $zds), $result )    
+return unit:build-test-result( $test, $pass, ($pat, $zds), $result )    
 };
 
 
@@ -337,6 +368,7 @@ return <group>{$group/*[not(local-name()='test')]}
     else if ( $functie = 'sbgi:item-scores' ) then local:test-score-items($tests, $ctx )
     else if ( $functie = 'sbgi:honosca-sum' ) then local:test-honosca-sum($tests, $ctx )
     else if ( $functie = 'sbgm:sbg-metingen' ) then local:test-sbg-metingen($tests,$ctx)
+    
     else if ( $functie = 'fall-through' ) then () else ()
      
 }

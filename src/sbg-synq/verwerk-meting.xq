@@ -4,8 +4,9 @@ import module namespace sbgm="http://sbg-synq.nl/sbg-metingen" at  '../sbg-synq/
 (: context heeft ./patient/meting :)
 
 let $pats := .//patient
-let $instrumenten := sbgi:laad-instrumenten( .//instrument )
+let $metingen := .//meting
 
+let $instrumenten := sbgi:laad-instrumenten( .//instrument )
 
 return <patient-doc xmlns:sbgm="http://sbg-synq.nl/sbg-metingen" xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1">{
 for $pat in $pats

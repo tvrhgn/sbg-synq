@@ -1,4 +1,4 @@
- <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
+<p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
 	name="run-unit-tests" version="1.0">
 
 	<p:option name="report_dir" select="'../../sbg-synq-out'" />
@@ -25,7 +25,7 @@
 		</p:input>
 	</p:wrap-sequence>
 
-	<p:for-each name="tests">
+	<p:for-each name="tests"> 
 		<p:iteration-source select="//tests">
 			<p:pipe step="test-docs" port="result" />
 		</p:iteration-source>

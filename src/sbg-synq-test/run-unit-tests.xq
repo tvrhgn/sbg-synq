@@ -204,6 +204,25 @@ for $test in $tests
 return unit:build-test-result( $test, $pass, ($instr-def, $meting//item),  $act )    
 };
 
+
+declare function local:test-sbg-metingen-items( $tests as element(test)*, $ctx as element() )
+as element(test)*
+{
+for $test in $tests
+    let $instr-def := unit:get-object($ctx, $test/setup/instrument),
+        $meting := unit:get-object($ctx, $test/setup/meting),
+        $expected := $test/expected/*,
+                        
+        $instr := sbgi:laad-instrument($instr-def),
+          
+        $result := sbgm:sbg-metingen($meting, $instr),
+        
+        $pass :=  unit:atts-equal( $expected, $result ) and unit:set-equal($expected//sbggz:Item,$result//sbggz:Item,"itemnummer")
+        
+        
+return unit:build-test-result( $test, $pass, ($instr, $meting/item),  $result )    
+};
+
 declare function local:test-sbg-metingen( $tests as element(test)*, $ctx as element() )
 as element(test)*
 {
@@ -333,8 +352,38 @@ for $test in $tests
 return unit:build-test-result( $test, $pass, ($pat, $zds), $result )    
 };
 
+declare function local:test-maak-items( $tests as element(test)*, $ctx as element() )
+as element(test)*
+{
+for $test in $tests
+let  $instr-def := unit:get-object($ctx, $test/setup/instrument),
+     $meting := unit:get-object($ctx, $test/setup/meting),
+     $expected := $test/expected/sbggz:Item,
+     
+     $instr := sbgi:laad-instrument($instr-def),                        
+    $result := sbgm:maak-sbg-items($meting, $instr),
+        
+     $pass :=  unit:set-equal($expected,$result,"itemnummer")
+                
+return unit:build-test-result( $test, $pass, ($meting/item, $instr), $result )    
+};
 
 
+declare function local:test-plus-missed-items( $tests as element(test)*, $ctx as element() )
+as element(test)*
+{
+for $test in $tests
+let  $instr-def := unit:get-object($ctx, $test/setup/instrument),
+     $items := $test/setup/sbggz:Item,
+     $expected := $test/expected/sbggz:Item,
+     
+     $instr := sbgi:laad-instrument($instr-def),                        
+     $result := sbgm:missed-score-items($items, $instr),
+        
+     $pass :=  unit:set-equal($expected,$result,"itemnummer")
+                
+return unit:build-test-result( $test, $pass, ($items, $instr), $result )    
+};
 
 (: dispatch functie :)
 declare function local:run-tests($tests as element(tests)) as element(result)
@@ -368,6 +417,11 @@ return <group>{$group/*[not(local-name()='test')]}
     else if ( $functie = 'sbgi:item-scores' ) then local:test-score-items($tests, $ctx )
     else if ( $functie = 'sbgi:honosca-sum' ) then local:test-honosca-sum($tests, $ctx )
     else if ( $functie = 'sbgm:sbg-metingen' ) then local:test-sbg-metingen($tests,$ctx)
+    else if ( $functie = 'sbgm:sbg-metingen-items' ) then local:test-sbg-metingen-items($tests,$ctx)
+    
+    else if ( $functie = 'sbgm:maak-Items' ) then local:test-maak-items($tests,$ctx)
+    else if ( $functie = 'sbgm:plus-missed-Items' ) then local:test-plus-missed-items($tests,$ctx)
+    
     
     else if ( $functie = 'fall-through' ) then () else ()
      

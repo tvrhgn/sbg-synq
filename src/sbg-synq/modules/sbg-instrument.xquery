@@ -1,22 +1,12 @@
 module namespace sbgi = "http://sbg-synq.nl/sbg-instrument";
 (: TODO meervoudige schalen :)
 
-(: deprecated :)
-(: bereken de totaalscore door de juiste elementen te selecteren en de juiste functie toe te passen :)
-(: de items die worden meegegeven moeten een itemnummer en een score element hebben :)
-declare function sbgi:bereken-totaalscore-sbg( $instr as element(instrument)?, $items as node()* ) as xs:double
-{
--4
-};
-
-(: deprecated :)
-declare function sbgi:bereken-totaalscore( $instr as element(instrument)?, $items as node()* ) as xs:double
-{
-sbgi:bereken-totaalscore-sbg($instr,$items)
-};
+(: instrument werkt met items, niet met Items :)
+(: items zijn elementen zonder ns :)
+(: verdere verwerking tot sbggz:Items gebeurt in sbg-metingen.xquery :)
 
 
-(: verwerk Items die omgescoord moeten worden :)
+(: verwerk items die omgescoord moeten worden :)
 declare function sbgi:item-omscores( $items as element(item)*, $min as xs:double?, $max as xs:double? )
 as xs:double*
 {

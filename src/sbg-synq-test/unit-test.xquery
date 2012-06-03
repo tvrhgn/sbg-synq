@@ -197,7 +197,7 @@ let $sub1-eq := for $elt in $expected/*
 return (every $v in $sub1-eq satisfies $v eq true())
 };
 
-(: dont reimplement deepequal ? :)
+(: deep-equal niet bruikbaar :)
 declare function unit:data-equal( $expected as node(), $result as node() )
 as xs:boolean
 {

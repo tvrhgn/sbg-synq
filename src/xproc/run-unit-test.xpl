@@ -22,6 +22,7 @@
 			<p:document href="../sbg-synq-test/test-zorgaanbieder.xml" />
 			<p:document href="../sbg-synq-test/test-epd-meting.xml" />
 			<p:document href="../sbg-synq-test/unit-tests-instrument.xml" />
+			<p:document href="../sbg-synq-test/test-sbg-meting.xml" />
 		</p:input>
 	</p:wrap-sequence>
 

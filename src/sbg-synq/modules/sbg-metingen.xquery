@@ -84,14 +84,16 @@ else
 };
 
 
-(: in dit model zijn de item-scores altijd integers :)
+(: in dit model zijn de item-scores altijd integers
+ongeldige item-scores worden als 'missed' geannoteerd:)
 declare function sbgm:maak-sbg-item($item as element(item), $instr as element(sbgi:instrument)?) 
 as element(sbggz:Item)?
 {
 let $score := (xs:integer($item/@score), -1)[1],
     $missed-att := 
         if ( $score lt xs:integer($instr/@item-min )
-            or $score gt xs:integer($instr/@item-max ) ) 
+            or $score gt xs:integer($instr/@item-max ) 
+            or $score eq -1) 
         then attribute { 'sbgm:missed' } { true() }
         else ()
 return
@@ -104,9 +106,16 @@ return
 else ()
 };
 
-(: vul de item-scores aan op basis van gemiddelde; alleen geldig bij som-type totaal-score
-eis is dat minimaal 80% van de items geldig is
-score-att wordt hier opnieuw opgebouwd
+declare function sbgm:maak-sbg-items($meting as element(meting), $instr as element(sbgi:instrument)?)
+as element(sbggz:Item)*
+{
+for $it in $meting/item
+return sbgm:maak-sbg-item($it,$instr)
+};
+
+
+(: imputeer score, dwz corrigeer de totaalscore op basis van het % missed
+? instrument kijkt niet naar geldigheid van de item-scores?
  :) 
 declare function sbgm:imputeer-score( $score-att as attribute()*, $cnt-missed as xs:integer, $cnt-items as xs:integer )
 as attribute()* 
@@ -118,32 +127,54 @@ as attribute()*
     union attribute { 'sbgm:geimputeerd' } { 'true' }
 };
 
-(:  :)
+(: hier worden de score-items voor de sbg-schaal geannoteerd en evt geimputeerd
+   NB de items die niet in de schaal voorkomen worden níet geimputeerd. is dit juist??
+   - hoe gaat dit met missed items die omgescoord moeten worden?
+  :)
+
+
+(: zoek de gemiste score-items :)
+declare function sbgm:missed-score-items($items as element(sbggz:Item)*, $instr as element(sbgi:instrument)?)
+as element(sbggz:Item)*
+{
+let $score-items := tokenize( $instr/@score-items, ' ' ) 
+for $item in $score-items
+let $it := $items[@sbggz:itemnummer eq $item]
+return if ( $it ) 
+    then ()
+    else 
+        element { 'sbggz:Item' } {
+            attribute { 'sbggz:itemnummer' } { $item }
+            union attribute { 'sbgm:missed' } { true() } 
+        }
+};
+
+(: verwerk de items
+- maak Item, markeer ongeldige scores als 'missed'
+- vul aan met Item die ontbreken tov de score-items
+- kijk of imputeren nodig/geldig is (functie heeft 'sum' in de naam en 80% of meer is geldig)
+
+?? @aantal-items hoort bij schaal, niet bij instrument
+:)  
 declare function sbgm:maak-sbg-meting($meting as element(meting)*, $instr as element(sbgi:instrument)?) 
 as element(sbgm:Meting)
 {
-let $items := for $item in tokenize( $instr/@score-items, ' ' )
-              let $it := $meting/item[@itemnummer eq $item]
-              return if ( $it ) 
-                     then sbgm:maak-sbg-item($it, $instr)
-                     else 
-                        element { 'sbggz:Item' } {
-                            attribute { 'sbggz:itenmummer' } { $item }
-                            union attribute { 'sbgm:missed' } { true() } 
-                        }
-        ,
-     $cnt-missed := count($items[@sbgm:missed]),
-     $cnt-items := xs:integer($instr/@aantal-items), 
-     $missed-perc := if ( exists($items[@sbgm:missed]))  
+let $items := sbgm:maak-sbg-items($meting,$instr),
+    $missed-items := sbgm:missed-score-items($items,$instr),
+    $all-items := $items union $missed-items,
+    
+    $cnt-missed := count($all-items[@sbgm:missed]),
+    $cnt-items := xs:integer($instr/@aantal-items), 
+    $missed-perc := if ( exists($all-items[@sbgm:missed]))  
                      then round( 100 *  $cnt-missed div $cnt-items )
                      else 0,
      
-     $missed-att := if ( $missed-perc gt 0 )  
-                    then attribute { 'sbgm:items-missed-perc' } { $missed-perc }
-                    else (),
+    $missed-att := if ( $missed-perc gt 0 )  
+                   then attribute { 'sbgm:items-missed-perc' } { $missed-perc }
+                   else (),
                     
-     $missed-imputeer := $missed-perc gt 0 and $missed-perc le 80,
-     $missed-ongeldig-att := if ( $missed-perc gt 80 )
+    $missed-imputeer := $missed-perc gt 0 and $missed-perc le 80,
+    $missed-ongeldig-att := if ( $missed-perc gt 80 )
             then attribute  { 'sbgm:te-veel-items-ongeldig' } { true() }
             else (),
  
@@ -162,7 +193,7 @@ return
       union $missed-att
       union $missed-ongeldig-att
       ,
-      $items
+      $all-items
     }
 };
 

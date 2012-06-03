@@ -43,7 +43,8 @@ else if ( $name eq 'zorgdomein' ) then ramh:table-flatten($obj, ('naam', 'meetpe
 else if ( $obj/@* and $name eq 'value' )   then ramh:atts-table-label($obj)
 else if ( $name eq 'value' or $name eq 'def' )   then <div class="value">{data($obj)}</div>
 
-else if ( $name eq 'Meting' or $name eq 'meting') then if ( count($obj/preceding-sibling::*[local-name() eq 'Meting' or local-name() eq 'meting']) eq 0 )
+else if ( $name eq 'Meting' or $name eq 'meting') then 
+                                    if ( count($obj/preceding-sibling::*[local-name() eq 'Meting' or local-name() eq 'meting']) eq 0 )
                                     then ramh:atts-table-rect(($obj, $obj/following-sibling::*[local-name() eq 'Meting' or local-name() eq 'meting']))
                                     else ()
 else if ( $name eq 'Item' or $name eq 'item' ) then if ( count($obj/preceding-sibling::*[local-name() eq 'Item' or local-name() eq 'item']) eq 0 )

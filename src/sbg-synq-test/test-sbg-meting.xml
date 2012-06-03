@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests versie="0.98"
+xmlns:sbggz="http://sbggz.nl/schema/import/5.0.1" 
+xmlns:sbgm="http://sbg-synq.nl/sbg-metingen" 
+xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
+>
+  <description label="sbg-meting">verwerking meting</description>
+  <setup>
+    <sbg-instrumenten>
+
+      <instrument code="MANSA-16">
+	<naam>MANSA Manchester Short Assessment of Quality</naam>
+	<schaal code="-onbekend-">
+	  <berekening functie="items">alle itemscores aanleveren, somscore = "999"</berekening>
+	</schaal>
+      </instrument>
+
+      <instrument code="MANSA" aantal-vragen="16">
+	<schaal code="TOT" min="12" max="84" definitie="sbg">
+	  <items>1, 2, 3, 4, 5, 6, 8, 12, 13, 14, 15, 16</items>
+	  <berekening functie="sum">Sommatie van de betreffende items
+	  </berekening>
+	</schaal>
+      </instrument>
+
+      <instrument code="BSI" aantal-vragen="53" typeRespondent="01">
+	<naam>BSI Brief Symptom Inventory</naam>
+	<schaal min="0" max="4" code="TOT" definitie="sbg">
+	  <items all="true">1 tot 53</items>
+	  <berekening functie="avg">
+	    Gemiddelde van alle items
+	  </berekening>
+	</schaal>
+      </instrument>
+
+      <instrument code="HoNOSCA">
+	<naam>HoNOSCA The Health of the Nation Outcome Scales for Children and
+	Adolescents</naam>
+	<schaal min="0" max="52" code="TOT">
+	  <items min="0" max="4">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13</items>
+	  <berekening functie="sum-honosca">Sommatie van de 13 items (negeer items met score 9)</berekening>
+	</schaal>
+      </instrument>
+
+    </sbg-instrumenten>
+
+    <metingen>
+    </metingen>
+  </setup>
+
+  <group >
+    <function>sbgm:sbg-metingen</function>
+    <description>Een SBG-meting heeft informatie over het aantal missed items en eventueel wordt een score berekend cq geimputeerd.</description>
+
+    <test name="vul missed items aan" code="score-7">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting datum="2011-03-16" gebruiktMeetinstrument="HoNOSCA">
+	  <item itemnummer="1" score="0"/>
+	  <item itemnummer="2" score="3"/>
+	  <item itemnummer="3" score="0"/>
+	  <item itemnummer="4" score="1"/>
+	  <item itemnummer="5" score="0"/>
+	  <item itemnummer="6" score="1"/>
+	  <item itemnummer="7" score="9"/>
+	  <item itemnummer="8" score="1"/>
+	  <item itemnummer="9" score="2"/>
+	  <item itemnummer="10" score="3"/>
+	  <item itemnummer="11" score="0"/>
+	  <item itemnummer="12" score="4"/>
+	  <item itemnummer="13" score="2"/>
+	  <item itemnummer="14" score="4"/>
+	  <item itemnummer="15" score="0"/>
+	</meting>
+      </setup>
+      <expected>
+	<sbgm:Meting sbgm:items-missed-perc="8" sbggz:totaalscoreMeting="18.416666666666668"/>
+      </expected>
+    </test>
+
+
+    <test name="te veel items ongeldig" code="score-8">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting datum="2011-03-16" gebruiktMeetinstrument="HoNOSCA">
+	  <item itemnummer="1" score="9"/>
+	  <item itemnummer="2" score="9"/>
+	  <item itemnummer="3" score="9"/>
+	  <item itemnummer="4" score="9"/>
+	  <item itemnummer="5" score="9"/>
+	  <item itemnummer="6" score="9"/>
+	  <item itemnummer="7" score="9"/>
+	  <item itemnummer="8" score="9"/>
+	  <item itemnummer="9" score="9"/>
+	  <item itemnummer="10" score="9"/>
+	  <item itemnummer="11" score="9"/>
+	  <item itemnummer="12" score="9"/>
+	  <item itemnummer="13" score="9"/>
+	  <item itemnummer="14" score="4"/>
+	  <item itemnummer="15" score="4"/>
+	</meting>
+
+      </setup>
+      <expected>
+	<sbgm:Meting sbgm:items-missed-perc="100" sbgm:te-veel-items-ongeldig="true"/>
+      </expected>
+    </test>
+
+
+    <test name="vul missed items aan 3" code="score-9">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting datum="2011-03-16" gebruiktMeetinstrument="HoNOSCA">
+	  <item itemnummer="1" score="9"/>
+	  <item itemnummer="2" score="9"/>
+	  <item itemnummer="3" score="1"/>
+	  <item itemnummer="4" score="1"/>
+	  <item itemnummer="5" score="1"/>
+	  <item itemnummer="6" score="1"/>
+	  <item itemnummer="7" score="1"/>
+	  <item itemnummer="8" score="1"/>
+	  <item itemnummer="9" score="1"/>
+	  <item itemnummer="10" score="1"/>
+	  <item itemnummer="11" score="1"/>
+	  <item itemnummer="12" score="1"/>
+	  <item itemnummer="13" score="1"/>
+	  <item itemnummer="14" score="4"/>
+	  <item itemnummer="15" score="4"/>
+	</meting>
+      </setup>
+      <expected>
+	<sbgm:Meting sbggz:totaalscoreMeting="13" />
+      </expected>
+    </test>
+
+
+    <test name="vul missed items aan voorbeeld SBG" code="score-9">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting datum="2011-03-16" gebruiktMeetinstrument="HoNOSCA">
+	  <item itemnummer="1" score="9"/>
+	  <item itemnummer="2" score="9"/>
+	  <item itemnummer="3" score="3"/>
+	  <item itemnummer="4" score="3"/>
+	  <item itemnummer="5" score="3"/>
+	  <item itemnummer="6" score="3"/>
+	  <item itemnummer="7" score="3"/>
+	  <item itemnummer="8" score="3"/>
+	  <item itemnummer="9" score="3"/>
+	  <item itemnummer="10" score="3"/>
+	  <item itemnummer="11" score="3"/>
+	  <item itemnummer="12" score="3"/>
+	  <item itemnummer="13" score="3"/>
+	  <item itemnummer="14" score="4"/>
+	  <item itemnummer="15" score="4"/>
+	</meting>
+      </setup>
+      <expected>
+	<sbgm:Meting sbggz:totaalscoreMeting="39" />
+      </expected>
+    </test>
+
+
+  </group>
+
+
+  <group >
+    <function>sbgm:sbg-metingen-items</function>
+    <description>vergelijk ook de items van een meting</description>
+
+    <test name="neem items over van instrumenten zonder score-items" code="score-10">
+      <setup>
+	<instrument ref="true" code="MANSA-16"/>
+      <meting meting-id="113951" koppelnummer="6784" 
+	      gebruiktMeetinstrument="MANSA-16" 
+	      totaalscoreMeting="999.0">
+	<item itemnummer="1" score="6"/>
+	<item itemnummer="10" score="2"/>
+	<item itemnummer="11" score="1"/>
+	<item itemnummer="12.a" score="0"/>
+	<item itemnummer="12.b" score="7"/>
+	<item itemnummer="13" score="4"/>
+	<item itemnummer="14" score="6"/>
+	<item itemnummer="15" score="4"/>
+	<item itemnummer="16" score="6"/>
+	<item itemnummer="2.a" score="0"/>
+	<item itemnummer="2.b" score="2"/>
+	<item itemnummer="3" score="4"/>
+	<item itemnummer="4" score="1"/>
+	<item itemnummer="5" score="2"/>
+	<item itemnummer="6" score="5"/>
+	<item itemnummer="7" score="5"/>
+	<item itemnummer="8" score="7"/>
+	<item itemnummer="9" score="2"/>
+      </meting>
+      </setup>
+      <expected>
+	<sbgm:Meting sbggz:totaalscoreMeting="999">
+	<sbggz:Item itemnummer="1" score="6"/>
+	<sbggz:Item itemnummer="10" score="2"/>
+	<sbggz:Item itemnummer="11" score="1"/>
+	<sbggz:Item itemnummer="12.a" score="0"/>
+	<sbggz:Item itemnummer="12.b" score="7"/>
+	<sbggz:Item itemnummer="13" score="4"/>
+	<sbggz:Item itemnummer="14" score="6"/>
+	<sbggz:Item itemnummer="15" score="4"/>
+	<sbggz:Item itemnummer="16" score="6"/>
+	<sbggz:Item itemnummer="2.a" score="0"/>
+	<sbggz:Item itemnummer="2.b" score="2"/>
+	<sbggz:Item itemnummer="3" score="4"/>
+	<sbggz:Item itemnummer="4" score="1"/>
+	<sbggz:Item itemnummer="5" score="2"/>
+	<sbggz:Item itemnummer="6" score="5"/>
+	<sbggz:Item itemnummer="7" score="5"/>
+	<sbggz:Item itemnummer="8" score="7"/>
+	<sbggz:Item itemnummer="9" score="2"/> 
+	</sbgm:Meting>
+      </expected>
+    </test>
+  </group>
+
+
+
+
+  <group >
+    <function>sbgm:maak-Items</function>
+    <description>maak-Items: zet de ruwe items om in Item stap1: verwijder ongeldige scores</description>
+
+    <test name="reguliere meting" code="score-11">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting gebruiktMeetinstrument="HoNOSCA">
+	  <item itemnummer="1" score="0"/>
+	  <item itemnummer="2" score="3"/>
+	  <item itemnummer="3" score="0"/>
+	  <item itemnummer="4" score="1"/>
+	  <item itemnummer="5" score="0"/>
+	  <item itemnummer="6" score="1"/>
+	  <item itemnummer="7" score="1"/>
+	  <item itemnummer="8" score="1"/>
+	  <item itemnummer="9" score="2"/>
+	  <item itemnummer="10" score="3"/>
+	  <item itemnummer="11" score="0"/>
+	  <item itemnummer="12" score="4"/>
+	  <item itemnummer="13" score="2"/>
+	  <item itemnummer="14" score="4"/>
+	  <item itemnummer="15" score="0"/>
+	</meting>
+      </setup>
+      <expected>
+	  <sbggz:Item sbggz:itemnummer="1"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="2"  sbggz:score="3"/>
+	  <sbggz:Item sbggz:itemnummer="3"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="4"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="5"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="6"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="7"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="8"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="9"  sbggz:score="2"/>
+	  <sbggz:Item sbggz:itemnummer="10" sbggz:score="3"/>
+	  <sbggz:Item sbggz:itemnummer="11" sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="12" sbggz:score="4"/>
+	  <sbggz:Item sbggz:itemnummer="13" sbggz:score="2"/>
+	  <sbggz:Item sbggz:itemnummer="14" sbggz:score="4"/>
+	  <sbggz:Item sbggz:itemnummer="15" sbggz:score="0"/>
+      </expected>
+    </test>
+
+
+    <test name="markeer ongeldige score" code="score-12">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<meting gebruiktMeetinstrument="HoNOSCA">
+	  <item itemnummer="1" score="0"/>
+	  <item itemnummer="2" score="3"/>
+	  <item itemnummer="3" score="0"/>
+	  <item itemnummer="4" score="1"/>
+	  <item itemnummer="5" score="0"/>
+	  <item itemnummer="6" score="1"/>
+	  <item itemnummer="7" score="1"/>
+	  <item itemnummer="8" score="1"/>
+	  <item itemnummer="9" score="2"/>
+	  <item itemnummer="10" score="3"/>
+	  <item itemnummer="11" score="0"/>
+	  <item itemnummer="12" score="4"/>
+	  <item itemnummer="13" score="2"/>
+	  <item itemnummer="14" score="-3"/>
+	  <item itemnummer="15" score="0"/>
+	</meting>
+      </setup>
+      <expected>
+	  <sbggz:Item sbggz:itemnummer="1"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="2"  sbggz:score="3"/>
+	  <sbggz:Item sbggz:itemnummer="3"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="4"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="5"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="6"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="7"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="8"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="9"  sbggz:score="2"/>
+	  <sbggz:Item sbggz:itemnummer="10" sbggz:score="3"/>
+	  <sbggz:Item sbggz:itemnummer="11" sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="12" sbggz:score="4"/>
+	  <sbggz:Item sbggz:itemnummer="13" sbggz:score="2"/>
+	  <sbggz:Item sbggz:itemnummer="14" sbgm:missed="true" sbggz:score="-3"/>
+	  <sbggz:Item sbggz:itemnummer="15" sbggz:score="0"/>
+      </expected>
+    </test>
+  </group>
+
+  <group >
+    <function>sbgm:plus-missed-Items</function>
+    <description>plus-missed-Items: vul Items aan op basis van de instrument definitie</description>
+
+    <test name="reguliere meting; vul niets aan" code="score-13">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	<!-- dit is de expected van score-11 -->
+	  <sbggz:Item sbggz:itemnummer="1"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="2"  sbggz:score="3"/>
+	  <sbggz:Item sbggz:itemnummer="3"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="4"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="5"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="6"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="7"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="8"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="9"  sbggz:score="2"/>
+	  <sbggz:Item sbggz:itemnummer="10" sbggz:score="3"/>
+	  <sbggz:Item sbggz:itemnummer="11" sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="12" sbggz:score="4"/>
+	  <sbggz:Item sbggz:itemnummer="13" sbggz:score="2"/>
+	  <sbggz:Item sbggz:itemnummer="14" sbggz:score="4"/>
+	  <sbggz:Item sbggz:itemnummer="15" sbggz:score="0"/>
+      </setup>
+      <expected>
+      </expected>
+    </test>
+
+    <test name="vul ontbrekende items aan" code="score-14">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+	  <sbggz:Item sbggz:itemnummer="1"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="2"  sbggz:score="3"/>
+	  <sbggz:Item sbggz:itemnummer="3"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="4"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="5"  sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="6"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="7"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="8"  sbggz:score="1"/>
+	  <sbggz:Item sbggz:itemnummer="9"  sbggz:score="2"/>
+	  <sbggz:Item sbggz:itemnummer="10" sbggz:score="3"/>
+	  <sbggz:Item sbggz:itemnummer="11" sbggz:score="0"/>
+	  <sbggz:Item sbggz:itemnummer="14" sbggz:score="3"/>
+	  <sbggz:Item sbggz:itemnummer="15" sbggz:score="1"/>
+
+      </setup>
+      <expected>
+	  <sbggz:Item sbggz:itemnummer="12" sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="13" sbgm:missed="true"/>
+      </expected>
+    </test>
+
+    <test name="ongeldige meting: vul alles aan (NB alleen de score-items, dus)" code="score-14">
+      <setup>
+	<instrument ref="true" code="HoNOSCA"/>
+      </setup>
+      <expected>
+	  <sbggz:Item sbggz:itemnummer="1"  sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="2"  sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="3"  sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="4"  sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="5"  sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="6"  sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="7"  sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="8"  sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="9"  sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="10" sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="11" sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="12" sbgm:missed="true"/>
+	  <sbggz:Item sbggz:itemnummer="13" sbgm:missed="true"/>
+      </expected>
+    </test>
+
+
+  </group>
+
+</tests>

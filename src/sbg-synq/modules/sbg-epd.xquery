@@ -104,6 +104,7 @@ let $voor-metingen := $kandidaten/voor/*,
     $na-metingen := $kandidaten/na/*
 return <meetparen>{
 for $vm in $voor-metingen
+order by $vm/@sbge:voor-peildatum descending, abs(fn:days-from-duration($vm/@sbge:afstand))
 return sbge:zoek-nameting($vm,$na-metingen,$zorgdomein)
 }</meetparen>
 };

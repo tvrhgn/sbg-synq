@@ -15,6 +15,7 @@ $(function(){
     $("#group-tabs-2").tabs();
     $("#group-tabs-3").tabs();
     $("#group-tabs-4").tabs();
+    $("#group-tabs-5").tabs();
     
     $(".test-accordion-fail").accordion({autoHeight: false, collapsible: true});
     $(".test-accordion-pass").accordion({autoHeight: false, collapsible: true});

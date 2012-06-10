@@ -48,7 +48,7 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
     </metingen>
   </setup>
 
-  <group >
+  <group>
     <function>sbgm:sbg-metingen</function>
     <description>Een SBG-meting heeft informatie over het aantal missed items en eventueel wordt een score berekend cq geimputeerd.</description>
 
@@ -164,7 +164,7 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
   </group>
 
 
-  <group >
+  <group>
     <function>sbgm:sbg-metingen-items</function>
     <description>vergelijk ook de items van een meting</description>
 
@@ -222,7 +222,7 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
 
 
 
-  <group >
+  <group>
     <function>sbgm:maak-Items</function>
     <description>maak-Items: zet de ruwe items om in Item stap1: verwijder ongeldige scores</description>
 
@@ -308,7 +308,7 @@ xmlns:sbgi="http://sbg-synq.nl/sbg-instrument"
     </test>
   </group>
 
-  <group >
+  <group>
     <function>sbgm:plus-missed-Items</function>
     <description>plus-missed-Items: vul Items aan op basis van de instrument definitie</description>
 

@@ -8,7 +8,8 @@ declare variable $sbgm:meting-atts := ('datum','aardMeting');
 (: 'typemeting' wordt pas bepaald in sbg-epd :) 
 (: 'typeRespondent','gebruiktMeetinstrument','totaalscoreMeting', 'metingReserve01' :)
 
-(: items worden alleen maar overgeheveld :)
+(: items worden alleen maar overgeheveld 
+:)
 declare variable $sbgm:item-atts := ('itemnummer', 'score');
 
 
